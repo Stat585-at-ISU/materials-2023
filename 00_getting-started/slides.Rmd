@@ -1,0 +1,242 @@
+---
+title: "Stat 585 - Syllabus discussion<br>Spring 2023"
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center, middle
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Welcome to Data Technologies for Statistical Analysis
+
+---
+
+## Why Data Technologies?
+
+Not all data ... 
+
+- lives in spread sheets, 
+
+- is nice and clean, 
+
+- fits in a machine's main memory.
+
+As statisticians we **cannot** always rely on other people and disciplines to get the data into a nice and tidy format.
+
+---
+
+## What are we going to do?
+
+This course deals with concepts, skills, and tools related to 
+
+- acquiring and combining data from different sources, 
+
+- rearranging and summarising data,
+
+- communicating methods and results in form of graphics, packages, and web applications.
+
+
+... along the way ... make our process as transparent and reproducible as possible.
+
+---
+
+## Data comes in a lot of different formats
+
+... as sound 
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="data/i-like-statistics_hh.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+... as image
+<img src="data/striations.jpg" width=150>
+
+... in a monitoring device
+<img src="data/fitbit.png" width=250>
+
+
+---
+
+## 
+
+```{r}
+library(tuneR)
+ils_class <- readWave("data/i-like-statistics_hh.wav")
+str(ils_class)
+```
+
+```{r, echo =FALSE, cache = TRUE, message=FALSE, warning = FALSE, fig.height = 3, fig.width = 5}
+ils_df <- data.frame(left=ils_class@left, right=ils_class@right)
+ils_df$time <- 1:nrow(ils_df)
+library(ggplot2)
+library(tidyverse)
+ils_df %>% ggplot(aes(time, right)) + geom_line()
+```
+
+
+---
+
+## Data from images
+
+
+```{r, message = FALSE}
+library(magick)
+img <- image_read('data/imgres.jpg')
+image_info(img)
+```
+
+```{r, echo = FALSE, message = TRUE, cache= TRUE, fig.width=9, fig.height=3}
+im_mat <- image_data(img)
+
+img_df <- data.frame(expand.grid(x = 1:dim(im_mat)[2], y = 1:dim(im_mat)[3]))
+img_df$red <- as.numeric(im_mat[1,,])
+img_df$green <- as.numeric(im_mat[2,,])
+img_df$blue <- as.numeric(im_mat[3,,])
+p1 <- qplot(data=img_df, geom="tile", x =x, y=-y, fill = red) + xlab("") +ylab("") + scale_fill_gradient(low="white", high = "red") + theme(legend.position="none")
+p2 <- qplot(data=img_df, geom="tile", x =x, y=-y, fill = green) + xlab("") +ylab("") + scale_fill_gradient(low="white", high = "green")+ theme(legend.position="none")
+p3 <- qplot(data=img_df, geom="tile", x =x, y=-y, fill = blue) + xlab("") +ylab("") + scale_fill_gradient(low="white", high = "blue")+ theme(legend.position="none")
+library(gridExtra)
+grid.arrange(p1,p2,p3, nrow=1)
+```
+
+... what kind of birds are [these](data/imgres.jpg)?
+
+---
+
+## ... there's an R package for that!
+
+answer almost independent from the question asked ... obvious advantages
+
+disadvantages
+
+- finding a needle in a haystack? - problem of riches: which is the best solution, is there a good solution?
+
+- often a solution to a different problem - can we extend/append functionality? how?
+
+- packages are of varying quality - we need to be able to assess code for its performance
+
+... these are some of the problems we will be dealing with.
+
+---
+
+## Syllabus
+
+Full syllabus is available in Canvas.
+
+###Textbook (optional)
+
+- Hadley Wickham: [*Advanced Programming in R*](https://github.com/hadley/adv-r)
+
+- Hadley Wickham: [*R packages*](http://r-pkgs.had.co.nz/)
+
+- Yihui Xie: [*Dynamic Documents with R and knitr*](https://github.com/yihui/knitr-book) and [*bookdown: Authoring Books and Technical Documents with R Markdown*](https://bookdown.org/yihui/bookdown/)
+
+- additional readings
+
+
+Course website: 
+
+- Materials, assignments, code: [https://stat585-at-isu.github.io/](https://stat585-at-isu.github.io/)
+
+- Canvas (for grades)
+
+---
+
+## Grades
+
+| Component | Weight |
+|:-- | --:|
+| Reading & Blogs | 15% |
+| Labs | 40% |
+| *Final Project* | |
+|   report | 30% |
+|   presentation | 15% |
+
+---
+
+## Blogs and Reading
+
+- assigned reading each week
+
+- write a blog entry in response to a related question
+
+- blog entries are due on midnight the following Thursday.
+
+- this week's reading and blog: later
+---
+
+## Labs
+
+- during class time on every other Thursday (starting with Thursday, Feb 2nd) 
+
+- you will be partnered (randomly) in groups of 3 to 4
+
+- lab assignments are designed to be finished during class time, but 'finishing touches' can be applied until the following Monday, 10pm. 
+
+- if you cannot attend the lab, please let me know beforehand. Nevertheless, you are expected to do the work!
+
+---
+
+## Attendance
+
+- I expect you to attend class: there will be a substantial amount of time devoted to 'hands-on' examples on the computers. Make use of that time!
+
+- Class 'attendance': 
+    + in-person sessions at [1445 Lagomarcino](https://www.fpm.iastate.edu/roomscheduling/room.asp?room_id=128). 
+    + I will also provide a zoom link for synchronous attendance. 
+In case you are 'zooming in'. Keep your microphone muted unless you ask a question, but turn the camera on.
+
+- In case you do not feel well, take care of yourself and stay home. However, you are expected to catch up with the material.
+
+<br><br>
+Questions?
+
+---
+
+## Stuck in a problem? How to get help
+
+There's lots of ways to get help in case you are stuck:
+
+1. Google is your friend! in particular, stackoverflow and R help are usually great resources,
+
+2. ask a team member,
+
+3. write email to the instructor with your question, but please avoid any [lmgtfy](http://lmgtfy.com/?q=What+does+lmgtfy+mean?) questions!
+
+
+---
+
+## Asking good questions
+
+is a learned and valuable skill! 
+
+Have a look at:
+
+- stackoverflow's [Asking a good question](http://stackoverflow.com/help/how-to-ask)
+
+- R's [Posting guidelines](https://www.r-project.org/posting-guide.html)
+
+- [minimal complete verifiable example](https://stackoverflow.com/help/mcve), [minimal reproducible example](https://www.tidyverse.org/help/)
+
+---
+
+## This week's blog post
+
+- Due Thursday midnight, Jan 26
+
+- Reading material: follow the links on the previous page
+
+- What you are asked to do: on the R help or stackoverflow, answer at least one question
+
+- Document which question you answered (link to your answer).
+
+- Relate your experience of answering the question to your reading. 

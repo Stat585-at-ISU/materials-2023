@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Stat 585 - Syllabus discussion Spring 2023</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heike Hofmann" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Stat 585 - Syllabus discussion<br>Spring 2023
+]
+.author[
+### Heike Hofmann
+]
+
+---
+
+class: center, middle
+
+
+
+# Welcome to Data Technologies for Statistical Analysis
+
+---
+
+## Why Data Technologies?
+
+Not all data ... 
+
+- lives in spread sheets, 
+
+- is nice and clean, 
+
+- fits in a machine's main memory.
+
+As statisticians we **cannot** always rely on other people and disciplines to get the data into a nice and tidy format.
+
+---
+
+## What are we going to do?
+
+This course deals with concepts, skills, and tools related to 
+
+- acquiring and combining data from different sources, 
+
+- rearranging and summarising data,
+
+- communicating methods and results in form of graphics, packages, and web applications.
+
+
+... along the way ... make our process as transparent and reproducible as possible.
+
+---
+
+## Data comes in a lot of different formats
+
+... as sound 
+&lt;audio controls&gt;
+  &lt;source src="horse.ogg" type="audio/ogg"&gt;
+  &lt;source src="data/i-like-statistics_hh.mp3" type="audio/mpeg"&gt;
+Your browser does not support the audio element.
+&lt;/audio&gt;
+
+... as image
+&lt;img src="data/striations.jpg" width=150&gt;
+
+... in a monitoring device
+&lt;img src="data/fitbit.png" width=250&gt;
+
+
+---
+
+## 
+
+
+```r
+library(tuneR)
+ils_class &lt;- readWave("data/i-like-statistics_hh.wav")
+str(ils_class)
+```
+
+```
+## Formal class 'Wave' [package "tuneR"] with 6 slots
+##   ..@ left     : int [1:110592] 0 0 0 -1 2 -2 2 -2 1 -1 ...
+##   ..@ right    : int [1:110592] -1 2 -2 2 -1 -1 2 -2 3 -3 ...
+##   ..@ stereo   : logi TRUE
+##   ..@ samp.rate: int 44100
+##   ..@ bit      : int 16
+##   ..@ pcm      : logi TRUE
+```
+
+![](slides_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+
+---
+
+## Data from images
+
+
+
+```r
+library(magick)
+img &lt;- image_read('data/imgres.jpg')
+image_info(img)
+```
+
+```
+##   format width height colorspace matte filesize density
+## 1   JPEG   200    193       sRGB FALSE     9520   72x72
+```
+
+![](slides_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+... what kind of birds are [these](data/imgres.jpg)?
+
+---
+
+## ... there's an R package for that!
+
+answer almost independent from the question asked ... obvious advantages
+
+disadvantages
+
+- finding a needle in a haystack? - problem of riches: which is the best solution, is there a good solution?
+
+- often a solution to a different problem - can we extend/append functionality? how?
+
+- packages are of varying quality - we need to be able to assess code for its performance
+
+... these are some of the problems we will be dealing with.
+
+---
+
+## Syllabus
+
+Full syllabus is available in Canvas.
+
+###Textbook (optional)
+
+- Hadley Wickham: [*Advanced Programming in R*](https://github.com/hadley/adv-r)
+
+- Hadley Wickham: [*R packages*](http://r-pkgs.had.co.nz/)
+
+- Yihui Xie: [*Dynamic Documents with R and knitr*](https://github.com/yihui/knitr-book) and [*bookdown: Authoring Books and Technical Documents with R Markdown*](https://bookdown.org/yihui/bookdown/)
+
+- additional readings
+
+
+Course website: 
+
+- Materials, assignments, code: [https://stat585-at-isu.github.io/](https://stat585-at-isu.github.io/)
+
+- Canvas (for grades)
+
+---
+
+## Grades
+
+| Component | Weight |
+|:-- | --:|
+| Reading &amp; Blogs | 15% |
+| Labs | 40% |
+| *Final Project* | |
+|   report | 30% |
+|   presentation | 15% |
+
+---
+
+## Blogs and Reading
+
+- assigned reading each week
+
+- write a blog entry in response to a related question
+
+- blog entries are due on midnight the following Thursday.
+
+- this week's reading and blog: later
+---
+
+## Labs
+
+- during class time on every other Thursday (starting with Thursday, Feb 2nd) 
+
+- you will be partnered (randomly) in groups of 3 to 4
+
+- lab assignments are designed to be finished during class time, but 'finishing touches' can be applied until the following Monday, 10pm. 
+
+- if you cannot attend the lab, please let me know beforehand. Nevertheless, you are expected to do the work!
+
+---
+
+## Attendance
+
+- I expect you to attend class: there will be a substantial amount of time devoted to 'hands-on' examples on the computers. Make use of that time!
+
+- Class 'attendance': 
+    + in-person sessions at [1445 Lagomarcino](https://www.fpm.iastate.edu/roomscheduling/room.asp?room_id=128). 
+    + I will also provide a zoom link for synchronous attendance. 
+In case you are 'zooming in'. Keep your microphone muted unless you ask a question, but turn the camera on.
+
+- In case you do not feel well, take care of yourself and stay home. However, you are expected to catch up with the material.
+
+&lt;br&gt;&lt;br&gt;
+Questions?
+
+---
+
+## Stuck in a problem? How to get help
+
+There's lots of ways to get help in case you are stuck:
+
+1. Google is your friend! in particular, stackoverflow and R help are usually great resources,
+
+2. ask a team member,
+
+3. write email to the instructor with your question, but please avoid any [lmgtfy](http://lmgtfy.com/?q=What+does+lmgtfy+mean?) questions!
+
+
+---
+
+## Asking good questions
+
+is a learned and valuable skill! 
+
+Have a look at:
+
+- stackoverflow's [Asking a good question](http://stackoverflow.com/help/how-to-ask)
+
+- R's [Posting guidelines](https://www.r-project.org/posting-guide.html)
+
+- [minimal complete verifiable example](https://stackoverflow.com/help/mcve), [minimal reproducible example](https://www.tidyverse.org/help/)
+
+---
+
+## This week's blog post
+
+- Due Thursday midnight, Jan 26
+
+- Reading material: follow the links on the previous page
+
+- What you are asked to do: on the R help or stackoverflow, answer at least one question
+
+- Document which question you answered (link to your answer).
+
+- Relate your experience of answering the question to your reading. 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
