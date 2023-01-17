@@ -77,7 +77,7 @@ You talk to your colleague ...
 
 Your colleague is willing to help out, but is busy right now finishing up a project of their own. 
 
-"Just do as much as you can, I'll pick things after the weekend."
+"Just do as much as you can, I'll pick things up after the weekend."
 
 ---
 class: inverse
