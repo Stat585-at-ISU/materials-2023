@@ -1,0 +1,141 @@
+---
+title: "Stat 585 - Responsible Git"
+author: "Heike Hofmann and Susan Vanderplas"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, default-fonts, "tweaks.css"]
+    nature:
+      beforeInit: "macros.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center, middle
+
+
+```{r setup, include=FALSE}
+options(width = 60)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Rule 1:
+### If you don't know what a file is <br>(or didn't create it) <br>don't commit it to git
+
+---
+## Rule 1
+### If you don't know what a file is don't commit it to git
+
+- `.Rproj`
+- `.Rprofile`
+- `.Rhistory`
+- `.gitignore`
+- `~.Rmd` (temporary save file)
+
+---
+class:center,middle
+## Rule 2
+### Generated files should stay off git
+
+--
+
+(mostly)
+
+
+
+---
+## Rule 2
+### Generated files should stay off git
+
+- Derivative files have all of the same changes as the original
+    - without the clarity - binary file formats
+    - changes to pictures/HTML are easier to see in the markdown
+
+- Merge conflicts are hard to resolve with only text!
+
+---
+## Rule 2
+### Generated files should stay off git
+
+Generated files (pdf, html, plots, etc) should not be committed to git unless...
+
+--
+
+- You are using github.io as a hosting service
+
+- You often end up needing to reference them
+
+- You and your collaborators agree about which files should be committed.
+
+---
+class:middle,center
+## Rule 3
+### Secret files should stay off of git(hub)
+
+.hard-right[![:scale 250px](https://upload.wikimedia.org/wikipedia/commons/a/a2/Standard-lock-key.jpg)]
+
+---
+## Rule 3
+### Secret files should stay off of git(hub)
+
+- Passwords
+
+- API keys
+
+- Other secure information (SSN, bank account number, location of secret treasure maps)
+
+- confidential data, or data your PI does not want to be published until after your thesis is submitted 
+
+.hard-right[![:scale 250px](https://upload.wikimedia.org/wikipedia/commons/a/a2/Standard-lock-key.jpg)]
+--
+
+Don't add these to git, don't push them to GitHub
+
+---
+## Rule 4
+### Big files should stay out of Git
+
+In theory, Git is intended for code, not data
+
+- GitHub has a ~~100~~ 50 MB file size limit
+    - Any push with "large" files will be rejected and you will have to undo it
+    - This is a painful process
+
+- Text data is usually fine (if small enough)
+
+- Binary data and non-human-readable formats don't derive a lot of benefit from git's file tracking
+
+---
+## Keeping files off of git
+.hard-right[![:scale 30%](https://cdn.worldvectorlogo.com/logos/github-octocat.svg)]
+The `.gitignore` file is found in the main project directory (aka project root, "./")
+
+- You can add files to the list in `.gitignore` and git will ignore them
+
+- You can push the `.gitignore` file if you want your collaborators to observe the same rules
+
+- Wildcards also work - e.g. *.html will ignore all html files
+
+Check out Octocat's [default git ignore file](https://gist.github.com/octocat/9257657) for inspiration!
+
+---
+class:inverse,middle,center
+## Blog Posts
+
+---
+## Blog Posts
+
+We are using Mergify.io to automatically merge pull requests when you submit your blogs
+
+Mergify *should* enforce the following rules: 
+
+- __Do not modify LastnameFirstname.Rmd__
+    - Your pull request should get a `modifies-template` label and you should get a reminder message
+
+- __No spaces, numbers, or special characters in the filename.__     
+`XxxxxYyyyy.Rmd` is the only pattern allowed
+
+- __Do not commit .gitignore, .Rproj, or .Rprofile__
+
+Any of these issues can cause your pull request to not be automatically merged.
+

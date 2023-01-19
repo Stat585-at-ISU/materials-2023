@@ -19,7 +19,7 @@ In this class we will use
 
 - R and RStudio: make sure you have newish versions installed  (R 4.0.x; RStudio 2022 or later) 
 
-- markdown and Rmarkdown, see [Rstudio cheat sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) 
+- markdown and Rmarkdown, see [~~Rstudio~~ Posit cheat sheet](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf); link to all [cheat sheets](https://posit.co/resources/cheatsheets/?type=posit-cheatsheets)
 
 - git & github resources
 
@@ -159,7 +159,7 @@ class: inverse
 
 - blog this week: [Asking good Questions](https://stat585-at-isu.github.io/blog-2022/)
 
-- RStudio supports git integration in projects (we will set this up in the first lab)
+- RStudio supports git integration in projects. *We will set this up later*
 
 ---
 
