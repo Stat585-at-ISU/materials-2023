@@ -1,0 +1,170 @@
+---
+title: "Stat 585 - Tools of the Trade"
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+In this class we will use 
+
+- R and RStudio: make sure you have newish versions installed  (R 4.0.x; RStudio 2022 or later) 
+
+- markdown and Rmarkdown, see [Rstudio cheat sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) 
+
+- git & github resources
+
+    - **Jenny Bryan's: Happy Git with R http://happygitwithr.com/ **
+    
+    - Data Carpentry's tutorials: https://github.com/datacarpentry
+    
+    - Reproducible Science Curriculum intitative: https://github.com/Reproducible-Science-Curriculum
+    
+ <!--   - Small 'mind map' of git functionality: https://rachelcarmena.github.io-->
+
+---
+
+# Outline for today
+
+- create Github account
+
+- discuss concepts behind git repositories
+
+- practice working with git and Github
+
+---
+
+# git and github
+
+
+<img src="http://imgs.xkcd.com/comics/git_2x.png" width=300>
+
+http://xkcd.com/1597/
+
+
+---
+
+## GitHub account
+
+Do you have a github account? 
+
+- No? Create a _free_ account at https://github.com/
+
+- Yes? Then log into it. 
+    - Do you remember your login and password? If not, try out different emails and let github send you the info.
+
+---
+
+## What is git?
+
+- **Git** is a *version control system* that was created to help developers manage collaborative software projects. Git tracks the evolution of a set of files, called a **repository** or **repo**. 
+
+- This helps us
+    - *merge* conflicts that arise from collaboration
+    - *rollback* to previous versions of files as necessary
+    - store *master* versions of files, no more `paper_final_final_I_really_mean_it.docx`
+
+---
+
+## GitHub 
+
+[GitHub](github.com) is one of many hosting services
+(others are e.g. [Bitbucket](bitbucket.org), [GitLab](about.gitlab.com), etc.). 
+
+<img src="images/github.png" width=400>
+
+---
+
+## Git Terminology
+
+from [github glossary](https://help.github.com/articles/github-glossary/)
+
+- **Repository:** the basic element of git - like a project's folder. A repository contains all of the project files, and their __revision history__. One person owns a repository, multiple people can collaborate. Can be either public or private.
+
+- **Remote:** This is the version of something that is hosted on a server. It can be (and usually is) connected to a local clone.
+
+- **Clone:** A local copy of a repository that lives on your computer instead of on a website's server somewhere
+
+- **Fork:** a remote copy of a repository stored under your account.Forks allow you to freely make changes to a project without affecting the original. 
+
+---
+
+## Terminology (cont'd)
+
+
+- **Pull:** When you are fetching changes from the remote repository and merging them with your local clone. 
+
+- **Commit:** A checkpoint for the local clone to save changes to a file (or set of files). Every time you commit, git creates a unique ID that allows you to keep record of what changes were made when and by who.
+
+- **Push:** Sending your committed changes to the remote repository.
+
+- **Pull Request:** Proposed changes to a repository submitted by a user and accepted or rejected by a repository's collaborators.
+
+- **Issue:** Issues are suggested improvements, tasks or questions related to the repository. 
+
+---
+
+## Repositories
+
+By default, all materials on GitHub are **public**. This is *good* because you are getting your work out there and contributing to the open source community! 
+
+If you need **private** repos, checkout [GitHub for Education](https://education.github.com/) - free private repos for students/postdocs/professors.
+
+As of January 8, 2019, free accounts can have [unlimited private repositories](https://arstechnica.com/gadgets/2019/01/free-github-accounts-now-offer-private-repos/), but these are limited to up to 3 collaborators. 
+
+![](images/github-icon.png)
+
+---
+class: inverse
+## Your Turn (5 min)
+
+1. Create a git repository hosted at GitHub
+
+    - Go to your Github profile. The url is [http://github/your-user-name]().
+    
+    - Create a new Github repository, click <span style="background:limegreen; color:white">new</span> button, under the repositories tab.
+    
+    - Click **Initialize this repository with a README**
+
+2. Make changes to the `README.md` file 
+
+3. Commit changes to repository
+
+---
+
+## So far
+
+-  Once the repository is created you will be directed to the repository page which now has its own web address. 
+
+-  Each repository on Github has a unique url so you can easily share. 
+
+-  The git history is a detailed history of all the changes made to that file.  One of the features of using Github is the ability to view your repository history which are displayed in the Graphs section of your Github repository page. 
+
+-  At this point in the git history of your repository has a couple of commits.
+
+---
+
+## git and GitHub in this class
+
+- use git and github for blogs, labs, and the final project
+
+- blog this week: [Asking good Questions](https://stat585-at-isu.github.io/blog-2022/)
+
+- RStudio supports git integration in projects (we will set this up in the first lab)
+
+---
+
+## Class next Tuesday
+
+review of elements of the tidyverse: ggplot2, dplyr, tidyr
+
+read through slide deck and see whether you could do the Your Turns (no need to actually do them)

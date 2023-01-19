@@ -1,0 +1,15 @@
+.large { font-size: 130% }
+.small { font-size: 70% }
+.tiny { font-size: 40% }
+
+.shift-right {
+  display: inline-block;
+  float: right;
+}
+
+.hard-right{
+  position: absolute;
+  bottom:20px !important;
+  right:20px !important;
+  text-align:right;
+}

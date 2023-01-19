@@ -1,0 +1,295 @@
+---
+title: "Stat 585 - Working in teams: Sample solution for the test case"
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center, middle
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# A 'Solution' to the test case 
+
+
+---
+class: inverse
+## A Plan of work
+
+0. Find out where the data comes from
+
+1. Describe the working environment 
+
+2. Verify that there are variables for height and weight in the data and read the description of the variables in the codebook. 
+
+3. Calculate averages for height and weight, then report.
+
+4. Calculate correlation between height and weight, then report.
+
+5. Write a short report of your findings. Address potential problems in the data.
+
+
+
+---
+
+# A solution attempt
+
+0. Setup 
+
+    - this solution uses R v4.2.2 in RStudio (2022.12.0 Build 352). 
+    - You need the R packages `tidyverse` and `rmarkdown` to run the solution
+    - use the command `install.packages(c("tidyverse","rmarkdown"))` 
+    in the R console to install the two packages
+
+1. Navigate to https://github.com/Stat585-at-ISU/materials-2023
+
+2. Download  the file [`test-case-solution.Rmd`](https://raw.githubusercontent.com/Stat585-at-ISU/materials-2023/master/01_collaborative-environment/test-case-solution.Rmd) in folder  `01_collaborative-environment`  in RStudio to get this set of slides.
+
+3. "Knit" the file (Click on the button in the menu).
+
+---
+
+## The Data Source
+
+The dataset `brfss_iowa.csv` (linked from website) contains 6227 records from the Behavioral Risk Factor Surveillance System (BRFSS) for Iowans.
+
+> The Behavioral Risk Factor Surveillance System (BRFSS) is the nation's premier system of health-related telephone surveys that collect state data about U.S. residents regarding their health-related risk behaviors.
+
+It is conducted annually by the Center for Disease Control and Prevention (CDC).
+
+Codebook with detailed explanations of variables is [available here](https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf).
+
+
+
+---
+
+
+
+
+## What is the relationship between height and weight? 
+
+Read the data: 
+
+```{r message = FALSE, warning=FALSE}
+library(tidyverse)
+iowa <- readr::read_csv("https://github.com/Stat585-at-ISU/materials/raw/master/01_collaborative-environment/data/brfss_iowa.csv") 
+# the read_csv function from the readr package is faster than the standard read.csv
+# but the output is a tibble (we'll come back to that)
+
+iowa
+```
+
+---
+
+## Variables for height and weight
+
+```{r, message = FALSE}
+grep("HEIGHT", names(iowa), value=TRUE)
+
+grep("WEIGHT", names(iowa), value=TRUE)
+
+
+iowa %>% select(HEIGHT3, WEIGHT2) %>% head()
+```
+
+Variables are there ... but ... some data values look odd.
+
+---
+
+## Codebook excerpt
+
+From the [codebook](https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf): HEIGHT3 and WEIGHT2 are the originally recorded variables.
+
+<img src="https://github.com/Stat585-at-ISU/materials/raw/master/01_collaborative-environment/images/codebook-height3.png" width=750>
+
+Let's plot that ...
+
+---
+
+## Plot 
+
+Load the `ggplot2` package to plot weight versus height:
+```{r message = FALSE, fig.width=3.5, fig.height = 3.5, warning = FALSE}
+iowa %>% 
+  ggplot(aes(x = WEIGHT2, y = HEIGHT3)) + geom_point()
+```
+
+Height and weight should show a somewhat positive correlation. These clusters are an indication of the data coding.
+
+---
+
+## Next steps
+
+Obviously, we need to spend some time cleaning these variables before we can make use of them. 
+
+We have a couple of choices: 
+
+1. We can buckle down and do that clean-up and then move on to the calculation.
+
+2. We can take another look at the variables and investigate what `HTIN4`, `HTM4`, and `WTKG3` are ... 
+
+---
+
+## Route 2
+
+Let's take the second route first and draw a picture of height and weight in metric units:
+
+```{r message = FALSE, warning = FALSE, fig.width = 5.5, fig.height = 2.5}
+iowa %>% 
+  ggplot(aes(x = HTM4, y = WTKG3)) + geom_point(alpha = 0.2) + 
+  facet_grid(.~SEX) +
+  geom_smooth()
+```
+
+These charts look much better! We see a general increase in weight as height increases. The variability in weight is huge, though. On average, women (`SEX = 2`) are shorter and lighter.
+
+---
+
+## Look at the variables' values
+
+Based on variables `HTM4` and `WTKG3`
+
+```{r}
+summary(iowa$HTM4)
+summary(iowa$WTKG3)
+```
+--
+
+Height is reported in cm. Weight is reported in tens of grams.
+
+---
+
+## Get results and adjust the units
+
+```{r}
+iowa %>% 
+  group_by(SEX) %>%
+  summarize(
+    n = n(),
+    avg_height_cm = mean(HTM4, na.rm=TRUE),
+    avg_weight_kg = mean(WTKG3, na.rm=TRUE)/100,
+    cor = cor(HTM4, WTKG3, use="pairwise.complete"),
+    avg_height_in = mean(HTIN4, na.rm=TRUE),
+    non_missing = sum(!is.na(HTM4) & !is.na(WTKG3)),
+    non_missing_perc = non_missing/n*100
+  )
+
+```
+
+
+---
+
+## Route 1
+
+This is quite a bit more work. Don't do things this way!
+
+```{r}
+# first of all, replace all missing values by NAs
+iowa <- iowa %>% mutate(
+  HEIGHT3 = replace(HEIGHT3, HEIGHT3 %in% c(7777,9999), NA),
+  WEIGHT2 = replace(WEIGHT2, WEIGHT2 %in% c(7777,9999), NA)
+)
+```
+
+Let's take on height first:
+```{r}
+iowa <- iowa %>% mutate(
+  feet = HEIGHT3 %/% 100, # feet and inch only make sense for standard values,
+  inch = HEIGHT3 %% 100,  # but we can calculated them for all
+  height = ifelse(HEIGHT3 >= 9000, 
+                  HEIGHT3 - 9000, # transform all metric values by subtracting 9000
+                  feet *30.48 + 2.54*inch # add feet and inch converted to centimeter
+                  )
+)
+```
+
+---
+
+## Now plot!
+
+```{r, fig.height = 5}
+iowa %>% filter(!is.na(height)) %>%
+  ggplot(aes(x = height)) + geom_histogram(binwidth = 2.5) +
+  facet_grid(SEX~.)
+```
+
+We get similar findings - for height at least: women are on average shorter than men.
+
+---
+
+## Route 1 (cont'd.)
+
+do the same thing for weight as we did for height before: 1 pound is 0.454 kg
+
+```{r}
+iowa <- iowa %>% mutate(
+  weight = ifelse(WEIGHT2 >= 9000, 
+                  WEIGHT2 - 9000, # transform all metric values by subtracting 9000
+                  WEIGHT2*.454 # 1 lbs = 0.454 kg
+                  )
+)
+```
+
+---
+
+## Route 1
+
+```{r warning = FALSE}
+iowa %>% 
+  group_by(SEX) %>%
+  summarize(
+    n = n(),
+    cor = cor(height, weight, use="pairwise.complete"),
+    non_missing = sum(!is.na(height) & !is.na(weight)),
+    non_missing_perc = non_missing/n*100
+  )
+```
+
+---
+
+## Recap 
+
+- Route 1 and 2 give identical solutions
+
+- Read the codebook, visualize the data, even if the question does not ask for it.
+
+
+```{r}
+iowa %>% 
+  group_by(SEX) %>%
+  summarize(
+    n = n(),
+    cor = cor(HEIGHT3, WEIGHT2, use="pairwise.complete"),
+    non_missing = sum(!is.na(HEIGHT3) & !is.na(WEIGHT2)),
+    non_missing_perc = non_missing/n*100
+  )
+```
+
+
+---
+
+## Overview of the different height variables
+
+```{r}
+summary(iowa[,c("HEIGHT3", "HTIN4", "HTM4", "height")])
+```
+
+Why are there more missing values in `HTIN4`? - The official BRFSS data is missing any metric data in the variable `HTIN4`
+
+---
+
+## Recap
+
+- this slide deck is rendered from an R Markdown document, located at [a github repo](https://github.com/Stat585-at-ISU/materials-2023/tree/master/01_collaborative-environment).
+
+- code and text/documentation are interwoven: reproducible and self-documenting.
+
+- extend or refine analyses by copying and modifying code blocks.
+
+- disseminate your work by sharing the RMarkdown file

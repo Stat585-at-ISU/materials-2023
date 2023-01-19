@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Stat 585 - Tools of the Trade</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heike Hofmann" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Stat 585 - Tools of the Trade
+]
+.author[
+### Heike Hofmann
+]
+
+---
+
+
+
+
+
+In this class we will use 
+
+- R and RStudio: make sure you have newish versions installed  (R 4.0.x; RStudio 2022 or later) 
+
+- markdown and Rmarkdown, see [Rstudio cheat sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) 
+
+- git &amp; github resources
+
+    - **Jenny Bryan's: Happy Git with R http://happygitwithr.com/ **
+    
+    - Data Carpentry's tutorials: https://github.com/datacarpentry
+    
+    - Reproducible Science Curriculum intitative: https://github.com/Reproducible-Science-Curriculum
+    
+ &lt;!--   - Small 'mind map' of git functionality: https://rachelcarmena.github.io--&gt;
+
+---
+
+# Outline for today
+
+- create Github account
+
+- discuss concepts behind git repositories
+
+- practice working with git and Github
+
+---
+
+# git and github
+
+
+&lt;img src="http://imgs.xkcd.com/comics/git_2x.png" width=300&gt;
+
+http://xkcd.com/1597/
+
+
+---
+
+## GitHub account
+
+Do you have a github account? 
+
+- No? Create a _free_ account at https://github.com/
+
+- Yes? Then log into it. 
+    - Do you remember your login and password? If not, try out different emails and let github send you the info.
+
+---
+
+## What is git?
+
+- **Git** is a *version control system* that was created to help developers manage collaborative software projects. Git tracks the evolution of a set of files, called a **repository** or **repo**. 
+
+- This helps us
+    - *merge* conflicts that arise from collaboration
+    - *rollback* to previous versions of files as necessary
+    - store *master* versions of files, no more `paper_final_final_I_really_mean_it.docx`
+
+---
+
+## GitHub 
+
+[GitHub](github.com) is one of many hosting services
+(others are e.g. [Bitbucket](bitbucket.org), [GitLab](about.gitlab.com), etc.). 
+
+&lt;img src="images/github.png" width=400&gt;
+
+---
+
+## Git Terminology
+
+from [github glossary](https://help.github.com/articles/github-glossary/)
+
+- **Repository:** the basic element of git - like a project's folder. A repository contains all of the project files, and their __revision history__. One person owns a repository, multiple people can collaborate. Can be either public or private.
+
+- **Remote:** This is the version of something that is hosted on a server. It can be (and usually is) connected to a local clone.
+
+- **Clone:** A local copy of a repository that lives on your computer instead of on a website's server somewhere
+
+- **Fork:** a remote copy of a repository stored under your account.Forks allow you to freely make changes to a project without affecting the original. 
+
+---
+
+## Terminology (cont'd)
+
+
+- **Pull:** When you are fetching changes from the remote repository and merging them with your local clone. 
+
+- **Commit:** A checkpoint for the local clone to save changes to a file (or set of files). Every time you commit, git creates a unique ID that allows you to keep record of what changes were made when and by who.
+
+- **Push:** Sending your committed changes to the remote repository.
+
+- **Pull Request:** Proposed changes to a repository submitted by a user and accepted or rejected by a repository's collaborators.
+
+- **Issue:** Issues are suggested improvements, tasks or questions related to the repository. 
+
+---
+
+## Repositories
+
+By default, all materials on GitHub are **public**. This is *good* because you are getting your work out there and contributing to the open source community! 
+
+If you need **private** repos, checkout [GitHub for Education](https://education.github.com/) - free private repos for students/postdocs/professors.
+
+As of January 8, 2019, free accounts can have [unlimited private repositories](https://arstechnica.com/gadgets/2019/01/free-github-accounts-now-offer-private-repos/), but these are limited to up to 3 collaborators. 
+
+![](images/github-icon.png)
+
+---
+class: inverse
+## Your Turn (5 min)
+
+1. Create a git repository hosted at GitHub
+
+    - Go to your Github profile. The url is [http://github/your-user-name]().
+    
+    - Create a new Github repository, click &lt;span style="background:limegreen; color:white"&gt;new&lt;/span&gt; button, under the repositories tab.
+    
+    - Click **Initialize this repository with a README**
+
+2. Make changes to the `README.md` file 
+
+3. Commit changes to repository
+
+---
+
+## So far
+
+-  Once the repository is created you will be directed to the repository page which now has its own web address. 
+
+-  Each repository on Github has a unique url so you can easily share. 
+
+-  The git history is a detailed history of all the changes made to that file.  One of the features of using Github is the ability to view your repository history which are displayed in the Graphs section of your Github repository page. 
+
+-  At this point in the git history of your repository has a couple of commits.
+
+---
+
+## git and GitHub in this class
+
+- use git and github for blogs, labs, and the final project
+
+- blog this week: [Asking good Questions](https://stat585-at-isu.github.io/blog-2022/)
+
+- RStudio supports git integration in projects (we will set this up in the first lab)
+
+---
+
+## Class next Tuesday
+
+review of elements of the tidyverse: ggplot2, dplyr, tidyr
+
+read through slide deck and see whether you could do the Your Turns (no need to actually do them)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
