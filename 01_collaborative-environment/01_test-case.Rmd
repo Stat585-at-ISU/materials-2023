@@ -191,7 +191,7 @@ In the next 10 mins:
 
 Thanks to  Jenny Bryan and Mine Cetinkaya-Rundel for the idea for the original  example.
 
-
+![](images/meanwhile-at-home.png)
 
 ---
 
