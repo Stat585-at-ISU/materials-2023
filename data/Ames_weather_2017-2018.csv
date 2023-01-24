@@ -1,0 +1,2977 @@
+date,time,icon,wind,temp_low,temp_high,weather
+2017-01-01,12 am,13,6,19,21,Clear.
+2017-01-01,6 am,6,7,19,34,Partly sunny.
+2017-01-01,12 pm,6,7,36,37,Partly sunny.
+2017-01-01,6 pm,17,11,36,36,Overcast.
+2017-01-02,12 am,17,11,34,36,Overcast.
+2017-01-02,6 am,18,9,34,36,Drizzle. Fog.
+2017-01-02,12 pm,18,7,36,37,Drizzle. Fog.
+2017-01-02,6 pm,14,6,36,37,Passing clouds.
+2017-01-03,12 am,17,13,34,36,Overcast.
+2017-01-03,6 am,7,21,21,32,Overcast.
+2017-01-03,12 pm,2,21,18,21,Passing clouds.
+2017-01-03,6 pm,14,19,10,16,Passing clouds.
+2017-01-04,12 am,13,16,7,9,Clear.
+2017-01-04,6 am,6,14,5,12,Partly sunny.
+2017-01-04,12 pm,7,13,10,16,Overcast.
+2017-01-04,6 pm,29,9,9,10,Light snow. Ice fog.
+2017-01-05,12 am,29,8,9,10,Light snow. Ice fog.
+2017-01-05,6 am,2,12,7,10,Passing clouds.
+2017-01-05,12 pm,29,14,9,10,Light snow. Ice fog.
+2017-01-05,6 pm,14,12,3,7,Passing clouds.
+2017-01-06,12 am,13,11,0,3,Clear.
+2017-01-06,6 am,2,8,-2,9,Passing clouds.
+2017-01-06,12 pm,6,4,10,16,Partly sunny.
+2017-01-06,6 pm,14,9,7,12,Passing clouds.
+2017-01-07,12 am,17,4,9,12,Overcast.
+2017-01-07,6 am,2,5,12,21,Passing clouds.
+2017-01-07,12 pm,1,11,18,23,Sunny.
+2017-01-07,6 pm,13,5,9,16,Clear.
+2017-01-08,12 am,13,4,3,9,Clear.
+2017-01-08,6 am,6,14,7,18,Partly sunny.
+2017-01-08,12 pm,7,16,19,21,Overcast.
+2017-01-08,6 pm,17,10,21,25,Overcast.
+2017-01-09,12 am,14,7,16,21,Passing clouds.
+2017-01-09,6 am,7,6,16,21,Overcast.
+2017-01-09,12 pm,7,14,25,30,Overcast.
+2017-01-09,6 pm,17,11,30,34,Overcast.
+2017-01-10,12 am,17,12,34,43,Overcast.
+2017-01-10,6 am,18,17,34,43,Drizzle. Fog.
+2017-01-10,12 pm,7,21,27,34,Overcast.
+2017-01-10,6 pm,17,6,25,28,Overcast.
+2017-01-11,12 am,14,10,27,30,Passing clouds.
+2017-01-11,6 am,6,9,32,36,Partly sunny.
+2017-01-11,12 pm,7,17,18,34,Overcast.
+2017-01-11,6 pm,14,16,14,18,Passing clouds.
+2017-01-12,12 am,14,11,12,14,Passing clouds.
+2017-01-12,6 am,7,11,12,19,Overcast.
+2017-01-12,12 pm,6,12,21,23,Partly sunny.
+2017-01-12,6 pm,14,7,18,21,Passing clouds.
+2017-01-13,12 am,17,12,12,16,Overcast.
+2017-01-13,6 am,6,10,12,19,Partly sunny.
+2017-01-13,12 pm,6,9,19,25,Partly sunny.
+2017-01-13,6 pm,17,7,21,23,Overcast.
+2017-01-14,12 am,17,2,23,23,Overcast.
+2017-01-14,6 am,6,4,21,28,Partly sunny.
+2017-01-14,12 pm,2,5,30,36,Passing clouds.
+2017-01-14,6 pm,14,1,27,28,Passing clouds.
+2017-01-15,12 am,17,2,27,28,Overcast.
+2017-01-15,6 am,6,6,28,32,Partly sunny.
+2017-01-15,12 pm,6,7,34,34,Partly sunny.
+2017-01-15,6 pm,27,7,30,32,Light freezing rain. Ice fog.
+2017-01-16,12 am,27,7,30,32,Light freezing rain. Ice fog.
+2017-01-16,6 am,27,9,32,34,Light freezing rain. Ice fog.
+2017-01-16,12 pm,18,6,34,34,Drizzle. Fog.
+2017-01-16,6 pm,14,6,34,34,Passing clouds.
+2017-01-17,12 am,34,11,34,34,Drizzle. Fog.
+2017-01-17,6 am,34,11,34,36,Drizzle. Fog.
+2017-01-17,12 pm,7,10,36,36,Overcast.
+2017-01-17,6 pm,14,9,32,34,Passing clouds.
+2017-01-18,12 am,14,9,30,34,Passing clouds.
+2017-01-18,6 am,10,9,30,41,Ice fog.
+2017-01-18,12 pm,2,12,39,46,Passing clouds.
+2017-01-18,6 pm,14,12,34,37,Passing clouds.
+2017-01-19,12 am,14,6,32,37,Passing clouds.
+2017-01-19,6 am,9,5,32,39,Fog.
+2017-01-19,12 pm,9,6,37,39,Fog.
+2017-01-19,6 pm,34,2,37,37,Drizzle. Fog.
+2017-01-20,12 am,14,2,36,37,Passing clouds.
+2017-01-20,6 am,9,4,37,41,Fog.
+2017-01-20,12 pm,9,6,39,43,Fog.
+2017-01-20,6 pm,34,7,39,43,Drizzle. Fog.
+2017-01-21,12 am,14,7,41,45,Passing clouds.
+2017-01-21,6 am,9,8,45,46,Fog.
+2017-01-21,12 pm,7,12,39,46,Overcast.
+2017-01-21,6 pm,14,2,30,41,Passing clouds.
+2017-01-22,12 am,14,6,30,34,Passing clouds.
+2017-01-22,6 am,9,8,34,37,Fog.
+2017-01-22,12 pm,9,10,37,37,Fog.
+2017-01-22,6 pm,14,12,36,37,Passing clouds.
+2017-01-23,12 am,34,10,32,36,Drizzle. Fog.
+2017-01-23,6 am,7,7,34,34,Overcast.
+2017-01-23,12 pm,7,4,34,36,Overcast.
+2017-01-23,6 pm,17,3,34,34,Overcast.
+2017-01-24,12 am,17,6,32,34,Overcast.
+2017-01-24,6 am,10,9,32,32,Ice fog.
+2017-01-24,12 pm,10,14,32,34,Ice fog.
+2017-01-24,6 pm,27,10,34,36,Light freezing rain. Ice fog.
+2017-01-25,12 am,14,7,34,36,Passing clouds.
+2017-01-25,6 am,29,11,34,34,Light snow. Ice fog.
+2017-01-25,12 pm,29,20,30,34,Light snow. Ice fog.
+2017-01-25,6 pm,29,17,28,28,Light snow. Ice fog.
+2017-01-26,12 am,29,17,28,28,Light snow. Ice fog.
+2017-01-26,6 am,29,15,27,28,Light snow. Ice fog.
+2017-01-26,12 pm,29,15,28,30,Light snow. Ice fog.
+2017-01-26,6 pm,29,11,25,28,Light snow. Ice fog.
+2017-01-27,12 am,29,15,21,25,Light snow. Ice fog.
+2017-01-27,6 am,2,13,18,25,Passing clouds.
+2017-01-27,12 pm,6,12,27,30,Partly sunny.
+2017-01-27,6 pm,17,16,27,32,Overcast.
+2017-01-28,12 am,14,14,25,27,Passing clouds.
+2017-01-28,6 am,2,16,25,30,Passing clouds.
+2017-01-28,12 pm,7,16,28,32,Overcast.
+2017-01-28,6 pm,17,14,32,34,Overcast.
+2017-01-29,12 am,29,12,30,32,Light snow. Ice fog.
+2017-01-29,6 am,7,11,30,34,Overcast.
+2017-01-29,12 pm,6,14,34,36,Partly sunny.
+2017-01-29,6 pm,17,5,30,34,Overcast.
+2017-01-30,12 am,17,5,30,32,Overcast.
+2017-01-30,6 am,6,10,32,46,Partly sunny.
+2017-01-30,12 pm,6,21,46,52,Partly sunny.
+2017-01-30,6 pm,13,21,39,45,Clear.
+2017-01-31,12 am,17,21,37,39,Overcast.
+2017-01-31,6 am,6,14,36,41,Partly sunny.
+2017-01-31,12 pm,6,14,39,43,Partly sunny.
+2017-01-31,6 pm,17,10,37,37,Overcast.
+2017-02-01,12 am,17,10,32,36,Overcast.
+2017-02-01,6 am,6,12,30,34,Partly sunny.
+2017-02-01,12 pm,7,13,27,32,Overcast.
+2017-02-01,6 pm,29,16,21,27,Light snow. Ice fog.
+2017-02-02,12 am,14,13,16,21,Passing clouds.
+2017-02-02,6 am,6,11,16,21,Partly sunny.
+2017-02-02,12 pm,6,13,21,25,Partly sunny.
+2017-02-02,6 pm,14,7,19,21,Passing clouds.
+2017-02-03,12 am,17,11,19,19,Overcast.
+2017-02-03,6 am,2,8,18,25,Passing clouds.
+2017-02-03,12 pm,2,7,27,30,Passing clouds.
+2017-02-03,6 pm,13,6,19,25,Clear.
+2017-02-04,12 am,17,10,18,25,Overcast.
+2017-02-04,6 am,6,19,27,39,Partly sunny.
+2017-02-04,12 pm,2,18,41,45,Passing clouds.
+2017-02-04,6 pm,13,9,34,37,Clear.
+2017-02-05,12 am,17,18,28,34,Overcast.
+2017-02-05,6 am,7,7,27,34,Overcast.
+2017-02-05,12 pm,6,2,34,36,Partly sunny.
+2017-02-05,6 pm,14,6,28,34,Passing clouds.
+2017-02-06,12 am,13,7,27,28,Clear.
+2017-02-06,6 am,6,7,28,48,Partly sunny.
+2017-02-06,12 pm,6,7,54,57,Partly sunny.
+2017-02-06,6 pm,17,6,48,52,Overcast.
+2017-02-07,12 am,17,5,43,48,Overcast.
+2017-02-07,6 am,18,17,34,43,Drizzle. Fog.
+2017-02-07,12 pm,6,22,28,36,Partly sunny.
+2017-02-07,6 pm,14,14,23,27,Passing clouds.
+2017-02-08,12 am,29,11,18,21,Light snow. Ice fog.
+2017-02-08,6 am,29,12,16,18,Light snow. Ice fog.
+2017-02-08,12 pm,2,14,18,19,Passing clouds.
+2017-02-08,6 pm,14,11,14,16,Passing clouds.
+2017-02-09,12 am,14,9,9,12,Passing clouds.
+2017-02-09,6 am,6,6,10,18,Partly sunny.
+2017-02-09,12 pm,2,8,18,21,Passing clouds.
+2017-02-09,6 pm,14,11,19,21,Passing clouds.
+2017-02-10,12 am,14,13,21,27,Passing clouds.
+2017-02-10,6 am,6,12,27,46,Partly sunny.
+2017-02-10,12 pm,6,12,48,57,Partly sunny.
+2017-02-10,6 pm,14,2,39,48,Passing clouds.
+2017-02-11,12 am,14,4,36,39,Passing clouds.
+2017-02-11,6 am,7,8,39,54,Overcast.
+2017-02-11,12 pm,6,12,46,55,Partly sunny.
+2017-02-11,6 pm,17,12,43,46,Overcast.
+2017-02-12,12 am,17,12,39,43,Overcast.
+2017-02-12,6 am,2,21,37,45,Passing clouds.
+2017-02-12,12 pm,2,19,43,48,Passing clouds.
+2017-02-12,6 pm,13,4,32,39,Clear.
+2017-02-13,12 am,14,3,25,28,Passing clouds.
+2017-02-13,6 am,6,8,25,48,Partly sunny.
+2017-02-13,12 pm,6,12,45,52,Partly sunny.
+2017-02-13,6 pm,14,7,36,43,Passing clouds.
+2017-02-14,12 am,14,7,30,34,Passing clouds.
+2017-02-14,6 am,6,11,30,46,Partly sunny.
+2017-02-14,12 pm,6,16,45,52,Partly sunny.
+2017-02-14,6 pm,13,16,36,43,Clear.
+2017-02-15,12 am,13,9,25,34,Clear.
+2017-02-15,6 am,2,9,27,37,Passing clouds.
+2017-02-15,12 pm,6,7,39,45,Partly sunny.
+2017-02-15,6 pm,14,6,34,39,Passing clouds.
+2017-02-16,12 am,13,9,32,34,Clear.
+2017-02-16,6 am,6,9,34,54,Partly sunny.
+2017-02-16,12 pm,6,9,59,64,Partly sunny.
+2017-02-16,6 pm,14,5,45,55,Passing clouds.
+2017-02-17,12 am,13,7,39,45,Clear.
+2017-02-17,6 am,2,12,45,66,Passing clouds.
+2017-02-17,12 pm,2,14,64,73,Passing clouds.
+2017-02-17,6 pm,14,6,48,61,Passing clouds.
+2017-02-18,12 am,13,6,36,45,Clear.
+2017-02-18,6 am,2,4,36,59,Passing clouds.
+2017-02-18,12 pm,2,3,61,66,Passing clouds.
+2017-02-18,6 pm,14,4,43,55,Passing clouds.
+2017-02-19,12 am,13,5,41,46,Clear.
+2017-02-19,6 am,2,9,43,66,Passing clouds.
+2017-02-19,12 pm,5,16,66,73,High level clouds.
+2017-02-19,6 pm,14,11,57,63,Passing clouds.
+2017-02-20,12 am,17,10,57,61,Overcast.
+2017-02-20,6 am,18,12,57,61,Drizzle. Fog.
+2017-02-20,12 pm,6,11,61,63,Partly sunny.
+2017-02-20,6 pm,17,11,52,61,Overcast.
+2017-02-21,12 am,13,7,39,50,Clear.
+2017-02-21,6 am,2,4,37,61,Passing clouds.
+2017-02-21,12 pm,2,11,61,68,Passing clouds.
+2017-02-21,6 pm,13,9,50,57,Clear.
+2017-02-22,12 am,13,10,48,52,Clear.
+2017-02-22,6 am,2,15,46,72,Passing clouds.
+2017-02-22,12 pm,2,17,66,72,Passing clouds.
+2017-02-22,6 pm,13,12,48,64,Clear.
+2017-02-23,12 am,17,14,39,46,Overcast.
+2017-02-23,6 am,7,12,39,43,Overcast.
+2017-02-23,12 pm,7,15,43,46,Overcast.
+2017-02-23,6 pm,34,18,41,45,Drizzle. Fog.
+2017-02-24,12 am,34,21,36,39,Drizzle. Fog.
+2017-02-24,6 am,18,16,32,36,Drizzle. Fog.
+2017-02-24,12 pm,29,17,25,32,Light snow. Ice fog.
+2017-02-24,6 pm,29,16,21,25,Light snow. Ice fog.
+2017-02-25,12 am,14,16,18,21,Passing clouds.
+2017-02-25,6 am,2,16,18,27,Passing clouds.
+2017-02-25,12 pm,6,7,28,32,Partly sunny.
+2017-02-25,6 pm,17,9,28,30,Overcast.
+2017-02-26,12 am,14,12,28,32,Passing clouds.
+2017-02-26,6 am,2,17,28,46,Passing clouds.
+2017-02-26,12 pm,2,14,41,48,Passing clouds.
+2017-02-26,6 pm,14,3,30,37,Passing clouds.
+2017-02-27,12 am,13,2,27,34,Clear.
+2017-02-27,6 am,9,6,27,50,Fog.
+2017-02-27,12 pm,6,14,54,55,Partly sunny.
+2017-02-27,6 pm,17,9,46,52,Overcast.
+2017-02-28,12 am,17,7,46,54,Overcast.
+2017-02-28,6 am,6,9,54,64,Partly sunny.
+2017-02-28,12 pm,6,9,54,63,Partly sunny.
+2017-02-28,6 pm,14,15,39,48,Passing clouds.
+2017-03-01,12 am,34,17,36,39,Drizzle. Fog.
+2017-03-01,6 am,29,21,36,37,Light snow. Ice fog.
+2017-03-01,12 pm,6,22,37,41,Partly sunny.
+2017-03-01,6 pm,14,17,28,37,Passing clouds.
+2017-03-02,12 am,13,5,23,27,Clear.
+2017-03-02,6 am,29,6,27,36,Light snow. Ice fog.
+2017-03-02,12 pm,29,12,30,37,Light snow. Ice fog.
+2017-03-02,6 pm,14,9,25,30,Passing clouds.
+2017-03-03,12 am,13,4,19,25,Clear.
+2017-03-03,6 am,6,9,19,36,Partly sunny.
+2017-03-03,12 pm,6,16,37,43,Partly sunny.
+2017-03-03,6 pm,14,11,36,41,Passing clouds.
+2017-03-04,12 am,13,11,30,34,Clear.
+2017-03-04,6 am,2,9,30,52,Passing clouds.
+2017-03-04,12 pm,6,9,57,70,Partly sunny.
+2017-03-04,6 pm,13,11,52,59,Clear.
+2017-03-05,12 am,13,11,46,54,Clear.
+2017-03-05,6 am,6,10,46,59,Partly sunny.
+2017-03-05,12 pm,7,11,57,61,Overcast.
+2017-03-05,6 pm,17,16,57,61,Overcast.
+2017-03-06,12 am,17,17,57,59,Overcast.
+2017-03-06,6 am,7,21,59,70,Overcast.
+2017-03-06,12 pm,2,27,72,77,Passing clouds.
+2017-03-06,6 pm,17,16,46,72,Overcast.
+2017-03-07,12 am,14,19,37,43,Passing clouds.
+2017-03-07,6 am,2,14,37,54,Passing clouds.
+2017-03-07,12 pm,6,19,50,55,Partly sunny.
+2017-03-07,6 pm,13,13,37,52,Clear.
+2017-03-08,12 am,13,7,34,37,Clear.
+2017-03-08,6 am,6,12,34,52,Partly sunny.
+2017-03-08,12 pm,2,12,52,55,Passing clouds.
+2017-03-08,6 pm,13,7,37,46,Clear.
+2017-03-09,12 am,13,9,30,36,Clear.
+2017-03-09,6 am,6,11,30,43,Partly sunny.
+2017-03-09,12 pm,6,16,43,48,Partly sunny.
+2017-03-09,6 pm,14,15,28,39,Passing clouds.
+2017-03-10,12 am,13,16,19,27,Clear.
+2017-03-10,6 am,6,12,18,25,Partly sunny.
+2017-03-10,12 pm,7,8,27,28,Overcast.
+2017-03-10,6 pm,29,7,21,27,Light snow. Ice fog.
+2017-03-11,12 am,17,6,21,21,Overcast.
+2017-03-11,6 am,6,8,21,27,Partly sunny.
+2017-03-11,12 pm,6,6,27,28,Partly sunny.
+2017-03-11,6 pm,17,6,27,28,Overcast.
+2017-03-12,12 am,17,6,25,27,Overcast.
+2017-03-12,6 am,7,9,23,30,Overcast.
+2017-03-12,12 pm,7,15,30,37,Overcast.
+2017-03-12,6 pm,29,7,30,37,Light snow. Ice fog.
+2017-03-13,12 am,29,12,30,30,Light snow. Ice fog.
+2017-03-13,6 am,29,17,27,28,Light snow. Ice fog.
+2017-03-13,12 pm,29,14,27,27,Light snow. Ice fog.
+2017-03-13,6 pm,29,12,21,27,Light snow. Ice fog.
+2017-03-14,12 am,14,7,12,19,Passing clouds.
+2017-03-14,6 am,6,7,16,25,Partly sunny.
+2017-03-14,12 pm,6,7,27,28,Partly sunny.
+2017-03-14,6 pm,13,7,18,25,Clear.
+2017-03-15,12 am,14,1,10,18,Passing clouds.
+2017-03-15,6 am,2,4,10,27,Passing clouds.
+2017-03-15,12 pm,6,4,28,37,Partly sunny.
+2017-03-15,6 pm,17,7,34,36,Overcast.
+2017-03-16,12 am,17,7,32,34,Overcast.
+2017-03-16,6 am,6,13,32,45,Partly sunny.
+2017-03-16,12 pm,6,17,48,55,Partly sunny.
+2017-03-16,6 pm,17,13,45,52,Overcast.
+2017-03-17,12 am,13,7,37,45,Clear.
+2017-03-17,6 am,2,12,39,52,Passing clouds.
+2017-03-17,12 pm,2,19,55,64,Passing clouds.
+2017-03-17,6 pm,13,16,37,57,Clear.
+2017-03-18,12 am,14,14,34,39,Passing clouds.
+2017-03-18,6 am,6,13,32,43,Partly sunny.
+2017-03-18,12 pm,2,8,45,54,Passing clouds.
+2017-03-18,6 pm,13,6,41,52,Clear.
+2017-03-19,12 am,14,9,36,39,Passing clouds.
+2017-03-19,6 am,6,13,36,57,Partly sunny.
+2017-03-19,12 pm,2,22,63,72,Passing clouds.
+2017-03-19,6 pm,14,12,54,64,Passing clouds.
+2017-03-20,12 am,14,7,46,52,Passing clouds.
+2017-03-20,6 am,6,12,45,63,Partly sunny.
+2017-03-20,12 pm,6,16,66,68,Partly sunny.
+2017-03-20,6 pm,14,14,52,63,Passing clouds.
+2017-03-21,12 am,17,11,46,50,Overcast.
+2017-03-21,6 am,6,12,34,46,Partly sunny.
+2017-03-21,12 pm,6,11,36,50,Partly sunny.
+2017-03-21,6 pm,15,13,37,46,Partly cloudy.
+2017-03-22,12 am,14,11,30,34,Passing clouds.
+2017-03-22,6 am,6,13,30,39,Partly sunny.
+2017-03-22,12 pm,7,12,41,46,Overcast.
+2017-03-22,6 pm,14,12,43,45,Passing clouds.
+2017-03-23,12 am,17,12,43,43,Overcast.
+2017-03-23,6 am,7,16,43,46,Overcast.
+2017-03-23,12 pm,6,18,46,57,Partly sunny.
+2017-03-23,6 pm,14,11,54,55,Passing clouds.
+2017-03-24,12 am,17,7,55,59,Overcast.
+2017-03-24,6 am,6,7,52,64,Partly sunny.
+2017-03-24,12 pm,18,7,48,52,Drizzle. Fog.
+2017-03-24,6 pm,17,16,45,48,Overcast.
+2017-03-25,12 am,34,15,43,45,Drizzle. Fog.
+2017-03-25,6 am,18,14,39,43,Drizzle. Fog.
+2017-03-25,12 pm,18,12,41,45,Drizzle. Fog.
+2017-03-25,6 pm,34,9,43,45,Drizzle. Fog.
+2017-03-26,12 am,34,8,43,43,Drizzle. Fog.
+2017-03-26,6 am,9,7,41,45,Fog.
+2017-03-26,12 pm,7,9,46,48,Overcast.
+2017-03-26,6 pm,34,4,46,48,Drizzle. Fog.
+2017-03-27,12 am,17,5,45,46,Overcast.
+2017-03-27,6 am,7,7,43,48,Overcast.
+2017-03-27,12 pm,7,7,48,52,Overcast.
+2017-03-27,6 pm,17,6,48,52,Overcast.
+2017-03-28,12 am,17,3,46,48,Overcast.
+2017-03-28,6 am,7,4,48,50,Overcast.
+2017-03-28,12 pm,7,7,52,52,Overcast.
+2017-03-28,6 pm,17,7,50,52,Overcast.
+2017-03-29,12 am,17,9,45,48,Overcast.
+2017-03-29,6 am,18,12,43,45,Drizzle. Fog.
+2017-03-29,12 pm,18,17,45,46,Drizzle. Fog.
+2017-03-29,6 pm,18,19,45,45,Drizzle. Fog.
+2017-03-30,12 am,17,14,43,45,Overcast.
+2017-03-30,6 am,18,14,43,45,Drizzle. Fog.
+2017-03-30,12 pm,18,14,43,45,Drizzle. Fog.
+2017-03-30,6 pm,34,11,43,43,Drizzle. Fog.
+2017-03-31,12 am,17,9,41,41,Overcast.
+2017-03-31,6 am,7,11,41,45,Overcast.
+2017-03-31,12 pm,7,9,45,46,Overcast.
+2017-03-31,6 pm,17,7,43,45,Overcast.
+2017-04-01,12 am,17,1,36,43,Overcast.
+2017-04-01,6 am,6,4,37,50,Partly sunny.
+2017-04-01,12 pm,6,5,52,54,Partly sunny.
+2017-04-01,6 pm,17,5,50,54,Overcast.
+2017-04-02,12 am,17,6,48,48,Overcast.
+2017-04-02,6 am,18,8,48,50,Drizzle. Fog.
+2017-04-02,12 pm,18,7,50,52,Drizzle. Fog.
+2017-04-02,6 pm,9,6,52,54,Fog.
+2017-04-03,12 am,14,6,48,52,Passing clouds.
+2017-04-03,6 am,18,6,48,52,Drizzle. Fog.
+2017-04-03,12 pm,18,10,52,54,Drizzle. Fog.
+2017-04-03,6 pm,17,8,50,52,Overcast.
+2017-04-04,12 am,17,9,48,50,Overcast.
+2017-04-04,6 am,6,10,48,55,Partly sunny.
+2017-04-04,12 pm,7,11,54,55,Overcast.
+2017-04-04,6 pm,17,11,50,54,Overcast.
+2017-04-05,12 am,34,12,46,50,Drizzle. Fog.
+2017-04-05,6 am,19,10,43,46,Rain. Fog.
+2017-04-05,12 pm,18,14,46,52,Drizzle. Fog.
+2017-04-05,6 pm,17,10,45,52,Overcast.
+2017-04-06,12 am,17,10,41,45,Overcast.
+2017-04-06,6 am,2,12,37,52,Passing clouds.
+2017-04-06,12 pm,2,18,54,55,Passing clouds.
+2017-04-06,6 pm,13,8,45,54,Clear.
+2017-04-07,12 am,14,2,34,43,Passing clouds.
+2017-04-07,6 am,2,3,34,52,Passing clouds.
+2017-04-07,12 pm,2,10,55,63,Passing clouds.
+2017-04-07,6 pm,14,10,48,59,Passing clouds.
+2017-04-08,12 am,14,12,48,50,Passing clouds.
+2017-04-08,6 am,2,15,48,72,Passing clouds.
+2017-04-08,12 pm,6,19,72,75,Partly sunny.
+2017-04-08,6 pm,17,9,64,73,Overcast.
+2017-04-09,12 am,17,10,61,64,Overcast.
+2017-04-09,6 am,6,14,61,73,Partly sunny.
+2017-04-09,12 pm,6,18,73,81,Partly sunny.
+2017-04-09,6 pm,14,15,68,77,Passing clouds.
+2017-04-10,12 am,22,12,52,72,Thunderstorms. Mostly cloudy.
+2017-04-10,6 am,6,7,50,63,Partly sunny.
+2017-04-10,12 pm,6,16,55,63,Partly sunny.
+2017-04-10,6 pm,17,19,43,52,Overcast.
+2017-04-11,12 am,17,12,39,43,Overcast.
+2017-04-11,6 am,7,11,39,50,Overcast.
+2017-04-11,12 pm,2,10,54,63,Passing clouds.
+2017-04-11,6 pm,13,6,52,61,Clear.
+2017-04-12,12 am,14,7,45,48,Passing clouds.
+2017-04-12,6 am,6,9,46,66,Partly sunny.
+2017-04-12,12 pm,6,9,70,72,Partly sunny.
+2017-04-12,6 pm,17,9,64,68,Overcast.
+2017-04-13,12 am,14,8,55,61,Passing clouds.
+2017-04-13,6 am,2,7,57,70,Passing clouds.
+2017-04-13,12 pm,2,9,72,77,Passing clouds.
+2017-04-13,6 pm,17,12,63,75,Overcast.
+2017-04-14,12 am,17,9,55,61,Overcast.
+2017-04-14,6 am,9,9,55,64,Fog.
+2017-04-14,12 pm,6,12,64,72,Partly sunny.
+2017-04-14,6 pm,17,11,68,70,Overcast.
+2017-04-15,12 am,14,13,64,70,Passing clouds.
+2017-04-15,6 am,6,15,64,70,Partly sunny.
+2017-04-15,12 pm,6,12,72,79,Partly sunny.
+2017-04-15,6 pm,22,7,64,75,Thunderstorms. Mostly cloudy.
+2017-04-16,12 am,14,9,54,63,Passing clouds.
+2017-04-16,6 am,6,9,54,66,Partly sunny.
+2017-04-16,12 pm,6,10,70,72,Partly sunny.
+2017-04-16,6 pm,14,3,55,70,Passing clouds.
+2017-04-17,12 am,14,2,50,55,Passing clouds.
+2017-04-17,6 am,2,4,50,70,Passing clouds.
+2017-04-17,12 pm,2,6,68,72,Passing clouds.
+2017-04-17,6 pm,14,7,63,72,Passing clouds.
+2017-04-18,12 am,14,10,55,59,Passing clouds.
+2017-04-18,6 am,6,12,55,61,Partly sunny.
+2017-04-18,12 pm,6,16,66,73,Partly sunny.
+2017-04-18,6 pm,17,4,64,70,Overcast.
+2017-04-19,12 am,17,10,54,63,Overcast.
+2017-04-19,6 am,6,9,52,55,Partly sunny.
+2017-04-19,12 pm,2,12,57,75,Passing clouds.
+2017-04-19,6 pm,6,17,70,81,Partly sunny.
+2017-04-20,12 am,17,17,50,66,Overcast.
+2017-04-20,6 am,7,20,50,55,Overcast.
+2017-04-20,12 pm,7,21,54,57,Overcast.
+2017-04-20,6 pm,14,11,46,54,Passing clouds.
+2017-04-21,12 am,14,4,41,46,Passing clouds.
+2017-04-21,6 am,2,12,43,57,Passing clouds.
+2017-04-21,12 pm,7,16,59,61,Overcast.
+2017-04-21,6 pm,17,11,54,57,Overcast.
+2017-04-22,12 am,14,6,45,52,Passing clouds.
+2017-04-22,6 am,6,8,46,61,Partly sunny.
+2017-04-22,12 pm,6,11,63,68,Partly sunny.
+2017-04-22,6 pm,13,4,54,66,Clear.
+2017-04-23,12 am,13,2,45,50,Clear.
+2017-04-23,6 am,1,4,45,68,Sunny.
+2017-04-23,12 pm,2,11,70,73,Passing clouds.
+2017-04-23,6 pm,6,7,55,68,Partly sunny.
+2017-04-24,12 am,14,8,48,54,Passing clouds.
+2017-04-24,6 am,6,18,50,72,Partly sunny.
+2017-04-24,12 pm,6,24,73,75,Partly sunny.
+2017-04-24,6 pm,14,10,64,73,Passing clouds.
+2017-04-25,12 am,14,8,57,63,Passing clouds.
+2017-04-25,6 am,6,7,57,66,Partly sunny.
+2017-04-25,12 pm,7,11,72,73,Overcast.
+2017-04-25,6 pm,17,14,50,70,Overcast.
+2017-04-26,12 am,34,14,45,48,Drizzle. Fog.
+2017-04-26,6 am,7,18,43,48,Overcast.
+2017-04-26,12 pm,7,16,46,50,Overcast.
+2017-04-26,6 pm,17,15,41,46,Overcast.
+2017-04-27,12 am,34,16,37,41,Drizzle. Fog.
+2017-04-27,6 am,7,16,37,41,Overcast.
+2017-04-27,12 pm,6,12,45,57,Partly sunny.
+2017-04-27,6 pm,17,7,45,55,Overcast.
+2017-04-28,12 am,17,10,39,43,Overcast.
+2017-04-28,6 am,18,13,37,39,Drizzle. Fog.
+2017-04-28,12 pm,18,14,39,45,Drizzle. Fog.
+2017-04-28,6 pm,17,12,45,45,Overcast.
+2017-04-29,12 am,17,16,45,45,Overcast.
+2017-04-29,6 am,6,16,45,46,Partly sunny.
+2017-04-29,12 pm,18,19,45,45,Drizzle. Fog.
+2017-04-29,6 pm,34,17,41,43,Drizzle. Fog.
+2017-04-30,12 am,34,16,41,41,Drizzle. Fog.
+2017-04-30,6 am,18,18,41,43,Drizzle. Fog.
+2017-04-30,12 pm,18,17,45,46,Drizzle. Fog.
+2017-04-30,6 pm,17,7,46,46,Overcast.
+2017-05-01,12 am,34,7,45,46,Drizzle. Fog.
+2017-05-01,6 am,18,11,43,46,Drizzle. Fog.
+2017-05-01,12 pm,18,22,45,46,Drizzle. Fog.
+2017-05-01,6 pm,6,17,43,45,Partly sunny.
+2017-05-02,12 am,13,7,37,41,Clear.
+2017-05-02,6 am,2,13,37,57,Passing clouds.
+2017-05-02,12 pm,2,15,61,64,Passing clouds.
+2017-05-02,6 pm,14,4,52,63,Passing clouds.
+2017-05-03,12 am,14,7,46,52,Passing clouds.
+2017-05-03,6 am,6,12,46,57,Partly sunny.
+2017-05-03,12 pm,6,9,57,61,Partly sunny.
+2017-05-03,6 pm,6,4,46,57,Partly sunny.
+2017-05-04,12 am,13,1,41,46,Clear.
+2017-05-04,6 am,2,9,45,64,Passing clouds.
+2017-05-04,12 pm,2,16,64,72,Passing clouds.
+2017-05-04,6 pm,2,11,57,68,Passing clouds.
+2017-05-05,12 am,13,6,45,55,Clear.
+2017-05-05,6 am,2,7,46,72,Passing clouds.
+2017-05-05,12 pm,2,12,73,79,Passing clouds.
+2017-05-05,6 pm,13,6,61,77,Clear.
+2017-05-06,12 am,13,9,55,61,Clear.
+2017-05-06,6 am,1,11,55,70,Sunny.
+2017-05-06,12 pm,2,12,72,73,Passing clouds.
+2017-05-06,6 pm,2,6,57,72,Passing clouds.
+2017-05-07,12 am,13,2,50,57,Clear.
+2017-05-07,6 am,2,4,52,72,Passing clouds.
+2017-05-07,12 pm,1,7,73,79,Sunny.
+2017-05-07,6 pm,14,8,64,77,Passing clouds.
+2017-05-08,12 am,14,10,57,63,Passing clouds.
+2017-05-08,6 am,22,9,55,68,Thunderstorms. Mostly cloudy.
+2017-05-08,12 pm,6,13,73,82,Partly sunny.
+2017-05-08,6 pm,14,11,72,81,Passing clouds.
+2017-05-09,12 am,13,11,63,72,Clear.
+2017-05-09,6 am,6,12,63,72,Partly sunny.
+2017-05-09,12 pm,5,4,75,81,High level clouds.
+2017-05-09,6 pm,14,4,72,79,Passing clouds.
+2017-05-10,12 am,14,7,61,70,Passing clouds.
+2017-05-10,6 am,22,12,59,64,Thunderstorms. Mostly cloudy.
+2017-05-10,12 pm,7,8,63,70,Overcast.
+2017-05-10,6 pm,17,12,61,70,Overcast.
+2017-05-11,12 am,17,8,55,61,Overcast.
+2017-05-11,6 am,6,9,55,68,Partly sunny.
+2017-05-11,12 pm,2,9,68,73,Passing clouds.
+2017-05-11,6 pm,14,6,59,70,Passing clouds.
+2017-05-12,12 am,14,7,48,57,Passing clouds.
+2017-05-12,6 am,1,10,52,70,Sunny.
+2017-05-12,12 pm,2,11,72,75,Passing clouds.
+2017-05-12,6 pm,13,4,61,73,Clear.
+2017-05-13,12 am,13,6,55,59,Clear.
+2017-05-13,6 am,2,6,57,77,Passing clouds.
+2017-05-13,12 pm,1,12,79,81,Sunny.
+2017-05-13,6 pm,13,8,64,79,Clear.
+2017-05-14,12 am,13,7,57,63,Clear.
+2017-05-14,6 am,6,15,59,77,Partly sunny.
+2017-05-14,12 pm,2,15,79,84,Passing clouds.
+2017-05-14,6 pm,14,9,73,82,Passing clouds.
+2017-05-15,12 am,14,9,68,72,Passing clouds.
+2017-05-15,6 am,6,9,70,82,Partly sunny.
+2017-05-15,12 pm,6,16,84,90,Partly sunny.
+2017-05-15,6 pm,14,14,77,88,Passing clouds.
+2017-05-16,12 am,14,14,72,77,Passing clouds.
+2017-05-16,6 am,6,14,72,81,Partly sunny.
+2017-05-16,12 pm,2,20,84,90,Passing clouds.
+2017-05-16,6 pm,6,15,66,84,Partly sunny.
+2017-05-17,12 am,22,11,63,66,Thunderstorms. Mostly cloudy.
+2017-05-17,6 am,6,17,64,75,Partly sunny.
+2017-05-17,12 pm,22,22,63,81,Thunderstorms. Mostly cloudy.
+2017-05-17,6 pm,17,13,63,66,Overcast.
+2017-05-18,12 am,17,18,57,63,Overcast.
+2017-05-18,6 am,7,14,59,64,Overcast.
+2017-05-18,12 pm,7,12,61,66,Overcast.
+2017-05-18,6 pm,17,15,54,61,Overcast.
+2017-05-19,12 am,22,15,50,54,Thunderstorms. Mostly cloudy.
+2017-05-19,6 am,7,11,52,54,Overcast.
+2017-05-19,12 pm,18,12,50,54,Drizzle. Fog.
+2017-05-19,6 pm,18,14,50,50,Drizzle. Fog.
+2017-05-20,12 am,34,14,48,50,Drizzle. Fog.
+2017-05-20,6 am,18,14,48,55,Drizzle. Fog.
+2017-05-20,12 pm,6,17,57,68,Partly sunny.
+2017-05-20,6 pm,17,16,54,61,Overcast.
+2017-05-21,12 am,17,14,48,52,Overcast.
+2017-05-21,6 am,7,18,46,54,Overcast.
+2017-05-21,12 pm,6,19,54,57,Partly sunny.
+2017-05-21,6 pm,13,9,48,59,Clear.
+2017-05-22,12 am,13,9,48,54,Clear.
+2017-05-22,6 am,6,14,54,66,Partly sunny.
+2017-05-22,12 pm,6,17,70,72,Partly sunny.
+2017-05-22,6 pm,17,10,57,68,Overcast.
+2017-05-23,12 am,14,9,52,55,Passing clouds.
+2017-05-23,6 am,2,12,52,61,Passing clouds.
+2017-05-23,12 pm,6,14,57,63,Partly sunny.
+2017-05-23,6 pm,14,7,52,57,Passing clouds.
+2017-05-24,12 am,34,8,52,54,Drizzle. Fog.
+2017-05-24,6 am,7,11,54,55,Overcast.
+2017-05-24,12 pm,6,10,55,64,Partly sunny.
+2017-05-24,6 pm,14,3,54,63,Passing clouds.
+2017-05-25,12 am,13,0,46,54,Clear.
+2017-05-25,6 am,2,6,52,66,Passing clouds.
+2017-05-25,12 pm,2,12,70,73,Passing clouds.
+2017-05-25,6 pm,17,9,66,72,Overcast.
+2017-05-26,12 am,14,6,61,63,Passing clouds.
+2017-05-26,6 am,18,4,61,72,Drizzle. Fog.
+2017-05-26,12 pm,2,4,75,82,Passing clouds.
+2017-05-26,6 pm,14,4,68,81,Passing clouds.
+2017-05-27,12 am,14,4,61,66,Passing clouds.
+2017-05-27,6 am,9,5,61,70,Fog.
+2017-05-27,12 pm,6,10,64,68,Partly sunny.
+2017-05-27,6 pm,14,7,59,66,Passing clouds.
+2017-05-28,12 am,17,4,57,57,Overcast.
+2017-05-28,6 am,2,8,57,73,Passing clouds.
+2017-05-28,12 pm,2,16,77,81,Passing clouds.
+2017-05-28,6 pm,2,9,64,79,Passing clouds.
+2017-05-29,12 am,13,4,57,59,Clear.
+2017-05-29,6 am,2,11,57,72,Passing clouds.
+2017-05-29,12 pm,2,22,73,75,Passing clouds.
+2017-05-29,6 pm,14,11,61,72,Passing clouds.
+2017-05-30,12 am,14,4,54,57,Passing clouds.
+2017-05-30,6 am,2,12,55,75,Passing clouds.
+2017-05-30,12 pm,2,17,75,79,Passing clouds.
+2017-05-30,6 pm,13,7,64,75,Clear.
+2017-05-31,12 am,13,1,50,59,Clear.
+2017-05-31,6 am,1,6,52,70,Sunny.
+2017-05-31,12 pm,2,8,72,77,Passing clouds.
+2017-05-31,6 pm,14,2,61,73,Passing clouds.
+2017-06-01,12 am,13,2,55,59,Clear.
+2017-06-01,6 am,2,4,57,77,Passing clouds.
+2017-06-01,12 pm,2,7,79,82,Passing clouds.
+2017-06-01,6 pm,14,7,72,81,Passing clouds.
+2017-06-02,12 am,13,7,64,66,Clear.
+2017-06-02,6 am,2,9,66,81,Passing clouds.
+2017-06-02,12 pm,2,11,81,88,Passing clouds.
+2017-06-02,6 pm,14,7,73,84,Passing clouds.
+2017-06-03,12 am,13,5,66,73,Clear.
+2017-06-03,6 am,2,6,68,84,Passing clouds.
+2017-06-03,12 pm,2,12,88,90,Passing clouds.
+2017-06-03,6 pm,14,7,77,86,Passing clouds.
+2017-06-04,12 am,14,4,72,75,Passing clouds.
+2017-06-04,6 am,6,4,72,86,Partly sunny.
+2017-06-04,12 pm,2,4,90,93,Passing clouds.
+2017-06-04,6 pm,2,3,72,91,Passing clouds.
+2017-06-05,12 am,14,1,64,73,Passing clouds.
+2017-06-05,6 am,1,7,68,84,Sunny.
+2017-06-05,12 pm,1,12,88,90,Sunny.
+2017-06-05,6 pm,13,9,73,86,Clear.
+2017-06-06,12 am,13,4,61,72,Clear.
+2017-06-06,6 am,2,6,64,77,Passing clouds.
+2017-06-06,12 pm,2,7,79,82,Passing clouds.
+2017-06-06,6 pm,14,6,70,81,Passing clouds.
+2017-06-07,12 am,14,4,57,68,Passing clouds.
+2017-06-07,6 am,6,3,61,77,Partly sunny.
+2017-06-07,12 pm,6,8,79,82,Partly sunny.
+2017-06-07,6 pm,15,6,66,81,Partly cloudy.
+2017-06-08,12 am,14,6,59,64,Passing clouds.
+2017-06-08,6 am,2,9,61,81,Passing clouds.
+2017-06-08,12 pm,2,12,82,86,Passing clouds.
+2017-06-08,6 pm,14,9,72,84,Passing clouds.
+2017-06-09,12 am,13,6,63,68,Clear.
+2017-06-09,6 am,2,8,66,84,Passing clouds.
+2017-06-09,12 pm,2,14,86,90,Passing clouds.
+2017-06-09,6 pm,14,10,73,86,Passing clouds.
+2017-06-10,12 am,14,11,70,72,Passing clouds.
+2017-06-10,6 am,2,21,72,84,Passing clouds.
+2017-06-10,12 pm,2,22,88,91,Passing clouds.
+2017-06-10,6 pm,17,13,81,90,Overcast.
+2017-06-11,12 am,13,12,73,79,Clear.
+2017-06-11,6 am,2,17,75,88,Passing clouds.
+2017-06-11,12 pm,2,22,90,93,Passing clouds.
+2017-06-11,6 pm,14,14,81,91,Passing clouds.
+2017-06-12,12 am,15,13,75,81,Partly cloudy.
+2017-06-12,6 am,7,12,77,84,Overcast.
+2017-06-12,12 pm,6,13,86,91,Partly sunny.
+2017-06-12,6 pm,6,8,82,90,Partly sunny.
+2017-06-13,12 am,14,9,73,81,Passing clouds.
+2017-06-13,6 am,2,15,75,88,Passing clouds.
+2017-06-13,12 pm,2,21,90,93,Passing clouds.
+2017-06-13,6 pm,14,14,81,90,Passing clouds.
+2017-06-14,12 am,17,9,66,81,Overcast.
+2017-06-14,6 am,7,9,66,75,Overcast.
+2017-06-14,12 pm,2,11,82,88,Passing clouds.
+2017-06-14,6 pm,14,4,77,84,Passing clouds.
+2017-06-15,12 am,14,2,70,75,Passing clouds.
+2017-06-15,6 am,2,6,70,88,Passing clouds.
+2017-06-15,12 pm,2,12,90,93,Passing clouds.
+2017-06-15,6 pm,22,15,70,91,Thunderstorms. Mostly cloudy.
+2017-06-16,12 am,17,7,66,72,Overcast.
+2017-06-16,6 am,2,8,66,84,Passing clouds.
+2017-06-16,12 pm,6,12,86,90,Partly sunny.
+2017-06-16,6 pm,17,9,77,86,Overcast.
+2017-06-17,12 am,17,6,70,75,Overcast.
+2017-06-17,6 am,6,7,70,84,Partly sunny.
+2017-06-17,12 pm,6,7,82,86,Partly sunny.
+2017-06-17,6 pm,14,9,70,79,Passing clouds.
+2017-06-18,12 am,14,12,63,68,Passing clouds.
+2017-06-18,6 am,2,17,63,73,Passing clouds.
+2017-06-18,12 pm,2,17,75,81,Passing clouds.
+2017-06-18,6 pm,2,8,72,77,Passing clouds.
+2017-06-19,12 am,14,4,59,63,Passing clouds.
+2017-06-19,6 am,2,4,61,81,Passing clouds.
+2017-06-19,12 pm,2,15,81,84,Passing clouds.
+2017-06-19,6 pm,14,7,72,82,Passing clouds.
+2017-06-20,12 am,13,4,61,70,Clear.
+2017-06-20,6 am,2,12,64,88,Passing clouds.
+2017-06-20,12 pm,6,16,88,91,Partly sunny.
+2017-06-20,6 pm,14,7,73,84,Passing clouds.
+2017-06-21,12 am,14,8,66,72,Passing clouds.
+2017-06-21,6 am,6,12,64,75,Partly sunny.
+2017-06-21,12 pm,2,15,75,93,Passing clouds.
+2017-06-21,6 pm,2,11,79,90,Passing clouds.
+2017-06-22,12 am,14,16,75,79,Passing clouds.
+2017-06-22,6 am,6,11,75,82,Partly sunny.
+2017-06-22,12 pm,6,12,79,88,Partly sunny.
+2017-06-22,6 pm,2,9,72,88,Passing clouds.
+2017-06-23,12 am,17,10,64,72,Overcast.
+2017-06-23,6 am,2,13,64,77,Passing clouds.
+2017-06-23,12 pm,6,20,73,75,Partly sunny.
+2017-06-23,6 pm,14,11,64,73,Passing clouds.
+2017-06-24,12 am,13,6,54,63,Clear.
+2017-06-24,6 am,1,12,57,72,Sunny.
+2017-06-24,12 pm,2,17,73,79,Passing clouds.
+2017-06-24,6 pm,13,11,63,79,Clear.
+2017-06-25,12 am,14,5,52,61,Passing clouds.
+2017-06-25,6 am,2,15,55,70,Passing clouds.
+2017-06-25,12 pm,2,17,70,75,Passing clouds.
+2017-06-25,6 pm,2,5,63,73,Passing clouds.
+2017-06-26,12 am,13,3,55,61,Clear.
+2017-06-26,6 am,6,6,55,66,Partly sunny.
+2017-06-26,12 pm,2,6,68,75,Passing clouds.
+2017-06-26,6 pm,13,6,63,73,Clear.
+2017-06-27,12 am,13,2,55,61,Clear.
+2017-06-27,6 am,2,8,55,73,Passing clouds.
+2017-06-27,12 pm,6,14,73,81,Partly sunny.
+2017-06-27,6 pm,14,12,72,79,Passing clouds.
+2017-06-28,12 am,22,17,70,75,Thunderstorms. Mostly cloudy.
+2017-06-28,6 am,6,17,68,81,Partly sunny.
+2017-06-28,12 pm,6,17,70,84,Partly sunny.
+2017-06-28,6 pm,6,10,70,73,Partly sunny.
+2017-06-29,12 am,14,7,68,72,Passing clouds.
+2017-06-29,6 am,6,15,73,77,Partly sunny.
+2017-06-29,12 pm,6,12,79,82,Partly sunny.
+2017-06-29,6 pm,15,7,73,82,Partly cloudy.
+2017-06-30,12 am,17,8,66,70,Overcast.
+2017-06-30,6 am,6,7,66,75,Partly sunny.
+2017-06-30,12 pm,6,11,79,82,Partly sunny.
+2017-06-30,6 pm,22,10,64,79,Thunderstorms. Mostly cloudy.
+2017-07-01,12 am,14,5,61,64,Passing clouds.
+2017-07-01,6 am,2,9,61,77,Passing clouds.
+2017-07-01,12 pm,2,14,79,82,Passing clouds.
+2017-07-01,6 pm,1,4,70,81,Sunny.
+2017-07-02,12 am,14,7,66,70,Passing clouds.
+2017-07-02,6 am,6,12,72,79,Partly sunny.
+2017-07-02,12 pm,6,10,73,82,Partly sunny.
+2017-07-02,6 pm,14,6,73,82,Passing clouds.
+2017-07-03,12 am,14,4,70,72,Passing clouds.
+2017-07-03,6 am,2,4,72,86,Passing clouds.
+2017-07-03,12 pm,6,5,82,90,Partly sunny.
+2017-07-03,6 pm,6,4,79,82,Partly sunny.
+2017-07-04,12 am,17,3,72,75,Overcast.
+2017-07-04,6 am,6,6,72,86,Partly sunny.
+2017-07-04,12 pm,2,12,70,90,Passing clouds.
+2017-07-04,6 pm,6,1,72,73,Partly sunny.
+2017-07-05,12 am,14,1,70,72,Passing clouds.
+2017-07-05,6 am,2,2,70,86,Passing clouds.
+2017-07-05,12 pm,2,6,86,90,Passing clouds.
+2017-07-05,6 pm,14,6,77,88,Passing clouds.
+2017-07-06,12 am,14,6,72,75,Passing clouds.
+2017-07-06,6 am,2,9,72,88,Passing clouds.
+2017-07-06,12 pm,2,15,90,91,Passing clouds.
+2017-07-06,6 pm,14,10,81,90,Passing clouds.
+2017-07-07,12 am,14,8,75,79,Passing clouds.
+2017-07-07,6 am,2,15,73,82,Passing clouds.
+2017-07-07,12 pm,6,12,81,86,Partly sunny.
+2017-07-07,6 pm,13,6,72,84,Clear.
+2017-07-08,12 am,13,5,66,72,Clear.
+2017-07-08,6 am,2,6,70,81,Passing clouds.
+2017-07-08,12 pm,2,4,82,88,Passing clouds.
+2017-07-08,6 pm,14,4,73,86,Passing clouds.
+2017-07-09,12 am,14,3,68,73,Passing clouds.
+2017-07-09,6 am,2,4,70,88,Passing clouds.
+2017-07-09,12 pm,2,14,90,93,Passing clouds.
+2017-07-09,6 pm,14,12,81,91,Passing clouds.
+2017-07-10,12 am,17,15,81,82,Overcast.
+2017-07-10,6 am,2,17,81,90,Passing clouds.
+2017-07-10,12 pm,6,10,88,91,Partly sunny.
+2017-07-10,6 pm,14,7,75,88,Passing clouds.
+2017-07-11,12 am,17,7,72,75,Overcast.
+2017-07-11,6 am,6,9,72,88,Partly sunny.
+2017-07-11,12 pm,6,9,90,95,Partly sunny.
+2017-07-11,6 pm,14,11,82,91,Passing clouds.
+2017-07-12,12 am,14,14,82,82,Passing clouds.
+2017-07-12,6 am,6,7,79,84,Partly sunny.
+2017-07-12,12 pm,6,9,82,88,Partly sunny.
+2017-07-12,6 pm,15,5,73,82,Partly cloudy.
+2017-07-13,12 am,17,4,73,75,Overcast.
+2017-07-13,6 am,7,7,72,75,Overcast.
+2017-07-13,12 pm,6,8,77,84,Partly sunny.
+2017-07-13,6 pm,14,8,72,84,Passing clouds.
+2017-07-14,12 am,13,7,64,72,Clear.
+2017-07-14,6 am,2,5,64,79,Passing clouds.
+2017-07-14,12 pm,2,4,81,84,Passing clouds.
+2017-07-14,6 pm,13,7,72,84,Clear.
+2017-07-15,12 am,13,6,66,72,Clear.
+2017-07-15,6 am,2,9,66,86,Passing clouds.
+2017-07-15,12 pm,2,12,88,91,Passing clouds.
+2017-07-15,6 pm,2,9,79,90,Passing clouds.
+2017-07-16,12 am,14,4,75,77,Passing clouds.
+2017-07-16,6 am,2,6,75,90,Passing clouds.
+2017-07-16,12 pm,2,7,91,93,Passing clouds.
+2017-07-16,6 pm,2,10,77,90,Passing clouds.
+2017-07-17,12 am,17,8,73,75,Overcast.
+2017-07-17,6 am,6,9,72,81,Partly sunny.
+2017-07-17,12 pm,2,8,84,90,Passing clouds.
+2017-07-17,6 pm,14,11,79,84,Passing clouds.
+2017-07-18,12 am,14,7,75,79,Passing clouds.
+2017-07-18,6 am,6,9,75,82,Partly sunny.
+2017-07-18,12 pm,6,11,86,90,Partly sunny.
+2017-07-18,6 pm,14,6,81,88,Passing clouds.
+2017-07-19,12 am,14,4,77,81,Passing clouds.
+2017-07-19,6 am,6,8,79,90,Partly sunny.
+2017-07-19,12 pm,2,14,91,97,Passing clouds.
+2017-07-19,6 pm,6,12,82,91,Partly sunny.
+2017-07-20,12 am,17,11,81,84,Overcast.
+2017-07-20,6 am,6,10,81,91,Partly sunny.
+2017-07-20,12 pm,2,6,91,99,Passing clouds.
+2017-07-20,6 pm,22,8,75,95,Thunderstorms. Mostly cloudy.
+2017-07-21,12 am,17,6,75,77,Overcast.
+2017-07-21,6 am,6,8,75,91,Partly sunny.
+2017-07-21,12 pm,2,14,95,100,Passing clouds.
+2017-07-21,6 pm,14,11,88,97,Passing clouds.
+2017-07-22,12 am,14,7,81,88,Passing clouds.
+2017-07-22,6 am,6,9,77,90,Partly sunny.
+2017-07-22,12 pm,2,11,88,91,Passing clouds.
+2017-07-22,6 pm,17,6,79,86,Overcast.
+2017-07-23,12 am,14,5,73,79,Passing clouds.
+2017-07-23,6 am,2,10,73,88,Passing clouds.
+2017-07-23,12 pm,2,15,84,88,Passing clouds.
+2017-07-23,6 pm,2,9,72,84,Passing clouds.
+2017-07-24,12 am,13,5,64,70,Clear.
+2017-07-24,6 am,2,6,64,81,Passing clouds.
+2017-07-24,12 pm,2,7,81,84,Passing clouds.
+2017-07-24,6 pm,13,9,72,82,Clear.
+2017-07-25,12 am,14,11,66,72,Passing clouds.
+2017-07-25,6 am,2,12,68,86,Passing clouds.
+2017-07-25,12 pm,2,14,90,95,Passing clouds.
+2017-07-25,6 pm,6,11,81,91,Partly sunny.
+2017-07-26,12 am,17,7,75,79,Overcast.
+2017-07-26,6 am,6,6,75,77,Partly sunny.
+2017-07-26,12 pm,7,4,79,81,Overcast.
+2017-07-26,6 pm,17,6,75,79,Overcast.
+2017-07-27,12 am,14,6,72,73,Passing clouds.
+2017-07-27,6 am,2,10,72,82,Passing clouds.
+2017-07-27,12 pm,2,12,82,88,Passing clouds.
+2017-07-27,6 pm,2,7,73,82,Passing clouds.
+2017-07-28,12 am,13,1,66,73,Clear.
+2017-07-28,6 am,6,5,70,81,Partly sunny.
+2017-07-28,12 pm,2,8,82,86,Passing clouds.
+2017-07-28,6 pm,14,6,73,82,Passing clouds.
+2017-07-29,12 am,14,6,64,72,Passing clouds.
+2017-07-29,6 am,2,8,66,79,Passing clouds.
+2017-07-29,12 pm,2,7,81,84,Passing clouds.
+2017-07-29,6 pm,14,6,72,81,Passing clouds.
+2017-07-30,12 am,13,4,64,72,Clear.
+2017-07-30,6 am,2,4,64,79,Passing clouds.
+2017-07-30,12 pm,2,7,79,82,Passing clouds.
+2017-07-30,6 pm,14,7,72,81,Passing clouds.
+2017-07-31,12 am,14,6,64,72,Passing clouds.
+2017-07-31,6 am,6,6,66,81,Partly sunny.
+2017-07-31,12 pm,2,7,82,84,Passing clouds.
+2017-07-31,6 pm,14,6,73,82,Passing clouds.
+2017-08-01,12 am,14,5,63,73,Passing clouds.
+2017-08-01,6 am,2,2,64,82,Passing clouds.
+2017-08-01,12 pm,2,7,86,90,Passing clouds.
+2017-08-01,6 pm,2,6,72,86,Passing clouds.
+2017-08-02,12 am,17,2,66,70,Overcast.
+2017-08-02,6 am,2,7,66,84,Passing clouds.
+2017-08-02,12 pm,2,9,88,90,Passing clouds.
+2017-08-02,6 pm,6,4,75,84,Partly sunny.
+2017-08-03,12 am,17,2,72,75,Overcast.
+2017-08-03,6 am,6,9,68,77,Partly sunny.
+2017-08-03,12 pm,2,19,73,79,Passing clouds.
+2017-08-03,6 pm,14,15,57,72,Passing clouds.
+2017-08-04,12 am,13,8,54,55,Clear.
+2017-08-04,6 am,1,12,55,73,Sunny.
+2017-08-04,12 pm,2,11,75,79,Passing clouds.
+2017-08-04,6 pm,2,3,64,77,Passing clouds.
+2017-08-05,12 am,14,3,55,63,Passing clouds.
+2017-08-05,6 am,6,7,59,72,Partly sunny.
+2017-08-05,12 pm,7,7,72,73,Overcast.
+2017-08-05,6 pm,17,6,66,72,Overcast.
+2017-08-06,12 am,14,5,63,66,Passing clouds.
+2017-08-06,6 am,6,7,63,73,Partly sunny.
+2017-08-06,12 pm,6,7,73,77,Partly sunny.
+2017-08-06,6 pm,14,4,70,75,Passing clouds.
+2017-08-07,12 am,14,1,63,70,Passing clouds.
+2017-08-07,6 am,2,6,64,77,Passing clouds.
+2017-08-07,12 pm,2,12,79,82,Passing clouds.
+2017-08-07,6 pm,13,6,68,79,Clear.
+2017-08-08,12 am,13,0,59,66,Clear.
+2017-08-08,6 am,1,1,61,79,Sunny.
+2017-08-08,12 pm,2,5,81,82,Passing clouds.
+2017-08-08,6 pm,14,6,72,81,Passing clouds.
+2017-08-09,12 am,14,6,61,66,Passing clouds.
+2017-08-09,6 am,6,10,61,81,Partly sunny.
+2017-08-09,12 pm,2,11,82,84,Passing clouds.
+2017-08-09,6 pm,14,6,72,81,Passing clouds.
+2017-08-10,12 am,14,5,64,68,Passing clouds.
+2017-08-10,6 am,2,8,66,82,Passing clouds.
+2017-08-10,12 pm,6,14,82,88,Partly sunny.
+2017-08-10,6 pm,14,9,72,81,Passing clouds.
+2017-08-11,12 am,14,5,63,70,Passing clouds.
+2017-08-11,6 am,2,11,63,77,Passing clouds.
+2017-08-11,12 pm,2,12,79,82,Passing clouds.
+2017-08-11,6 pm,2,7,64,79,Passing clouds.
+2017-08-12,12 am,13,0,57,64,Clear.
+2017-08-12,6 am,2,2,57,79,Passing clouds.
+2017-08-12,12 pm,2,6,81,82,Passing clouds.
+2017-08-12,6 pm,14,7,70,81,Passing clouds.
+2017-08-13,12 am,17,9,63,68,Overcast.
+2017-08-13,6 am,6,6,63,73,Partly sunny.
+2017-08-13,12 pm,2,10,75,81,Passing clouds.
+2017-08-13,6 pm,14,8,70,79,Passing clouds.
+2017-08-14,12 am,14,9,63,64,Passing clouds.
+2017-08-14,6 am,7,9,66,70,Overcast.
+2017-08-14,12 pm,2,7,70,86,Passing clouds.
+2017-08-14,6 pm,14,6,72,84,Passing clouds.
+2017-08-15,12 am,14,7,66,72,Passing clouds.
+2017-08-15,6 am,7,7,66,77,Overcast.
+2017-08-15,12 pm,6,8,70,79,Partly sunny.
+2017-08-15,6 pm,14,9,70,75,Passing clouds.
+2017-08-16,12 am,14,8,70,70,Passing clouds.
+2017-08-16,6 am,6,12,72,79,Partly sunny.
+2017-08-16,12 pm,6,14,77,86,Partly sunny.
+2017-08-16,6 pm,14,12,72,84,Passing clouds.
+2017-08-17,12 am,17,12,66,72,Overcast.
+2017-08-17,6 am,6,16,66,73,Partly sunny.
+2017-08-17,12 pm,2,18,79,82,Passing clouds.
+2017-08-17,6 pm,13,8,68,81,Clear.
+2017-08-18,12 am,13,2,63,66,Clear.
+2017-08-18,6 am,6,5,61,81,Partly sunny.
+2017-08-18,12 pm,2,9,84,90,Passing clouds.
+2017-08-18,6 pm,2,7,73,84,Passing clouds.
+2017-08-19,12 am,14,7,64,72,Passing clouds.
+2017-08-19,6 am,7,2,64,77,Overcast.
+2017-08-19,12 pm,2,3,79,84,Passing clouds.
+2017-08-19,6 pm,14,6,75,82,Passing clouds.
+2017-08-20,12 am,17,6,70,73,Overcast.
+2017-08-20,6 am,6,6,70,79,Partly sunny.
+2017-08-20,12 pm,2,7,75,81,Passing clouds.
+2017-08-20,6 pm,2,4,72,81,Passing clouds.
+2017-08-21,12 am,22,11,68,73,Thunderstorms. Mostly cloudy.
+2017-08-21,6 am,22,13,66,72,Thunderstorms. Mostly cloudy.
+2017-08-21,12 pm,6,9,72,84,Partly sunny.
+2017-08-21,6 pm,22,10,66,82,Thunderstorms. Mostly cloudy.
+2017-08-22,12 am,17,7,64,66,Overcast.
+2017-08-22,6 am,2,12,64,73,Passing clouds.
+2017-08-22,12 pm,2,14,75,79,Passing clouds.
+2017-08-22,6 pm,2,6,61,73,Passing clouds.
+2017-08-23,12 am,13,2,55,61,Clear.
+2017-08-23,6 am,1,3,55,75,Sunny.
+2017-08-23,12 pm,2,6,79,81,Passing clouds.
+2017-08-23,6 pm,14,4,70,79,Passing clouds.
+2017-08-24,12 am,17,4,63,70,Overcast.
+2017-08-24,6 am,7,6,63,73,Overcast.
+2017-08-24,12 pm,7,11,77,81,Overcast.
+2017-08-24,6 pm,14,8,68,75,Passing clouds.
+2017-08-25,12 am,17,9,64,66,Overcast.
+2017-08-25,6 am,6,12,64,70,Partly sunny.
+2017-08-25,12 pm,7,16,72,81,Overcast.
+2017-08-25,6 pm,14,11,66,77,Passing clouds.
+2017-08-26,12 am,14,8,63,64,Passing clouds.
+2017-08-26,6 am,6,9,63,73,Partly sunny.
+2017-08-26,12 pm,6,13,75,82,Partly sunny.
+2017-08-26,6 pm,15,7,72,79,Partly cloudy.
+2017-08-27,12 am,14,3,68,72,Passing clouds.
+2017-08-27,6 am,7,3,70,72,Overcast.
+2017-08-27,12 pm,6,4,72,79,Partly sunny.
+2017-08-27,6 pm,14,4,66,79,Passing clouds.
+2017-08-28,12 am,13,6,61,64,Clear.
+2017-08-28,6 am,2,9,61,72,Passing clouds.
+2017-08-28,12 pm,6,12,70,73,Partly sunny.
+2017-08-28,6 pm,14,4,63,68,Passing clouds.
+2017-08-29,12 am,13,4,57,61,Clear.
+2017-08-29,6 am,1,2,57,73,Sunny.
+2017-08-29,12 pm,6,6,75,81,Partly sunny.
+2017-08-29,6 pm,14,6,66,79,Passing clouds.
+2017-08-30,12 am,13,0,63,66,Clear.
+2017-08-30,6 am,2,1,61,79,Passing clouds.
+2017-08-30,12 pm,2,5,79,82,Passing clouds.
+2017-08-30,6 pm,14,5,72,81,Passing clouds.
+2017-08-31,12 am,13,0,63,70,Clear.
+2017-08-31,6 am,2,5,63,79,Passing clouds.
+2017-08-31,12 pm,2,9,77,82,Passing clouds.
+2017-08-31,6 pm,17,9,64,75,Overcast.
+2017-09-01,12 am,14,6,57,63,Passing clouds.
+2017-09-01,6 am,2,8,55,70,Passing clouds.
+2017-09-01,12 pm,2,8,72,75,Passing clouds.
+2017-09-01,6 pm,17,9,64,72,Overcast.
+2017-09-02,12 am,17,8,63,64,Overcast.
+2017-09-02,6 am,6,8,61,75,Partly sunny.
+2017-09-02,12 pm,6,12,81,82,Partly sunny.
+2017-09-02,6 pm,13,4,68,81,Clear.
+2017-09-03,12 am,14,1,61,66,Passing clouds.
+2017-09-03,6 am,2,3,61,81,Passing clouds.
+2017-09-03,12 pm,2,11,84,88,Passing clouds.
+2017-09-03,6 pm,14,11,73,82,Passing clouds.
+2017-09-04,12 am,13,12,73,75,Clear.
+2017-09-04,6 am,6,12,73,79,Partly sunny.
+2017-09-04,12 pm,7,10,72,75,Overcast.
+2017-09-04,6 pm,17,11,64,70,Overcast.
+2017-09-05,12 am,14,8,54,61,Passing clouds.
+2017-09-05,6 am,2,13,54,68,Passing clouds.
+2017-09-05,12 pm,2,21,70,72,Passing clouds.
+2017-09-05,6 pm,14,7,54,66,Passing clouds.
+2017-09-06,12 am,14,5,48,54,Passing clouds.
+2017-09-06,6 am,2,8,48,66,Passing clouds.
+2017-09-06,12 pm,6,9,68,72,Partly sunny.
+2017-09-06,6 pm,14,2,54,66,Passing clouds.
+2017-09-07,12 am,14,4,48,54,Passing clouds.
+2017-09-07,6 am,2,6,48,72,Passing clouds.
+2017-09-07,12 pm,6,7,72,75,Partly sunny.
+2017-09-07,6 pm,14,5,61,73,Passing clouds.
+2017-09-08,12 am,13,4,55,59,Clear.
+2017-09-08,6 am,2,6,55,75,Passing clouds.
+2017-09-08,12 pm,2,7,81,84,Passing clouds.
+2017-09-08,6 pm,14,8,70,81,Passing clouds.
+2017-09-09,12 am,14,9,59,66,Passing clouds.
+2017-09-09,6 am,2,7,59,75,Passing clouds.
+2017-09-09,12 pm,6,7,79,84,Partly sunny.
+2017-09-09,6 pm,14,9,72,81,Passing clouds.
+2017-09-10,12 am,14,8,64,70,Passing clouds.
+2017-09-10,6 am,2,10,63,77,Passing clouds.
+2017-09-10,12 pm,6,14,81,84,Partly sunny.
+2017-09-10,6 pm,14,11,66,81,Passing clouds.
+2017-09-11,12 am,13,7,61,64,Clear.
+2017-09-11,6 am,2,7,59,77,Passing clouds.
+2017-09-11,12 pm,1,6,81,84,Sunny.
+2017-09-11,6 pm,13,6,68,79,Clear.
+2017-09-12,12 am,13,1,61,66,Clear.
+2017-09-12,6 am,2,1,61,81,Passing clouds.
+2017-09-12,12 pm,6,6,82,84,Partly sunny.
+2017-09-12,6 pm,14,4,68,81,Passing clouds.
+2017-09-13,12 am,13,1,64,66,Clear.
+2017-09-13,6 am,1,2,61,81,Sunny.
+2017-09-13,12 pm,1,5,82,88,Sunny.
+2017-09-13,6 pm,13,4,72,84,Clear.
+2017-09-14,12 am,13,6,64,70,Clear.
+2017-09-14,6 am,2,9,64,86,Passing clouds.
+2017-09-14,12 pm,2,15,90,91,Passing clouds.
+2017-09-14,6 pm,14,12,73,84,Passing clouds.
+2017-09-15,12 am,14,9,68,73,Passing clouds.
+2017-09-15,6 am,6,10,66,81,Partly sunny.
+2017-09-15,12 pm,2,20,88,93,Passing clouds.
+2017-09-15,6 pm,14,13,79,88,Passing clouds.
+2017-09-16,12 am,17,9,72,75,Overcast.
+2017-09-16,6 am,6,12,72,75,Partly sunny.
+2017-09-16,12 pm,6,9,72,82,Partly sunny.
+2017-09-16,6 pm,17,5,66,77,Overcast.
+2017-09-17,12 am,17,9,61,64,Overcast.
+2017-09-17,6 am,2,11,57,64,Passing clouds.
+2017-09-17,12 pm,2,4,66,73,Passing clouds.
+2017-09-17,6 pm,14,5,63,70,Passing clouds.
+2017-09-18,12 am,14,6,57,61,Passing clouds.
+2017-09-18,6 am,6,7,61,70,Partly sunny.
+2017-09-18,12 pm,6,9,70,72,Partly sunny.
+2017-09-18,6 pm,14,5,64,70,Passing clouds.
+2017-09-19,12 am,14,6,63,64,Passing clouds.
+2017-09-19,6 am,9,9,63,73,Fog.
+2017-09-19,12 pm,2,17,75,84,Passing clouds.
+2017-09-19,6 pm,14,16,73,81,Passing clouds.
+2017-09-20,12 am,14,14,73,75,Passing clouds.
+2017-09-20,6 am,2,10,73,84,Passing clouds.
+2017-09-20,12 pm,6,8,84,88,Partly sunny.
+2017-09-20,6 pm,14,7,72,81,Passing clouds.
+2017-09-21,12 am,14,7,68,73,Passing clouds.
+2017-09-21,6 am,6,11,68,79,Partly sunny.
+2017-09-21,12 pm,2,19,82,90,Passing clouds.
+2017-09-21,6 pm,13,14,81,86,Clear.
+2017-09-22,12 am,14,9,77,79,Passing clouds.
+2017-09-22,6 am,2,13,73,88,Passing clouds.
+2017-09-22,12 pm,2,19,90,91,Passing clouds.
+2017-09-22,6 pm,14,8,75,86,Passing clouds.
+2017-09-23,12 am,13,7,72,75,Clear.
+2017-09-23,6 am,2,9,72,88,Passing clouds.
+2017-09-23,12 pm,2,13,88,91,Passing clouds.
+2017-09-23,6 pm,14,8,77,86,Passing clouds.
+2017-09-24,12 am,13,7,72,73,Clear.
+2017-09-24,6 am,2,9,70,88,Passing clouds.
+2017-09-24,12 pm,2,14,88,91,Passing clouds.
+2017-09-24,6 pm,14,7,73,84,Passing clouds.
+2017-09-25,12 am,14,3,70,73,Passing clouds.
+2017-09-25,6 am,2,2,66,82,Passing clouds.
+2017-09-25,12 pm,22,9,68,84,Thunderstorms. Mostly cloudy.
+2017-09-25,6 pm,17,6,66,68,Overcast.
+2017-09-26,12 am,17,6,66,66,Overcast.
+2017-09-26,6 am,6,7,64,66,Partly sunny.
+2017-09-26,12 pm,7,10,64,64,Overcast.
+2017-09-26,6 pm,17,6,59,64,Overcast.
+2017-09-27,12 am,14,6,54,57,Passing clouds.
+2017-09-27,6 am,7,4,54,63,Overcast.
+2017-09-27,12 pm,6,6,64,70,Partly sunny.
+2017-09-27,6 pm,14,2,57,66,Passing clouds.
+2017-09-28,12 am,13,3,52,54,Clear.
+2017-09-28,6 am,2,2,52,72,Passing clouds.
+2017-09-28,12 pm,2,6,73,77,Passing clouds.
+2017-09-28,6 pm,14,6,61,72,Passing clouds.
+2017-09-29,12 am,13,4,54,59,Clear.
+2017-09-29,6 am,2,6,54,70,Passing clouds.
+2017-09-29,12 pm,2,7,70,75,Passing clouds.
+2017-09-29,6 pm,14,9,57,70,Passing clouds.
+2017-09-30,12 am,14,7,52,57,Passing clouds.
+2017-09-30,6 am,6,11,52,70,Partly sunny.
+2017-09-30,12 pm,2,12,70,73,Passing clouds.
+2017-09-30,6 pm,14,10,61,70,Passing clouds.
+2017-10-01,12 am,14,11,55,57,Passing clouds.
+2017-10-01,6 am,6,15,57,68,Partly sunny.
+2017-10-01,12 pm,6,17,68,75,Partly sunny.
+2017-10-01,6 pm,17,14,64,72,Overcast.
+2017-10-02,12 am,17,11,64,64,Overcast.
+2017-10-02,6 am,6,11,63,73,Partly sunny.
+2017-10-02,12 pm,6,20,75,84,Partly sunny.
+2017-10-02,6 pm,14,14,75,81,Passing clouds.
+2017-10-03,12 am,17,17,72,75,Overcast.
+2017-10-03,6 am,6,16,72,77,Partly sunny.
+2017-10-03,12 pm,6,14,64,79,Partly sunny.
+2017-10-03,6 pm,22,7,61,64,Thunderstorms. Mostly cloudy.
+2017-10-04,12 am,14,6,57,63,Passing clouds.
+2017-10-04,6 am,6,8,57,63,Partly sunny.
+2017-10-04,12 pm,6,3,64,66,Partly sunny.
+2017-10-04,6 pm,14,1,55,63,Passing clouds.
+2017-10-05,12 am,14,1,54,55,Passing clouds.
+2017-10-05,6 am,7,6,57,61,Overcast.
+2017-10-05,12 pm,18,7,61,64,Drizzle. Fog.
+2017-10-05,6 pm,14,7,64,64,Passing clouds.
+2017-10-06,12 am,34,6,64,66,Drizzle. Fog.
+2017-10-06,6 am,18,7,66,66,Drizzle. Fog.
+2017-10-06,12 pm,18,10,68,72,Drizzle. Fog.
+2017-10-06,6 pm,17,11,66,70,Overcast.
+2017-10-07,12 am,34,13,66,72,Drizzle. Fog.
+2017-10-07,6 am,18,14,61,68,Drizzle. Fog.
+2017-10-07,12 pm,18,17,57,64,Drizzle. Fog.
+2017-10-07,6 pm,14,7,55,61,Passing clouds.
+2017-10-08,12 am,13,6,54,55,Clear.
+2017-10-08,6 am,2,11,52,75,Passing clouds.
+2017-10-08,12 pm,1,13,75,81,Sunny.
+2017-10-08,6 pm,14,6,61,72,Passing clouds.
+2017-10-09,12 am,13,11,54,59,Clear.
+2017-10-09,6 am,2,14,54,64,Passing clouds.
+2017-10-09,12 pm,2,14,63,70,Passing clouds.
+2017-10-09,6 pm,14,16,48,59,Passing clouds.
+2017-10-10,12 am,17,14,46,48,Overcast.
+2017-10-10,6 am,19,17,45,46,Rain. Fog.
+2017-10-10,12 pm,7,12,46,48,Overcast.
+2017-10-10,6 pm,17,11,46,46,Overcast.
+2017-10-11,12 am,17,7,45,46,Overcast.
+2017-10-11,6 am,7,6,46,52,Overcast.
+2017-10-11,12 pm,2,4,55,61,Passing clouds.
+2017-10-11,6 pm,17,9,55,57,Overcast.
+2017-10-12,12 am,17,7,52,54,Overcast.
+2017-10-12,6 am,7,9,52,54,Overcast.
+2017-10-12,12 pm,2,13,55,63,Passing clouds.
+2017-10-12,6 pm,13,9,52,57,Clear.
+2017-10-13,12 am,14,6,54,54,Passing clouds.
+2017-10-13,6 am,9,7,54,57,Fog.
+2017-10-13,12 pm,7,12,57,61,Overcast.
+2017-10-13,6 pm,17,9,57,59,Overcast.
+2017-10-14,12 am,17,8,57,57,Overcast.
+2017-10-14,6 am,19,9,57,61,Rain. Fog.
+2017-10-14,12 pm,22,9,61,70,Thunderstorms. Mostly cloudy.
+2017-10-14,6 pm,17,19,54,70,Overcast.
+2017-10-15,12 am,17,21,46,52,Overcast.
+2017-10-15,6 am,7,14,46,54,Overcast.
+2017-10-15,12 pm,2,14,55,59,Passing clouds.
+2017-10-15,6 pm,13,4,45,54,Clear.
+2017-10-16,12 am,13,4,39,45,Clear.
+2017-10-16,6 am,1,5,39,63,Sunny.
+2017-10-16,12 pm,1,12,64,70,Sunny.
+2017-10-16,6 pm,14,9,54,61,Passing clouds.
+2017-10-17,12 am,13,11,52,55,Clear.
+2017-10-17,6 am,2,12,52,66,Passing clouds.
+2017-10-17,12 pm,1,14,70,72,Sunny.
+2017-10-17,6 pm,13,9,54,64,Clear.
+2017-10-18,12 am,13,12,54,57,Clear.
+2017-10-18,6 am,2,13,54,70,Passing clouds.
+2017-10-18,12 pm,2,14,72,75,Passing clouds.
+2017-10-18,6 pm,14,5,57,66,Passing clouds.
+2017-10-19,12 am,13,4,52,55,Clear.
+2017-10-19,6 am,6,9,52,68,Partly sunny.
+2017-10-19,12 pm,2,12,72,75,Passing clouds.
+2017-10-19,6 pm,13,9,61,68,Clear.
+2017-10-20,12 am,14,9,55,59,Passing clouds.
+2017-10-20,6 am,6,11,55,70,Partly sunny.
+2017-10-20,12 pm,6,19,70,75,Partly sunny.
+2017-10-20,6 pm,14,16,63,68,Passing clouds.
+2017-10-21,12 am,14,17,63,64,Passing clouds.
+2017-10-21,6 am,7,18,64,68,Overcast.
+2017-10-21,12 pm,6,19,70,75,Partly sunny.
+2017-10-21,6 pm,22,11,54,70,Thunderstorms. Mostly cloudy.
+2017-10-22,12 am,17,7,52,52,Overcast.
+2017-10-22,6 am,6,8,50,57,Partly sunny.
+2017-10-22,12 pm,2,6,63,66,Passing clouds.
+2017-10-22,6 pm,14,7,48,64,Passing clouds.
+2017-10-23,12 am,13,9,45,46,Clear.
+2017-10-23,6 am,6,9,45,63,Partly sunny.
+2017-10-23,12 pm,6,20,55,66,Partly sunny.
+2017-10-23,6 pm,14,15,50,54,Passing clouds.
+2017-10-24,12 am,14,21,39,48,Passing clouds.
+2017-10-24,6 am,7,22,37,45,Overcast.
+2017-10-24,12 pm,2,22,48,54,Passing clouds.
+2017-10-24,6 pm,13,13,43,48,Clear.
+2017-10-25,12 am,14,7,37,43,Passing clouds.
+2017-10-25,6 am,2,12,39,61,Passing clouds.
+2017-10-25,12 pm,6,9,63,66,Partly sunny.
+2017-10-25,6 pm,14,6,48,63,Passing clouds.
+2017-10-26,12 am,14,10,48,50,Passing clouds.
+2017-10-26,6 am,6,12,48,59,Partly sunny.
+2017-10-26,12 pm,5,22,52,64,High level clouds.
+2017-10-26,6 pm,17,24,39,48,Overcast.
+2017-10-27,12 am,17,22,36,39,Overcast.
+2017-10-27,6 am,7,24,34,36,Overcast.
+2017-10-27,12 pm,7,25,36,37,Overcast.
+2017-10-27,6 pm,17,18,34,36,Overcast.
+2017-10-28,12 am,17,12,34,34,Overcast.
+2017-10-28,6 am,7,12,34,39,Overcast.
+2017-10-28,12 pm,2,9,39,45,Passing clouds.
+2017-10-28,6 pm,14,3,30,41,Passing clouds.
+2017-10-29,12 am,14,8,28,34,Passing clouds.
+2017-10-29,6 am,6,8,34,46,Partly sunny.
+2017-10-29,12 pm,6,8,48,54,Partly sunny.
+2017-10-29,6 pm,34,6,46,52,Drizzle. Fog.
+2017-10-30,12 am,17,14,43,46,Overcast.
+2017-10-30,6 am,2,25,39,45,Passing clouds.
+2017-10-30,12 pm,7,21,37,41,Overcast.
+2017-10-30,6 pm,29,20,36,37,Light snow. Ice fog.
+2017-10-31,12 am,17,12,27,34,Overcast.
+2017-10-31,6 am,6,7,25,34,Partly sunny.
+2017-10-31,12 pm,6,7,36,36,Partly sunny.
+2017-10-31,6 pm,17,7,34,36,Overcast.
+2017-11-01,12 am,17,9,34,34,Overcast.
+2017-11-01,6 am,7,14,34,39,Overcast.
+2017-11-01,12 pm,7,14,43,48,Overcast.
+2017-11-01,6 pm,17,6,45,46,Overcast.
+2017-11-02,12 am,14,4,43,45,Passing clouds.
+2017-11-02,6 am,9,6,45,52,Fog.
+2017-11-02,12 pm,6,12,48,55,Partly sunny.
+2017-11-02,6 pm,14,11,36,45,Passing clouds.
+2017-11-03,12 am,14,10,32,34,Passing clouds.
+2017-11-03,6 am,6,11,34,43,Partly sunny.
+2017-11-03,12 pm,6,9,45,50,Partly sunny.
+2017-11-03,6 pm,17,10,45,48,Overcast.
+2017-11-04,12 am,17,9,43,45,Overcast.
+2017-11-04,6 am,18,6,43,46,Drizzle. Fog.
+2017-11-04,12 pm,7,1,48,50,Overcast.
+2017-11-04,6 pm,17,4,48,48,Overcast.
+2017-11-05,12 am,17,2,46,48,Overcast.
+2017-11-05,6 am,6,12,45,46,Partly sunny.
+2017-11-05,12 pm,2,15,36,46,Passing clouds.
+2017-11-05,6 pm,17,13,28,34,Overcast.
+2017-11-06,12 am,17,7,27,28,Overcast.
+2017-11-06,6 am,6,10,28,36,Partly sunny.
+2017-11-06,12 pm,6,9,36,39,Partly sunny.
+2017-11-06,6 pm,14,9,32,36,Passing clouds.
+2017-11-07,12 am,17,11,30,34,Overcast.
+2017-11-07,6 am,6,11,34,39,Partly sunny.
+2017-11-07,12 pm,2,6,37,43,Passing clouds.
+2017-11-07,6 pm,14,1,28,36,Passing clouds.
+2017-11-08,12 am,13,1,23,27,Clear.
+2017-11-08,6 am,1,5,21,46,Sunny.
+2017-11-08,12 pm,2,11,43,48,Passing clouds.
+2017-11-08,6 pm,14,8,36,39,Passing clouds.
+2017-11-09,12 am,17,14,34,41,Overcast.
+2017-11-09,6 am,2,17,30,32,Passing clouds.
+2017-11-09,12 pm,2,12,27,34,Passing clouds.
+2017-11-09,6 pm,14,10,21,25,Passing clouds.
+2017-11-10,12 am,14,9,18,21,Passing clouds.
+2017-11-10,6 am,6,12,18,30,Partly sunny.
+2017-11-10,12 pm,6,13,30,32,Partly sunny.
+2017-11-10,6 pm,17,14,32,34,Overcast.
+2017-11-11,12 am,17,15,34,36,Overcast.
+2017-11-11,6 am,6,13,36,43,Partly sunny.
+2017-11-11,12 pm,7,5,45,46,Overcast.
+2017-11-11,6 pm,17,4,43,45,Overcast.
+2017-11-12,12 am,34,4,39,43,Drizzle. Fog.
+2017-11-12,6 am,9,7,37,43,Fog.
+2017-11-12,12 pm,6,5,43,48,Partly sunny.
+2017-11-12,6 pm,13,0,30,39,Clear.
+2017-11-13,12 am,14,6,28,30,Passing clouds.
+2017-11-13,6 am,10,8,28,41,Ice fog.
+2017-11-13,12 pm,7,11,41,43,Overcast.
+2017-11-13,6 pm,17,8,43,43,Overcast.
+2017-11-14,12 am,17,7,43,45,Overcast.
+2017-11-14,6 am,7,11,45,50,Overcast.
+2017-11-14,12 pm,9,12,50,52,Fog.
+2017-11-14,6 pm,34,10,50,52,Drizzle. Fog.
+2017-11-15,12 am,14,12,48,54,Passing clouds.
+2017-11-15,6 am,2,20,43,50,Passing clouds.
+2017-11-15,12 pm,2,21,36,52,Passing clouds.
+2017-11-15,6 pm,13,9,27,34,Clear.
+2017-11-16,12 am,14,6,21,25,Passing clouds.
+2017-11-16,6 am,2,4,21,34,Passing clouds.
+2017-11-16,12 pm,6,10,36,41,Partly sunny.
+2017-11-16,6 pm,14,11,34,36,Passing clouds.
+2017-11-17,12 am,17,13,37,43,Overcast.
+2017-11-17,6 am,18,15,43,46,Drizzle. Fog.
+2017-11-17,12 pm,9,7,46,52,Fog.
+2017-11-17,6 pm,34,8,46,50,Drizzle. Fog.
+2017-11-18,12 am,34,14,39,45,Drizzle. Fog.
+2017-11-18,6 am,6,16,37,43,Partly sunny.
+2017-11-18,12 pm,2,19,37,45,Passing clouds.
+2017-11-18,6 pm,13,15,30,36,Clear.
+2017-11-19,12 am,14,10,23,28,Passing clouds.
+2017-11-19,6 am,2,7,21,41,Passing clouds.
+2017-11-19,12 pm,2,11,41,48,Passing clouds.
+2017-11-19,6 pm,14,11,37,39,Passing clouds.
+2017-11-20,12 am,14,11,36,41,Passing clouds.
+2017-11-20,6 am,6,16,37,57,Partly sunny.
+2017-11-20,12 pm,6,17,55,61,Partly sunny.
+2017-11-20,6 pm,14,10,45,54,Passing clouds.
+2017-11-21,12 am,15,11,43,46,Partly cloudy.
+2017-11-21,6 am,6,20,32,39,Partly sunny.
+2017-11-21,12 pm,1,20,30,36,Sunny.
+2017-11-21,6 pm,13,11,23,28,Clear.
+2017-11-22,12 am,13,6,18,21,Clear.
+2017-11-22,6 am,2,6,18,32,Passing clouds.
+2017-11-22,12 pm,6,11,36,37,Partly sunny.
+2017-11-22,6 pm,14,12,34,36,Passing clouds.
+2017-11-23,12 am,13,7,30,34,Clear.
+2017-11-23,6 am,6,7,30,48,Partly sunny.
+2017-11-23,12 pm,6,6,46,54,Partly sunny.
+2017-11-23,6 pm,14,11,45,52,Passing clouds.
+2017-11-24,12 am,14,13,48,52,Passing clouds.
+2017-11-24,6 am,2,16,52,66,Passing clouds.
+2017-11-24,12 pm,2,17,61,70,Passing clouds.
+2017-11-24,6 pm,13,16,45,59,Clear.
+2017-11-25,12 am,13,7,37,43,Clear.
+2017-11-25,6 am,2,8,37,52,Passing clouds.
+2017-11-25,12 pm,2,9,48,57,Passing clouds.
+2017-11-25,6 pm,13,2,37,46,Clear.
+2017-11-26,12 am,13,5,34,36,Clear.
+2017-11-26,6 am,6,8,34,55,Partly sunny.
+2017-11-26,12 pm,6,7,54,61,Partly sunny.
+2017-11-26,6 pm,14,2,41,50,Passing clouds.
+2017-11-27,12 am,13,6,36,43,Clear.
+2017-11-27,6 am,7,11,37,55,Overcast.
+2017-11-27,12 pm,6,15,57,61,Partly sunny.
+2017-11-27,6 pm,13,16,57,61,Clear.
+2017-11-28,12 am,13,9,50,54,Clear.
+2017-11-28,6 am,6,12,48,55,Partly sunny.
+2017-11-28,12 pm,6,12,48,55,Partly sunny.
+2017-11-28,6 pm,14,8,43,46,Passing clouds.
+2017-11-29,12 am,13,7,34,39,Clear.
+2017-11-29,6 am,2,7,30,46,Passing clouds.
+2017-11-29,12 pm,6,11,45,50,Partly sunny.
+2017-11-29,6 pm,14,7,37,45,Passing clouds.
+2017-11-30,12 am,14,12,39,43,Passing clouds.
+2017-11-30,6 am,2,14,37,50,Passing clouds.
+2017-11-30,12 pm,2,11,45,54,Passing clouds.
+2017-11-30,6 pm,13,4,36,45,Clear.
+2017-12-01,12 am,13,4,30,36,Clear.
+2017-12-01,6 am,2,11,30,54,Passing clouds.
+2017-12-01,12 pm,2,14,46,55,Passing clouds.
+2017-12-01,6 pm,14,6,43,45,Passing clouds.
+2017-12-02,12 am,14,4,36,39,Passing clouds.
+2017-12-02,6 am,6,4,34,54,Partly sunny.
+2017-12-02,12 pm,2,4,50,59,Passing clouds.
+2017-12-02,6 pm,13,5,37,46,Clear.
+2017-12-03,12 am,14,5,34,39,Passing clouds.
+2017-12-03,6 am,6,9,34,59,Partly sunny.
+2017-12-03,12 pm,7,13,57,63,Overcast.
+2017-12-03,6 pm,17,16,55,63,Overcast.
+2017-12-04,12 am,17,19,63,63,Overcast.
+2017-12-04,6 am,6,19,63,68,Partly sunny.
+2017-12-04,12 pm,6,24,45,70,Partly sunny.
+2017-12-04,6 pm,29,32,30,43,Light snow. Ice fog.
+2017-12-05,12 am,13,22,28,30,Clear.
+2017-12-05,6 am,29,18,25,32,Light snow. Ice fog.
+2017-12-05,12 pm,2,18,30,36,Passing clouds.
+2017-12-05,6 pm,17,7,32,36,Overcast.
+2017-12-06,12 am,14,15,27,37,Passing clouds.
+2017-12-06,6 am,7,4,28,34,Overcast.
+2017-12-06,12 pm,7,17,28,34,Overcast.
+2017-12-06,6 pm,29,21,21,27,Light snow. Ice fog.
+2017-12-07,12 am,17,17,16,19,Overcast.
+2017-12-07,6 am,1,15,16,23,Sunny.
+2017-12-07,12 pm,2,12,21,27,Passing clouds.
+2017-12-07,6 pm,13,8,18,21,Clear.
+2017-12-08,12 am,14,7,16,21,Passing clouds.
+2017-12-08,6 am,2,6,19,34,Passing clouds.
+2017-12-08,12 pm,2,11,30,39,Passing clouds.
+2017-12-08,6 pm,14,14,28,30,Passing clouds.
+2017-12-09,12 am,14,16,25,30,Passing clouds.
+2017-12-09,6 am,6,15,23,27,Partly sunny.
+2017-12-09,12 pm,2,12,25,28,Passing clouds.
+2017-12-09,6 pm,14,7,21,25,Passing clouds.
+2017-12-10,12 am,14,11,21,30,Passing clouds.
+2017-12-10,6 am,6,14,30,43,Partly sunny.
+2017-12-10,12 pm,6,12,41,46,Partly sunny.
+2017-12-10,6 pm,14,4,34,39,Passing clouds.
+2017-12-11,12 am,15,3,32,34,Partly cloudy.
+2017-12-11,6 am,2,18,32,45,Passing clouds.
+2017-12-11,12 pm,18,22,36,45,Drizzle. Fog.
+2017-12-11,6 pm,17,19,23,36,Overcast.
+2017-12-12,12 am,13,12,16,19,Clear.
+2017-12-12,6 am,2,10,16,27,Passing clouds.
+2017-12-12,12 pm,2,9,28,34,Passing clouds.
+2017-12-12,6 pm,13,10,28,30,Clear.
+2017-12-13,12 am,14,13,30,39,Passing clouds.
+2017-12-13,6 am,6,24,39,48,Partly sunny.
+2017-12-13,12 pm,7,25,37,41,Overcast.
+2017-12-13,6 pm,17,20,30,36,Overcast.
+2017-12-14,12 am,17,9,27,28,Overcast.
+2017-12-14,6 am,7,5,27,32,Overcast.
+2017-12-14,12 pm,7,5,32,32,Overcast.
+2017-12-14,6 pm,17,4,30,32,Overcast.
+2017-12-15,12 am,17,9,28,32,Overcast.
+2017-12-15,6 am,7,14,30,43,Overcast.
+2017-12-15,12 pm,6,18,41,46,Partly sunny.
+2017-12-15,6 pm,14,12,37,39,Passing clouds.
+2017-12-16,12 am,13,10,36,39,Clear.
+2017-12-16,6 am,2,8,34,48,Passing clouds.
+2017-12-16,12 pm,6,2,45,54,Partly sunny.
+2017-12-16,6 pm,13,4,36,43,Clear.
+2017-12-17,12 am,17,5,30,34,Overcast.
+2017-12-17,6 am,6,2,32,34,Partly sunny.
+2017-12-17,12 pm,6,4,36,37,Partly sunny.
+2017-12-17,6 pm,14,6,28,36,Passing clouds.
+2017-12-18,12 am,14,6,25,28,Passing clouds.
+2017-12-18,6 am,10,11,28,45,Ice fog.
+2017-12-18,12 pm,2,16,46,50,Passing clouds.
+2017-12-18,6 pm,14,11,43,45,Passing clouds.
+2017-12-19,12 am,14,9,37,45,Passing clouds.
+2017-12-19,6 am,6,9,37,48,Partly sunny.
+2017-12-19,12 pm,2,9,43,48,Passing clouds.
+2017-12-19,6 pm,17,7,36,39,Overcast.
+2017-12-20,12 am,13,7,30,36,Clear.
+2017-12-20,6 am,6,8,28,37,Partly sunny.
+2017-12-20,12 pm,6,9,39,41,Partly sunny.
+2017-12-20,6 pm,17,11,37,37,Overcast.
+2017-12-21,12 am,17,10,36,37,Overcast.
+2017-12-21,6 am,7,11,36,37,Overcast.
+2017-12-21,12 pm,7,14,36,37,Overcast.
+2017-12-21,6 pm,29,12,28,34,Light snow. Ice fog.
+2017-12-22,12 am,29,10,25,27,Light snow. Ice fog.
+2017-12-22,6 am,7,9,25,27,Overcast.
+2017-12-22,12 pm,6,8,25,28,Partly sunny.
+2017-12-22,6 pm,14,7,19,25,Passing clouds.
+2017-12-23,12 am,13,9,16,19,Clear.
+2017-12-23,6 am,6,12,18,21,Partly sunny.
+2017-12-23,12 pm,6,7,21,25,Partly sunny.
+2017-12-23,6 pm,17,3,21,21,Overcast.
+2017-12-24,12 am,29,5,18,21,Light snow. Ice fog.
+2017-12-24,6 am,29,10,18,21,Light snow. Ice fog.
+2017-12-24,12 pm,2,16,18,25,Passing clouds.
+2017-12-24,6 pm,14,12,14,16,Passing clouds.
+2017-12-25,12 am,14,7,9,12,Passing clouds.
+2017-12-25,6 am,6,14,9,14,Partly sunny.
+2017-12-25,12 pm,6,12,7,10,Partly sunny.
+2017-12-25,6 pm,17,9,3,7,Overcast.
+2017-12-26,12 am,17,9,1,3,Overcast.
+2017-12-26,6 am,6,8,1,9,Partly sunny.
+2017-12-26,12 pm,2,11,1,7,Passing clouds.
+2017-12-26,6 pm,13,9,-2,1,Clear.
+2017-12-27,12 am,13,5,-8,-2,Clear.
+2017-12-27,6 am,1,3,-8,1,Sunny.
+2017-12-27,12 pm,6,7,3,7,Partly sunny.
+2017-12-27,6 pm,29,8,3,5,Light snow. Ice fog.
+2017-12-28,12 am,29,10,3,5,Light snow. Ice fog.
+2017-12-28,6 am,29,11,7,12,Light snow. Ice fog.
+2017-12-28,12 pm,7,7,14,19,Overcast.
+2017-12-28,6 pm,29,5,10,12,Light snow. Ice fog.
+2017-12-29,12 am,17,1,9,12,Overcast.
+2017-12-29,6 am,7,6,12,16,Overcast.
+2017-12-29,12 pm,29,10,12,16,Light snow. Ice fog.
+2017-12-29,6 pm,29,12,5,12,Light snow. Ice fog.
+2017-12-30,12 am,17,11,1,3,Overcast.
+2017-12-30,6 am,6,13,0,1,Partly sunny.
+2017-12-30,12 pm,6,11,0,1,Partly sunny.
+2017-12-30,6 pm,29,10,-6,0,Light snow. Ice fog.
+2017-12-31,12 am,29,8,-9,-6,Light snow. Ice fog.
+2017-12-31,6 am,2,12,-8,-2,Passing clouds.
+2017-12-31,12 pm,1,12,-9,-2,Sunny.
+2017-12-31,6 pm,13,11,-15,-9,Clear.
+2018-01-01,12 am,13,7,-18,-17,Clear.
+2018-01-01,6 am,1,7,-18,-6,Sunny.
+2018-01-01,12 pm,1,9,-6,-2,Sunny.
+2018-01-01,6 pm,13,2,-11,-8,Clear.
+2018-01-02,12 am,13,7,-15,-15,Clear.
+2018-01-02,6 am,1,10,-15,9,Sunny.
+2018-01-02,12 pm,2,16,10,14,Passing clouds.
+2018-01-02,6 pm,17,16,14,19,Overcast.
+2018-01-03,12 am,29,16,10,21,Light snow. Ice fog.
+2018-01-03,6 am,2,19,5,9,Passing clouds.
+2018-01-03,12 pm,1,14,7,9,Sunny.
+2018-01-03,6 pm,13,9,0,5,Clear.
+2018-01-04,12 am,13,5,-4,-2,Clear.
+2018-01-04,6 am,7,2,-2,7,Overcast.
+2018-01-04,12 pm,6,2,9,10,Partly sunny.
+2018-01-04,6 pm,17,6,9,10,Overcast.
+2018-01-05,12 am,17,6,9,10,Overcast.
+2018-01-05,6 am,2,8,9,12,Passing clouds.
+2018-01-05,12 pm,6,8,7,12,Partly sunny.
+2018-01-05,6 pm,14,2,1,3,Passing clouds.
+2018-01-06,12 am,13,3,-2,1,Clear.
+2018-01-06,6 am,2,9,-2,9,Passing clouds.
+2018-01-06,12 pm,2,14,10,16,Passing clouds.
+2018-01-06,6 pm,17,14,16,16,Overcast.
+2018-01-07,12 am,17,11,18,21,Overcast.
+2018-01-07,6 am,7,12,27,36,Overcast.
+2018-01-07,12 pm,6,9,32,37,Partly sunny.
+2018-01-07,6 pm,14,8,28,30,Passing clouds.
+2018-01-08,12 am,14,9,25,32,Passing clouds.
+2018-01-08,6 am,2,6,23,37,Passing clouds.
+2018-01-08,12 pm,6,9,39,43,Partly sunny.
+2018-01-08,6 pm,14,7,32,36,Passing clouds.
+2018-01-09,12 am,17,10,32,34,Overcast.
+2018-01-09,6 am,7,11,32,37,Overcast.
+2018-01-09,12 pm,6,13,39,45,Partly sunny.
+2018-01-09,6 pm,14,14,34,37,Passing clouds.
+2018-01-10,12 am,14,13,36,36,Passing clouds.
+2018-01-10,6 am,9,13,36,39,Fog.
+2018-01-10,12 pm,7,9,43,46,Overcast.
+2018-01-10,6 pm,17,7,39,45,Overcast.
+2018-01-11,12 am,34,15,27,45,Drizzle. Fog.
+2018-01-11,6 am,29,23,14,25,Light snow. Ice fog.
+2018-01-11,12 pm,29,24,10,12,Light snow. Ice fog.
+2018-01-11,6 pm,29,17,7,12,Light snow. Ice fog.
+2018-01-12,12 am,13,14,0,3,Clear.
+2018-01-12,6 am,2,13,-2,3,Passing clouds.
+2018-01-12,12 pm,2,14,7,9,Passing clouds.
+2018-01-12,6 pm,14,14,5,7,Passing clouds.
+2018-01-13,12 am,17,11,5,7,Overcast.
+2018-01-13,6 am,6,7,3,10,Partly sunny.
+2018-01-13,12 pm,2,2,10,12,Passing clouds.
+2018-01-13,6 pm,14,5,7,9,Passing clouds.
+2018-01-14,12 am,17,7,9,10,Overcast.
+2018-01-14,6 am,29,11,12,19,Light snow. Ice fog.
+2018-01-14,12 pm,7,12,21,23,Overcast.
+2018-01-14,6 pm,29,8,21,25,Light snow. Ice fog.
+2018-01-15,12 am,29,22,3,14,Light snow. Ice fog.
+2018-01-15,6 am,6,22,0,3,Partly sunny.
+2018-01-15,12 pm,6,24,1,3,Partly sunny.
+2018-01-15,6 pm,14,17,-6,0,Passing clouds.
+2018-01-16,12 am,29,14,-6,-2,Light snow. Ice fog.
+2018-01-16,6 am,29,14,-4,3,Light snow. Ice fog.
+2018-01-16,12 pm,29,11,3,7,Light snow. Ice fog.
+2018-01-16,6 pm,13,4,0,1,Clear.
+2018-01-17,12 am,13,4,-2,0,Clear.
+2018-01-17,6 am,2,11,0,19,Passing clouds.
+2018-01-17,12 pm,2,15,21,25,Passing clouds.
+2018-01-17,6 pm,13,13,19,21,Clear.
+2018-01-18,12 am,13,12,19,21,Clear.
+2018-01-18,6 am,2,12,19,30,Passing clouds.
+2018-01-18,12 pm,6,14,34,37,Partly sunny.
+2018-01-18,6 pm,14,9,30,34,Passing clouds.
+2018-01-19,12 am,14,4,30,34,Passing clouds.
+2018-01-19,6 am,5,9,34,43,High level clouds.
+2018-01-19,12 pm,6,14,45,46,Partly sunny.
+2018-01-19,6 pm,14,9,36,43,Passing clouds.
+2018-01-20,12 am,14,4,30,34,Passing clouds.
+2018-01-20,6 am,2,4,30,45,Passing clouds.
+2018-01-20,12 pm,2,6,39,46,Passing clouds.
+2018-01-20,6 pm,14,5,37,41,Passing clouds.
+2018-01-21,12 am,14,7,39,39,Passing clouds.
+2018-01-21,6 am,9,8,39,41,Fog.
+2018-01-21,12 pm,9,8,41,43,Fog.
+2018-01-21,6 pm,14,12,39,41,Passing clouds.
+2018-01-22,12 am,17,14,39,39,Overcast.
+2018-01-22,6 am,9,12,39,46,Fog.
+2018-01-22,12 pm,18,8,37,43,Drizzle. Fog.
+2018-01-22,6 pm,29,17,30,37,Light snow. Ice fog.
+2018-01-23,12 am,17,17,28,30,Overcast.
+2018-01-23,6 am,7,18,27,28,Overcast.
+2018-01-23,12 pm,7,14,27,28,Overcast.
+2018-01-23,6 pm,17,8,27,27,Overcast.
+2018-01-24,12 am,17,5,25,27,Overcast.
+2018-01-24,6 am,10,5,25,27,Ice fog.
+2018-01-24,12 pm,6,7,28,34,Partly sunny.
+2018-01-24,6 pm,13,9,28,32,Clear.
+2018-01-25,12 am,13,6,27,30,Clear.
+2018-01-25,6 am,2,4,28,43,Passing clouds.
+2018-01-25,12 pm,6,10,45,52,Partly sunny.
+2018-01-25,6 pm,13,11,39,46,Clear.
+2018-01-26,12 am,14,14,45,45,Passing clouds.
+2018-01-26,6 am,2,22,45,55,Passing clouds.
+2018-01-26,12 pm,7,19,52,57,Overcast.
+2018-01-26,6 pm,14,10,36,48,Passing clouds.
+2018-01-27,12 am,13,7,28,36,Clear.
+2018-01-27,6 am,2,6,28,46,Passing clouds.
+2018-01-27,12 pm,2,16,43,52,Passing clouds.
+2018-01-27,6 pm,14,7,27,39,Passing clouds.
+2018-01-28,12 am,14,6,27,30,Passing clouds.
+2018-01-28,6 am,6,12,25,28,Partly sunny.
+2018-01-28,12 pm,6,12,23,30,Partly sunny.
+2018-01-28,6 pm,29,12,18,21,Light snow. Ice fog.
+2018-01-29,12 am,13,9,12,18,Clear.
+2018-01-29,6 am,29,9,16,21,Light snow. Ice fog.
+2018-01-29,12 pm,2,7,23,27,Passing clouds.
+2018-01-29,6 pm,13,4,18,21,Clear.
+2018-01-30,12 am,14,4,16,18,Passing clouds.
+2018-01-30,6 am,6,14,18,34,Partly sunny.
+2018-01-30,12 pm,6,21,36,39,Partly sunny.
+2018-01-30,6 pm,17,16,37,43,Overcast.
+2018-01-31,12 am,14,13,36,43,Passing clouds.
+2018-01-31,6 am,6,9,36,39,Partly sunny.
+2018-01-31,12 pm,6,9,37,39,Partly sunny.
+2018-01-31,6 pm,14,6,32,36,Passing clouds.
+2018-02-01,12 am,17,18,12,36,Overcast.
+2018-02-01,6 am,2,17,10,14,Passing clouds.
+2018-02-01,12 pm,2,17,16,18,Passing clouds.
+2018-02-01,6 pm,13,7,9,14,Clear.
+2018-02-02,12 am,13,2,5,9,Clear.
+2018-02-02,6 am,2,6,7,18,Passing clouds.
+2018-02-02,12 pm,29,11,19,25,Light snow. Ice fog.
+2018-02-02,6 pm,17,10,21,25,Overcast.
+2018-02-03,12 am,17,11,27,30,Overcast.
+2018-02-03,6 am,6,15,30,45,Partly sunny.
+2018-02-03,12 pm,6,9,41,45,Partly sunny.
+2018-02-03,6 pm,17,13,27,41,Overcast.
+2018-02-04,12 am,29,19,12,25,Light snow. Ice fog.
+2018-02-04,6 am,7,18,9,12,Overcast.
+2018-02-04,12 pm,2,15,10,14,Passing clouds.
+2018-02-04,6 pm,13,5,3,10,Clear.
+2018-02-05,12 am,13,6,1,3,Clear.
+2018-02-05,6 am,30,11,5,10,Snow. Ice fog.
+2018-02-05,12 pm,29,7,10,14,Light snow. Ice fog.
+2018-02-05,6 pm,29,8,7,10,Light snow. Ice fog.
+2018-02-06,12 am,13,9,-4,7,Clear.
+2018-02-06,6 am,6,4,-6,7,Partly sunny.
+2018-02-06,12 pm,7,4,7,10,Overcast.
+2018-02-06,6 pm,29,4,9,10,Light snow. Ice fog.
+2018-02-07,12 am,29,6,9,10,Light snow. Ice fog.
+2018-02-07,6 am,2,9,9,16,Passing clouds.
+2018-02-07,12 pm,6,7,12,18,Partly sunny.
+2018-02-07,6 pm,29,2,12,14,Light snow. Ice fog.
+2018-02-08,12 am,17,6,12,18,Overcast.
+2018-02-08,6 am,7,6,16,23,Overcast.
+2018-02-08,12 pm,29,7,21,23,Light snow. Ice fog.
+2018-02-08,6 pm,17,11,19,21,Overcast.
+2018-02-09,12 am,29,18,18,19,Light snow. Ice fog.
+2018-02-09,6 am,29,16,14,18,Light snow. Ice fog.
+2018-02-09,12 pm,6,14,10,18,Partly sunny.
+2018-02-09,6 pm,29,13,7,10,Light snow. Ice fog.
+2018-02-10,12 am,29,9,7,9,Light snow. Ice fog.
+2018-02-10,6 am,6,7,9,12,Partly sunny.
+2018-02-10,12 pm,6,6,10,14,Partly sunny.
+2018-02-10,6 pm,29,7,9,10,Light snow. Ice fog.
+2018-02-11,12 am,29,5,9,9,Light snow. Ice fog.
+2018-02-11,6 am,2,7,9,16,Passing clouds.
+2018-02-11,12 pm,2,11,18,21,Passing clouds.
+2018-02-11,6 pm,13,6,9,16,Clear.
+2018-02-12,12 am,13,5,1,9,Clear.
+2018-02-12,6 am,6,9,3,16,Partly sunny.
+2018-02-12,12 pm,6,10,16,18,Partly sunny.
+2018-02-12,6 pm,17,8,12,14,Overcast.
+2018-02-13,12 am,17,9,16,16,Overcast.
+2018-02-13,6 am,6,11,16,30,Partly sunny.
+2018-02-13,12 pm,2,9,34,37,Passing clouds.
+2018-02-13,6 pm,13,9,30,34,Clear.
+2018-02-14,12 am,14,9,28,30,Passing clouds.
+2018-02-14,6 am,6,11,30,43,Partly sunny.
+2018-02-14,12 pm,6,11,41,45,Partly sunny.
+2018-02-14,6 pm,14,6,39,43,Passing clouds.
+2018-02-15,12 am,14,3,36,39,Passing clouds.
+2018-02-15,6 am,9,7,37,43,Fog.
+2018-02-15,12 pm,6,11,36,45,Partly sunny.
+2018-02-15,6 pm,17,17,25,34,Overcast.
+2018-02-16,12 am,14,19,10,25,Passing clouds.
+2018-02-16,6 am,2,13,9,18,Passing clouds.
+2018-02-16,12 pm,2,6,21,27,Passing clouds.
+2018-02-16,6 pm,14,7,21,25,Passing clouds.
+2018-02-17,12 am,17,9,21,27,Overcast.
+2018-02-17,6 am,29,9,27,34,Light snow. Ice fog.
+2018-02-17,12 pm,2,16,36,41,Passing clouds.
+2018-02-17,6 pm,13,5,27,34,Clear.
+2018-02-18,12 am,13,9,25,28,Clear.
+2018-02-18,6 am,6,20,28,48,Partly sunny.
+2018-02-18,12 pm,6,18,46,54,Partly sunny.
+2018-02-18,6 pm,17,9,45,46,Overcast.
+2018-02-19,12 am,34,9,43,45,Drizzle. Fog.
+2018-02-19,6 am,18,7,36,46,Drizzle. Fog.
+2018-02-19,12 pm,9,12,30,36,Fog.
+2018-02-19,6 pm,29,9,27,28,Light snow. Ice fog.
+2018-02-20,12 am,27,8,28,30,Light freezing rain. Ice fog.
+2018-02-20,6 am,27,14,25,28,Light freezing rain. Ice fog.
+2018-02-20,12 pm,7,17,19,23,Overcast.
+2018-02-20,6 pm,17,14,16,19,Overcast.
+2018-02-21,12 am,14,11,12,16,Passing clouds.
+2018-02-21,6 am,6,9,12,21,Partly sunny.
+2018-02-21,12 pm,6,9,21,27,Partly sunny.
+2018-02-21,6 pm,17,9,25,25,Overcast.
+2018-02-22,12 am,29,7,25,25,Light snow. Ice fog.
+2018-02-22,6 am,29,11,25,28,Light snow. Ice fog.
+2018-02-22,12 pm,27,9,28,32,Light freezing rain. Ice fog.
+2018-02-22,6 pm,27,9,32,34,Light freezing rain. Ice fog.
+2018-02-23,12 am,17,8,34,34,Overcast.
+2018-02-23,6 am,2,12,30,34,Passing clouds.
+2018-02-23,12 pm,6,12,28,36,Partly sunny.
+2018-02-23,6 pm,17,7,27,27,Overcast.
+2018-02-24,12 am,14,9,25,27,Passing clouds.
+2018-02-24,6 am,27,12,27,34,Light freezing rain. Ice fog.
+2018-02-24,12 pm,18,8,34,36,Drizzle. Fog.
+2018-02-24,6 pm,17,17,30,34,Overcast.
+2018-02-25,12 am,13,16,25,30,Clear.
+2018-02-25,6 am,2,14,25,37,Passing clouds.
+2018-02-25,12 pm,6,13,39,45,Partly sunny.
+2018-02-25,6 pm,13,5,30,36,Clear.
+2018-02-26,12 am,13,6,28,30,Clear.
+2018-02-26,6 am,1,7,28,46,Sunny.
+2018-02-26,12 pm,1,14,48,55,Sunny.
+2018-02-26,6 pm,13,11,41,46,Clear.
+2018-02-27,12 am,14,9,36,39,Passing clouds.
+2018-02-27,6 am,2,15,37,57,Passing clouds.
+2018-02-27,12 pm,2,14,61,64,Passing clouds.
+2018-02-27,6 pm,14,6,45,57,Passing clouds.
+2018-02-28,12 am,17,3,41,45,Overcast.
+2018-02-28,6 am,7,4,39,48,Overcast.
+2018-02-28,12 pm,7,11,46,54,Overcast.
+2018-02-28,6 pm,17,12,36,45,Overcast.
+2018-03-01,12 am,13,13,34,36,Clear.
+2018-03-01,6 am,2,13,30,45,Passing clouds.
+2018-03-01,12 pm,1,15,41,46,Sunny.
+2018-03-01,6 pm,13,6,30,37,Clear.
+2018-03-02,12 am,13,2,25,30,Clear.
+2018-03-02,6 am,6,9,27,45,Partly sunny.
+2018-03-02,12 pm,2,19,48,52,Passing clouds.
+2018-03-02,6 pm,13,10,37,46,Clear.
+2018-03-03,12 am,13,11,37,37,Clear.
+2018-03-03,6 am,1,17,36,54,Sunny.
+2018-03-03,12 pm,2,21,54,57,Passing clouds.
+2018-03-03,6 pm,14,14,46,52,Passing clouds.
+2018-03-04,12 am,17,16,43,46,Overcast.
+2018-03-04,6 am,6,17,43,55,Partly sunny.
+2018-03-04,12 pm,6,19,55,61,Partly sunny.
+2018-03-04,6 pm,17,17,48,55,Overcast.
+2018-03-05,12 am,34,16,41,48,Drizzle. Fog.
+2018-03-05,6 am,18,19,39,43,Drizzle. Fog.
+2018-03-05,12 pm,7,21,34,36,Overcast.
+2018-03-05,6 pm,29,9,32,34,Light snow. Ice fog.
+2018-03-06,12 am,29,16,28,34,Light snow. Ice fog.
+2018-03-06,6 am,29,12,28,30,Light snow. Ice fog.
+2018-03-06,12 pm,29,18,30,34,Light snow. Ice fog.
+2018-03-06,6 pm,17,16,30,32,Overcast.
+2018-03-07,12 am,14,13,21,30,Passing clouds.
+2018-03-07,6 am,6,17,21,30,Partly sunny.
+2018-03-07,12 pm,29,14,27,30,Light snow. Ice fog.
+2018-03-07,6 pm,29,14,23,27,Light snow. Ice fog.
+2018-03-08,12 am,14,12,19,23,Passing clouds.
+2018-03-08,6 am,2,11,19,28,Passing clouds.
+2018-03-08,12 pm,6,6,30,34,Partly sunny.
+2018-03-08,6 pm,13,4,27,30,Clear.
+2018-03-09,12 am,15,7,25,27,Partly cloudy.
+2018-03-09,6 am,6,9,25,30,Partly sunny.
+2018-03-09,12 pm,6,7,30,37,Partly sunny.
+2018-03-09,6 pm,13,6,30,36,Clear.
+2018-03-10,12 am,13,7,27,28,Clear.
+2018-03-10,6 am,6,11,28,41,Partly sunny.
+2018-03-10,12 pm,6,12,43,46,Partly sunny.
+2018-03-10,6 pm,17,9,39,43,Overcast.
+2018-03-11,12 am,27,7,34,39,Light freezing rain. Ice fog.
+2018-03-11,6 am,29,8,32,36,Light snow. Ice fog.
+2018-03-11,12 pm,6,9,39,45,Partly sunny.
+2018-03-11,6 pm,17,14,34,37,Overcast.
+2018-03-12,12 am,17,14,32,34,Overcast.
+2018-03-12,6 am,2,14,30,39,Passing clouds.
+2018-03-12,12 pm,2,14,43,46,Passing clouds.
+2018-03-12,6 pm,14,10,34,41,Passing clouds.
+2018-03-13,12 am,14,9,27,32,Passing clouds.
+2018-03-13,6 am,2,11,27,37,Passing clouds.
+2018-03-13,12 pm,6,14,39,43,Partly sunny.
+2018-03-13,6 pm,13,8,28,37,Clear.
+2018-03-14,12 am,13,3,21,28,Clear.
+2018-03-14,6 am,2,12,21,52,Passing clouds.
+2018-03-14,12 pm,2,20,55,64,Passing clouds.
+2018-03-14,6 pm,14,4,46,61,Passing clouds.
+2018-03-15,12 am,13,6,34,43,Clear.
+2018-03-15,6 am,6,7,32,48,Partly sunny.
+2018-03-15,12 pm,6,11,54,57,Partly sunny.
+2018-03-15,6 pm,14,13,39,52,Passing clouds.
+2018-03-16,12 am,17,16,34,39,Overcast.
+2018-03-16,6 am,6,19,34,34,Partly sunny.
+2018-03-16,12 pm,27,17,34,36,Light freezing rain. Ice fog.
+2018-03-16,6 pm,22,15,36,36,Thunderstorms. Mostly cloudy.
+2018-03-17,12 am,34,9,34,34,Drizzle. Fog.
+2018-03-17,6 am,7,9,34,36,Overcast.
+2018-03-17,12 pm,7,5,36,37,Overcast.
+2018-03-17,6 pm,14,2,34,37,Passing clouds.
+2018-03-18,12 am,14,4,34,36,Passing clouds.
+2018-03-18,6 am,9,4,36,37,Fog.
+2018-03-18,12 pm,7,5,37,39,Overcast.
+2018-03-18,6 pm,14,6,36,39,Passing clouds.
+2018-03-19,12 am,17,9,36,37,Overcast.
+2018-03-19,6 am,7,12,37,48,Overcast.
+2018-03-19,12 pm,7,17,48,54,Overcast.
+2018-03-19,6 pm,17,12,43,50,Overcast.
+2018-03-20,12 am,17,8,36,43,Overcast.
+2018-03-20,6 am,6,6,34,36,Partly sunny.
+2018-03-20,12 pm,18,5,37,39,Drizzle. Fog.
+2018-03-20,6 pm,29,7,34,37,Light snow. Ice fog.
+2018-03-21,12 am,17,5,28,34,Overcast.
+2018-03-21,6 am,2,7,28,39,Passing clouds.
+2018-03-21,12 pm,6,9,43,45,Partly sunny.
+2018-03-21,6 pm,13,5,37,45,Clear.
+2018-03-22,12 am,14,7,32,36,Passing clouds.
+2018-03-22,6 am,18,8,34,39,Drizzle. Fog.
+2018-03-22,12 pm,6,9,43,48,Partly sunny.
+2018-03-22,6 pm,14,9,39,46,Passing clouds.
+2018-03-23,12 am,17,7,37,37,Overcast.
+2018-03-23,6 am,6,11,37,43,Partly sunny.
+2018-03-23,12 pm,6,18,43,48,Partly sunny.
+2018-03-23,6 pm,34,20,39,46,Drizzle. Fog.
+2018-03-24,12 am,34,18,34,37,Drizzle. Fog.
+2018-03-24,6 am,18,13,34,34,Drizzle. Fog.
+2018-03-24,12 pm,29,17,32,34,Light snow. Ice fog.
+2018-03-24,6 pm,17,11,32,32,Overcast.
+2018-03-25,12 am,17,6,32,34,Overcast.
+2018-03-25,6 am,6,13,32,39,Partly sunny.
+2018-03-25,12 pm,2,13,39,45,Passing clouds.
+2018-03-25,6 pm,15,12,36,43,Partly cloudy.
+2018-03-26,12 am,15,11,36,36,Partly cloudy.
+2018-03-26,6 am,18,12,36,36,Drizzle. Fog.
+2018-03-26,12 pm,7,10,37,43,Overcast.
+2018-03-26,6 pm,14,5,39,41,Passing clouds.
+2018-03-27,12 am,17,12,36,39,Overcast.
+2018-03-27,6 am,7,10,36,39,Overcast.
+2018-03-27,12 pm,6,9,39,46,Partly sunny.
+2018-03-27,6 pm,16,3,37,45,High level clouds.
+2018-03-28,12 am,14,4,30,36,Passing clouds.
+2018-03-28,6 am,6,7,32,48,Partly sunny.
+2018-03-28,12 pm,6,4,52,57,Partly sunny.
+2018-03-28,6 pm,17,7,45,52,Overcast.
+2018-03-29,12 am,17,14,36,45,Overcast.
+2018-03-29,6 am,7,14,34,41,Overcast.
+2018-03-29,12 pm,6,15,43,46,Partly sunny.
+2018-03-29,6 pm,17,12,34,39,Overcast.
+2018-03-30,12 am,17,7,32,34,Overcast.
+2018-03-30,6 am,6,6,34,45,Partly sunny.
+2018-03-30,12 pm,6,13,48,54,Partly sunny.
+2018-03-30,6 pm,17,11,46,52,Overcast.
+2018-03-31,12 am,34,14,45,48,Drizzle. Fog.
+2018-03-31,6 am,6,21,39,50,Partly sunny.
+2018-03-31,12 pm,7,21,36,39,Overcast.
+2018-03-31,6 pm,14,14,27,34,Passing clouds.
+2018-04-01,12 am,14,9,21,25,Passing clouds.
+2018-04-01,6 am,6,6,23,27,Partly sunny.
+2018-04-01,12 pm,6,6,27,34,Partly sunny.
+2018-04-01,6 pm,13,6,25,32,Clear.
+2018-04-02,12 am,13,4,19,23,Clear.
+2018-04-02,6 am,6,11,19,36,Partly sunny.
+2018-04-02,12 pm,7,17,36,39,Overcast.
+2018-04-02,6 pm,27,9,32,34,Light freezing rain. Ice fog.
+2018-04-03,12 am,27,8,32,34,Light freezing rain. Ice fog.
+2018-04-03,6 am,18,10,34,36,Drizzle. Fog.
+2018-04-03,12 pm,29,21,32,36,Light snow. Ice fog.
+2018-04-03,6 pm,29,28,19,30,Light snow. Ice fog.
+2018-04-04,12 am,29,19,16,19,Light snow. Ice fog.
+2018-04-04,6 am,2,12,14,28,Passing clouds.
+2018-04-04,12 pm,2,6,30,37,Passing clouds.
+2018-04-04,6 pm,14,4,32,37,Passing clouds.
+2018-04-05,12 am,14,7,28,34,Passing clouds.
+2018-04-05,6 am,6,9,30,46,Partly sunny.
+2018-04-05,12 pm,6,9,50,55,Partly sunny.
+2018-04-05,6 pm,17,10,41,48,Overcast.
+2018-04-06,12 am,17,15,30,39,Overcast.
+2018-04-06,6 am,7,21,27,30,Overcast.
+2018-04-06,12 pm,6,19,25,27,Partly sunny.
+2018-04-06,6 pm,14,12,19,25,Passing clouds.
+2018-04-07,12 am,13,11,18,19,Clear.
+2018-04-07,6 am,2,7,18,32,Passing clouds.
+2018-04-07,12 pm,2,7,34,43,Passing clouds.
+2018-04-07,6 pm,14,6,32,41,Passing clouds.
+2018-04-08,12 am,17,7,28,30,Overcast.
+2018-04-08,6 am,6,12,28,34,Partly sunny.
+2018-04-08,12 pm,29,17,30,36,Light snow. Ice fog.
+2018-04-08,6 pm,27,12,30,30,Light freezing rain. Ice fog.
+2018-04-09,12 am,27,8,30,30,Light freezing rain. Ice fog.
+2018-04-09,6 am,29,8,30,32,Light snow. Ice fog.
+2018-04-09,12 pm,29,9,34,37,Light snow. Ice fog.
+2018-04-09,6 pm,17,7,30,37,Overcast.
+2018-04-10,12 am,17,4,25,32,Overcast.
+2018-04-10,6 am,6,9,28,43,Partly sunny.
+2018-04-10,12 pm,6,14,46,57,Partly sunny.
+2018-04-10,6 pm,14,12,48,54,Passing clouds.
+2018-04-11,12 am,14,9,43,45,Passing clouds.
+2018-04-11,6 am,6,6,43,55,Partly sunny.
+2018-04-11,12 pm,6,11,61,70,Partly sunny.
+2018-04-11,6 pm,14,11,57,68,Passing clouds.
+2018-04-12,12 am,13,9,50,55,Clear.
+2018-04-12,6 am,2,9,46,61,Passing clouds.
+2018-04-12,12 pm,7,13,64,70,Overcast.
+2018-04-12,6 pm,17,13,61,66,Overcast.
+2018-04-13,12 am,17,14,55,59,Overcast.
+2018-04-13,6 am,7,15,50,54,Overcast.
+2018-04-13,12 pm,6,19,54,61,Partly sunny.
+2018-04-13,6 pm,17,25,39,57,Overcast.
+2018-04-14,12 am,34,18,37,39,Drizzle. Fog.
+2018-04-14,6 am,22,14,37,39,Thunderstorms. Mostly cloudy.
+2018-04-14,12 pm,18,16,39,43,Drizzle. Fog.
+2018-04-14,6 pm,29,17,32,41,Light snow. Ice fog.
+2018-04-15,12 am,29,16,27,30,Light snow. Ice fog.
+2018-04-15,6 am,29,14,27,28,Light snow. Ice fog.
+2018-04-15,12 pm,29,16,28,28,Light snow. Ice fog.
+2018-04-15,6 pm,29,19,27,28,Light snow. Ice fog.
+2018-04-16,12 am,17,19,25,27,Overcast.
+2018-04-16,6 am,2,19,23,30,Passing clouds.
+2018-04-16,12 pm,6,17,34,37,Partly sunny.
+2018-04-16,6 pm,14,8,30,37,Passing clouds.
+2018-04-17,12 am,13,2,27,30,Clear.
+2018-04-17,6 am,2,7,28,45,Passing clouds.
+2018-04-17,12 pm,2,9,46,55,Passing clouds.
+2018-04-17,6 pm,2,14,41,54,Passing clouds.
+2018-04-18,12 am,17,16,36,39,Overcast.
+2018-04-18,6 am,27,13,32,36,Light freezing rain. Ice fog.
+2018-04-18,12 pm,29,12,34,36,Light snow. Ice fog.
+2018-04-18,6 pm,14,12,32,36,Passing clouds.
+2018-04-19,12 am,14,7,30,34,Passing clouds.
+2018-04-19,6 am,2,6,34,48,Passing clouds.
+2018-04-19,12 pm,2,7,48,54,Passing clouds.
+2018-04-19,6 pm,13,8,41,52,Clear.
+2018-04-20,12 am,13,6,34,39,Clear.
+2018-04-20,6 am,7,7,34,55,Overcast.
+2018-04-20,12 pm,6,10,55,59,Partly sunny.
+2018-04-20,6 pm,17,7,52,57,Overcast.
+2018-04-21,12 am,17,6,46,52,Overcast.
+2018-04-21,6 am,7,9,46,54,Overcast.
+2018-04-21,12 pm,7,8,57,57,Overcast.
+2018-04-21,6 pm,17,12,52,57,Overcast.
+2018-04-22,12 am,17,9,46,50,Overcast.
+2018-04-22,6 am,6,11,46,61,Partly sunny.
+2018-04-22,12 pm,2,11,66,72,Passing clouds.
+2018-04-22,6 pm,14,7,55,66,Passing clouds.
+2018-04-23,12 am,14,6,50,55,Passing clouds.
+2018-04-23,6 am,6,9,48,66,Partly sunny.
+2018-04-23,12 pm,2,11,68,73,Passing clouds.
+2018-04-23,6 pm,13,7,57,72,Clear.
+2018-04-24,12 am,13,2,46,54,Clear.
+2018-04-24,6 am,2,2,48,70,Passing clouds.
+2018-04-24,12 pm,6,9,70,75,Partly sunny.
+2018-04-24,6 pm,6,15,54,70,Partly sunny.
+2018-04-25,12 am,17,11,48,54,Overcast.
+2018-04-25,6 am,6,12,48,61,Partly sunny.
+2018-04-25,12 pm,2,7,61,66,Passing clouds.
+2018-04-25,6 pm,2,5,52,64,Passing clouds.
+2018-04-26,12 am,16,0,43,52,High level clouds.
+2018-04-26,6 am,6,6,41,64,Partly sunny.
+2018-04-26,12 pm,6,14,68,72,Partly sunny.
+2018-04-26,6 pm,13,14,52,66,Clear.
+2018-04-27,12 am,13,7,43,48,Clear.
+2018-04-27,6 am,2,13,43,72,Passing clouds.
+2018-04-27,12 pm,2,24,70,77,Passing clouds.
+2018-04-27,6 pm,13,14,54,64,Clear.
+2018-04-28,12 am,13,5,43,48,Clear.
+2018-04-28,6 am,1,9,43,55,Sunny.
+2018-04-28,12 pm,2,6,57,63,Passing clouds.
+2018-04-28,6 pm,13,7,52,61,Clear.
+2018-04-29,12 am,13,9,45,50,Clear.
+2018-04-29,6 am,1,16,43,64,Sunny.
+2018-04-29,12 pm,1,22,66,72,Sunny.
+2018-04-29,6 pm,14,16,57,70,Passing clouds.
+2018-04-30,12 am,14,14,55,57,Passing clouds.
+2018-04-30,6 am,6,17,57,77,Partly sunny.
+2018-04-30,12 pm,6,27,81,82,Partly sunny.
+2018-04-30,6 pm,14,17,72,79,Passing clouds.
+2018-05-01,12 am,14,14,66,72,Passing clouds.
+2018-05-01,6 am,22,9,61,66,Thunderstorms. Mostly cloudy.
+2018-05-01,12 pm,6,17,64,75,Partly sunny.
+2018-05-01,6 pm,22,14,66,77,Thunderstorms. Mostly cloudy.
+2018-05-02,12 am,17,9,64,70,Overcast.
+2018-05-02,6 am,6,7,64,68,Partly sunny.
+2018-05-02,12 pm,18,9,66,70,Drizzle. Fog.
+2018-05-02,6 pm,22,9,61,63,Thunderstorms. Mostly cloudy.
+2018-05-03,12 am,14,6,59,61,Passing clouds.
+2018-05-03,6 am,9,6,61,70,Fog.
+2018-05-03,12 pm,6,12,66,75,Partly sunny.
+2018-05-03,6 pm,34,8,61,66,Drizzle. Fog.
+2018-05-04,12 am,14,11,54,61,Passing clouds.
+2018-05-04,6 am,2,11,54,73,Passing clouds.
+2018-05-04,12 pm,2,13,75,77,Passing clouds.
+2018-05-04,6 pm,14,7,63,73,Passing clouds.
+2018-05-05,12 am,13,4,55,61,Clear.
+2018-05-05,6 am,6,7,55,75,Partly sunny.
+2018-05-05,12 pm,6,11,81,82,Partly sunny.
+2018-05-05,6 pm,14,7,64,79,Passing clouds.
+2018-05-06,12 am,15,6,57,64,Partly cloudy.
+2018-05-06,6 am,2,7,57,77,Passing clouds.
+2018-05-06,12 pm,2,12,79,82,Passing clouds.
+2018-05-06,6 pm,2,9,64,79,Passing clouds.
+2018-05-07,12 am,13,2,54,64,Clear.
+2018-05-07,6 am,2,4,55,75,Passing clouds.
+2018-05-07,12 pm,2,11,79,81,Passing clouds.
+2018-05-07,6 pm,13,10,68,79,Clear.
+2018-05-08,12 am,14,10,63,64,Passing clouds.
+2018-05-08,6 am,7,17,63,79,Overcast.
+2018-05-08,12 pm,6,20,79,84,Partly sunny.
+2018-05-08,6 pm,14,16,73,81,Passing clouds.
+2018-05-09,12 am,14,9,63,70,Passing clouds.
+2018-05-09,6 am,2,14,64,75,Passing clouds.
+2018-05-09,12 pm,2,19,73,77,Passing clouds.
+2018-05-09,6 pm,2,5,66,75,Passing clouds.
+2018-05-10,12 am,13,4,55,61,Clear.
+2018-05-10,6 am,2,5,57,73,Passing clouds.
+2018-05-10,12 pm,6,7,75,79,Partly sunny.
+2018-05-10,6 pm,14,15,63,73,Passing clouds.
+2018-05-11,12 am,17,12,57,61,Overcast.
+2018-05-11,6 am,6,14,55,61,Partly sunny.
+2018-05-11,12 pm,7,10,55,61,Overcast.
+2018-05-11,6 pm,17,12,50,55,Overcast.
+2018-05-12,12 am,35,12,48,50,Strong thunderstorms. Fog.
+2018-05-12,6 am,18,9,48,54,Drizzle. Fog.
+2018-05-12,12 pm,7,10,55,59,Overcast.
+2018-05-12,6 pm,9,7,55,57,Fog.
+2018-05-13,12 am,14,7,54,55,Passing clouds.
+2018-05-13,6 am,9,7,54,55,Fog.
+2018-05-13,12 pm,6,11,54,70,Partly sunny.
+2018-05-13,6 pm,17,11,61,66,Overcast.
+2018-05-14,12 am,14,7,59,61,Passing clouds.
+2018-05-14,6 am,9,7,61,68,Fog.
+2018-05-14,12 pm,6,6,72,82,Partly sunny.
+2018-05-14,6 pm,14,9,68,79,Passing clouds.
+2018-05-15,12 am,14,6,63,66,Passing clouds.
+2018-05-15,6 am,6,10,61,72,Partly sunny.
+2018-05-15,12 pm,2,6,72,79,Passing clouds.
+2018-05-15,6 pm,13,5,68,79,Clear.
+2018-05-16,12 am,14,2,61,68,Passing clouds.
+2018-05-16,6 am,2,4,63,75,Passing clouds.
+2018-05-16,12 pm,2,7,79,82,Passing clouds.
+2018-05-16,6 pm,14,4,70,81,Passing clouds.
+2018-05-17,12 am,14,1,63,66,Passing clouds.
+2018-05-17,6 am,6,8,66,79,Partly sunny.
+2018-05-17,12 pm,2,11,81,82,Passing clouds.
+2018-05-17,6 pm,2,9,72,82,Passing clouds.
+2018-05-18,12 am,13,9,63,72,Clear.
+2018-05-18,6 am,2,7,63,79,Passing clouds.
+2018-05-18,12 pm,2,7,79,84,Passing clouds.
+2018-05-18,6 pm,14,9,66,81,Passing clouds.
+2018-05-19,12 am,14,4,63,66,Passing clouds.
+2018-05-19,6 am,6,4,63,79,Partly sunny.
+2018-05-19,12 pm,22,10,66,81,Thunderstorms. Mostly cloudy.
+2018-05-19,6 pm,14,8,64,72,Passing clouds.
+2018-05-20,12 am,17,11,57,64,Overcast.
+2018-05-20,6 am,7,10,57,63,Overcast.
+2018-05-20,12 pm,7,9,64,68,Overcast.
+2018-05-20,6 pm,7,10,59,64,Overcast.
+2018-05-21,12 am,34,7,57,59,Drizzle. Fog.
+2018-05-21,6 am,9,2,59,63,Fog.
+2018-05-21,12 pm,6,4,64,73,Partly sunny.
+2018-05-21,6 pm,14,5,64,72,Passing clouds.
+2018-05-22,12 am,14,1,61,64,Passing clouds.
+2018-05-22,6 am,6,3,63,72,Partly sunny.
+2018-05-22,12 pm,6,7,73,79,Partly sunny.
+2018-05-22,6 pm,14,7,73,79,Passing clouds.
+2018-05-23,12 am,14,7,66,72,Passing clouds.
+2018-05-23,6 am,6,9,68,82,Partly sunny.
+2018-05-23,12 pm,2,12,82,86,Passing clouds.
+2018-05-23,6 pm,2,11,75,84,Passing clouds.
+2018-05-24,12 am,14,7,70,73,Passing clouds.
+2018-05-24,6 am,6,9,70,84,Partly sunny.
+2018-05-24,12 pm,6,16,86,88,Partly sunny.
+2018-05-24,6 pm,14,9,73,84,Passing clouds.
+2018-05-25,12 am,14,6,68,72,Passing clouds.
+2018-05-25,6 am,6,9,70,81,Partly sunny.
+2018-05-25,12 pm,2,11,82,88,Passing clouds.
+2018-05-25,6 pm,14,9,77,86,Passing clouds.
+2018-05-26,12 am,14,5,70,75,Passing clouds.
+2018-05-26,6 am,2,4,70,90,Passing clouds.
+2018-05-26,12 pm,2,4,91,95,Passing clouds.
+2018-05-26,6 pm,13,7,79,91,Clear.
+2018-05-27,12 am,13,2,73,79,Clear.
+2018-05-27,6 am,2,1,73,93,Passing clouds.
+2018-05-27,12 pm,2,4,93,97,Passing clouds.
+2018-05-27,6 pm,14,6,82,95,Passing clouds.
+2018-05-28,12 am,14,4,77,81,Passing clouds.
+2018-05-28,6 am,6,6,75,93,Partly sunny.
+2018-05-28,12 pm,2,10,82,97,Passing clouds.
+2018-05-28,6 pm,15,5,77,84,Partly cloudy.
+2018-05-29,12 am,14,3,73,75,Passing clouds.
+2018-05-29,6 am,2,6,75,90,Passing clouds.
+2018-05-29,12 pm,2,13,72,95,Passing clouds.
+2018-05-29,6 pm,22,10,70,73,Thunderstorms. Mostly cloudy.
+2018-05-30,12 am,14,6,66,68,Passing clouds.
+2018-05-30,6 am,6,7,70,77,Partly sunny.
+2018-05-30,12 pm,2,14,81,84,Passing clouds.
+2018-05-30,6 pm,14,7,72,82,Passing clouds.
+2018-05-31,12 am,14,4,66,72,Passing clouds.
+2018-05-31,6 am,6,7,70,86,Partly sunny.
+2018-05-31,12 pm,2,12,90,93,Passing clouds.
+2018-05-31,6 pm,14,6,75,90,Passing clouds.
+2018-06-01,12 am,13,3,66,73,Clear.
+2018-06-01,6 am,2,2,70,91,Passing clouds.
+2018-06-01,12 pm,2,4,91,93,Passing clouds.
+2018-06-01,6 pm,14,8,81,91,Passing clouds.
+2018-06-02,12 am,17,16,66,79,Overcast.
+2018-06-02,6 am,6,13,64,75,Partly sunny.
+2018-06-02,12 pm,6,17,75,81,Partly sunny.
+2018-06-02,6 pm,2,9,64,75,Passing clouds.
+2018-06-03,12 am,14,6,59,64,Passing clouds.
+2018-06-03,6 am,1,16,63,77,Sunny.
+2018-06-03,12 pm,1,22,79,82,Sunny.
+2018-06-03,6 pm,13,6,66,81,Clear.
+2018-06-04,12 am,13,1,55,63,Clear.
+2018-06-04,6 am,2,8,57,79,Passing clouds.
+2018-06-04,12 pm,6,12,81,81,Partly sunny.
+2018-06-04,6 pm,13,11,66,79,Clear.
+2018-06-05,12 am,13,8,63,64,Clear.
+2018-06-05,6 am,2,9,64,84,Passing clouds.
+2018-06-05,12 pm,2,9,84,90,Passing clouds.
+2018-06-05,6 pm,13,7,75,88,Clear.
+2018-06-06,12 am,13,6,68,73,Clear.
+2018-06-06,6 am,7,4,70,81,Overcast.
+2018-06-06,12 pm,6,14,86,91,Partly sunny.
+2018-06-06,6 pm,22,17,66,75,Thunderstorms. Mostly cloudy.
+2018-06-07,12 am,17,7,66,70,Overcast.
+2018-06-07,6 am,7,4,66,82,Overcast.
+2018-06-07,12 pm,7,6,82,84,Overcast.
+2018-06-07,6 pm,7,3,79,84,Overcast.
+2018-06-08,12 am,14,4,72,77,Passing clouds.
+2018-06-08,6 am,2,6,73,82,Passing clouds.
+2018-06-08,12 pm,2,11,84,88,Passing clouds.
+2018-06-08,6 pm,14,6,75,84,Passing clouds.
+2018-06-09,12 am,13,6,73,77,Clear.
+2018-06-09,6 am,6,7,75,82,Partly sunny.
+2018-06-09,12 pm,2,11,84,90,Passing clouds.
+2018-06-09,6 pm,14,9,81,88,Passing clouds.
+2018-06-10,12 am,14,3,72,81,Passing clouds.
+2018-06-10,6 am,22,12,70,72,Thunderstorms. Mostly cloudy.
+2018-06-10,12 pm,22,9,70,72,Thunderstorms. Mostly cloudy.
+2018-06-10,6 pm,22,7,70,73,Thunderstorms. Mostly cloudy.
+2018-06-11,12 am,22,9,66,68,Thunderstorms. Mostly cloudy.
+2018-06-11,6 am,18,14,66,73,Drizzle. Fog.
+2018-06-11,12 pm,6,12,75,81,Partly sunny.
+2018-06-11,6 pm,22,11,70,79,Thunderstorms. Mostly cloudy.
+2018-06-12,12 am,17,9,70,75,Overcast.
+2018-06-12,6 am,6,6,70,81,Partly sunny.
+2018-06-12,12 pm,2,9,82,84,Passing clouds.
+2018-06-12,6 pm,14,4,75,84,Passing clouds.
+2018-06-13,12 am,14,12,64,73,Passing clouds.
+2018-06-13,6 am,6,9,66,79,Partly sunny.
+2018-06-13,12 pm,6,5,79,81,Partly sunny.
+2018-06-13,6 pm,14,5,68,77,Passing clouds.
+2018-06-14,12 am,22,12,70,70,Thunderstorms. Mostly cloudy.
+2018-06-14,6 am,7,16,63,66,Overcast.
+2018-06-14,12 pm,6,14,66,81,Partly sunny.
+2018-06-14,6 pm,14,10,73,81,Passing clouds.
+2018-06-15,12 am,14,7,72,73,Passing clouds.
+2018-06-15,6 am,6,14,75,90,Partly sunny.
+2018-06-15,12 pm,2,15,91,91,Passing clouds.
+2018-06-15,6 pm,2,11,81,90,Passing clouds.
+2018-06-16,12 am,14,8,73,79,Passing clouds.
+2018-06-16,6 am,6,12,75,88,Partly sunny.
+2018-06-16,12 pm,6,14,90,93,Partly sunny.
+2018-06-16,6 pm,14,9,82,91,Passing clouds.
+2018-06-17,12 am,14,9,75,81,Passing clouds.
+2018-06-17,6 am,6,14,77,91,Partly sunny.
+2018-06-17,12 pm,6,19,91,93,Partly sunny.
+2018-06-17,6 pm,14,8,81,90,Passing clouds.
+2018-06-18,12 am,14,9,77,81,Passing clouds.
+2018-06-18,6 am,2,12,79,90,Passing clouds.
+2018-06-18,12 pm,2,14,91,93,Passing clouds.
+2018-06-18,6 pm,22,11,73,91,Thunderstorms. Mostly cloudy.
+2018-06-19,12 am,22,7,73,73,Thunderstorms. Mostly cloudy.
+2018-06-19,6 am,18,8,73,75,Drizzle. Fog.
+2018-06-19,12 pm,6,7,75,81,Partly sunny.
+2018-06-19,6 pm,14,7,73,79,Passing clouds.
+2018-06-20,12 am,15,6,72,73,Partly cloudy.
+2018-06-20,6 am,6,7,72,81,Partly sunny.
+2018-06-20,12 pm,6,12,75,81,Partly sunny.
+2018-06-20,6 pm,6,10,68,77,Partly sunny.
+2018-06-21,12 am,17,7,64,68,Overcast.
+2018-06-21,6 am,7,6,64,70,Overcast.
+2018-06-21,12 pm,7,7,72,75,Overcast.
+2018-06-21,6 pm,34,14,63,72,Drizzle. Fog.
+2018-06-22,12 am,17,11,63,63,Overcast.
+2018-06-22,6 am,6,12,64,73,Partly sunny.
+2018-06-22,12 pm,7,7,72,73,Overcast.
+2018-06-22,6 pm,17,5,66,72,Overcast.
+2018-06-23,12 am,17,2,63,70,Overcast.
+2018-06-23,6 am,6,4,66,75,Partly sunny.
+2018-06-23,12 pm,6,5,77,79,Partly sunny.
+2018-06-23,6 pm,14,6,70,77,Passing clouds.
+2018-06-24,12 am,14,6,66,70,Passing clouds.
+2018-06-24,6 am,6,8,68,79,Partly sunny.
+2018-06-24,12 pm,22,12,70,84,Thunderstorms. Mostly cloudy.
+2018-06-24,6 pm,34,9,70,70,Drizzle. Fog.
+2018-06-25,12 am,17,7,66,70,Overcast.
+2018-06-25,6 am,6,12,70,73,Partly sunny.
+2018-06-25,12 pm,18,12,72,75,Drizzle. Fog.
+2018-06-25,6 pm,14,13,68,75,Passing clouds.
+2018-06-26,12 am,14,7,64,70,Passing clouds.
+2018-06-26,6 am,6,9,64,73,Partly sunny.
+2018-06-26,12 pm,6,12,75,81,Partly sunny.
+2018-06-26,6 pm,13,8,70,81,Clear.
+2018-06-27,12 am,13,4,66,70,Clear.
+2018-06-27,6 am,6,4,66,81,Partly sunny.
+2018-06-27,12 pm,6,4,82,86,Partly sunny.
+2018-06-27,6 pm,14,4,75,84,Passing clouds.
+2018-06-28,12 am,14,7,72,75,Passing clouds.
+2018-06-28,6 am,6,9,73,82,Partly sunny.
+2018-06-28,12 pm,6,12,70,77,Partly sunny.
+2018-06-28,6 pm,6,9,73,79,Partly sunny.
+2018-06-29,12 am,13,7,73,77,Clear.
+2018-06-29,6 am,2,10,79,90,Passing clouds.
+2018-06-29,12 pm,6,17,91,93,Partly sunny.
+2018-06-29,6 pm,14,15,82,90,Passing clouds.
+2018-06-30,12 am,14,8,75,81,Passing clouds.
+2018-06-30,6 am,6,9,77,90,Partly sunny.
+2018-06-30,12 pm,6,12,88,91,Partly sunny.
+2018-06-30,6 pm,22,12,72,88,Thunderstorms. Mostly cloudy.
+2018-07-01,12 am,34,11,72,72,Drizzle. Fog.
+2018-07-01,6 am,6,17,72,79,Partly sunny.
+2018-07-01,12 pm,2,14,79,82,Passing clouds.
+2018-07-01,6 pm,13,5,72,81,Clear.
+2018-07-02,12 am,13,1,64,70,Clear.
+2018-07-02,6 am,2,6,66,81,Passing clouds.
+2018-07-02,12 pm,2,12,82,84,Passing clouds.
+2018-07-02,6 pm,14,9,73,82,Passing clouds.
+2018-07-03,12 am,14,9,70,72,Passing clouds.
+2018-07-03,6 am,2,11,72,86,Passing clouds.
+2018-07-03,12 pm,2,11,88,91,Passing clouds.
+2018-07-03,6 pm,14,11,81,90,Passing clouds.
+2018-07-04,12 am,13,7,75,81,Clear.
+2018-07-04,6 am,2,10,77,90,Passing clouds.
+2018-07-04,12 pm,2,12,90,93,Passing clouds.
+2018-07-04,6 pm,22,9,81,84,Thunderstorms. Mostly cloudy.
+2018-07-05,12 am,22,11,72,79,Thunderstorms. Mostly cloudy.
+2018-07-05,6 am,6,6,73,84,Partly sunny.
+2018-07-05,12 pm,2,9,86,88,Passing clouds.
+2018-07-05,6 pm,6,11,73,86,Partly sunny.
+2018-07-06,12 am,14,7,66,72,Passing clouds.
+2018-07-06,6 am,2,9,70,79,Passing clouds.
+2018-07-06,12 pm,2,9,81,84,Passing clouds.
+2018-07-06,6 pm,13,7,73,82,Clear.
+2018-07-07,12 am,13,7,64,70,Clear.
+2018-07-07,6 am,2,7,66,77,Passing clouds.
+2018-07-07,12 pm,1,7,79,82,Sunny.
+2018-07-07,6 pm,13,8,72,81,Clear.
+2018-07-08,12 am,13,8,63,70,Clear.
+2018-07-08,6 am,2,8,64,81,Passing clouds.
+2018-07-08,12 pm,1,11,82,86,Sunny.
+2018-07-08,6 pm,13,7,73,84,Clear.
+2018-07-09,12 am,13,6,64,72,Clear.
+2018-07-09,6 am,6,8,66,88,Partly sunny.
+2018-07-09,12 pm,2,10,90,91,Passing clouds.
+2018-07-09,6 pm,2,6,81,91,Passing clouds.
+2018-07-10,12 am,14,3,77,79,Passing clouds.
+2018-07-10,6 am,2,4,79,88,Passing clouds.
+2018-07-10,12 pm,6,7,90,91,Partly sunny.
+2018-07-10,6 pm,14,7,79,88,Passing clouds.
+2018-07-11,12 am,13,7,73,77,Clear.
+2018-07-11,6 am,1,11,73,88,Sunny.
+2018-07-11,12 pm,2,11,90,93,Passing clouds.
+2018-07-11,6 pm,13,11,79,90,Clear.
+2018-07-12,12 am,13,9,73,79,Clear.
+2018-07-12,6 am,6,8,73,90,Partly sunny.
+2018-07-12,12 pm,2,12,91,97,Passing clouds.
+2018-07-12,6 pm,14,7,82,93,Passing clouds.
+2018-07-13,12 am,14,9,75,81,Passing clouds.
+2018-07-13,6 am,6,6,79,90,Partly sunny.
+2018-07-13,12 pm,6,13,81,93,Partly sunny.
+2018-07-13,6 pm,34,6,73,81,Drizzle. Fog.
+2018-07-14,12 am,17,4,72,73,Overcast.
+2018-07-14,6 am,6,4,72,84,Partly sunny.
+2018-07-14,12 pm,2,6,82,88,Passing clouds.
+2018-07-14,6 pm,14,5,77,84,Passing clouds.
+2018-07-15,12 am,14,2,72,75,Passing clouds.
+2018-07-15,6 am,9,6,72,84,Fog.
+2018-07-15,12 pm,2,6,84,90,Passing clouds.
+2018-07-15,6 pm,15,6,79,88,Partly cloudy.
+2018-07-16,12 am,14,6,73,79,Passing clouds.
+2018-07-16,6 am,2,7,72,82,Passing clouds.
+2018-07-16,12 pm,2,10,84,88,Passing clouds.
+2018-07-16,6 pm,14,6,73,84,Passing clouds.
+2018-07-17,12 am,14,1,68,73,Passing clouds.
+2018-07-17,6 am,7,4,70,81,Overcast.
+2018-07-17,12 pm,6,7,82,84,Partly sunny.
+2018-07-17,6 pm,14,5,75,82,Passing clouds.
+2018-07-18,12 am,14,4,68,72,Passing clouds.
+2018-07-18,6 am,6,7,70,82,Partly sunny.
+2018-07-18,12 pm,6,11,84,84,Partly sunny.
+2018-07-18,6 pm,6,9,73,82,Partly sunny.
+2018-07-19,12 am,17,11,70,73,Overcast.
+2018-07-19,6 am,7,11,70,75,Overcast.
+2018-07-19,12 pm,2,16,79,90,Passing clouds.
+2018-07-19,6 pm,14,13,75,84,Passing clouds.
+2018-07-20,12 am,14,19,66,73,Passing clouds.
+2018-07-20,6 am,7,17,68,77,Overcast.
+2018-07-20,12 pm,6,15,77,81,Partly sunny.
+2018-07-20,6 pm,13,9,72,81,Clear.
+2018-07-21,12 am,13,8,66,72,Clear.
+2018-07-21,6 am,1,14,66,81,Sunny.
+2018-07-21,12 pm,2,12,81,82,Passing clouds.
+2018-07-21,6 pm,14,8,72,82,Passing clouds.
+2018-07-22,12 am,14,7,66,72,Passing clouds.
+2018-07-22,6 am,2,9,66,81,Passing clouds.
+2018-07-22,12 pm,2,12,82,84,Passing clouds.
+2018-07-22,6 pm,2,6,70,79,Passing clouds.
+2018-07-23,12 am,14,2,64,72,Passing clouds.
+2018-07-23,6 am,6,8,64,82,Partly sunny.
+2018-07-23,12 pm,2,9,81,86,Passing clouds.
+2018-07-23,6 pm,2,5,75,84,Passing clouds.
+2018-07-24,12 am,14,7,64,75,Passing clouds.
+2018-07-24,6 am,2,9,64,81,Passing clouds.
+2018-07-24,12 pm,2,11,82,84,Passing clouds.
+2018-07-24,6 pm,2,6,70,84,Passing clouds.
+2018-07-25,12 am,14,1,64,70,Passing clouds.
+2018-07-25,6 am,6,7,66,81,Partly sunny.
+2018-07-25,12 pm,2,12,77,86,Passing clouds.
+2018-07-25,6 pm,2,9,70,84,Passing clouds.
+2018-07-26,12 am,14,8,63,70,Passing clouds.
+2018-07-26,6 am,2,12,64,79,Passing clouds.
+2018-07-26,12 pm,2,16,79,81,Passing clouds.
+2018-07-26,6 pm,14,10,66,79,Passing clouds.
+2018-07-27,12 am,14,6,57,64,Passing clouds.
+2018-07-27,6 am,2,8,57,73,Passing clouds.
+2018-07-27,12 pm,6,9,75,79,Partly sunny.
+2018-07-27,6 pm,14,3,66,77,Passing clouds.
+2018-07-28,12 am,14,1,61,64,Passing clouds.
+2018-07-28,6 am,6,3,63,72,Partly sunny.
+2018-07-28,12 pm,6,4,73,75,Partly sunny.
+2018-07-28,6 pm,17,4,70,73,Overcast.
+2018-07-29,12 am,17,4,64,70,Overcast.
+2018-07-29,6 am,6,4,64,75,Partly sunny.
+2018-07-29,12 pm,6,8,77,81,Partly sunny.
+2018-07-29,6 pm,14,3,66,75,Passing clouds.
+2018-07-30,12 am,14,2,63,68,Passing clouds.
+2018-07-30,6 am,6,4,63,79,Partly sunny.
+2018-07-30,12 pm,6,6,72,81,Partly sunny.
+2018-07-30,6 pm,2,6,68,77,Passing clouds.
+2018-07-31,12 am,13,2,61,66,Clear.
+2018-07-31,6 am,2,4,63,81,Passing clouds.
+2018-07-31,12 pm,2,8,82,86,Passing clouds.
+2018-07-31,6 pm,14,4,72,82,Passing clouds.
+2018-08-01,12 am,13,2,63,68,Clear.
+2018-08-01,6 am,2,7,64,82,Passing clouds.
+2018-08-01,12 pm,2,14,84,88,Passing clouds.
+2018-08-01,6 pm,14,10,73,84,Passing clouds.
+2018-08-02,12 am,14,8,63,72,Passing clouds.
+2018-08-02,6 am,2,4,61,73,Passing clouds.
+2018-08-02,12 pm,2,4,77,82,Passing clouds.
+2018-08-02,6 pm,6,6,72,81,Partly sunny.
+2018-08-03,12 am,13,8,64,70,Clear.
+2018-08-03,6 am,2,9,64,88,Passing clouds.
+2018-08-03,12 pm,6,12,90,93,Partly sunny.
+2018-08-03,6 pm,13,8,77,91,Clear.
+2018-08-04,12 am,14,9,72,75,Passing clouds.
+2018-08-04,6 am,6,11,72,82,Partly sunny.
+2018-08-04,12 pm,7,13,81,90,Overcast.
+2018-08-04,6 pm,14,8,75,88,Passing clouds.
+2018-08-05,12 am,13,8,73,75,Clear.
+2018-08-05,6 am,6,14,70,88,Partly sunny.
+2018-08-05,12 pm,6,12,82,97,Partly sunny.
+2018-08-05,6 pm,14,11,73,81,Passing clouds.
+2018-08-06,12 am,22,12,68,73,Thunderstorms. Mostly cloudy.
+2018-08-06,6 am,6,4,68,82,Partly sunny.
+2018-08-06,12 pm,6,6,82,84,Partly sunny.
+2018-08-06,6 pm,17,6,75,82,Overcast.
+2018-08-07,12 am,22,6,70,75,Thunderstorms. Mostly cloudy.
+2018-08-07,6 am,6,7,70,79,Partly sunny.
+2018-08-07,12 pm,2,10,81,82,Passing clouds.
+2018-08-07,6 pm,13,7,70,82,Clear.
+2018-08-08,12 am,13,3,63,68,Clear.
+2018-08-08,6 am,2,3,64,81,Passing clouds.
+2018-08-08,12 pm,2,4,84,88,Passing clouds.
+2018-08-08,6 pm,13,6,75,86,Clear.
+2018-08-09,12 am,13,5,70,73,Clear.
+2018-08-09,6 am,2,9,70,88,Passing clouds.
+2018-08-09,12 pm,2,12,90,93,Passing clouds.
+2018-08-09,6 pm,2,9,77,88,Passing clouds.
+2018-08-10,12 am,13,6,68,75,Clear.
+2018-08-10,6 am,2,9,68,84,Passing clouds.
+2018-08-10,12 pm,2,10,84,88,Passing clouds.
+2018-08-10,6 pm,14,6,73,84,Passing clouds.
+2018-08-11,12 am,13,2,66,72,Clear.
+2018-08-11,6 am,1,2,66,84,Sunny.
+2018-08-11,12 pm,2,3,84,86,Passing clouds.
+2018-08-11,6 pm,14,5,75,82,Passing clouds.
+2018-08-12,12 am,13,6,72,73,Clear.
+2018-08-12,6 am,1,7,72,84,Sunny.
+2018-08-12,12 pm,2,6,88,90,Passing clouds.
+2018-08-12,6 pm,13,9,75,86,Clear.
+2018-08-13,12 am,13,6,68,73,Clear.
+2018-08-13,6 am,2,7,72,84,Passing clouds.
+2018-08-13,12 pm,2,8,88,91,Passing clouds.
+2018-08-13,6 pm,14,9,79,88,Passing clouds.
+2018-08-14,12 am,14,4,72,75,Passing clouds.
+2018-08-14,6 am,6,6,70,81,Partly sunny.
+2018-08-14,12 pm,7,8,73,81,Overcast.
+2018-08-14,6 pm,34,7,70,73,Drizzle. Fog.
+2018-08-15,12 am,14,4,70,72,Passing clouds.
+2018-08-15,6 am,9,5,72,77,Fog.
+2018-08-15,12 pm,6,7,79,88,Partly sunny.
+2018-08-15,6 pm,14,4,73,82,Passing clouds.
+2018-08-16,12 am,14,3,70,72,Passing clouds.
+2018-08-16,6 am,7,5,70,77,Overcast.
+2018-08-16,12 pm,2,7,79,84,Passing clouds.
+2018-08-16,6 pm,14,9,68,82,Passing clouds.
+2018-08-17,12 am,14,6,66,68,Passing clouds.
+2018-08-17,6 am,2,9,66,81,Passing clouds.
+2018-08-17,12 pm,2,11,82,86,Passing clouds.
+2018-08-17,6 pm,14,7,73,82,Passing clouds.
+2018-08-18,12 am,13,4,66,72,Clear.
+2018-08-18,6 am,6,3,66,81,Partly sunny.
+2018-08-18,12 pm,2,4,82,86,Passing clouds.
+2018-08-18,6 pm,14,2,73,82,Passing clouds.
+2018-08-19,12 am,14,6,68,73,Passing clouds.
+2018-08-19,6 am,7,7,66,81,Overcast.
+2018-08-19,12 pm,6,9,81,82,Partly sunny.
+2018-08-19,6 pm,34,10,72,79,Drizzle. Fog.
+2018-08-20,12 am,34,13,70,72,Drizzle. Fog.
+2018-08-20,6 am,18,9,70,72,Drizzle. Fog.
+2018-08-20,12 pm,7,9,72,75,Overcast.
+2018-08-20,6 pm,17,13,66,73,Overcast.
+2018-08-21,12 am,14,9,63,64,Passing clouds.
+2018-08-21,6 am,2,11,63,70,Passing clouds.
+2018-08-21,12 pm,7,12,72,75,Overcast.
+2018-08-21,6 pm,13,8,63,72,Clear.
+2018-08-22,12 am,14,6,57,61,Passing clouds.
+2018-08-22,6 am,2,2,55,73,Passing clouds.
+2018-08-22,12 pm,2,6,75,79,Passing clouds.
+2018-08-22,6 pm,13,2,63,75,Clear.
+2018-08-23,12 am,14,6,57,63,Passing clouds.
+2018-08-23,6 am,2,11,57,75,Passing clouds.
+2018-08-23,12 pm,7,14,72,79,Overcast.
+2018-08-23,6 pm,7,12,68,70,Overcast.
+2018-08-24,12 am,34,11,64,68,Drizzle. Fog.
+2018-08-24,6 am,7,12,64,72,Overcast.
+2018-08-24,12 pm,2,12,72,82,Passing clouds.
+2018-08-24,6 pm,14,4,73,82,Passing clouds.
+2018-08-25,12 am,13,2,66,72,Clear.
+2018-08-25,6 am,9,5,66,84,Fog.
+2018-08-25,12 pm,2,7,88,90,Passing clouds.
+2018-08-25,6 pm,14,5,77,88,Passing clouds.
+2018-08-26,12 am,14,8,73,75,Passing clouds.
+2018-08-26,6 am,6,11,75,79,Partly sunny.
+2018-08-26,12 pm,6,11,79,82,Partly sunny.
+2018-08-26,6 pm,17,12,81,82,Overcast.
+2018-08-27,12 am,22,16,73,81,Thunderstorms. Mostly cloudy.
+2018-08-27,6 am,2,18,73,84,Passing clouds.
+2018-08-27,12 pm,2,21,84,91,Passing clouds.
+2018-08-27,6 pm,13,14,82,90,Clear.
+2018-08-28,12 am,13,14,75,82,Clear.
+2018-08-28,6 am,2,8,75,79,Passing clouds.
+2018-08-28,12 pm,22,10,75,82,Thunderstorms. Mostly cloudy.
+2018-08-28,6 pm,17,14,63,75,Overcast.
+2018-08-29,12 am,17,12,57,63,Overcast.
+2018-08-29,6 am,2,9,57,70,Passing clouds.
+2018-08-29,12 pm,2,9,72,75,Passing clouds.
+2018-08-29,6 pm,14,6,64,72,Passing clouds.
+2018-08-30,12 am,14,5,59,63,Passing clouds.
+2018-08-30,6 am,2,9,57,70,Passing clouds.
+2018-08-30,12 pm,7,15,70,79,Overcast.
+2018-08-30,6 pm,14,9,70,77,Passing clouds.
+2018-08-31,12 am,14,11,68,70,Passing clouds.
+2018-08-31,6 am,22,19,68,79,Thunderstorms. Mostly cloudy.
+2018-08-31,12 pm,6,17,75,82,Partly sunny.
+2018-08-31,6 pm,14,14,73,75,Passing clouds.
+2018-09-01,12 am,22,11,68,77,Thunderstorms. Mostly cloudy.
+2018-09-01,6 am,6,11,66,75,Partly sunny.
+2018-09-01,12 pm,6,4,77,86,Partly sunny.
+2018-09-01,6 pm,22,9,72,82,Thunderstorms. Mostly cloudy.
+2018-09-02,12 am,17,7,68,70,Overcast.
+2018-09-02,6 am,6,7,70,77,Partly sunny.
+2018-09-02,12 pm,6,9,75,81,Partly sunny.
+2018-09-02,6 pm,17,4,72,75,Overcast.
+2018-09-03,12 am,22,4,70,72,Thunderstorms. Mostly cloudy.
+2018-09-03,6 am,18,4,68,70,Drizzle. Fog.
+2018-09-03,12 pm,6,8,70,79,Partly sunny.
+2018-09-03,6 pm,14,4,73,75,Passing clouds.
+2018-09-04,12 am,14,7,72,73,Passing clouds.
+2018-09-04,6 am,6,9,72,84,Partly sunny.
+2018-09-04,12 pm,6,16,73,86,Partly sunny.
+2018-09-04,6 pm,17,12,73,75,Overcast.
+2018-09-05,12 am,34,7,72,75,Drizzle. Fog.
+2018-09-05,6 am,19,6,70,72,Rain. Fog.
+2018-09-05,12 pm,6,11,70,72,Partly sunny.
+2018-09-05,6 pm,17,12,68,72,Overcast.
+2018-09-06,12 am,17,14,64,66,Overcast.
+2018-09-06,6 am,6,12,63,73,Partly sunny.
+2018-09-06,12 pm,6,12,72,73,Partly sunny.
+2018-09-06,6 pm,17,9,68,72,Overcast.
+2018-09-07,12 am,17,9,61,66,Overcast.
+2018-09-07,6 am,18,8,57,61,Drizzle. Fog.
+2018-09-07,12 pm,6,10,61,66,Partly sunny.
+2018-09-07,6 pm,17,12,61,66,Overcast.
+2018-09-08,12 am,17,10,57,63,Overcast.
+2018-09-08,6 am,2,11,57,66,Passing clouds.
+2018-09-08,12 pm,2,11,70,73,Passing clouds.
+2018-09-08,6 pm,13,5,61,70,Clear.
+2018-09-09,12 am,13,6,55,61,Clear.
+2018-09-09,6 am,2,7,54,68,Passing clouds.
+2018-09-09,12 pm,2,6,72,73,Passing clouds.
+2018-09-09,6 pm,14,4,61,72,Passing clouds.
+2018-09-10,12 am,13,2,54,57,Clear.
+2018-09-10,6 am,2,4,54,72,Passing clouds.
+2018-09-10,12 pm,2,8,73,77,Passing clouds.
+2018-09-10,6 pm,14,7,63,73,Passing clouds.
+2018-09-11,12 am,13,7,57,63,Clear.
+2018-09-11,6 am,2,10,57,77,Passing clouds.
+2018-09-11,12 pm,2,16,79,81,Passing clouds.
+2018-09-11,6 pm,13,7,64,75,Clear.
+2018-09-12,12 am,13,7,61,64,Clear.
+2018-09-12,6 am,2,9,61,79,Passing clouds.
+2018-09-12,12 pm,2,14,79,81,Passing clouds.
+2018-09-12,6 pm,13,8,64,75,Clear.
+2018-09-13,12 am,13,7,63,64,Clear.
+2018-09-13,6 am,2,10,64,81,Passing clouds.
+2018-09-13,12 pm,2,15,81,84,Passing clouds.
+2018-09-13,6 pm,14,8,72,81,Passing clouds.
+2018-09-14,12 am,14,6,68,70,Passing clouds.
+2018-09-14,6 am,2,8,70,82,Passing clouds.
+2018-09-14,12 pm,2,12,86,88,Passing clouds.
+2018-09-14,6 pm,13,7,73,82,Clear.
+2018-09-15,12 am,13,5,70,73,Clear.
+2018-09-15,6 am,2,3,70,84,Passing clouds.
+2018-09-15,12 pm,2,6,88,90,Passing clouds.
+2018-09-15,6 pm,13,7,75,84,Clear.
+2018-09-16,12 am,14,4,70,73,Passing clouds.
+2018-09-16,6 am,2,7,70,84,Passing clouds.
+2018-09-16,12 pm,2,9,84,88,Passing clouds.
+2018-09-16,6 pm,14,6,73,82,Passing clouds.
+2018-09-17,12 am,17,7,72,73,Overcast.
+2018-09-17,6 am,2,6,72,86,Passing clouds.
+2018-09-17,12 pm,2,11,88,90,Passing clouds.
+2018-09-17,6 pm,14,7,75,84,Passing clouds.
+2018-09-18,12 am,14,6,70,73,Passing clouds.
+2018-09-18,6 am,22,17,64,84,Thunderstorms. Mostly cloudy.
+2018-09-18,12 pm,7,14,64,68,Overcast.
+2018-09-18,6 pm,14,7,64,66,Passing clouds.
+2018-09-19,12 am,14,9,64,66,Passing clouds.
+2018-09-19,6 am,9,8,66,72,Fog.
+2018-09-19,12 pm,2,10,73,81,Passing clouds.
+2018-09-19,6 pm,14,9,72,79,Passing clouds.
+2018-09-20,12 am,15,9,70,73,Partly cloudy.
+2018-09-20,6 am,2,10,70,88,Passing clouds.
+2018-09-20,12 pm,2,23,90,91,Passing clouds.
+2018-09-20,6 pm,14,18,66,86,Passing clouds.
+2018-09-21,12 am,17,15,61,68,Overcast.
+2018-09-21,6 am,6,21,57,63,Partly sunny.
+2018-09-21,12 pm,6,14,63,68,Partly sunny.
+2018-09-21,6 pm,14,7,52,57,Passing clouds.
+2018-09-22,12 am,13,4,46,48,Clear.
+2018-09-22,6 am,2,7,46,61,Passing clouds.
+2018-09-22,12 pm,2,7,63,66,Passing clouds.
+2018-09-22,6 pm,14,7,54,64,Passing clouds.
+2018-09-23,12 am,13,5,52,55,Clear.
+2018-09-23,6 am,1,7,52,70,Sunny.
+2018-09-23,12 pm,1,14,73,75,Sunny.
+2018-09-23,6 pm,14,9,61,70,Passing clouds.
+2018-09-24,12 am,13,8,55,61,Clear.
+2018-09-24,6 am,2,9,55,75,Passing clouds.
+2018-09-24,12 pm,6,13,75,79,Partly sunny.
+2018-09-24,6 pm,14,6,66,73,Passing clouds.
+2018-09-25,12 am,14,2,63,64,Passing clouds.
+2018-09-25,6 am,7,7,59,64,Overcast.
+2018-09-25,12 pm,18,12,55,61,Drizzle. Fog.
+2018-09-25,6 pm,13,6,48,57,Clear.
+2018-09-26,12 am,13,7,48,48,Clear.
+2018-09-26,6 am,2,11,46,61,Passing clouds.
+2018-09-26,12 pm,2,12,63,66,Passing clouds.
+2018-09-26,6 pm,13,7,52,61,Clear.
+2018-09-27,12 am,14,9,48,50,Passing clouds.
+2018-09-27,6 am,6,14,48,66,Partly sunny.
+2018-09-27,12 pm,6,14,70,73,Partly sunny.
+2018-09-27,6 pm,17,6,61,68,Overcast.
+2018-09-28,12 am,17,11,52,57,Overcast.
+2018-09-28,6 am,18,7,46,50,Drizzle. Fog.
+2018-09-28,12 pm,18,6,46,46,Drizzle. Fog.
+2018-09-28,6 pm,15,4,46,46,Partly cloudy.
+2018-09-29,12 am,17,2,43,45,Overcast.
+2018-09-29,6 am,7,7,45,50,Overcast.
+2018-09-29,12 pm,18,7,46,50,Drizzle. Fog.
+2018-09-29,6 pm,34,9,46,46,Drizzle. Fog.
+2018-09-30,12 am,17,6,46,48,Overcast.
+2018-09-30,6 am,9,6,48,52,Fog.
+2018-09-30,12 pm,18,9,50,52,Drizzle. Fog.
+2018-09-30,6 pm,34,9,50,50,Drizzle. Fog.
+2018-10-01,12 am,34,7,48,50,Drizzle. Fog.
+2018-10-01,6 am,18,6,50,55,Drizzle. Fog.
+2018-10-01,12 pm,18,9,55,59,Drizzle. Fog.
+2018-10-01,6 pm,17,7,54,55,Overcast.
+2018-10-02,12 am,17,5,50,54,Overcast.
+2018-10-02,6 am,9,3,50,54,Fog.
+2018-10-02,12 pm,7,7,54,59,Overcast.
+2018-10-02,6 pm,14,8,59,64,Passing clouds.
+2018-10-03,12 am,14,11,66,70,Passing clouds.
+2018-10-03,6 am,6,17,70,79,Partly sunny.
+2018-10-03,12 pm,2,23,82,86,Passing clouds.
+2018-10-03,6 pm,14,18,57,84,Passing clouds.
+2018-10-04,12 am,13,16,39,55,Clear.
+2018-10-04,6 am,2,12,39,48,Passing clouds.
+2018-10-04,12 pm,6,12,54,57,Partly sunny.
+2018-10-04,6 pm,17,8,54,55,Overcast.
+2018-10-05,12 am,34,5,52,54,Drizzle. Fog.
+2018-10-05,6 am,6,1,52,55,Partly sunny.
+2018-10-05,12 pm,7,6,55,61,Overcast.
+2018-10-05,6 pm,17,5,55,59,Overcast.
+2018-10-06,12 am,34,10,50,55,Drizzle. Fog.
+2018-10-06,6 am,7,11,48,50,Overcast.
+2018-10-06,12 pm,18,8,48,48,Drizzle. Fog.
+2018-10-06,6 pm,17,8,48,50,Overcast.
+2018-10-07,12 am,34,9,46,48,Drizzle. Fog.
+2018-10-07,6 am,18,9,46,52,Drizzle. Fog.
+2018-10-07,12 pm,18,7,54,57,Drizzle. Fog.
+2018-10-07,6 pm,34,7,55,57,Drizzle. Fog.
+2018-10-08,12 am,34,7,54,55,Drizzle. Fog.
+2018-10-08,6 am,18,3,55,66,Drizzle. Fog.
+2018-10-08,12 pm,6,7,68,73,Partly sunny.
+2018-10-08,6 pm,17,9,64,72,Overcast.
+2018-10-09,12 am,34,4,63,64,Drizzle. Fog.
+2018-10-09,6 am,18,3,63,66,Drizzle. Fog.
+2018-10-09,12 pm,18,6,66,72,Drizzle. Fog.
+2018-10-09,6 pm,17,14,70,70,Overcast.
+2018-10-10,12 am,17,12,57,68,Overcast.
+2018-10-10,6 am,6,14,50,55,Partly sunny.
+2018-10-10,12 pm,7,19,46,50,Overcast.
+2018-10-10,6 pm,14,19,39,46,Passing clouds.
+2018-10-11,12 am,17,21,37,39,Overcast.
+2018-10-11,6 am,7,19,37,39,Overcast.
+2018-10-11,12 pm,2,12,41,46,Passing clouds.
+2018-10-11,6 pm,14,4,37,43,Passing clouds.
+2018-10-12,12 am,17,3,37,37,Overcast.
+2018-10-12,6 am,18,4,34,39,Drizzle. Fog.
+2018-10-12,12 pm,7,5,43,45,Overcast.
+2018-10-12,6 pm,17,6,43,45,Overcast.
+2018-10-13,12 am,17,6,37,43,Overcast.
+2018-10-13,6 am,7,11,39,46,Overcast.
+2018-10-13,12 pm,2,14,46,54,Passing clouds.
+2018-10-13,6 pm,14,7,45,50,Passing clouds.
+2018-10-14,12 am,17,4,43,43,Overcast.
+2018-10-14,6 am,18,9,37,45,Drizzle. Fog.
+2018-10-14,12 pm,29,13,34,37,Light snow. Ice fog.
+2018-10-14,6 pm,29,10,34,36,Light snow. Ice fog.
+2018-10-15,12 am,17,9,30,36,Overcast.
+2018-10-15,6 am,2,11,32,41,Passing clouds.
+2018-10-15,12 pm,2,12,43,46,Passing clouds.
+2018-10-15,6 pm,13,7,34,41,Clear.
+2018-10-16,12 am,13,9,30,36,Clear.
+2018-10-16,6 am,2,12,34,54,Passing clouds.
+2018-10-16,12 pm,2,14,57,64,Passing clouds.
+2018-10-16,6 pm,14,8,48,55,Passing clouds.
+2018-10-17,12 am,13,6,37,46,Clear.
+2018-10-17,6 am,1,6,37,50,Sunny.
+2018-10-17,12 pm,2,10,52,55,Passing clouds.
+2018-10-17,6 pm,13,2,43,52,Clear.
+2018-10-18,12 am,13,6,37,43,Clear.
+2018-10-18,6 am,1,10,37,57,Sunny.
+2018-10-18,12 pm,1,12,61,66,Sunny.
+2018-10-18,6 pm,14,9,52,59,Passing clouds.
+2018-10-19,12 am,17,11,52,54,Overcast.
+2018-10-19,6 am,6,14,50,57,Partly sunny.
+2018-10-19,12 pm,2,17,61,70,Passing clouds.
+2018-10-19,6 pm,13,11,52,64,Clear.
+2018-10-20,12 am,13,11,45,48,Clear.
+2018-10-20,6 am,2,20,45,50,Passing clouds.
+2018-10-20,12 pm,2,20,45,48,Passing clouds.
+2018-10-20,6 pm,13,2,34,41,Clear.
+2018-10-21,12 am,13,2,27,34,Clear.
+2018-10-21,6 am,1,12,27,48,Sunny.
+2018-10-21,12 pm,2,15,52,61,Passing clouds.
+2018-10-21,6 pm,13,7,46,54,Clear.
+2018-10-22,12 am,14,2,43,45,Passing clouds.
+2018-10-22,6 am,2,5,39,61,Passing clouds.
+2018-10-22,12 pm,2,4,63,68,Passing clouds.
+2018-10-22,6 pm,13,5,48,59,Clear.
+2018-10-23,12 am,13,6,36,48,Clear.
+2018-10-23,6 am,2,6,36,50,Passing clouds.
+2018-10-23,12 pm,1,5,52,55,Sunny.
+2018-10-23,6 pm,13,2,37,50,Clear.
+2018-10-24,12 am,14,4,36,39,Passing clouds.
+2018-10-24,6 am,6,6,36,52,Partly sunny.
+2018-10-24,12 pm,7,9,54,57,Overcast.
+2018-10-24,6 pm,17,9,46,52,Overcast.
+2018-10-25,12 am,17,7,45,46,Overcast.
+2018-10-25,6 am,6,7,45,50,Partly sunny.
+2018-10-25,12 pm,6,4,52,54,Partly sunny.
+2018-10-25,6 pm,34,4,46,50,Drizzle. Fog.
+2018-10-26,12 am,34,4,45,45,Drizzle. Fog.
+2018-10-26,6 am,6,5,45,54,Partly sunny.
+2018-10-26,12 pm,6,6,52,55,Partly sunny.
+2018-10-26,6 pm,14,5,45,52,Passing clouds.
+2018-10-27,12 am,14,6,39,45,Passing clouds.
+2018-10-27,6 am,9,4,37,57,Fog.
+2018-10-27,12 pm,2,7,63,68,Passing clouds.
+2018-10-27,6 pm,17,6,54,61,Overcast.
+2018-10-28,12 am,13,14,46,54,Clear.
+2018-10-28,6 am,1,19,45,57,Sunny.
+2018-10-28,12 pm,2,24,55,61,Passing clouds.
+2018-10-28,6 pm,13,4,45,52,Clear.
+2018-10-29,12 am,14,1,37,43,Passing clouds.
+2018-10-29,6 am,2,6,37,57,Passing clouds.
+2018-10-29,12 pm,6,12,61,66,Partly sunny.
+2018-10-29,6 pm,14,10,54,57,Passing clouds.
+2018-10-30,12 am,14,4,46,54,Passing clouds.
+2018-10-30,6 am,6,6,46,55,Partly sunny.
+2018-10-30,12 pm,6,12,55,57,Partly sunny.
+2018-10-30,6 pm,17,12,48,52,Overcast.
+2018-10-31,12 am,17,11,43,48,Overcast.
+2018-10-31,6 am,6,7,43,55,Partly sunny.
+2018-10-31,12 pm,6,7,55,59,Partly sunny.
+2018-10-31,6 pm,17,1,45,54,Overcast.
+2018-11-01,12 am,14,1,37,45,Passing clouds.
+2018-11-01,6 am,6,3,37,54,Partly sunny.
+2018-11-01,12 pm,6,2,55,61,Partly sunny.
+2018-11-01,6 pm,17,4,46,54,Overcast.
+2018-11-02,12 am,17,6,46,46,Overcast.
+2018-11-02,6 am,18,9,45,46,Drizzle. Fog.
+2018-11-02,12 pm,6,5,50,52,Partly sunny.
+2018-11-02,6 pm,17,2,45,50,Overcast.
+2018-11-03,12 am,17,5,39,43,Overcast.
+2018-11-03,6 am,18,7,39,45,Drizzle. Fog.
+2018-11-03,12 pm,18,9,43,45,Drizzle. Fog.
+2018-11-03,6 pm,34,9,45,45,Drizzle. Fog.
+2018-11-04,12 am,34,7,45,46,Drizzle. Fog.
+2018-11-04,6 am,18,12,43,46,Drizzle. Fog.
+2018-11-04,12 pm,7,14,41,43,Overcast.
+2018-11-04,6 pm,17,7,41,43,Overcast.
+2018-11-05,12 am,14,7,37,39,Passing clouds.
+2018-11-05,6 am,18,10,39,46,Drizzle. Fog.
+2018-11-05,12 pm,18,12,45,46,Drizzle. Fog.
+2018-11-05,6 pm,34,14,45,46,Drizzle. Fog.
+2018-11-06,12 am,17,22,39,43,Overcast.
+2018-11-06,6 am,7,21,37,39,Overcast.
+2018-11-06,12 pm,6,18,37,43,Partly sunny.
+2018-11-06,6 pm,13,12,30,36,Clear.
+2018-11-07,12 am,13,14,28,30,Clear.
+2018-11-07,6 am,7,14,27,30,Overcast.
+2018-11-07,12 pm,7,12,32,32,Overcast.
+2018-11-07,6 pm,17,7,30,32,Overcast.
+2018-11-08,12 am,17,6,30,30,Overcast.
+2018-11-08,6 am,7,2,30,34,Overcast.
+2018-11-08,12 pm,6,2,34,34,Partly sunny.
+2018-11-08,6 pm,29,4,30,32,Light snow. Ice fog.
+2018-11-09,12 am,29,4,28,30,Light snow. Ice fog.
+2018-11-09,6 am,29,14,27,28,Light snow. Ice fog.
+2018-11-09,12 pm,6,23,21,25,Partly sunny.
+2018-11-09,6 pm,14,13,16,21,Passing clouds.
+2018-11-10,12 am,13,6,12,16,Clear.
+2018-11-10,6 am,6,9,12,25,Partly sunny.
+2018-11-10,12 pm,7,14,25,27,Overcast.
+2018-11-10,6 pm,17,6,28,28,Overcast.
+2018-11-11,12 am,14,5,25,28,Passing clouds.
+2018-11-11,6 am,6,7,25,43,Partly sunny.
+2018-11-11,12 pm,7,15,34,43,Overcast.
+2018-11-11,6 pm,17,7,28,32,Overcast.
+2018-11-12,12 am,17,16,21,27,Overcast.
+2018-11-12,6 am,29,16,21,25,Light snow. Ice fog.
+2018-11-12,12 pm,29,14,21,25,Light snow. Ice fog.
+2018-11-12,6 pm,14,10,18,21,Passing clouds.
+2018-11-13,12 am,14,7,10,16,Passing clouds.
+2018-11-13,6 am,2,6,10,25,Passing clouds.
+2018-11-13,12 pm,1,4,27,30,Sunny.
+2018-11-13,6 pm,13,7,21,25,Clear.
+2018-11-14,12 am,14,7,19,21,Passing clouds.
+2018-11-14,6 am,2,11,19,39,Passing clouds.
+2018-11-14,12 pm,2,12,32,41,Passing clouds.
+2018-11-14,6 pm,13,7,25,30,Clear.
+2018-11-15,12 am,13,8,21,25,Clear.
+2018-11-15,6 am,2,12,21,43,Passing clouds.
+2018-11-15,12 pm,2,11,39,48,Passing clouds.
+2018-11-15,6 pm,13,14,37,41,Clear.
+2018-11-16,12 am,17,16,36,37,Overcast.
+2018-11-16,6 am,7,13,36,43,Overcast.
+2018-11-16,12 pm,6,4,43,46,Partly sunny.
+2018-11-16,6 pm,17,8,36,43,Overcast.
+2018-11-17,12 am,34,13,30,36,Drizzle. Fog.
+2018-11-17,6 am,27,17,28,30,Light freezing rain. Ice fog.
+2018-11-17,12 pm,7,16,25,27,Overcast.
+2018-11-17,6 pm,29,11,21,23,Light snow. Ice fog.
+2018-11-18,12 am,13,9,12,21,Clear.
+2018-11-18,6 am,2,4,12,25,Passing clouds.
+2018-11-18,12 pm,1,8,25,30,Sunny.
+2018-11-18,6 pm,14,8,19,21,Passing clouds.
+2018-11-19,12 am,14,6,19,23,Passing clouds.
+2018-11-19,6 am,6,9,23,37,Partly sunny.
+2018-11-19,12 pm,6,13,28,39,Partly sunny.
+2018-11-19,6 pm,29,11,23,28,Light snow. Ice fog.
+2018-11-20,12 am,29,7,19,23,Light snow. Ice fog.
+2018-11-20,6 am,7,7,19,28,Overcast.
+2018-11-20,12 pm,2,12,30,34,Passing clouds.
+2018-11-20,6 pm,13,7,30,34,Clear.
+2018-11-21,12 am,13,2,27,32,Clear.
+2018-11-21,6 am,10,7,28,32,Ice fog.
+2018-11-21,12 pm,2,7,34,41,Passing clouds.
+2018-11-21,6 pm,13,7,30,36,Clear.
+2018-11-22,12 am,14,7,28,30,Passing clouds.
+2018-11-22,6 am,1,7,28,50,Sunny.
+2018-11-22,12 pm,1,12,46,55,Sunny.
+2018-11-22,6 pm,14,11,45,46,Passing clouds.
+2018-11-23,12 am,17,12,43,45,Overcast.
+2018-11-23,6 am,7,16,45,46,Overcast.
+2018-11-23,12 pm,18,12,43,45,Drizzle. Fog.
+2018-11-23,6 pm,17,11,45,45,Overcast.
+2018-11-24,12 am,13,11,36,43,Clear.
+2018-11-24,6 am,2,11,36,48,Passing clouds.
+2018-11-24,12 pm,2,7,46,54,Passing clouds.
+2018-11-24,6 pm,17,11,34,46,Overcast.
+2018-11-25,12 am,17,17,32,34,Overcast.
+2018-11-25,6 am,29,21,28,30,Light snow. Ice fog.
+2018-11-25,12 pm,7,21,27,28,Overcast.
+2018-11-25,6 pm,17,23,21,27,Overcast.
+2018-11-26,12 am,29,16,18,21,Light snow. Ice fog.
+2018-11-26,6 am,29,16,18,19,Light snow. Ice fog.
+2018-11-26,12 pm,6,15,18,21,Partly sunny.
+2018-11-26,6 pm,13,10,12,18,Clear.
+2018-11-27,12 am,13,11,10,12,Clear.
+2018-11-27,6 am,2,12,10,25,Passing clouds.
+2018-11-27,12 pm,2,11,21,27,Passing clouds.
+2018-11-27,6 pm,14,6,16,21,Passing clouds.
+2018-11-28,12 am,17,7,18,19,Overcast.
+2018-11-28,6 am,7,11,21,27,Overcast.
+2018-11-28,12 pm,7,12,25,28,Overcast.
+2018-11-28,6 pm,17,7,25,27,Overcast.
+2018-11-29,12 am,13,2,21,25,Clear.
+2018-11-29,6 am,6,4,21,32,Partly sunny.
+2018-11-29,12 pm,7,3,32,36,Overcast.
+2018-11-29,6 pm,14,1,30,32,Passing clouds.
+2018-11-30,12 am,14,1,27,30,Passing clouds.
+2018-11-30,6 am,10,4,27,36,Ice fog.
+2018-11-30,12 pm,7,7,36,39,Overcast.
+2018-11-30,6 pm,14,12,34,34,Passing clouds.
+2018-12-01,12 am,14,19,34,36,Passing clouds.
+2018-12-01,6 am,18,19,36,37,Drizzle. Fog.
+2018-12-01,12 pm,9,15,37,37,Fog.
+2018-12-01,6 pm,34,9,37,37,Drizzle. Fog.
+2018-12-02,12 am,34,12,34,37,Drizzle. Fog.
+2018-12-02,6 am,29,14,34,34,Light snow. Ice fog.
+2018-12-02,12 pm,29,14,32,34,Light snow. Ice fog.
+2018-12-02,6 pm,29,16,28,30,Light snow. Ice fog.
+2018-12-03,12 am,29,11,28,28,Light snow. Ice fog.
+2018-12-03,6 am,29,12,28,28,Light snow. Ice fog.
+2018-12-03,12 pm,29,11,28,30,Light snow. Ice fog.
+2018-12-03,6 pm,29,7,27,28,Light snow. Ice fog.
+2018-12-04,12 am,29,8,25,25,Light snow. Ice fog.
+2018-12-04,6 am,29,8,25,25,Light snow. Ice fog.
+2018-12-04,12 pm,29,10,23,25,Light snow. Ice fog.
+2018-12-04,6 pm,29,6,23,25,Light snow. Ice fog.
+2018-12-05,12 am,14,6,21,25,Passing clouds.
+2018-12-05,6 am,2,9,21,36,Passing clouds.
+2018-12-05,12 pm,2,11,34,39,Passing clouds.
+2018-12-05,6 pm,17,11,28,32,Overcast.
+2018-12-06,12 am,17,12,23,27,Overcast.
+2018-12-06,6 am,2,15,21,27,Passing clouds.
+2018-12-06,12 pm,6,11,21,28,Partly sunny.
+2018-12-06,6 pm,13,6,12,19,Clear.
+2018-12-07,12 am,13,4,10,12,Clear.
+2018-12-07,6 am,2,7,12,25,Passing clouds.
+2018-12-07,12 pm,2,7,27,28,Passing clouds.
+2018-12-07,6 pm,13,4,21,25,Clear.
+2018-12-08,12 am,17,2,18,21,Overcast.
+2018-12-08,6 am,2,7,16,30,Passing clouds.
+2018-12-08,12 pm,2,8,28,34,Passing clouds.
+2018-12-08,6 pm,13,7,19,27,Clear.
+2018-12-09,12 am,13,6,18,18,Clear.
+2018-12-09,6 am,6,6,16,28,Partly sunny.
+2018-12-09,12 pm,6,4,28,34,Partly sunny.
+2018-12-09,6 pm,14,6,19,28,Passing clouds.
+2018-12-10,12 am,14,2,16,19,Passing clouds.
+2018-12-10,6 am,10,7,16,34,Ice fog.
+2018-12-10,12 pm,1,12,28,36,Sunny.
+2018-12-10,6 pm,14,8,27,28,Passing clouds.
+2018-12-11,12 am,14,9,27,28,Passing clouds.
+2018-12-11,6 am,6,6,25,41,Partly sunny.
+2018-12-11,12 pm,6,7,39,45,Partly sunny.
+2018-12-11,6 pm,17,5,30,39,Overcast.
+2018-12-12,12 am,13,9,23,27,Clear.
+2018-12-12,6 am,7,11,25,36,Overcast.
+2018-12-12,12 pm,6,6,36,39,Partly sunny.
+2018-12-12,6 pm,15,7,30,36,Partly cloudy.
+2018-12-13,12 am,17,6,30,34,Overcast.
+2018-12-13,6 am,6,5,34,36,Partly sunny.
+2018-12-13,12 pm,6,9,36,37,Partly sunny.
+2018-12-13,6 pm,14,10,30,34,Passing clouds.
+2018-12-14,12 am,17,8,27,30,Overcast.
+2018-12-14,6 am,10,5,27,37,Ice fog.
+2018-12-14,12 pm,2,5,36,45,Passing clouds.
+2018-12-14,6 pm,13,2,27,34,Clear.
+2018-12-15,12 am,13,3,23,27,Clear.
+2018-12-15,6 am,1,1,21,45,Sunny.
+2018-12-15,12 pm,1,4,45,52,Sunny.
+2018-12-15,6 pm,17,6,34,39,Overcast.
+2018-12-16,12 am,13,6,27,36,Clear.
+2018-12-16,6 am,6,7,28,48,Partly sunny.
+2018-12-16,12 pm,2,11,37,50,Passing clouds.
+2018-12-16,6 pm,13,7,28,36,Clear.
+2018-12-17,12 am,13,4,25,28,Clear.
+2018-12-17,6 am,2,2,25,43,Passing clouds.
+2018-12-17,12 pm,1,6,45,48,Sunny.
+2018-12-17,6 pm,13,10,34,39,Clear.
+2018-12-18,12 am,14,9,30,34,Passing clouds.
+2018-12-18,6 am,6,11,30,50,Partly sunny.
+2018-12-18,12 pm,6,12,46,55,Partly sunny.
+2018-12-18,6 pm,17,10,39,43,Overcast.
+2018-12-19,12 am,17,9,43,45,Overcast.
+2018-12-19,6 am,6,13,43,50,Partly sunny.
+2018-12-19,12 pm,6,12,46,54,Partly sunny.
+2018-12-19,6 pm,17,9,41,45,Overcast.
+2018-12-20,12 am,17,13,36,39,Overcast.
+2018-12-20,6 am,34,14,36,37,Drizzle. Fog.
+2018-12-20,12 pm,18,14,30,36,Drizzle. Fog.
+2018-12-20,6 pm,17,13,30,30,Overcast.
+2018-12-21,12 am,17,11,27,28,Overcast.
+2018-12-21,6 am,7,9,25,27,Overcast.
+2018-12-21,12 pm,6,4,27,30,Partly sunny.
+2018-12-21,6 pm,17,6,25,27,Overcast.
+2018-12-22,12 am,14,7,23,25,Passing clouds.
+2018-12-22,6 am,7,9,19,30,Overcast.
+2018-12-22,12 pm,7,6,30,34,Overcast.
+2018-12-22,6 pm,14,4,27,30,Passing clouds.
+2018-12-23,12 am,14,7,25,27,Passing clouds.
+2018-12-23,6 am,2,11,25,37,Passing clouds.
+2018-12-23,12 pm,2,14,30,39,Passing clouds.
+2018-12-23,6 pm,13,3,25,30,Clear.
+2018-12-24,12 am,14,1,21,25,Passing clouds.
+2018-12-24,6 am,6,6,21,30,Partly sunny.
+2018-12-24,12 pm,7,8,34,36,Overcast.
+2018-12-24,6 pm,17,7,34,36,Overcast.
+2018-12-25,12 am,17,6,28,36,Overcast.
+2018-12-25,6 am,9,2,28,39,Fog.
+2018-12-25,12 pm,6,2,39,45,Partly sunny.
+2018-12-25,6 pm,13,6,32,37,Clear.
+2018-12-26,12 am,17,7,30,32,Overcast.
+2018-12-26,6 am,18,9,30,36,Drizzle. Fog.
+2018-12-26,12 pm,18,13,36,37,Drizzle. Fog.
+2018-12-26,6 pm,34,14,37,41,Drizzle. Fog.
+2018-12-27,12 am,34,13,41,45,Drizzle. Fog.
+2018-12-27,6 am,34,16,45,48,Drizzle. Fog.
+2018-12-27,12 pm,6,12,48,54,Partly sunny.
+2018-12-27,6 pm,17,17,28,45,Overcast.
+2018-12-28,12 am,29,15,25,28,Light snow. Ice fog.
+2018-12-28,6 am,27,19,19,21,Light freezing rain. Ice fog.
+2018-12-28,12 pm,29,19,16,18,Light snow. Ice fog.
+2018-12-28,6 pm,29,14,12,14,Light snow. Ice fog.
+2018-12-29,12 am,29,10,12,12,Light snow. Ice fog.
+2018-12-29,6 am,29,9,10,12,Light snow. Ice fog.
+2018-12-29,12 pm,29,9,16,19,Light snow. Ice fog.
+2018-12-29,6 pm,13,9,16,18,Clear.
+2018-12-30,12 am,13,11,18,19,Clear.
+2018-12-30,6 am,2,14,19,34,Passing clouds.
+2018-12-30,12 pm,2,15,36,39,Passing clouds.
+2018-12-30,6 pm,13,12,30,34,Clear.
+2018-12-31,12 am,17,6,32,36,Overcast.
+2018-12-31,6 am,7,4,34,36,Overcast.
+2018-12-31,12 pm,29,9,32,34,Light snow. Ice fog.
+2018-12-31,6 pm,29,17,19,30,Light snow. Ice fog.
+2019-01-01,NA,NA,NA,NA,NA,NA
+2019-01-01,NA,NA,NA,NA,NA,NA
+2019-01-01,NA,NA,NA,NA,NA,NA
+2019-01-01,NA,NA,NA,NA,NA,NA
+2019-01-02,NA,NA,NA,NA,NA,NA
+2019-01-02,NA,NA,NA,NA,NA,NA
+2019-01-02,NA,NA,NA,NA,NA,NA
+2019-01-02,NA,NA,NA,NA,NA,NA
+2019-01-03,NA,NA,NA,NA,NA,NA
+2019-01-03,NA,NA,NA,NA,NA,NA
+2019-01-03,NA,NA,NA,NA,NA,NA
+2019-01-03,NA,NA,NA,NA,NA,NA
+2019-01-04,NA,NA,NA,NA,NA,NA
+2019-01-04,NA,NA,NA,NA,NA,NA
+2019-01-04,NA,NA,NA,NA,NA,NA
+2019-01-04,NA,NA,NA,NA,NA,NA
+2019-01-05,NA,NA,NA,NA,NA,NA
+2019-01-05,NA,NA,NA,NA,NA,NA
+2019-01-05,NA,NA,NA,NA,NA,NA
+2019-01-05,NA,NA,NA,NA,NA,NA
+2019-01-06,NA,NA,NA,NA,NA,NA
+2019-01-06,NA,NA,NA,NA,NA,NA
+2019-01-06,NA,NA,NA,NA,NA,NA
+2019-01-06,NA,NA,NA,NA,NA,NA
+2019-01-07,NA,NA,NA,NA,NA,NA
+2019-01-07,NA,NA,NA,NA,NA,NA
+2019-01-07,NA,NA,NA,NA,NA,NA
+2019-01-07,NA,NA,NA,NA,NA,NA
+2019-01-08,NA,NA,NA,NA,NA,NA
+2019-01-08,NA,NA,NA,NA,NA,NA
+2019-01-08,NA,NA,NA,NA,NA,NA
+2019-01-08,NA,NA,NA,NA,NA,NA
+2019-01-09,NA,NA,NA,NA,NA,NA
+2019-01-09,NA,NA,NA,NA,NA,NA
+2019-01-09,NA,NA,NA,NA,NA,NA
+2019-01-09,NA,NA,NA,NA,NA,NA
+2019-01-10,NA,NA,NA,NA,NA,NA
+2019-01-10,NA,NA,NA,NA,NA,NA
+2019-01-10,NA,NA,NA,NA,NA,NA
+2019-01-10,NA,NA,NA,NA,NA,NA
+2019-01-11,NA,NA,NA,NA,NA,NA
+2019-01-11,NA,NA,NA,NA,NA,NA
+2019-01-11,NA,NA,NA,NA,NA,NA
+2019-01-11,NA,NA,NA,NA,NA,NA
+2019-01-12,NA,NA,NA,NA,NA,NA
+2019-01-12,NA,NA,NA,NA,NA,NA
+2019-01-12,NA,NA,NA,NA,NA,NA
+2019-01-12,NA,NA,NA,NA,NA,NA
+2019-01-13,NA,NA,NA,NA,NA,NA
+2019-01-13,NA,NA,NA,NA,NA,NA
+2019-01-13,NA,NA,NA,NA,NA,NA
+2019-01-13,NA,NA,NA,NA,NA,NA
+2019-01-14,NA,NA,NA,NA,NA,NA
+2019-01-14,NA,NA,NA,NA,NA,NA
+2019-01-14,NA,NA,NA,NA,NA,NA
+2019-01-14,NA,NA,NA,NA,NA,NA
