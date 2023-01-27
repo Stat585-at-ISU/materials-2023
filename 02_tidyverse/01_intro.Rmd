@@ -516,4 +516,17 @@ class:center
 
 ![:scale 100%](01_intro_files/figure-html/yourturn-wkd-drugs-weather-1.png)
 
+---
+
+# Adding to the data
+
+The ISU-PD department still posts the crime log - but now, in form of a pdf of what looks like a spread sheet. 
+
+Can we still get usable data out of this format?
+
+-- 
+
+There is a package `pdftools` available on CRAN ... but it does not return a data frame (or a tibble) as result. 
+
+We need to look at other formats that R offers ..
 
