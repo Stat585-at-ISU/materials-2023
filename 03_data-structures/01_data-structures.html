@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Stat 585 - Data Types</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heike Hofmann" />
+    <script src="libs/header-attrs-2.20/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tweaks.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Stat 585 - Data Types
+]
+.author[
+### Heike Hofmann
+]
+
+---
+
+class: center, middle
+
+
+
+
+# Data Types
+
+---
+
+## Basic Data Types
+
+Name | Example
+---- | -------
+numeric | 2.93
+integer | 2
+character | "hello world"
+logical | TRUE
+
+Convert between data types with **cast operators** 
+```
+as.character, as.numeric, as.logical, as.integer, ...
+```
+e.g. `as.numeric("2.394")` or `as.character("3.14159")`
+
+Test whether something has a data type with `is.XXX`, e.g. `is.character("fuzzy puppies")` or `is.logical("abcde")`
+
+---
+
+## Numeric values
+
+Numeric objects have double precision, i.e. work with 53 bits 
+
+```r
+pi &lt;- as.numeric(gsub(" ","","3.14159 26535 89793 23846 26433"))
+# maximum number of digits that can be shown is 22
+print(pi, digits=22)
+```
+
+```
+## [1] 3.141592653589793115998
+```
+first 15 digits are fine, anything beyond that is suspicious and most likely incorrect
+
+
+Precision is machine dependent
+
+
+---
+
+## `.Machine$double.eps`
+
+`.Machine$double.eps` is the machine's difference between two consecutive real valued numbers
+
+
+```r
+.Machine$double.eps
+```
+
+```
+## [1] 2.220446e-16
+```
+
+```r
+1 + .Machine$double.eps == 1
+```
+
+```
+## [1] FALSE
+```
+
+```r
+1 + .Machine$double.eps/2 == 1
+```
+
+```
+## [1] TRUE
+```
+
+```r
+1 + .Machine$double.eps == 1
+```
+
+```
+## [1] FALSE
+```
+
+---
+
+
+```r
+.Machine
+```
+
+```
+## $double.eps
+## [1] 2.220446e-16
+## 
+## $double.neg.eps
+## [1] 1.110223e-16
+## 
+## $double.xmin
+## [1] 2.225074e-308
+## 
+## $double.xmax
+## [1] 1.797693e+308
+## 
+## $double.base
+## [1] 2
+## 
+## $double.digits
+## [1] 53
+## 
+## $double.rounding
+## [1] 5
+## 
+## $double.guard
+## [1] 0
+## 
+## $double.ulp.digits
+## [1] -52
+## 
+## $double.neg.ulp.digits
+## [1] -53
+## 
+## $double.exponent
+## [1] 11
+## 
+## $double.min.exp
+## [1] -1022
+## 
+## $double.max.exp
+## [1] 1024
+## 
+## $integer.max
+## [1] 2147483647
+## 
+## $sizeof.long
+## [1] 8
+## 
+## $sizeof.longlong
+## [1] 8
+## 
+## $sizeof.longdouble
+## [1] 16
+## 
+## $sizeof.pointer
+## [1] 8
+## 
+## $longdouble.eps
+## [1] 1.084202e-19
+## 
+## $longdouble.neg.eps
+## [1] 5.421011e-20
+## 
+## $longdouble.digits
+## [1] 64
+## 
+## $longdouble.rounding
+## [1] 5
+## 
+## $longdouble.guard
+## [1] 0
+## 
+## $longdouble.ulp.digits
+## [1] -63
+## 
+## $longdouble.neg.ulp.digits
+## [1] -64
+## 
+## $longdouble.exponent
+## [1] 15
+## 
+## $longdouble.min.exp
+## [1] -16382
+## 
+## $longdouble.max.exp
+## [1] 16384
+```
+
+
+---
+
+
+# ` 0.15 == 0.1 + 0.05`
+# FALSE
+
+
+---
+
+## Checking for equality
+
+Internal representation is not equal to decimal representation:
+
+
+```r
+i &lt;- 0.1 + 0.05
+i
+```
+
+```
+## [1] 0.15
+```
+
+```r
+if(i==0.15) cat("i equals 0.15") else cat("i does not equal 0.15")
+```
+
+```
+## i does not equal 0.15
+```
+
+--
+
+
+```r
+print(i, digits=17)
+```
+
+```
+## [1] 0.15000000000000002
+```
+
+```r
+print(0.15, digits=17)
+```
+
+```
+## [1] 0.14999999999999999
+```
+See also https://0.30000000000000004.com/ for an overview of other languages
+---
+
+## Checking for equality
+
+
+Better practice:
+
+
+```r
+dplyr::near(i, 0.15)
+```
+
+```
+## [1] TRUE
+```
+
+Default tolerance is specified as `.Machine$double.eps^0.5`,
+i.e. floating point numbers are pairwise equal.
+
+---
+
+## Factors
+
+Some data has names and a defined numerical ordering:
+
+```r
+# R constant
+month.name
+```
+
+```
+##  [1] "January"   "February"  "March"     "April"    
+##  [5] "May"       "June"      "July"      "August"   
+##  [9] "September" "October"   "November"  "December"
+```
+
+Factors are used to store both the numerical values and the associated labels:
+
+```r
+factor(month.name)
+```
+
+```
+##  [1] January   February  March     April     May      
+##  [6] June      July      August    September October  
+## [11] November  December 
+## 12 Levels: April August December February January ... September
+```
+
+By default, R uses alphabetical order for factors...
+
+---
+
+## Factors
+
+```r
+factor(month.name)
+```
+
+```
+##  [1] January   February  March     April     May      
+##  [6] June      July      August    September October  
+## [11] November  December 
+## 12 Levels: April August December February January ... September
+```
+
+By default, R uses alphabetical order for factors...
+
+Set level names to override the default ordering 
+
+```r
+months &lt;- factor(month.name, levels = month.name)
+months
+```
+
+```
+##  [1] January   February  March     April     May      
+##  [6] June      July      August    September October  
+## [11] November  December 
+## 12 Levels: January February March April May June ... December
+```
+
+
+---
+
+## Factors
+
+You can access the labels of a factor using `levels()`
+
+```r
+levels(months)
+```
+
+```
+##  [1] "January"   "February"  "March"     "April"    
+##  [5] "May"       "June"      "July"      "August"   
+##  [9] "September" "October"   "November"  "December"
+```
+
+You can access the order of the factor using `as.numeric()`:
+
+```r
+as.numeric(months)
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12
+```
+
+---
+class: inverse
+## Your Turn
+
+- Introduce an object consisting of the days of the week
+
+- Make the object a factor; ensure that the days of the week are in chronological rather than alphabetical order
+
+- Change the order of the levels to start with Sunday (in case your levels started with Sunday, change the order to start with Monday)
+
+---
+
+## Type Conversions
+
+```r
+# Get a numeric vector
+x &lt;- sample(1:10, 5)
+x
+```
+
+```
+## [1] 2 8 1 9 7
+```
+
+```r
+# Create factor from numeric vector
+fac_x &lt;- factor(x)
+fac_x
+```
+
+```
+## [1] 2 8 1 9 7
+## Levels: 1 2 7 8 9
+```
+
+```r
+# Convert factor to numeric
+as.numeric(fac_x) # Huh?
+```
+
+```
+## [1] 2 4 1 5 3
+```
+`as.numeric()` converts factors to their level numbers, not to their labels
+
+---
+
+## Type Conversions
+
+
+```r
+as.character(fac_x)
+```
+
+```
+## [1] "2" "8" "1" "9" "7"
+```
+
+```r
+as.numeric(as.character(fac_x))
+```
+
+```
+## [1] 2 8 1 9 7
+```
+`as.character()` extracts the labels; you can then use `as.numeric` to get the labels' numeric value.
+
+---
+
+## Type Conversions
+
+implicit type conversions happen all the time:
+
+```r
+x &lt;- c("4.5", 3, TRUE, "elephant")
+# The logical value becomes a character
+x
+```
+
+```
+## [1] "4.5"      "3"        "TRUE"     "elephant"
+```
+
+
+Note that the cast from logical to  character doesn't survive intact
+
+```r
+as.numeric(x) 
+```
+
+```
+## Warning: NAs introduced by coercion
+```
+
+```
+## [1] 4.5 3.0  NA  NA
+```
+
+---
+
+## Basic Data Structures
+
+Data structures hold one or more basic data types and may have multiple dimensions:
+
+   | One type | Multiple Types
+-- | -------- | --------------
+1D | (Atomic) Vector | List
+2D | Matrix | Data frame
+nD | Array | 
+
+An individual value ("scalar" in other languages) is a length one vector in R
+
+* **Vectors**: one-dimensional array of values of the same type; vectors have a length, but no dimension
+
+* **Matrix**: two-dimensional array of values of the same type; matrices have a dimension given as (row, column), length returns the number of items (row x column)
+
+* **Array**: any higher dimensional array (e.g. output of temperature data from netcdf data)
+
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+
+
+
+
+```r
+## library(tidyverse)
+data("mtcars")
+str(mtcars)
+```
+
+```
+## 'data.frame':	32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
+```
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+
+```r
+data("eurodist")
+str(eurodist)
+```
+
+```
+##  'dist' num [1:210] 3313 2963 3175 3339 2762 ...
+##  - attr(*, "Size")= num 21
+##  - attr(*, "Labels")= chr [1:21] "Athens" "Barcelona" "Brussels" "Calais" ...
+```
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+
+```r
+data("discoveries")
+str(discoveries)
+```
+
+```
+##  Time-Series [1:100] from 1860 to 1959: 5 3 0 2 0 3 2 3 6 1 ...
+```
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+
+```r
+data("occupationalStatus")
+str(occupationalStatus)
+```
+
+```
+##  'table' int [1:8, 1:8] 50 16 12 11 2 12 0 0 19 40 ...
+##  - attr(*, "dimnames")=List of 2
+##   ..$ origin     : chr [1:8] "1" "2" "3" "4" ...
+##   ..$ destination: chr [1:8] "1" "2" "3" "4" ...
+```
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+
+```r
+str(c(5:15))
+```
+
+```
+##  int [1:11] 5 6 7 8 9 10 11 12 13 14 ...
+```
+
+```r
+str(month.name)
+```
+
+```
+##  chr [1:12] "January" "February" "March" "April" "May" ...
+```
+
+```r
+str(3)
+```
+
+```
+##  num 3
+```
+
+```r
+str(mean)
+```
+
+```
+## function (x, ...)
+```
+
+
+---
+
+
+
+## Data frames
+
+Data frame: collection of vectors of same length but possibly different types
+
+```r
+L3 &lt;- LETTERS[1:3]
+d &lt;- data.frame(
+        x=1, 
+        y=1:10, 
+        fac=sample(L3, 10, replace=TRUE))
+d %&gt;% glimpse()
+```
+
+```
+## Rows: 10
+## Columns: 3
+## $ x   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+## $ y   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+## $ fac &lt;chr&gt; "A", "A", "B", "B", "B", "C", "B", "C", "C", "…
+```
+
+---
+
+## Data frames are lists
+
+But not all lists are data frames
+
+
+```r
+str(d)
+```
+
+```
+## 'data.frame':	10 obs. of  3 variables:
+##  $ x  : num  1 1 1 1 1 1 1 1 1 1
+##  $ y  : int  1 2 3 4 5 6 7 8 9 10
+##  $ fac: chr  "A" "A" "B" "B" ...
+```
+
+```r
+mode(d)
+```
+
+```
+## [1] "list"
+```
+
+Data frames are lists of vectors where each vector is constrained to have the same length
+
+---
+class: inverse, center, middle
+# Lists
+
+---
+
+## Lists
+
+* lists allow the most flexibility, i.e. are not very structured. 
+
+* a list element can be anything, including another list
+
+* very useful (and common) as output from analytic methods
+
+* lists can also be variables in a dataset
+
+
+```r
+mod&lt;-glm(mpg~cyl+disp+hp+drat+wt, data=mtcars)
+mode(mod)
+```
+
+```
+## [1] "list"
+```
+
+---
+
+## Lists are usually quite unwieldy
+
+
+```r
+str(mod)
+```
+
+```
+## List of 30
+##  $ coefficients     : Named num [1:6] 36.0084 -1.1075 0.0124 -0.024 0.9522 ...
+##   ..- attr(*, "names")= chr [1:6] "(Intercept)" "cyl" "disp" "hp" ...
+##  $ residuals        : Named num [1:32] -1.788 -0.852 -3.023 0.367 0.943 ...
+##   ..- attr(*, "names")= chr [1:32] "Mazda RX4" "Mazda RX4 Wag" "Datsun 710" "Hornet 4 Drive" ...
+##  $ fitted.values    : Named num [1:32] 22.8 21.9 25.8 21 17.8 ...
+##   ..- attr(*, "names")= chr [1:32] "Mazda RX4" "Mazda RX4 Wag" "Datsun 710" "Hornet 4 Drive" ...
+##  $ effects          : Named num [1:32] -113.65 -28.6 6.13 -3.06 -4.06 ...
+##   ..- attr(*, "names")= chr [1:32] "(Intercept)" "cyl" "disp" "hp" ...
+##  $ R                : num [1:6, 1:6] -5.66 0 0 0 0 ...
+##   ..- attr(*, "dimnames")=List of 2
+##   .. ..$ : chr [1:6] "(Intercept)" "cyl" "disp" "hp" ...
+##   .. ..$ : chr [1:6] "(Intercept)" "cyl" "disp" "hp" ...
+##  $ rank             : int 6
+##  $ qr               :List of 5
+##   ..$ qr   : num [1:32, 1:6] -5.657 0.177 0.177 0.177 0.177 ...
+##   .. ..- attr(*, "dimnames")=List of 2
+##   .. .. ..$ : chr [1:32] "Mazda RX4" "Mazda RX4 Wag" "Datsun 710" "Hornet 4 Drive" ...
+##   .. .. ..$ : chr [1:6] "(Intercept)" "cyl" "disp" "hp" ...
+##   ..$ rank : int 6
+##   ..$ qraux: num [1:6] 1.18 1.02 1.11 1.17 1.08 ...
+##   ..$ pivot: int [1:6] 1 2 3 4 5 6
+##   ..$ tol  : num 1e-11
+##   ..- attr(*, "class")= chr "qr"
+##  $ family           :List of 11
+##   ..$ family    : chr "gaussian"
+##   ..$ link      : chr "identity"
+##   ..$ linkfun   :function (mu)  
+##   ..$ linkinv   :function (eta)  
+##   ..$ variance  :function (mu)  
+##   ..$ dev.resids:function (y, mu, wt)  
+##   ..$ aic       :function (y, n, mu, wt, dev)  
+##   ..$ mu.eta    :function (eta)  
+##   ..$ initialize:  expression({  n &lt;- rep.int(1, nobs)  if (is.null(etastart) &amp;&amp; is.null(start) &amp;&amp; is.null(mustart) &amp;&amp;  ((family$lin| __truncated__
+##   ..$ validmu   :function (mu)  
+##   ..$ valideta  :function (eta)  
+##   ..- attr(*, "class")= chr "family"
+##  $ linear.predictors: Named num [1:32] 22.8 21.9 25.8 21 17.8 ...
+##   ..- attr(*, "names")= chr [1:32] "Mazda RX4" "Mazda RX4 Wag" "Datsun 710" "Hornet 4 Drive" ...
+##  $ deviance         : num 167
+##  $ aic              : num 158
+##  $ null.deviance    : num 1126
+##  $ iter             : int 2
+##  $ weights          : Named num [1:32] 1 1 1 1 1 1 1 1 1 1 ...
+##   ..- attr(*, "names")= chr [1:32] "Mazda RX4" "Mazda RX4 Wag" "Datsun 710" "Hornet 4 Drive" ...
+##  $ prior.weights    : Named num [1:32] 1 1 1 1 1 1 1 1 1 1 ...
+##   ..- attr(*, "names")= chr [1:32] "Mazda RX4" "Mazda RX4 Wag" "Datsun 710" "Hornet 4 Drive" ...
+##  $ df.residual      : int 26
+##  $ df.null          : int 31
+##  $ y                : Named num [1:32] 21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##   ..- attr(*, "names")= chr [1:32] "Mazda RX4" "Mazda RX4 Wag" "Datsun 710" "Hornet 4 Drive" ...
+##  $ converged        : logi TRUE
+##  $ boundary         : logi FALSE
+##  $ model            :'data.frame':	32 obs. of  6 variables:
+##   ..$ mpg : num [1:32] 21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##   ..$ cyl : num [1:32] 6 6 4 6 8 6 8 4 4 6 ...
+##   ..$ disp: num [1:32] 160 160 108 258 360 ...
+##   ..$ hp  : num [1:32] 110 110 93 110 175 105 245 62 95 123 ...
+##   ..$ drat: num [1:32] 3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##   ..$ wt  : num [1:32] 2.62 2.88 2.32 3.21 3.44 ...
+##   ..- attr(*, "terms")=Classes 'terms', 'formula'  language mpg ~ cyl + disp + hp + drat + wt
+##   .. .. ..- attr(*, "variables")= language list(mpg, cyl, disp, hp, drat, wt)
+##   .. .. ..- attr(*, "factors")= int [1:6, 1:5] 0 1 0 0 0 0 0 0 1 0 ...
+##   .. .. .. ..- attr(*, "dimnames")=List of 2
+##   .. .. .. .. ..$ : chr [1:6] "mpg" "cyl" "disp" "hp" ...
+##   .. .. .. .. ..$ : chr [1:5] "cyl" "disp" "hp" "drat" ...
+##   .. .. ..- attr(*, "term.labels")= chr [1:5] "cyl" "disp" "hp" "drat" ...
+##   .. .. ..- attr(*, "order")= int [1:5] 1 1 1 1 1
+##   .. .. ..- attr(*, "intercept")= int 1
+##   .. .. ..- attr(*, "response")= int 1
+##   .. .. ..- attr(*, ".Environment")=&lt;environment: R_GlobalEnv&gt; 
+##   .. .. ..- attr(*, "predvars")= language list(mpg, cyl, disp, hp, drat, wt)
+##   .. .. ..- attr(*, "dataClasses")= Named chr [1:6] "numeric" "numeric" "numeric" "numeric" ...
+##   .. .. .. ..- attr(*, "names")= chr [1:6] "mpg" "cyl" "disp" "hp" ...
+##  $ call             : language glm(formula = mpg ~ cyl + disp + hp + drat + wt, data = mtcars)
+##  $ formula          :Class 'formula'  language mpg ~ cyl + disp + hp + drat + wt
+##   .. ..- attr(*, ".Environment")=&lt;environment: R_GlobalEnv&gt; 
+##  $ terms            :Classes 'terms', 'formula'  language mpg ~ cyl + disp + hp + drat + wt
+##   .. ..- attr(*, "variables")= language list(mpg, cyl, disp, hp, drat, wt)
+##   .. ..- attr(*, "factors")= int [1:6, 1:5] 0 1 0 0 0 0 0 0 1 0 ...
+##   .. .. ..- attr(*, "dimnames")=List of 2
+##   .. .. .. ..$ : chr [1:6] "mpg" "cyl" "disp" "hp" ...
+##   .. .. .. ..$ : chr [1:5] "cyl" "disp" "hp" "drat" ...
+##   .. ..- attr(*, "term.labels")= chr [1:5] "cyl" "disp" "hp" "drat" ...
+##   .. ..- attr(*, "order")= int [1:5] 1 1 1 1 1
+##   .. ..- attr(*, "intercept")= int 1
+##   .. ..- attr(*, "response")= int 1
+##   .. ..- attr(*, ".Environment")=&lt;environment: R_GlobalEnv&gt; 
+##   .. ..- attr(*, "predvars")= language list(mpg, cyl, disp, hp, drat, wt)
+##   .. ..- attr(*, "dataClasses")= Named chr [1:6] "numeric" "numeric" "numeric" "numeric" ...
+##   .. .. ..- attr(*, "names")= chr [1:6] "mpg" "cyl" "disp" "hp" ...
+##  $ data             :'data.frame':	32 obs. of  11 variables:
+##   ..$ mpg : num [1:32] 21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##   ..$ cyl : num [1:32] 6 6 4 6 8 6 8 4 4 6 ...
+##   ..$ disp: num [1:32] 160 160 108 258 360 ...
+##   ..$ hp  : num [1:32] 110 110 93 110 175 105 245 62 95 123 ...
+##   ..$ drat: num [1:32] 3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##   ..$ wt  : num [1:32] 2.62 2.88 2.32 3.21 3.44 ...
+##   ..$ qsec: num [1:32] 16.5 17 18.6 19.4 17 ...
+##   ..$ vs  : num [1:32] 0 0 1 1 0 1 0 1 1 1 ...
+##   ..$ am  : num [1:32] 1 1 1 0 0 0 0 0 0 0 ...
+##   ..$ gear: num [1:32] 4 4 4 3 3 3 3 4 4 4 ...
+##   ..$ carb: num [1:32] 4 4 1 1 2 1 4 2 2 4 ...
+##  $ offset           : NULL
+##  $ control          :List of 3
+##   ..$ epsilon: num 1e-08
+##   ..$ maxit  : num 25
+##   ..$ trace  : logi FALSE
+##  $ method           : chr "glm.fit"
+##  $ contrasts        : NULL
+##  $ xlevels          : Named list()
+##  - attr(*, "class")= chr [1:2] "glm" "lm"
+```
+
+---
+
+## Working with lists
+
+* single bracket operator [ ] returns a (usually smaller) list
+
+
+```r
+mod[c(1,6,8)]
+```
+
+```
+## $coefficients
+## (Intercept)         cyl        disp          hp        drat 
+## 36.00835689 -1.10748650  0.01235733 -0.02401743  0.95220742 
+##          wt 
+## -3.67328708 
+## 
+## $rank
+## [1] 6
+## 
+## $family
+## 
+## Family: gaussian 
+## Link function: identity
+```
+
+---
+
+## Working with lists 
+
+* double bracket operator `[[ ]]` returns single list element (i.e. only single positive integer is allowed as index)
+
+* similarly, named objects can be accessed using the `$` operator
+
+
+```r
+mod[[1]]
+```
+
+```
+## (Intercept)         cyl        disp          hp        drat 
+## 36.00835689 -1.10748650  0.01235733 -0.02401743  0.95220742 
+##          wt 
+## -3.67328708
+```
+
+```r
+mod$rank
+```
+
+```
+## [1] 6
+```
+
+---
+class: inverse
+## Your Turn
+
+The package `repurrrsive` helps with working with lists, it also has some fun data for us to work with.
+
+- install the package `repurrrsive` 
+
+- activate (using the function `data`) the object `got_chars` and check that it is a list.
+
+- what does this object describe?
+
+- can the object be converted to a data frame? If so, how? If not, why?
+
+---
+class: middle, center
+
+
+... only once you tried, you know the drill :) ...
+
+---
+
+
+```r
+# install.packages("repurrrsive")
+library(repurrrsive)
+data(got_chars) # Game of Thrones characters
+is.list(got_chars)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+mode(got_chars)
+```
+
+```
+## [1] "list"
+```
+
+```r
+str(got_chars)
+```
+
+```
+## List of 30
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/1022"
+##   ..$ id         : int 1022
+##   ..$ name       : chr "Theon Greyjoy"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Ironborn"
+##   ..$ born       : chr "In 278 AC or 279 AC, at Pyke"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:2] "Prince of Winterfell" "Lord of the Iron Islands (by law of the green lands)"
+##   ..$ aliases    : chr [1:4] "Prince of Fools" "Theon Turncloak" "Reek" "Theon Kinslayer"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Greyjoy of Pyke"
+##   ..$ books      : chr [1:3] "A Game of Thrones" "A Storm of Swords" "A Feast for Crows"
+##   ..$ povBooks   : chr [1:2] "A Clash of Kings" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "Alfie Allen"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/1052"
+##   ..$ id         : int 1052
+##   ..$ name       : chr "Tyrion Lannister"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr ""
+##   ..$ born       : chr "In 273 AC, at Casterly Rock"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:2] "Acting Hand of the King (former)" "Master of Coin (former)"
+##   ..$ aliases    : chr [1:11] "The Imp" "Halfman" "The boyman" "Giant of Lannister" ...
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/2044"
+##   ..$ allegiances: chr "House Lannister of Casterly Rock"
+##   ..$ books      : chr [1:2] "A Feast for Crows" "The World of Ice and Fire"
+##   ..$ povBooks   : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "Peter Dinklage"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/1074"
+##   ..$ id         : int 1074
+##   ..$ name       : chr "Victarion Greyjoy"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Ironborn"
+##   ..$ born       : chr "In 268 AC or before, at Pyke"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:2] "Lord Captain of the Iron Fleet" "Master of the Iron Victory"
+##   ..$ aliases    : chr "The Iron Captain"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Greyjoy of Pyke"
+##   ..$ books      : chr [1:3] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords"
+##   ..$ povBooks   : chr [1:2] "A Feast for Crows" "A Dance with Dragons"
+##   ..$ tvSeries   : chr ""
+##   ..$ playedBy   : chr ""
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/1109"
+##   ..$ id         : int 1109
+##   ..$ name       : chr "Will"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr ""
+##   ..$ born       : chr ""
+##   ..$ died       : chr "In 297 AC, at Haunted Forest"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr ""
+##   ..$ aliases    : chr ""
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: list()
+##   ..$ books      : chr "A Clash of Kings"
+##   ..$ povBooks   : chr "A Game of Thrones"
+##   ..$ tvSeries   : chr ""
+##   ..$ playedBy   : chr "Bronson Webb"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/1166"
+##   ..$ id         : int 1166
+##   ..$ name       : chr "Areo Hotah"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Norvoshi"
+##   ..$ born       : chr "In 257 AC or before, at Norvos"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr "Captain of the Guard at Sunspear"
+##   ..$ aliases    : chr ""
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Nymeros Martell of Sunspear"
+##   ..$ books      : chr [1:3] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords"
+##   ..$ povBooks   : chr [1:2] "A Feast for Crows" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:2] "Season 5" "Season 6"
+##   ..$ playedBy   : chr "DeObia Oparei"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/1267"
+##   ..$ id         : int 1267
+##   ..$ name       : chr "Chett"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr ""
+##   ..$ born       : chr "At Hag's Mire"
+##   ..$ died       : chr "In 299 AC, at Fist of the First Men"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr ""
+##   ..$ aliases    : chr ""
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: list()
+##   ..$ books      : chr [1:2] "A Game of Thrones" "A Clash of Kings"
+##   ..$ povBooks   : chr "A Storm of Swords"
+##   ..$ tvSeries   : chr ""
+##   ..$ playedBy   : chr ""
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/1295"
+##   ..$ id         : int 1295
+##   ..$ name       : chr "Cressen"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr ""
+##   ..$ born       : chr "In 219 AC or 220 AC"
+##   ..$ died       : chr "In 299 AC, at Dragonstone"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr "Maester"
+##   ..$ aliases    : chr ""
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: list()
+##   ..$ books      : chr [1:2] "A Storm of Swords" "A Feast for Crows"
+##   ..$ povBooks   : chr "A Clash of Kings"
+##   ..$ tvSeries   : chr "Season 2"
+##   ..$ playedBy   : chr "Oliver Ford"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/130"
+##   ..$ id         : int 130
+##   ..$ name       : chr "Arianne Martell"
+##   ..$ gender     : chr "Female"
+##   ..$ culture    : chr "Dornish"
+##   ..$ born       : chr "In 276 AC, at Sunspear"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr "Princess of Dorne"
+##   ..$ aliases    : chr ""
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Nymeros Martell of Sunspear"
+##   ..$ books      : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Dance with Dragons"
+##   ..$ povBooks   : chr "A Feast for Crows"
+##   ..$ tvSeries   : chr ""
+##   ..$ playedBy   : chr ""
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/1303"
+##   ..$ id         : int 1303
+##   ..$ name       : chr "Daenerys Targaryen"
+##   ..$ gender     : chr "Female"
+##   ..$ culture    : chr "Valyrian"
+##   ..$ born       : chr "In 284 AC, at Dragonstone"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:5] "Queen of the Andals and the Rhoynar and the First Men, Lord of the Seven Kingdoms" "Khaleesi of the Great Grass Sea" "Breaker of Shackles/Chains" "Queen of Meereen" ...
+##   ..$ aliases    : chr [1:11] "Dany" "Daenerys Stormborn" "The Unburnt" "Mother of Dragons" ...
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/1346"
+##   ..$ allegiances: chr "House Targaryen of King's Landing"
+##   ..$ books      : chr "A Feast for Crows"
+##   ..$ povBooks   : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "Emilia Clarke"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/1319"
+##   ..$ id         : int 1319
+##   ..$ name       : chr "Davos Seaworth"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Westeros"
+##   ..$ born       : chr "In 260 AC or before, at King's Landing"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:4] "Ser" "Lord of the Rainwood" "Admiral of the Narrow Sea" "Hand of the King"
+##   ..$ aliases    : chr [1:5] "Onion Knight" "Davos Shorthand" "Ser Onions" "Onion Lord" ...
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/1676"
+##   ..$ allegiances: chr [1:2] "House Baratheon of Dragonstone" "House Seaworth of Cape Wrath"
+##   ..$ books      : chr "A Feast for Crows"
+##   ..$ povBooks   : chr [1:3] "A Clash of Kings" "A Storm of Swords" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:5] "Season 2" "Season 3" "Season 4" "Season 5" ...
+##   ..$ playedBy   : chr "Liam Cunningham"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/148"
+##   ..$ id         : int 148
+##   ..$ name       : chr "Arya Stark"
+##   ..$ gender     : chr "Female"
+##   ..$ culture    : chr "Northmen"
+##   ..$ born       : chr "In 289 AC, at Winterfell"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr "Princess"
+##   ..$ aliases    : chr [1:16] "Arya Horseface" "Arya Underfoot" "Arry" "Lumpyface" ...
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Stark of Winterfell"
+##   ..$ books      : list()
+##   ..$ povBooks   : chr [1:5] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Feast for Crows" ...
+##   ..$ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "Maisie Williams"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/149"
+##   ..$ id         : int 149
+##   ..$ name       : chr "Arys Oakheart"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Reach"
+##   ..$ born       : chr "At Old Oak"
+##   ..$ died       : chr "In 300 AC, at the Greenblood"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr "Ser"
+##   ..$ aliases    : chr ""
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Oakheart of Old Oak"
+##   ..$ books      : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Dance with Dragons"
+##   ..$ povBooks   : chr "A Feast for Crows"
+##   ..$ tvSeries   : chr ""
+##   ..$ playedBy   : chr ""
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/150"
+##   ..$ id         : int 150
+##   ..$ name       : chr "Asha Greyjoy"
+##   ..$ gender     : chr "Female"
+##   ..$ culture    : chr "Ironborn"
+##   ..$ born       : chr "In 275 AC or 276 AC, at Pyke"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:3] "Princess" "Captain of the Black Wind" "Conqueror of Deepwood Motte"
+##   ..$ aliases    : chr [1:2] "Esgred" "The Kraken's Daughter"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/1372"
+##   ..$ allegiances: chr [1:2] "House Greyjoy of Pyke" "House Ironmaker"
+##   ..$ books      : chr [1:2] "A Game of Thrones" "A Clash of Kings"
+##   ..$ povBooks   : chr [1:2] "A Feast for Crows" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:3] "Season 2" "Season 3" "Season 4"
+##   ..$ playedBy   : chr "Gemma Whelan"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/168"
+##   ..$ id         : int 168
+##   ..$ name       : chr "Barristan Selmy"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Westeros"
+##   ..$ born       : chr "In 237 AC"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:2] "Ser" "Hand of the Queen"
+##   ..$ aliases    : chr [1:5] "Barristan the Bold" "Arstan Whitebeard" "Ser Grandfather" "Barristan the Old" ...
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr [1:2] "House Selmy of Harvest Hall" "House Targaryen of King's Landing"
+##   ..$ books      : chr [1:5] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Feast for Crows" ...
+##   ..$ povBooks   : chr "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:4] "Season 1" "Season 3" "Season 4" "Season 5"
+##   ..$ playedBy   : chr "Ian McElhinney"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/2066"
+##   ..$ id         : int 2066
+##   ..$ name       : chr "Varamyr"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Free Folk"
+##   ..$ born       : chr "At a village Beyond the Wall"
+##   ..$ died       : chr "In 300 AC, at a village Beyond the Wall"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr ""
+##   ..$ aliases    : chr [1:3] "Varamyr Sixskins" "Haggon" "Lump"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: list()
+##   ..$ books      : chr "A Storm of Swords"
+##   ..$ povBooks   : chr "A Dance with Dragons"
+##   ..$ tvSeries   : chr ""
+##   ..$ playedBy   : chr ""
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/208"
+##   ..$ id         : int 208
+##   ..$ name       : chr "Brandon Stark"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Northmen"
+##   ..$ born       : chr "In 290 AC, at Winterfell"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr "Prince of Winterfell"
+##   ..$ aliases    : chr [1:3] "Bran" "Bran the Broken" "The Winged Wolf"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Stark of Winterfell"
+##   ..$ books      : chr "A Feast for Crows"
+##   ..$ povBooks   : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:5] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "Isaac Hempstead-Wright"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/216"
+##   ..$ id         : int 216
+##   ..$ name       : chr "Brienne of Tarth"
+##   ..$ gender     : chr "Female"
+##   ..$ culture    : chr ""
+##   ..$ born       : chr "In 280 AC"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr ""
+##   ..$ aliases    : chr [1:3] "The Maid of Tarth" "Brienne the Beauty" "Brienne the Blue"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr [1:3] "House Baratheon of Storm's End" "House Stark of Winterfell" "House Tarth of Evenfall Hall"
+##   ..$ books      : chr [1:3] "A Clash of Kings" "A Storm of Swords" "A Dance with Dragons"
+##   ..$ povBooks   : chr "A Feast for Crows"
+##   ..$ tvSeries   : chr [1:5] "Season 2" "Season 3" "Season 4" "Season 5" ...
+##   ..$ playedBy   : chr "Gwendoline Christie"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/232"
+##   ..$ id         : int 232
+##   ..$ name       : chr "Catelyn Stark"
+##   ..$ gender     : chr "Female"
+##   ..$ culture    : chr "Rivermen"
+##   ..$ born       : chr "In 264 AC, at Riverrun"
+##   ..$ died       : chr "In 299 AC, at the Twins"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr "Lady of Winterfell"
+##   ..$ aliases    : chr [1:5] "Catelyn Tully" "Lady Stoneheart" "The Silent Sistet" "Mother Mercilesr" ...
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/339"
+##   ..$ allegiances: chr [1:2] "House Stark of Winterfell" "House Tully of Riverrun"
+##   ..$ books      : chr [1:2] "A Feast for Crows" "A Dance with Dragons"
+##   ..$ povBooks   : chr [1:3] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords"
+##   ..$ tvSeries   : chr [1:3] "Season 1" "Season 2" "Season 3"
+##   ..$ playedBy   : chr "Michelle Fairley"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/238"
+##   ..$ id         : int 238
+##   ..$ name       : chr "Cersei Lannister"
+##   ..$ gender     : chr "Female"
+##   ..$ culture    : chr "Westerman"
+##   ..$ born       : chr "In 266 AC, at Casterly Rock"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:5] "Light of the West" "Queen Dowager" "Protector of the Realm" "Lady of Casterly Rock" ...
+##   ..$ aliases    : chr ""
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/901"
+##   ..$ allegiances: chr "House Lannister of Casterly Rock"
+##   ..$ books      : chr [1:3] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords"
+##   ..$ povBooks   : chr [1:2] "A Feast for Crows" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "Lena Headey"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/339"
+##   ..$ id         : int 339
+##   ..$ name       : chr "Eddard Stark"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Northmen"
+##   ..$ born       : chr "In 263 AC, at Winterfell"
+##   ..$ died       : chr "In 299 AC, at Great Sept of Baelor in King's Landing"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr [1:5] "Lord of Winterfell" "Warden of the North" "Hand of the King" "Protector of the Realm" ...
+##   ..$ aliases    : chr [1:3] "Ned" "The Ned" "The Quiet Wolf"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/232"
+##   ..$ allegiances: chr "House Stark of Winterfell"
+##   ..$ books      : chr [1:5] "A Clash of Kings" "A Storm of Swords" "A Feast for Crows" "A Dance with Dragons" ...
+##   ..$ povBooks   : chr "A Game of Thrones"
+##   ..$ tvSeries   : chr [1:2] "Season 1" "Season 6"
+##   ..$ playedBy   : chr [1:3] "Sean Bean" "Sebastian Croft" "Robert Aramayo"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/529"
+##   ..$ id         : int 529
+##   ..$ name       : chr "Jaime Lannister"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Westerlands"
+##   ..$ born       : chr "In 266 AC, at Casterly Rock"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:3] "Ser" "Lord Commander of the Kingsguard" "Warden of the East (formerly)"
+##   ..$ aliases    : chr [1:4] "The Kingslayer" "The Lion of Lannister" "The Young Lion" "Cripple"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Lannister of Casterly Rock"
+##   ..$ books      : chr [1:2] "A Game of Thrones" "A Clash of Kings"
+##   ..$ povBooks   : chr [1:3] "A Storm of Swords" "A Feast for Crows" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:5] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "Nikolaj Coster-Waldau"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/576"
+##   ..$ id         : int 576
+##   ..$ name       : chr "Jon Connington"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Stormlands"
+##   ..$ born       : chr "In or between 263 AC and 265 AC"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:3] "Lord of Griffin's Roost" "Hand of the King" "Hand of the True King"
+##   ..$ aliases    : chr "Griffthe Mad King's Hand"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr [1:2] "House Connington of Griffin's Roost" "House Targaryen of King's Landing"
+##   ..$ books      : chr [1:3] "A Storm of Swords" "A Feast for Crows" "The World of Ice and Fire"
+##   ..$ povBooks   : chr "A Dance with Dragons"
+##   ..$ tvSeries   : chr ""
+##   ..$ playedBy   : chr ""
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/583"
+##   ..$ id         : int 583
+##   ..$ name       : chr "Jon Snow"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Northmen"
+##   ..$ born       : chr "In 283 AC"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr "Lord Commander of the Night's Watch"
+##   ..$ aliases    : chr [1:8] "Lord Snow" "Ned Stark's Bastard" "The Snow of Winterfell" "The Crow-Come-Over" ...
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Stark of Winterfell"
+##   ..$ books      : chr "A Feast for Crows"
+##   ..$ povBooks   : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "Kit Harington"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/60"
+##   ..$ id         : int 60
+##   ..$ name       : chr "Aeron Greyjoy"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Ironborn"
+##   ..$ born       : chr "In or between 269 AC and 273 AC, at Pyke"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr [1:2] "Priest of the Drowned God" "Captain of the Golden Storm (formerly)"
+##   ..$ aliases    : chr [1:2] "The Damphair" "Aeron Damphair"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Greyjoy of Pyke"
+##   ..$ books      : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Dance with Dragons"
+##   ..$ povBooks   : chr "A Feast for Crows"
+##   ..$ tvSeries   : chr "Season 6"
+##   ..$ playedBy   : chr "Michael Feast"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/605"
+##   ..$ id         : int 605
+##   ..$ name       : chr "Kevan Lannister"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr ""
+##   ..$ born       : chr "In 244 AC"
+##   ..$ died       : chr "In 300 AC, at King's Landing"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr [1:4] "Ser" "Master of laws" "Lord Regent" "Protector of the Realm"
+##   ..$ aliases    : chr ""
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/327"
+##   ..$ allegiances: chr "House Lannister of Casterly Rock"
+##   ..$ books      : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Feast for Crows"
+##   ..$ povBooks   : chr "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:4] "Season 1" "Season 2" "Season 5" "Season 6"
+##   ..$ playedBy   : chr "Ian Gelder"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/743"
+##   ..$ id         : int 743
+##   ..$ name       : chr "Melisandre"
+##   ..$ gender     : chr "Female"
+##   ..$ culture    : chr "Asshai"
+##   ..$ born       : chr "At Unknown"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr ""
+##   ..$ aliases    : chr [1:5] "The Red Priestess" "The Red Woman" "The King's Red Shadow" "Lady Red" ...
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: list()
+##   ..$ books      : chr [1:3] "A Clash of Kings" "A Storm of Swords" "A Feast for Crows"
+##   ..$ povBooks   : chr "A Dance with Dragons"
+##   ..$ tvSeries   : chr [1:5] "Season 2" "Season 3" "Season 4" "Season 5" ...
+##   ..$ playedBy   : chr "Carice van Houten"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/751"
+##   ..$ id         : int 751
+##   ..$ name       : chr "Merrett Frey"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Rivermen"
+##   ..$ born       : chr "In 262 AC"
+##   ..$ died       : chr "In 300 AC, at Near Oldstones"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr ""
+##   ..$ aliases    : chr "Merrett Muttonhead"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/712"
+##   ..$ allegiances: chr "House Frey of the Crossing"
+##   ..$ books      : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Feast for Crows" "A Dance with Dragons"
+##   ..$ povBooks   : chr "A Storm of Swords"
+##   ..$ tvSeries   : chr ""
+##   ..$ playedBy   : chr ""
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/844"
+##   ..$ id         : int 844
+##   ..$ name       : chr "Quentyn Martell"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Dornish"
+##   ..$ born       : chr "In 281 AC, at Sunspear, Dorne"
+##   ..$ died       : chr "In 300 AC, at Meereen"
+##   ..$ alive      : logi FALSE
+##   ..$ titles     : chr "Prince"
+##   ..$ aliases    : chr [1:4] "Frog" "Prince Frog" "The prince who came too late" "The Dragonrider"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Nymeros Martell of Sunspear"
+##   ..$ books      : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Feast for Crows"
+##   ..$ povBooks   : chr "A Dance with Dragons"
+##   ..$ tvSeries   : chr ""
+##   ..$ playedBy   : chr ""
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/954"
+##   ..$ id         : int 954
+##   ..$ name       : chr "Samwell Tarly"
+##   ..$ gender     : chr "Male"
+##   ..$ culture    : chr "Andal"
+##   ..$ born       : chr "In 283 AC, at Horn Hill"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr ""
+##   ..$ aliases    : chr [1:7] "Sam" "Ser Piggy" "Prince Pork-chop" "Lady Piggy" ...
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr ""
+##   ..$ allegiances: chr "House Tarly of Horn Hill"
+##   ..$ books      : chr [1:3] "A Game of Thrones" "A Clash of Kings" "A Dance with Dragons"
+##   ..$ povBooks   : chr [1:2] "A Storm of Swords" "A Feast for Crows"
+##   ..$ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "John Bradley-West"
+##  $ :List of 18
+##   ..$ url        : chr "https://www.anapioficeandfire.com/api/characters/957"
+##   ..$ id         : int 957
+##   ..$ name       : chr "Sansa Stark"
+##   ..$ gender     : chr "Female"
+##   ..$ culture    : chr "Northmen"
+##   ..$ born       : chr "In 286 AC, at Winterfell"
+##   ..$ died       : chr ""
+##   ..$ alive      : logi TRUE
+##   ..$ titles     : chr "Princess"
+##   ..$ aliases    : chr [1:3] "Little bird" "Alayne Stone" "Jonquil"
+##   ..$ father     : chr ""
+##   ..$ mother     : chr ""
+##   ..$ spouse     : chr "https://www.anapioficeandfire.com/api/characters/1052"
+##   ..$ allegiances: chr [1:2] "House Baelish of Harrenhal" "House Stark of Winterfell"
+##   ..$ books      : chr "A Dance with Dragons"
+##   ..$ povBooks   : chr [1:4] "A Game of Thrones" "A Clash of Kings" "A Storm of Swords" "A Feast for Crows"
+##   ..$ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##   ..$ playedBy   : chr "Sophie Turner"
+```
+
+---
+
+## Examining Lists
+
+RStudio has a built-in list viewer
+![Screenshot of list viewer](list_viewer.png)
+
+---
+class: inverse
+## Your Turn
+
+
+- extract the first element from `got_chars`. Which GoT character does it describe?
+
+- is this character still alive?
+
+- how many of the other characters are still alive? (This question is astonishingly tedious to answer with the tools we have discusses so far)
+
+---
+
+
+```r
+theon &lt;- got_chars[[1]] # Gets 1st list element
+str(theon) 
+## List of 18
+##  $ url        : chr "https://www.anapioficeandfire.com/api/characters/1022"
+##  $ id         : int 1022
+##  $ name       : chr "Theon Greyjoy"
+##  $ gender     : chr "Male"
+##  $ culture    : chr "Ironborn"
+##  $ born       : chr "In 278 AC or 279 AC, at Pyke"
+##  $ died       : chr ""
+##  $ alive      : logi TRUE
+##  $ titles     : chr [1:2] "Prince of Winterfell" "Lord of the Iron Islands (by law of the green lands)"
+##  $ aliases    : chr [1:4] "Prince of Fools" "Theon Turncloak" "Reek" "Theon Kinslayer"
+##  $ father     : chr ""
+##  $ mother     : chr ""
+##  $ spouse     : chr ""
+##  $ allegiances: chr "House Greyjoy of Pyke"
+##  $ books      : chr [1:3] "A Game of Thrones" "A Storm of Swords" "A Feast for Crows"
+##  $ povBooks   : chr [1:2] "A Clash of Kings" "A Dance with Dragons"
+##  $ tvSeries   : chr [1:6] "Season 1" "Season 2" "Season 3" "Season 4" ...
+##  $ playedBy   : chr "Alfie Allen"
+```
+
+---
+
+## Extracting Elements from Lists
+
+
+```r
+# Extracting elements by name:
+theon[["tvSeries"]]
+## [1] "Season 1" "Season 2" "Season 3" "Season 4" "Season 5"
+## [6] "Season 6"
+theon["culture"]
+## $culture
+## [1] "Ironborn"
+theon$alive
+## [1] TRUE
+```
+
+
+```r
+# Extracting elements by position: 
+theon[[3]]
+## [1] "Theon Greyjoy"
+theon[3:5]
+## $name
+## [1] "Theon Greyjoy"
+## 
+## $gender
+## [1] "Male"
+## 
+## $culture
+## [1] "Ironborn"
+```
+
+---
+
+## Indexing - Recap
+
+So [what's the difference](https://cran.r-project.org/doc/manuals/R-lang.html#Indexing) between `x$.`, `x[[.]]` and `x[.]`?
+
+`x[.]`
+- Returns a list
+- Allows indexing by vectors
+
+
+`x[[.]]`
+- Returns a single element
+- Selection by numerical or character index
+
+
+`x$.`
+- Returns a list component
+- Indexing by component name (doesn't work on unnamed lists)
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

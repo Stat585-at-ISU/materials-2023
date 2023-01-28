@@ -1,0 +1,470 @@
+---
+title: "Stat 585 - Data Types"
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, default-fonts, "tweaks.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center, middle
+
+
+```{r setup, include=FALSE}
+options(width = 60)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data Types
+
+---
+
+## Basic Data Types
+
+Name | Example
+---- | -------
+numeric | 2.93
+integer | 2
+character | "hello world"
+logical | TRUE
+
+Convert between data types with **cast operators** 
+```
+as.character, as.numeric, as.logical, as.integer, ...
+```
+e.g. `as.numeric("2.394")` or `as.character("3.14159")`
+
+Test whether something has a data type with `is.XXX`, e.g. `is.character("fuzzy puppies")` or `is.logical("abcde")`
+
+---
+
+## Numeric values
+
+Numeric objects have double precision, i.e. work with 53 bits 
+```{r, echo=TRUE}
+pi <- as.numeric(gsub(" ","","3.14159 26535 89793 23846 26433"))
+# maximum number of digits that can be shown is 22
+print(pi, digits=22)
+```
+first 15 digits are fine, anything beyond that is suspicious and most likely incorrect
+
+
+Precision is machine dependent
+
+
+---
+
+## `.Machine$double.eps`
+
+`.Machine$double.eps` is the machine's difference between two consecutive real valued numbers
+
+```{r}
+.Machine$double.eps
+
+1 + .Machine$double.eps == 1
+1 + .Machine$double.eps/2 == 1
+1 + .Machine$double.eps == 1
+
+```
+
+---
+
+```{r}
+.Machine
+```
+
+
+---
+
+
+# ` 0.15 == 0.1 + 0.05`
+# `r 0.15 == 0.1 + 0.05`
+
+
+---
+
+## Checking for equality
+
+Internal representation is not equal to decimal representation:
+
+```{r}
+i <- 0.1 + 0.05
+i
+if(i==0.15) cat("i equals 0.15") else cat("i does not equal 0.15")
+```
+
+--
+
+```{r}
+print(i, digits=17)
+print(0.15, digits=17)
+```
+See also https://0.30000000000000004.com/ for an overview of other languages
+---
+
+## Checking for equality
+
+
+Better practice:
+
+```{r}
+dplyr::near(i, 0.15)
+```
+
+Default tolerance is specified as `.Machine$double.eps^0.5`,
+i.e. floating point numbers are pairwise equal.
+
+---
+
+## Factors
+
+Some data has names and a defined numerical ordering:
+```{r}
+# R constant
+month.name
+```
+
+Factors are used to store both the numerical values and the associated labels:
+```{r}
+factor(month.name)
+```
+
+By default, R uses alphabetical order for factors...
+
+---
+
+## Factors
+```{r}
+factor(month.name)
+```
+
+By default, R uses alphabetical order for factors...
+
+Set level names to override the default ordering 
+```{r}
+months <- factor(month.name, levels = month.name)
+months
+```
+
+
+---
+
+## Factors
+
+You can access the labels of a factor using `levels()`
+```{r}
+levels(months)
+```
+
+You can access the order of the factor using `as.numeric()`:
+```{r}
+as.numeric(months)
+```
+
+---
+class: inverse
+## Your Turn
+
+- Introduce an object consisting of the days of the week
+
+- Make the object a factor; ensure that the days of the week are in chronological rather than alphabetical order
+
+- Change the order of the levels to start with Sunday (in case your levels started with Sunday, change the order to start with Monday)
+
+---
+
+## Type Conversions
+```{r}
+# Get a numeric vector
+x <- sample(1:10, 5)
+x
+# Create factor from numeric vector
+fac_x <- factor(x)
+fac_x
+
+# Convert factor to numeric
+as.numeric(fac_x) # Huh?
+```
+`as.numeric()` converts factors to their level numbers, not to their labels
+
+---
+
+## Type Conversions
+
+```{r}
+as.character(fac_x)
+as.numeric(as.character(fac_x))
+```
+`as.character()` extracts the labels; you can then use `as.numeric` to get the labels' numeric value.
+
+---
+
+## Type Conversions
+
+implicit type conversions happen all the time:
+```{r}
+x <- c("4.5", 3, TRUE, "elephant")
+# The logical value becomes a character
+x
+```
+
+
+Note that the cast from logical to  character doesn't survive intact
+```{r}
+as.numeric(x) 
+```
+
+---
+
+## Basic Data Structures
+
+Data structures hold one or more basic data types and may have multiple dimensions:
+
+   | One type | Multiple Types
+-- | -------- | --------------
+1D | (Atomic) Vector | List
+2D | Matrix | Data frame
+nD | Array | 
+
+An individual value ("scalar" in other languages) is a length one vector in R
+
+* **Vectors**: one-dimensional array of values of the same type; vectors have a length, but no dimension
+
+* **Matrix**: two-dimensional array of values of the same type; matrices have a dimension given as (row, column), length returns the number of items (row x column)
+
+* **Array**: any higher dimensional array (e.g. output of temperature data from netcdf data)
+
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+
+```{r, include = F}
+library(tidyverse)
+```
+
+```{r, eval = -1}
+library(tidyverse)
+data("mtcars")
+str(mtcars)
+```
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+```{r}
+data("eurodist")
+str(eurodist)
+```
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+```{r}
+data("discoveries")
+str(discoveries)
+```
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+```{r}
+data("occupationalStatus")
+str(occupationalStatus)
+```
+---
+
+## Basic Data Structures
+
+`str()` can be used to examine a variable and determine its structure:
+```{r}
+str(c(5:15))
+str(month.name)
+str(3)
+str(mean)
+```
+
+
+---
+
+
+
+## Data frames
+
+Data frame: collection of vectors of same length but possibly different types
+```{r}
+L3 <- LETTERS[1:3]
+d <- data.frame(
+        x=1, 
+        y=1:10, 
+        fac=sample(L3, 10, replace=TRUE))
+d %>% glimpse()
+```
+
+---
+
+## Data frames are lists
+
+But not all lists are data frames
+
+```{r}
+str(d)
+
+mode(d)
+```
+
+Data frames are lists of vectors where each vector is constrained to have the same length
+
+---
+class: inverse, center, middle
+# Lists
+
+---
+
+## Lists
+
+* lists allow the most flexibility, i.e. are not very structured. 
+
+* a list element can be anything, including another list
+
+* very useful (and common) as output from analytic methods
+
+* lists can also be variables in a dataset
+
+```{r}
+mod<-glm(mpg~cyl+disp+hp+drat+wt, data=mtcars)
+mode(mod)
+```
+
+---
+
+## Lists are usually quite unwieldy
+
+```{r}
+str(mod)
+```
+
+---
+
+## Working with lists
+
+* single bracket operator [ ] returns a (usually smaller) list
+
+```{r}
+mod[c(1,6,8)]
+```
+
+---
+
+## Working with lists 
+
+* double bracket operator `[[ ]]` returns single list element (i.e. only single positive integer is allowed as index)
+
+* similarly, named objects can be accessed using the `$` operator
+
+```{r}
+mod[[1]]
+mod$rank
+```
+
+---
+class: inverse
+## Your Turn
+
+The package `repurrrsive` helps with working with lists, it also has some fun data for us to work with.
+
+- install the package `repurrrsive` 
+
+- activate (using the function `data`) the object `got_chars` and check that it is a list.
+
+- what does this object describe?
+
+- can the object be converted to a data frame? If so, how? If not, why?
+
+---
+class: middle, center
+
+
+... only once you tried, you know the drill :) ...
+
+---
+
+```{r}
+# install.packages("repurrrsive")
+library(repurrrsive)
+data(got_chars) # Game of Thrones characters
+is.list(got_chars)
+mode(got_chars)
+str(got_chars)
+```
+
+---
+
+## Examining Lists
+
+RStudio has a built-in list viewer
+![Screenshot of list viewer](list_viewer.png)
+
+---
+class: inverse
+## Your Turn
+
+
+- extract the first element from `got_chars`. Which GoT character does it describe?
+
+- is this character still alive?
+
+- how many of the other characters are still alive? (This question is astonishingly tedious to answer with the tools we have discusses so far)
+
+---
+
+```{r, collapse=TRUE}
+theon <- got_chars[[1]] # Gets 1st list element
+str(theon) 
+```
+
+---
+
+## Extracting Elements from Lists
+
+```{r, collapse=T}
+# Extracting elements by name:
+theon[["tvSeries"]]
+theon["culture"]
+theon$alive
+```
+
+```{r, collapse=T}
+# Extracting elements by position: 
+theon[[3]]
+theon[3:5]
+```
+
+---
+
+## Indexing - Recap
+
+So [what's the difference](https://cran.r-project.org/doc/manuals/R-lang.html#Indexing) between `x$.`, `x[[.]]` and `x[.]`?
+
+`x[.]`
+- Returns a list
+- Allows indexing by vectors
+
+
+`x[[.]]`
+- Returns a single element
+- Selection by numerical or character index
+
+
+`x$.`
+- Returns a list component
+- Indexing by component name (doesn't work on unnamed lists)
+
+
