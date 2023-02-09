@@ -1,0 +1,135 @@
+---
+title: "Stat 585 - Working with Date and Time"
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, default-fonts, "tweaks.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(lubridate)
+```
+
+## `lubridate` package
+
+- package for working with dates and times
+
+- defines different classes of time: instants, periods, intervals, durations
+
+- defines converter and accessor functions, enables time calculus
+
+
+Resources:
+
+Cheatsheet for [lubridate](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf) package
+
+Chapter [Dates and Times](https://r4ds.had.co.nz/dates-and-times.html) in R for Data Science
+
+---
+
+## Converter functions and instants in time
+
+- time instants: one (absolute) moment in time, e.g. `now()`, `Jan-1-2000`
+
+- easy-to-use converter functions: 
+    - date: `ymd`, `mdy`, `dmy`, ...
+    - time: `hm`, `hms`, ...
+    - date & time: `ymd_hms`, `mdy_hm`, ...
+    
+- order of letters determines how strings are parsed
+
+- separators are automatically determined, then assumed to be the same
+
+Example:
+```{r message=FALSE}
+mdy("04-18-2022")
+```
+
+---
+
+## Accessor functions
+
+
+- accessor functions: `year`, `month`, `week`, `wday`, `mday`, `yday`, `hour`, `minute`, ...
+
+- accessor functions can also be used for setting elements of date and time, e.g. `hour(x) <- 12`
+
+Examples:
+
+```{r}
+month(now())
+wday(now(), label = TRUE)
+```
+
+---
+
+## Intervals and Durations
+
+- Intervals have a *start* and an *end* date/time: absolute difference
+
+- Durations are potentially of relative length (months, leap year, leap second, ...)
+
+```{r}
+end_date <- now()
+# span is interval, years(1) is duration
+span <- end_date - years(1)
+span
+end_date - days(10)
+```
+
+---
+class: inverse
+## Your Turn
+
+How many days is it until your birthday? What day of the week will it be this year?
+
+On which day of the week were you born?
+
+How often is the 13th of a month a Friday? Based on the last ten years, are there some days that are more likely to be on a Friday than others?
+
+
+---
+
+## Your Turn Solutions
+
+```{r}
+birthday <- ymd("2023-05-01") # (this is my daughter's birthday)
+birthday - today()
+
+wday(birthday, label = TRUE)
+
+wday(ymd("2014-05-01"), label = TRUE)
+```
+
+---
+
+```{r}
+dates <- seq.Date(from=ymd("2010-01-01"), to=ymd("2021-12-31"), by = 1)
+
+thirteens <- dates[mday(dates) == 13]
+table(wday(thirteens, label=TRUE))
+```
+
+---
+
+
+```{r, fig.height = 4.5}
+dframe <- data.frame(dates = dates, 
+                     weekdays = wday(dates, label=TRUE), 
+                     month_days = mday(dates))
+dframe %>% 
+  ggplot(aes(x = month_days, fill = weekdays)) + 
+  geom_bar()
+```
+
+---
+
+```{r}
+xtabs(~weekdays+month_days, data = dframe)
+```

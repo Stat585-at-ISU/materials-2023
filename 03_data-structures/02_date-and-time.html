@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Stat 585 - Working with Date and Time</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heike Hofmann" />
+    <script src="libs/header-attrs-2.20/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tweaks.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Stat 585 - Working with Date and Time
+]
+.author[
+### Heike Hofmann
+]
+
+---
+
+
+
+## `lubridate` package
+
+- package for working with dates and times
+
+- defines different classes of time: instants, periods, intervals, durations
+
+- defines converter and accessor functions, enables time calculus
+
+
+Resources:
+
+Cheatsheet for [lubridate](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf) package
+
+Chapter [Dates and Times](https://r4ds.had.co.nz/dates-and-times.html) in R for Data Science
+
+---
+
+## Converter functions and instants in time
+
+- time instants: one (absolute) moment in time, e.g. `now()`, `Jan-1-2000`
+
+- easy-to-use converter functions: 
+    - date: `ymd`, `mdy`, `dmy`, ...
+    - time: `hm`, `hms`, ...
+    - date &amp; time: `ymd_hms`, `mdy_hm`, ...
+    
+- order of letters determines how strings are parsed
+
+- separators are automatically determined, then assumed to be the same
+
+Example:
+
+```r
+mdy("04-18-2022")
+```
+
+```
+## [1] "2022-04-18"
+```
+
+---
+
+## Accessor functions
+
+
+- accessor functions: `year`, `month`, `week`, `wday`, `mday`, `yday`, `hour`, `minute`, ...
+
+- accessor functions can also be used for setting elements of date and time, e.g. `hour(x) &lt;- 12`
+
+Examples:
+
+
+```r
+month(now())
+```
+
+```
+## [1] 2
+```
+
+```r
+wday(now(), label = TRUE)
+```
+
+```
+## [1] Thu
+## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat
+```
+
+---
+
+## Intervals and Durations
+
+- Intervals have a *start* and an *end* date/time: absolute difference
+
+- Durations are potentially of relative length (months, leap year, leap second, ...)
+
+
+```r
+end_date &lt;- now()
+# span is interval, years(1) is duration
+span &lt;- end_date - years(1)
+span
+```
+
+```
+## [1] "2022-02-09 00:07:10 CST"
+```
+
+```r
+end_date - days(10)
+```
+
+```
+## [1] "2023-01-30 00:07:10 CST"
+```
+
+---
+class: inverse
+## Your Turn
+
+How many days is it until your birthday? What day of the week will it be this year?
+
+On which day of the week were you born?
+
+How often is the 13th of a month a Friday? Based on the last ten years, are there some days that are more likely to be on a Friday than others?
+
+
+---
+
+## Your Turn Solutions
+
+
+```r
+birthday &lt;- ymd("2022-05-01") # (this is my daughter's birthday)
+birthday - today()
+```
+
+```
+## Time difference of -284 days
+```
+
+```r
+wday(birthday, label = TRUE)
+```
+
+```
+## [1] Sun
+## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat
+```
+
+```r
+wday(ymd("2014-05-01"), label = TRUE)
+```
+
+```
+## [1] Thu
+## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat
+```
+
+---
+
+
+```r
+dates &lt;- seq.Date(from=ymd("2010-01-01"), to=ymd("2021-12-31"), by = 1)
+
+thirteens &lt;- dates[mday(dates) == 13]
+table(wday(thirteens, label=TRUE))
+```
+
+```
+## 
+## Sun Mon Tue Wed Thu Fri Sat 
+##  20  21  20  22  19  21  21
+```
+
+---
+
+
+
+```r
+dframe &lt;- data.frame(dates = dates, 
+                     weekdays = wday(dates, label=TRUE), 
+                     month_days = mday(dates))
+dframe %&gt;% 
+  ggplot(aes(x = month_days, fill = weekdays)) + 
+  geom_bar()
+```
+
+![](02_date-and-time_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+xtabs(~weekdays+month_days, data = dframe)
+```
+
+```
+##         month_days
+## weekdays  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+##      Sun 21 19 22 20 21 20 21 21 19 22 20 21 20 21 21 19 22 20 21 20 21 21 19
+##      Mon 21 21 19 22 20 21 20 21 21 19 22 20 21 20 21 21 19 22 20 21 20 21 21
+##      Tue 20 21 21 19 22 20 21 20 21 21 19 22 20 21 20 21 21 19 22 20 21 20 21
+##      Wed 21 20 21 21 19 22 20 21 20 21 21 19 22 20 21 20 21 21 19 22 20 21 20
+##      Thu 20 21 20 21 21 19 22 20 21 20 21 21 19 22 20 21 20 21 21 19 22 20 21
+##      Fri 22 20 21 20 21 21 19 22 20 21 20 21 21 19 22 20 21 20 21 21 19 22 20
+##      Sat 19 22 20 21 20 21 21 19 22 20 21 20 21 21 19 22 20 21 20 21 21 19 22
+##         month_days
+## weekdays 24 25 26 27 28 29 30 31
+##      Sun 22 20 21 20 21 20 17 13
+##      Mon 19 22 20 21 20 19 20 11
+##      Tue 21 19 22 20 21 19 18 13
+##      Wed 21 21 19 22 20 20 19 11
+##      Thu 20 21 21 19 22 19 19 12
+##      Fri 21 20 21 21 19 20 19 12
+##      Sat 20 21 20 21 21 18 20 12
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

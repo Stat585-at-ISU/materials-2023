@@ -382,7 +382,7 @@ x
 ```
 
 ```
-## [1] 2 8 1 9 7
+## [1] 10  9  5  6  7
 ```
 
 ```r
@@ -392,8 +392,8 @@ fac_x
 ```
 
 ```
-## [1] 2 8 1 9 7
-## Levels: 1 2 7 8 9
+## [1] 10 9  5  6  7 
+## Levels: 5 6 7 9 10
 ```
 
 ```r
@@ -402,7 +402,7 @@ as.numeric(fac_x) # Huh?
 ```
 
 ```
-## [1] 2 4 1 5 3
+## [1] 5 4 1 2 3
 ```
 `as.numeric()` converts factors to their level numbers, not to their labels
 
@@ -416,7 +416,7 @@ as.character(fac_x)
 ```
 
 ```
-## [1] "2" "8" "1" "9" "7"
+## [1] "10" "9"  "5"  "6"  "7"
 ```
 
 ```r
@@ -424,7 +424,7 @@ as.numeric(as.character(fac_x))
 ```
 
 ```
-## [1] 2 8 1 9 7
+## [1] 10  9  5  6  7
 ```
 `as.character()` extracts the labels; you can then use `as.numeric` to get the labels' numeric value.
 
@@ -616,7 +616,7 @@ d %&gt;% glimpse()
 ## Columns: 3
 ## $ x   &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 ## $ y   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-## $ fac &lt;chr&gt; "A", "A", "B", "B", "B", "C", "B", "C", "C", "…
+## $ fac &lt;chr&gt; "C", "B", "C", "B", "C", "C", "A", "B", "A", "…
 ```
 
 ---
@@ -634,7 +634,7 @@ str(d)
 ## 'data.frame':	10 obs. of  3 variables:
 ##  $ x  : num  1 1 1 1 1 1 1 1 1 1
 ##  $ y  : int  1 2 3 4 5 6 7 8 9 10
-##  $ fac: chr  "A" "A" "B" "B" ...
+##  $ fac: chr  "C" "B" "C" "B" ...
 ```
 
 ```r
