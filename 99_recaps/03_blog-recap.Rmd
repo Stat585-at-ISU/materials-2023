@@ -1,0 +1,174 @@
+---
+title: 'Blog #3 - Recap'
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE, echo = TRUE)
+```
+# How did it go?
+
+So many errors!
+
+- Drowning, Breaking Backs
+
+- ... it's a process
+
+- Experience
+
+- Adventure 
+
+
+---
+
+# Issues with building the book
+
+0. Old versions ... of R, RStudio, tinytex, ...
+
+1. Tons of packages to install ...
+
+2. Changes in the way that R is working ...
+
+3. Missing fonts
+
+4. Some issues with the source code in the repo
+
+---
+
+# Old versions of ... stuff
+
+For long stretches of time (months, years), the versions we use of <insert your package and software of choice here> do not matter. 
+
+and then we run into 'strange occurrences' ... when strange things happen, and ..
+
+- you can not identify any good reasons of why
+- nobody else seems to have a problem with it
+
+Try to set an internal alarm to try solving your issues by updating your software. 
+
+---
+
+# Changes in the way that R is working ...
+
+This is not going to happen that often
+
+While it is inconvenient now, try to think of it as a priviledge of having seen this rare occurrence
+
+---
+
+# Missing Fonts
+
+Installation of fonts is platform-dependent, but ... you should know how a font is installed on your system
+
+Inconsolata is a Google font: https://fonts.google.com/specimen/Inconsolata
+
+The download comes with a README.txt file and instructions for installation
+
+Installing fonts
+
+    - MacOS: https://support.apple.com/en-us/HT201749
+    - Linux: https://www.google.com/search?q=how+to+install+a+font+on+gnu%2Blinux
+    - Windows: https://support.microsoft.com/en-us/help/314960/how-to-install-or-remove-a-font-in-windows
+
+---
+
+# All those package installations 
+
+... are annoying `r emo::ji("annoyed")`, tedious `r emo::ji("sad")`, 
+
+would be so much easier if 
+
+- we could install them in one go `r emo::ji("speed")`
+
+- we knew where we can access these packages (`emo` is not on CRAN) `r emo::ji("cry")`
+
+--
+
+<br>
+<br>
+... there's a package for this ... 
+
+--
+
+ and  a file format for that! ![](images/pea-pot.png)
+ 
+ <br>
+ (`pea pot` emoji, released in 2022, not available in R yet)
+
+
+---
+
+# File Format `DESCRIPTION` and package `desc`
+
+
+There is a `DESCRIPTION` file in https://github.com/hadley/adv-r
+
+https://r-pkgs.org/description.html
+
+R package `desc`:  tools to read, write, create, and manipulate `DESCRIPTION` files
+
+Install as `remotes::install_github("r-lib/desc")`
+
+https://r-lib.github.io/desc/
+
+Meant for package development - also great for easing the reproducible workflow
+
+---
+
+# Package `desc` in action
+
+```{r}
+library(desc)
+download.file(url="https://raw.githubusercontent.com/hadley/adv-r/master/DESCRIPTION", destfile = "DESCRIPTION")
+desc_get_deps(file="DESCRIPTION") |> DT::datatable(options = list(pageLength = 5))
+```
+---
+
+# DESCRIPTION field Remotes
+
+contains (very concise) installation instructions for packages that are not on CRAN, or packages for which a development version of CRAN should be used
+
+```{r}
+desc::desc_get("Remotes", file="DESCRIPTION-AdvR") |> cat()
+```
+
+Entries are of the form <github handle>/<repo name> and are installed 
+using the command `remotes::install_github("<github handle>/<repo name>")`
+
+Non github remote dependencies need to be specified with `::`, i.e. for example `bitbucket::<handle>/<repo>`.
+
+Other resources are e.g. git, gitlab, bioconductor, svn, local repos, or general urls.
+
+See also: https://remotes.r-lib.org/articles/dependencies.html#other-sources
+
+---
+class: center, inverse, middle
+
+# Well done! 
+
+---
+class: center, inverse, middle
+
+# Don't forget to READ the book now `r emo::ji("grin")`
+
+---
+
+## Blog 4
+
+Help with `dplyr`: [R for Data Science](https://r4ds.had.co.nz/)
+
+---
+
+## This Thursday: lab
+
+The next lab is scheduled for Feb 16 (this Thursday), please fill out the survey on how you want to attend ... I'll randomly assign groups within modality
+
+We will do some web-scraping to read data that might not have been meant to be read by us :) 
+
+- list objects, matrices and a bit of functions
