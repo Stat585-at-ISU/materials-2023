@@ -1,0 +1,13 @@
+.large { font-size: 130% }
+.small { font-size: 70% }
+.remark-slide-content { background-size: contain; }
+.tiny { font-size: 40% }
+
+.shift-right {
+  display: inline-block;
+  float: right;
+}
+
+.inverse {
+  text-shadow:0 0 0 #FFF !important;
+}
