@@ -1,0 +1,556 @@
+---
+title: "Stat 585 - The `purrr` package: split-apply-combine with lists"
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, default-fonts, "tweaks.css"]
+    nature:
+      beforeInit: "macros.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width = 5, fig.height = 5)
+library(tidyverse)
+```
+
+
+## From Lab 2
+
+Folder of csv files with data scraped from press logs: 
+
+```{r}
+csvs <- dir("data", pattern="presslog-", full.names = TRUE)
+csvs
+```
+--
+
+Make this vector a part of a data set:
+
+```{r}
+results <- data.frame(origin = csvs)
+```
+
+--
+
+Now we want to read the data inside the csv files. 
+One file we would read as: `read_csv(origin[1])`
+
+---
+
+## List Variables
+
+`purrr::map` applies function `.f` to each element of a variable: 
+
+```{r}
+results <- results %>% mutate(
+  data = origin %>% purrr::map(.f = readr::read_csv, 
+                               show_col_types = FALSE)
+)
+
+str(results)
+```
+
+---
+
+## List Variables
+
+`results$data` is a list column (or list variable). 
+
+List-columns are columns of a
+data frame where each element is
+a list or vector instead of an atomic
+value. 
+
+--
+
+Specifically, each element of `results$data` is a data set. This makes `results` a **nested data set**: 
+
+```{r}
+head(results$data[[1]])
+```
+---
+
+## Mapping
+
+- `purrr` [cheat sheet](https://github.com/rstudio/cheatsheets/raw/main/purrr.pdf)
+
+take each element of a list (or vector) and apply function `.f` to it
+
+Then return a
+
+| Return | Function |
+|---|---|
+| list | map |
+| numeric vector | map_dbl |
+| logical vector | map_lgl |
+| data frame | map_df |
+
+--
+
+`purrr` also implements very powerful ways of reshaping lists
+
+---
+class: inverse
+
+## Your turn
+
+We have been looking at the object `got_chars` in the `repurrrsive` package. 
+
+- What happens, when you apply the function `purrr::transpose` on the list?
+
+- What does the length of the transposed object signify?
+
+- Can we turn the transposed object into a data frame? into a tibble?
+
+---
+
+A tibble it is! How do we get the lists out of the data? - we unnest!
+
+```{r}
+library(repurrrsive)
+transpose(got_chars) %>% names()
+
+got_chars_tbl <- as_tibble(transpose(got_chars))
+got_chars_tbl
+```
+
+---
+
+# unnesting 
+
+`nest` and `unnest` are functions in the package `tidyr` to work with [nested data frames](https://tidyr.tidyverse.org/articles/nest.html)
+
+`tidyr` 1.3.0 has just been released (Jan 24 2023) https://tidyr.tidyverse.org/news/index.html
+
+which brings some syntactic changes with it: [new syntax](https://tidyr.tidyverse.org/reference/nest.html#new-syntax)
+
+
+```{r}
+got_chars_tbl %>% unnest(cols=1:6)
+```
+
+---
+class: inverse
+## Your Turn
+
+The tibble `got_chars_tbl` is created by transposing the `got_chars` object and casting it into a tibble:
+
+```{r}
+got_chars_tbl <- as_tibble(transpose(got_chars))
+```
+
+> The `unnest` function takes all elements out of a list object and inserts them into the data set:
+
+```{r eval=FALSE}
+got_chars_tbl %>% unnest("url")
+```
+
+Why does `got_chars_tbl %>% unnest("books")` not work?
+
+---
+class: inverse
+## Your Turn
+
+
+We fix the empty list in element 11 of `books` and change it to a list of an empty string instead:
+```{r}
+got_chars_tbl$books[11] <- list("")
+```
+
+What does `got_chars_tbl %>% unnest("books")` do now?
+
+
+
+---
+class: inverse
+## Your Turn
+
+
+Write a function `chars_to_char` that takes a vector of characters and returns a single character .... does that sound like `paste`?
+
+Apply that function to the `books` variable of `got_chars_tbl`
+
+
+What does `got_chars_tbl %>% unnest("books")` do now?
+
+Can we apply this idea to other variables, such as `allegiances`?
+
+---
+class: inverse
+## Your Turn
+
+
+What is the difference between
+
+```
+got_chars_tbl %>% pluck("books") %>% reduce(.f = paste)
+```
+
+and 
+
+```
+got_chars_tbl %>% pluck("books") %>% 
+   map(.f = function(x) reduce(x, .f = paste, sep=", ", .init=""))
+```
+
+and how can we get rid of the leading comma?
+
+
+---
+
+# Back to Lab 2
+
+The following code extracts the call codes from one of the press logs published by Ames PD:
+```{r eval=FALSE}
+library(tabulizer)
+codes <- locate_areas("presslogs/PressLog-2023-02-20.pdf", pages=1)
+
+#codes <- c(474.79543,  20.19263, 546.14273, 747.12743)
+#names(codes) <- c("top", "left", "bottom", "right")
+# codes <- list(codes)
+
+call_codes <- extract_tables("presslogs/PressLog-2023-02-20.pdf", pages=1, area = codes, guess = FALSE)
+
+# turn all the codes into a single string
+call_codes <- as.vector(paste(call_codes[[1]][,1], collapse = ""))
+
+call_codes
+```
+
+---
+class: inverse
+## Your Turn
+
+Take the `call_codes` object and create a data frame as shown below.
+
+Make sure to use functionality of the `purrr` package!
+
+```{r echo=FALSE}
+call_codes <- read.csv("data/call_codes.csv")
+call_codes %>% head()
+```
+
+---
+
+
+```{r eval=FALSE}
+# split the string along each comma:
+codes_list <- str_split(call_codes, pattern=",")[[1]]
+
+# get rid of leading and trailing white spaces
+codes_list <- trimws(codes_list)
+
+# now split the string along each equal symbol:
+codes <- str_split(codes_list, pattern="=")
+codes_df <- codes %>% purrr::map(.f = function(x) {
+  list(code = x[1], description = x[2])
+  }) %>% transpose() %>% as_tibble %>% unnest(cols = 1:2)
+
+write.csv(codes_df, "data/call_codes.csv", row.names = FALSE)
+```
+
+---
+class: middle, center
+
+## A bigger example
+
+---
+
+
+## Example: the gapminder project
+
+Part of a quantitative world is our responsibility to make data accessible
+
+- Hans Rosling (2017✝) was at the fore-front of providing World Health Statistics (gapminder)
+
+- in R through the package `gapminder` by Jenny Bryan
+
+- Hans Rosling's [TED talk](https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen?language=en)
+
+--
+
+Can we describe countries by the way that their life expectancy develops over time?
+
+
+---
+
+## First Look: gapminder
+
+```{r width = 10}
+library(gapminder)
+
+gg <- gapminder %>% ggplot(aes(x = year, y = lifeExp)) + geom_line(aes(group= country)) + facet_wrap(~continent) 
+plotly::ggplotly(gg)
+```
+--
+
+Most  countries show an increase in life expectancy over time, but not all
+
+---
+
+## Split-Apply-Combine for lists
+
+
+- `nest` creates list of data frames (split)
+
+- `map` applies function to list object (apply)
+
+- `unnest` moves list results back into a data frame (combine)
+
+--
+
+Usually a good idea to develop code for one example, then generalize 
+
+---
+
+## First Model: US only
+
+```{r}
+gapminder %>% filter(country == "United States") %>% 
+ ggplot(aes(x = year, y =lifeExp)) + geom_line() + geom_point() +
+  geom_smooth(method="lm", se=FALSE)
+```
+
+---
+
+## Model of the US
+
+```{r warning = FALSE}
+lm(lifeExp~I(year-1950), data = filter(gapminder, country == "United States"))
+```
+
+---
+class: inverse
+## Your turn:  another country
+
+Pick another country in the gapminder data and derive estimates. 
+
+How do the estimates compare to the US?
+
+---
+
+# Now we want to apply this to all countries
+
+Nest by country: 
+
+```{r}
+country_nest <- gapminder %>% 
+  mutate(year = year - 1950) %>%
+  group_by(continent, country) %>% nest()
+```
+
+Creates a `data` variable with a dataset for each country
+
+```{r}
+country_nest$data[[1]] %>% head()
+```
+
+
+---
+
+# List variables: stepping through
+
+The `map` function of the `purrr` package allows us to apply a function to each element of a list.
+`map_dbl` returns a double value, `map_df` a data frame. `map` itself returns a list.
+
+```{r}
+country_nest <- country_nest %>% mutate(
+    model = purrr::map(data, function(d) lm(lifeExp~year, data = d))
+)
+```
+
+---
+
+```{r}
+country_nest <- country_nest %>% 
+   mutate(
+     intercept = model %>% purrr::map_dbl(.f = function(m) m$coef[1])
+   )
+
+country_nest %>% head()
+```
+
+--- 
+
+```{r echo=FALSE}
+country_nest <- country_nest %>% 
+   mutate(
+     slope = model %>% purrr::map_dbl(.f = function(m) m$coef[2])
+   )
+country_nest %>%
+  ggplot(aes(x = intercept, y = slope, colour = country)) +
+  geom_point() + 
+  scale_color_manual(values = country_colors) +
+  theme(legend.position = "none")
+```
+
+---
+class: inverse
+## Your Turn
+
+- Work through the previous example and expand the object `country_nest` by adding the slope from each model as an additional variable
+
+- Plot a scatterplot of slope and  intercept and compare. 
+
+- Advanced: Jenny Bryan is using pretty color schemes for these data at https://github.com/jennybc/gapminder
+Can you get those to work for your example? Test with ggplotly.
+
+
+---
+class: inverse
+## Your Turn
+
+Find the data for Canada from `country_nest`
+
+Why does `country_nest$data[[country_nest$country=="Canada"]]` not work?
+
+---
+
+## Nested data frames (cont'd)
+
+We can use the list elements as data inputs:
+
+```{r}
+lm(lifeExp~year, data=country_nest$data[[10]])
+```
+
+
+---
+class: inverse
+## Your Turn (8 mins) 
+
+
+The goal of this your turn is for you to try out nesting operations on various datasets.
+
+- Nest the `ChickWeight` data in different ways: what are the results of 
+
+```
+ChickWeight %>% nest(-Diet)
+ChickWeight %>% nest(weight)
+ChickWeight %>% nest(Time, weight)
+```
+
+- `chickwts` is yet another data set on feeding chicks. Nest it by different feeds. 
+
+- `nest` respects grouping structure introduced by `group_by`. Use `group_by` to nest the `iris` dataset by species. 
+
+
+
+---
+
+# Extracting model estimates
+
+```{r}
+country_nest %>%
+  mutate(
+    intercept = model %>% purrr::map_dbl(.f = function(m) coef(m)[1]),
+    slope = model %>% purrr::map_dbl(.f = function(m) coef(m)[2])
+  ) %>% head(5)
+```
+
+---
+
+## The broom package
+
+Now we have all these models ... 
+
+<img src="images/broom.jpeg" class="cover" width=1000>
+
+
+---
+
+## The `broom` package
+
+`broom` allows to extract values from models on three levels:
+
+- for each model: `broom::glance`
+
+- for each coefficient in the model: `broom::tidy`
+
+- for each value in the dataset: `broom::augment`
+
+--
+
+```{r}
+library(broom)
+broom::glance(country_nest$model[[1]])
+```
+
+---
+
+```{r}
+broom::tidy(country_nest$model[[1]])
+```
+
+---
+
+```{r}
+broom::augment(country_nest$model[[1]])
+```
+
+---
+
+##Extract values for each coefficient
+
+Extract coefficients for all countries automatically (hello `map` again!)
+
+```{r}
+# works, but we lose the context
+coefs = country_nest$model %>% purrr::map(.f=broom::tidy)
+head(coefs)
+```
+
+---
+
+##Extract values for each coefficient (cont'd)
+
+```{r}
+# better, but everything is still stuffed into this strange format
+country_nest <- country_nest %>% mutate(
+  coefs = model %>% purrr::map(.f=broom::tidy)
+) 
+country_nest %>% head()
+```
+
+---
+
+## Ready to fly!
+
+The opposite of `nest` is `unnest`:
+
+```{r}
+coefs <- country_nest %>% select(country, continent, coefs) %>% 
+  unnest(cols = coefs)
+coefs
+```
+
+---
+
+## Reshaping
+
+```{r fig.width=4.5, fig.height = 4.5}
+coefsLong <- coefs %>% pivot_longer(names_to="Statistic", values_to = "Value", 4:7)
+coefsTerm <- coefsLong %>% pivot_wider(names_from="term", values_from="Value")
+coefsTerm %>% filter(Statistic == "estimate") %>% 
+  ggplot(aes(x = `(Intercept)`, y = year)) + 
+  geom_point(aes(colour = continent)) + ylab("Slope (year)")
+```
+
+
+---
+class: inverse
+## Your turn (10 mins)
+
+- Extract other model diagnostics: find the R square value for each model. Draw a visualization of R square by country - can you see a pattern? What does the pattern mean?
+
+- Extract residuals and fitted values for each of the models and store them in a dataset together with country and continent information. 
+
+- Plot residuals across the years and fit a smooth. What does the pattern mean?
+
+- Include predicted Life Expectancy for 2017 into the data set. Then compare predicted life expectancy in 2017 with that in 1950.
+
+
