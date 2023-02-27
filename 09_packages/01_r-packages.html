@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Stat 585 - R packages</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heike Hofmann" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Stat 585 - R packages
+]
+.author[
+### Heike Hofmann
+]
+
+---
+
+
+
+
+## Outline
+
+- file structures of packages
+
+- documentation
+
+- data in packages
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+Resource: [R packages](http://r-pkgs.had.co.nz/) by Hadley Wickham
+---
+
+## RStudio and R packages
+
+RStudio supports creating new packages. Follow the dialogs through `New Project ...`
+
+&lt;img src="images/package-01.png" height=450&gt;
+
+---
+
+## RStudio and R packages (cont'd)
+
+RStudio supports creating new packages. Follow the dialogs through `New Project ...`
+
+&lt;img src="images/package-02.png" height=450&gt;
+
+---
+
+## RStudio and R packages (cont'd)
+
+RStudio supports creating new packages. Follow the dialogs through `New Project ...`
+
+&lt;img src="images/package-03.png" height=450&gt;
+
+---
+class:center,middle
+
+&lt;img src="images/package-04.png" class = "cover"&gt;
+
+---
+class: inverse
+## Your Turn 
+
+- Create a new R package using the RStudio dialog to set it up in a new project.
+
+- Build the package (CMD + shift + B) and run the function `hello()`
+
+- Have a look at the help for `hello`
+
+---
+
+## `devtools`
+
+Once you have a package, the `devtools` package provides functionality to support your development
+
+`devtools` functions operate on the active project (the folder of your project):
+
+- `document()` creates R help files from special comments in your code (talk about that in a bit)
+
+- `install()` installs the package, i.e. afterwards you can activate the package with the command `library("your package")`
+
+- `check()` runs a couple of tests on your package. All of these have to be passed without warning before you can upload a package to CRAN
+
+---
+
+## File structure
+
+Within folder that has the same name as your R package:
+
+- DESCRIPTION
+
+- NAMESPACE
+
+- R
+
+- man
+
+- data
+
+R code files go into the folder `R`, data sets go into the folder `data`, Rd files contain documentation and go into `man`
+
+---
+
+## DESCRIPTION
+
+plain text file with all the meta information on a package
+
+```
+Package: happyR
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer &lt;yourself@somewhere.net&gt;
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: package1,package2
+Suggests: package3
+Depends: package4,package5
+```
+
+[Description file reference](http://r-pkgs.had.co.nz/description.html)
+
+---
+
+## Package dependencies: Imports, Suggests, Depends
+
+
+- **Imports:** packages in this list must be present for your package to work
+    - Imports are NOT attached when your package is loaded
+    - You must refer to functions in these packages using `package::function()` or import them using roxygen tags (`@import`, `@importFrom`)
+
+
+- **Suggests:** packages in this list may add functionality but are not necessary
+    - e.g. for example data, unit tests, build vignettes
+
+- **Depends:** packages in this list are attached when your package is loaded    
+__Hint:__ It is better practice to use `Imports` rather than `Depends`. `Depends` might overwrite a previously loaded function of the same name (cause of some of the `plyr` - `dplyr` animosity)
+
+[Namespaces reference](http://r-pkgs.had.co.nz/namespace.html#namespace) - why Depends is a bad idea
+
+---
+
+## Licenses
+
+- There's a (surprising?) range of common use licenses available: http://www.r-project.org/Licenses/
+
+- More licenses at http://creativecommons.org/choose/ and  http://www.opensource.org/licenses/category
+
+- Flowchart for picking a [(type of) license](http://creativecommons.org.au/content/licensing-flowchart.pdf)
+
+- Most often used: GPL-2, GPL-3, MIT
+
+    - GPL-2/3: "run, copy, distribute, study, change and improve the software" now and in the future, i.e. preserve open-source nature
+
+    - GPL-3 clears up some inconsistencies and ambiguities in GPL-2 and should be used in new projects
+
+    - MIT releases software completely and also allows use in commercial projects, removes liability of provider.
+
+---
+
+## Documentation
+
+hello.Rd:
+
+```
+\name{hello}
+\alias{hello}
+\title{Hello, World!}
+\usage{
+hello()
+}
+\description{
+Prints 'Hello, world!'.
+}
+\examples{
+hello()
+}
+```
+
+`Rd` is the extension used for **R d**ocumentation.
+
+Rd files are clearly structured, yet, we DO NOT want to write these ourselves (way too many places to mess up)
+
+---
+
+## The documentation workflow
+
+First: Prep the DESCRIPTION file by adding the line 
+
+```
+Roxygen: list(markdown = TRUE)
+```
+
+
+1. Add tags  to your .R files in form of roxygen (next slide) comments
+
+2. Run `devtools::document()` (or press `Ctrl/Cmd + Shift + D` in RStudio) to convert roxygen comments to .Rd files. 
+
+3. Preview documentation with `?`.
+
+4. Rinse and repeat 1-3 until the documentation looks the way you want.
+
+
+Additional help: [roxygen2 documentation](https://roxygen2.r-lib.org/articles/markdown.html)
+
+---
+
+## Roxygen2
+
+Roxygen comments start with `#'` to distinguish them from regular comments:
+
+```
+#' Add together two numbers.
+#' 
+#' @param x A number.
+#' @param y A number.
+#' @export
+#' @return The sum of \code{x} and \code{y}.
+#' @examples
+#' add(1, 1)
+#' add(10, 1)
+add &lt;- function(x, y) {
+  x + y
+}
+```
+---
+
+## Roxygen2 and NAMESPACE
+
+`@export`, `@import`, `@importFrom` do not write anything into the help file    
+instead, they write to `NAMESPACE`
+
+- `@export` makes the function visible to package users
+
+- `@import` makes the imported package visible to the function code so you don't have to use `package::function()` notation
+
+- `@importFrom` makes the imported function from the specified package visible (a more limited version of `@import`)
+
+
+---
+
+## Roxygenized example in `add.Rd`
+
+```
+% Generated by roxygen2 (4.0.0): do not edit by hand
+\name{add}
+\alias{add}
+\title{Add together two numbers}
+\usage{
+add(x, y)
+}
+\arguments{
+  \item{x}{A number}
+
+  \item{y}{A number}
+}
+\value{
+The sum of \code{x} and \code{y}
+}
+\description{
+Add together two numbers
+}
+\examples{
+add(1, 1)
+add(10, 1)
+}
+```
+
+---
+class: inverse
+## Your Turn 
+
+- Delete the file `hello.Rd` in the folder `man`
+
+- Prep the DESCRIPTION file by adding the Roxygen tag.
+
+- Include roxygen comments for the function `hello()` in the file `hello.R` to create the same help for `hello` as was there before.
+
+- Run `devtools::document()` to create the file `hello.Rd`. 
+
+- Build the package and run `?hello`.
+
+- Already done? Expand the functionality of `hello` to produce an output of `Hello, string!` for `hello(string)`. Update `?hello` accordingly.
+
+---
+
+## Roxygen tags
+
+| Tag      | Purpose           |
+| ------ |:------------------------------------------------------------------- |
+| `@export` |	Make the function visible to users of the package |
+| `@param` |	Describe inputs |
+| `@return` |	Describe outputs |
+| `@examples` |	Show how the function works |
+| `@author`	| "Who wrote the function (if different from package)"|
+| `@seealso` |	Pointers to related functions |
+| `@aliases` |	Make it easier for users to find |
+| `@rdname`	| Useful for functions that are invalid filenames and for combining docs |
+| `@import` | Call all functions from another package natively (without package::function) |
+| `@importFrom` | Call a single function from another package natively |
+
+---
+
+## Commands in Roxygen
+
+| Tag      | Purpose           
+| ------ |:------------------------------------------------------------------- |
+| `\code{}` |	Discuss R code 
+| `\link{}` | 	Make link to another function.  Usually wrapped in `\code{}`
+|`\eqn{}` |	Inline equation (standard latex)
+| `\emph{}` |	Italic text
+| `\strong{}` |	Bold text
+
+Numbered list (Use `\itemize{}` for bulleted):
+
+```
+\enumerate{
+  \item First item
+}
+```
+
+---
+class: inverse
+## Your turn
+
+- Expand the functionality of `hello` to produce an output of `Hello, string!` for `hello(string)`. 
+
+- Insert the corresponding roxygen tags to expand on the documentation
+
+- Run `devtools::document()`
+
+- Check that the help for `hello` is updated
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
