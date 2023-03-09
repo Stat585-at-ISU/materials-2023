@@ -1,0 +1,50 @@
+---
+title: "News from  R and shiny"
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+## tidyverse 2.0 released
+
+- https://cran.r-project.org/web/packages/tidyverse/index.html 
+
+Here's the announcement:
+
+- [tidyverse 2.0.0 is out](https://www.tidyverse.org/blog/2023/03/tidyverse-2-0-0/)
+
+and also really exciting: 
+
+- [R in a browser](https://www.tidyverse.org/blog/2023/03/webr-0-1-0/)
+
+---
+
+## Other news: 
+
+- Shiny conference is next week: Mar 15-17 \
+free registration, all virtual\
+https://shinyconf.appsilon.com/registration/, talks are listed in Central European Time (usually 7h hours ahead compared to Central Time);   
+
+US switches to daylight savings this Sunday - Europe switches on March 26, 2023. So next week  Central Time is only 6h ahead compared to next week's now.
+
+
+- [posit::conf() 2023](https://posit.co/blog/posit-conf-2023-registration-open/) Sep 17 -20, Chicago, IL\
+submissions close Mar 28th
+
+---
+
+# Stat 585
+
+- Blog Prompt 8 is due tonight
+
+- Final teams? Due by tomorrow. use the time now :)
+
