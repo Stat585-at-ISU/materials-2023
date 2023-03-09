@@ -48,3 +48,30 @@ submissions close Mar 28th
 
 - Final teams? Due by tomorrow. use the time now :)
 
+---
+
+# Fixing problems in packages
+
+
+1. Problems with [Package Dependencies](https://stat585-at-isu.github.io/materials-2023/09_packages/01_r-packages.html#11)
+
+
+```
+❯ checking dependencies in R code ... NOTE
+  Namespace in Imports field not imported from: ‘purrr’
+    All declared Imports should be used.
+```
+
+
+2. Problems with [variable bindings]( https://community.rstudio.com/t/how-to-solve-no-visible-binding-for-global-variable-note/28887/2)
+
+
+```
+N  checking R code for possible problems (2.3s)
+   get_presslog: no visible binding for global variable ‘presslog_ames’
+   get_presslog: no visible binding for global variable ‘Call Received
+     Date/Time’
+   Undefined global functions or variables:
+     Call Received Date/Time presslog_ames
+```     
+
