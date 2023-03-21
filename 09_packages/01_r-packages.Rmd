@@ -66,6 +66,16 @@ class: inverse
 
 - Have a look at the help for `hello`
 
+
+## Your Turn (Advanced)
+
+- Does the package pass R CMD check? (Cmd + Shift + E)
+
+- Fix any warnings you might encounter ... call `library(usethis)` and `apropos("license")`
+
+... quick side remarks: https://thinkr-open.github.io/licensing-r/index.html#license
+
+
 ---
 
 ## `devtools`
@@ -137,11 +147,10 @@ Depends: package4,package5
     - e.g. for example data, unit tests, build vignettes
 
 - **Depends:** packages in this list are attached when your package is loaded    
-__Hint:__ It is better practice to use `Imports` rather than `Depends`. `Depends` might overwrite a previously loaded function of the same name (cause of some of the `plyr` - `dplyr` animosity)
-
+__Hint:__ It is better practice to use `Imports` rather than `Depends`. `Depends` might overwrite a previously loaded function of the same name:
 [Namespaces reference](http://r-pkgs.had.co.nz/namespace.html#namespace) - why Depends is a bad idea
 
-Try to keep dependencies as light as possible. 
+Try to keep dependencies as light as possible: [It Depends](https://r-pkgs.org/dependencies-mindset-background.html#dependencies-are-not-equal)
 
 DO NOT include [tidyverse](https://www.tidyverse.org/blog/2018/06/tidyverse-not-for-packages/) as a dependency.
 
@@ -199,6 +208,9 @@ First: Prep the DESCRIPTION file by adding the line
 Roxygen: list(markdown = TRUE)
 ```
 
+or use `usethis::use_roxygen_md()`
+
+
 
 1. Add tags  to your .R files in form of roxygen (next slide) comments
 
@@ -242,7 +254,7 @@ instead, they write to `NAMESPACE`
 
 - `@import` makes the imported package visible to the function code so you don't have to use `package::function()` notation
 
-- `@importFrom` makes the imported function from the specified package visible (a more limited version of `@import`)
+- `@importFrom` makes the imported function from the specified package visible (a more limited version of `@import`) **my personal favorite**
 
 
 ---
@@ -311,13 +323,15 @@ class: inverse
 
 ## Commands in Roxygen
 
+Most of these elements can also be replaced by markdown
+
 | Tag      | Purpose           
 | ------ |:------------------------------------------------------------------- |
-| `\code{}` |	Discuss R code 
+| `\code{}` |	Discuss R code -- backticks work here as well
 | `\link{}` | 	Make link to another function.  Usually wrapped in `\code{}`
 |`\eqn{}` |	Inline equation (standard latex)
-| `\emph{}` |	Italic text
-| `\strong{}` |	Bold text
+| `\emph{}` |	Italic text -- or use  `*` at the beginning and end
+| `\strong{}` |	Bold text -- or use  `**` at the beginning and end
 
 Numbered list (Use `\itemize{}` for bulleted):
 

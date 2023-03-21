@@ -63,7 +63,7 @@ submissions close Mar 28th
 ```
 
 
-2. Problems with [variable bindings]( https://community.rstudio.com/t/how-to-solve-no-visible-binding-for-global-variable-note/28887/2)
+2. Problems with [variable bindings]( https://community.rstudio.com/t/how-to-solve-no-visible-binding-for-global-variable-note/28887/2), also in our [slides](https://stat585-at-isu.github.io/materials-2023/09_packages/02_r-packages-data.html#15)
 
 
 ```
