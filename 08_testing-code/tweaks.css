@@ -1,0 +1,18 @@
+.large { font-size: 130% }
+.small { font-size: 70% }
+.tiny { font-size: 40% }
+
+.shift-right {
+  display: inline-block;
+  float: right;
+}
+
+.hard-topright{
+  position:fixed;
+  top:20px;
+  right:20px;
+}
+
+.inverse {
+  text-shadow:0 0 0 #FFF !important;
+}
