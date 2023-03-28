@@ -615,4 +615,5 @@ class:inverse
 
 1. Run a code coverage report locally for your `worldle` package using `covr::report()`
 
-
+2. Run `use_tidy_github_actions()`. 
+This will activate all three main workflows: checking the package, running a code coverage report and re-publishing the website
