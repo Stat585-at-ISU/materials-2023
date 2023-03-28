@@ -382,10 +382,8 @@ Once we have our set of tests, we turn them into a test block:
 
 
 ```r
-context("testing austria")
-data(austria)
-
 test_that("austria is properly formatted", {
+data(austria)
 # correct type
 expect_type(austria, "list")
 expect_s3_class(austria, c("sf","tbl_df", "tbl", "data.frame"))
@@ -400,7 +398,7 @@ expect_named(austria, c("ID_0", "COUNTRY", "ID_1", "NAME_1", "VARNAME_1", "NL_NA
 
 Save your test file, and then you can test your package with `Ctrl/CMD - Shift - T`. 
 ???
-Once you have the expectations written, it's fairly easy to fit them into a structured testthat file: just add the expectations to a `test_that` function, add the description, and add the `test_that()` function and context to a file. Then you just save your files and test your package!
+Once you have the expectations written, it's fairly easy to fit them into a structured testthat file: just add the expectations to a `test_that` function, add the description, and add the `test_that()` function. The filename will determine the context of the test. Save your file and test your package!
 
 ---
 
