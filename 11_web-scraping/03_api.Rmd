@@ -240,8 +240,9 @@ class:inverse
 The [ames-dogs.Rdata](https://bit.ly/3tU4dKG) file is the result from the query on the last slide. 
 
 ```{r eval = FALSE}
-url_dogs <- "https://bit.ly/3tU4dKG" # download the file to your drive
-load("<your file path>/DataRequest.Rdata")
+url_dogs <- "https://bit.ly/3ZsuIUc" # download the file to your drive
+download.file(url_dogs, destfile = "ames-dogs.Rdata", mode="wb")
+load("ames-dogs.Rdata")
 ```
 
 1. For the dogs returned by the API, assemble a data frame with their name, age, sex, breed(s), and shelter ID.
@@ -331,3 +332,50 @@ Write a function that accepts latitude and longitude and returns the hourly fore
 Can you plot the temperature forecast? 
 
 ---
+
+## Your Turn - Solution
+
+```{r}
+get_weather <- function(lat, lon) {
+  checkmate::assert_number(lat)
+  checkmate::assert_number(lon)
+  url <- sprintf("https://api.weather.gov/points/%f,%f", lat, lon)
+  initialjson <- jsonlite::fromJSON(url)
+  
+  if (!checkmate::check_subset("properties", names(initialjson)) | 
+      !checkmate::check_subset("forecastHourly", names(initialjson$properties))) {
+    stop("No Information Found. Check Latitude/Longitude values.")
+  }
+  
+  hourlyforecast <- jsonlite::fromJSON(initialjson$properties$forecastHourly)
+  
+  res <- hourlyforecast$properties$periods
+  checkmate::check_data_frame(res)
+  res
+}
+```
+---
+
+## Your Turn - Solution
+
+```{r}
+amesweather <- get_weather(42, -93.6) %>%
+  mutate(startTime = lubridate::ymd_hms(startTime, tz = "America/Chicago")) 
+```
+
+```{r echo=FALSE, fig.height = 3.5}
+# April 1: https://api.weather.gov/icons/land/night/skc,0?size=small  dosn't exist
+amesweather$icon <- gsub(",0", ",1", amesweather$icon)
+# Add icons for every 6 hour interval
+maxtemp <- max(amesweather$temperature)
+icons <- amesweather %>% filter(row_number() %% 6 == 1) 
+icon_lst <- purrr::map2(
+  icons$icon, icons$startTime, 
+  ~cowplot::draw_image(.x, x = .y, y = maxtemp - 3, width = lubridate::hours(6), height = 6))
+
+  ggplot() + 
+  icon_lst + 
+  geom_line(aes(x = startTime, y = temperature), data = amesweather) +
+  xlab("Date") 
+```
+
