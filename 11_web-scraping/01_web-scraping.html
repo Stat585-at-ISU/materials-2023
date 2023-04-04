@@ -4,7 +4,7 @@
     <title>Stat 585 - Web Scraping</title>
     <meta charset="utf-8" />
     <meta name="author" content="Heike Hofmann and Susan Vanderplas" />
-    <script src="libs/header-attrs-2.20/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="tweaks.css" type="text/css" />
@@ -693,90 +693,84 @@ If you prefer, you can also read the HTML code and create your own [CSS](https:/
 ```r
 url &lt;- "http://www.baseball-reference.com/players/a/"
 html &lt;- read_html(url)
-html %&gt;% html_nodes("b") %&gt;% html_text()
+html %&gt;% html_elements("b") %&gt;% html_text()
 ```
 
 ```
-##  [1] "Fernando Abad  (2010-2021)"     
-##  [2] "Cory Abbott  (2021-2022)"       
-##  [3] "CJ Abrams  (2022-2022)"         
-##  [4] "Albert Abreu  (2020-2022)"      
-##  [5] "Bryan Abreu  (2019-2022)"       
-##  [6] "José Abreu  (2014-2022)"        
-##  [7] "Domingo Acevedo  (2021-2022)"   
-##  [8] "Ronald Acuna Jr.  (2018-2022)"  
-##  [9] "Jason Adam  (2018-2022)"        
-## [10] "Willy Adames  (2018-2022)"      
-## [11] "Austin Adams  (2017-2022)"      
-## [12] "Matt Adams  (2012-2021)"        
-## [13] "Riley Adams  (2021-2022)"       
-## [14] "Jo Adell  (2020-2022)"          
-## [15] "Joan Adon  (2021-2022)"         
-## [16] "Ehire Adrianza  (2013-2022)"    
-## [17] "Jesús Aguilar  (2014-2022)"     
-## [18] "Ryan Aguilar  (2022-2022)"      
-## [19] "Nick Ahmed  (2014-2022)"        
-## [20] "Keegan Akin  (2020-2022)"       
-## [21] "Hanser Alberto  (2015-2022)"    
-## [22] "Ozzie Albies  (2017-2022)"      
-## [23] "Jorge Alcala  (2019-2022)"      
-## [24] "Sandy Alcantara  (2017-2022)"   
-## [25] "Sergio Alcántara  (2020-2022)"  
-## [26] "Jason Alexander  (2022-2022)"   
-## [27] "Scott Alexander  (2015-2022)"   
-## [28] "Tyler Alexander  (2019-2022)"   
-## [29] "A.J. Alexy  (2021-2022)"        
-## [30] "Jorge Alfaro  (2016-2022)"      
-## [31] "Anthony Alford  (2017-2022)"    
-## [32] "Kolby Allard  (2018-2022)"      
-## [33] "Cam Alldred  (2022-2022)"       
-## [34] "Austin Allen  (2019-2022)"      
-## [35] "Greg Allen  (2017-2022)"        
-## [36] "Logan Allen  (2019-2022)"       
-## [37] "Nick Allen  (2022-2022)"        
-## [38] "Abraham Almonte  (2013-2022)"   
-## [39] "Yency Almonte  (2018-2022)"     
-## [40] "Albert Almora  (2016-2022)"     
-## [41] "Pete Alonso  (2019-2022)"       
-## [42] "Jose Altuve  (2011-2022)"       
-## [43] "José Alvarado  (2017-2022)"     
-## [44] "Eddy Alvarez  (2020-2022)"      
-## [45] "Francisco Álvarez  (2022-2022)" 
-## [46] "Jose Alvarez  (2013-2022)"      
-## [47] "R.J. Alvarez  (2014-2022)"      
-## [48] "Yordan Alvarez  (2019-2022)"    
-## [49] "Adbert Alzolay  (2019-2022)"    
-## [50] "Brian Anderson  (2017-2022)"    
-## [51] "Chase Anderson  (2014-2022)"    
-## [52] "Ian Anderson  (2020-2022)"      
-## [53] "Nick Anderson  (2019-2021)"     
-## [54] "Shaun Anderson  (2019-2022)"    
-## [55] "Tim Anderson  (2016-2022)"      
-## [56] "Tyler Anderson  (2016-2022)"    
-## [57] "Matt Andriese  (2015-2021)"     
-## [58] "Elvis Andrus  (2009-2022)"      
-## [59] "Miguel Andújar  (2017-2022)"    
-## [60] "Tejay Antone  (2020-2021)"      
-## [61] "Mark Appel  (2022-2022)"        
-## [62] "Aristides Aquino  (2018-2022)"  
-## [63] "Jonathan Aranda  (2022-2022)"   
-## [64] "Víctor Arano  (2017-2022)"      
-## [65] "Jonathan Araúz  (2020-2022)"    
-## [66] "Chris Archer  (2012-2022)"      
-## [67] "Orlando Arcia  (2016-2022)"     
-## [68] "Nolan Arenado  (2013-2022)"     
-## [69] "Gabriel Arias  (2022-2022)"     
-## [70] "Kohei Arihara  (2021-2022)"     
-## [71] "Shawn Armstrong  (2015-2022)"   
-## [72] "Randy Arozarena  (2019-2022)"   
-## [73] "Luis Arraez  (2019-2022)"       
-## [74] "Christian Arroyo  (2017-2022)"  
-## [75] "Aaron Ashby  (2021-2022)"       
-## [76] "Graham Ashcraft  (2022-2022)"   
-## [77] "Javier Assad  (2022-2022)"      
-## [78] "Willians Astudillo  (2018-2022)"
-## [79] "Pedro Avila  (2019-2022)"       
-## [80] "José Azocar  (2022-2022)"
+##  [1] "Fernando Abad  (2010-2021)"    
+##  [2] "Cory Abbott  (2021-2022)"      
+##  [3] "CJ Abrams  (2022-2023)"        
+##  [4] "Albert Abreu  (2020-2023)"     
+##  [5] "Bryan Abreu  (2019-2023)"      
+##  [6] "José Abreu  (2014-2023)"       
+##  [7] "Domingo Acevedo  (2021-2023)"  
+##  [8] "Ronald Acuna Jr.  (2018-2023)" 
+##  [9] "Jason Adam  (2018-2023)"       
+## [10] "Willy Adames  (2018-2023)"     
+## [11] "Austin Adams  (2017-2022)"     
+## [12] "Matt Adams  (2012-2021)"       
+## [13] "Riley Adams  (2021-2022)"      
+## [14] "Jo Adell  (2020-2022)"         
+## [15] "Joan Adon  (2021-2022)"        
+## [16] "Ehire Adrianza  (2013-2022)"   
+## [17] "Jesús Aguilar  (2014-2023)"    
+## [18] "Ryan Aguilar  (2022-2022)"     
+## [19] "Nick Ahmed  (2014-2023)"       
+## [20] "Keegan Akin  (2020-2023)"      
+## [21] "Hanser Alberto  (2015-2023)"   
+## [22] "Ozzie Albies  (2017-2023)"     
+## [23] "Jorge Alcala  (2019-2023)"     
+## [24] "Sandy Alcantara  (2017-2023)"  
+## [25] "Sergio Alcántara  (2020-2022)" 
+## [26] "Jason Alexander  (2022-2022)"  
+## [27] "Scott Alexander  (2015-2023)"  
+## [28] "Tyler Alexander  (2019-2023)"  
+## [29] "A.J. Alexy  (2021-2022)"       
+## [30] "Jorge Alfaro  (2016-2022)"     
+## [31] "Kolby Allard  (2018-2022)"     
+## [32] "Cam Alldred  (2022-2022)"      
+## [33] "Austin Allen  (2019-2022)"     
+## [34] "Greg Allen  (2017-2022)"       
+## [35] "Logan Allen  (2019-2022)"      
+## [36] "Nick Allen  (2022-2023)"       
+## [37] "Nick Allgeyer  (2021-2021)"    
+## [38] "Abraham Almonte  (2013-2022)"  
+## [39] "Yency Almonte  (2018-2023)"    
+## [40] "Pete Alonso  (2019-2023)"      
+## [41] "Dan Altavilla  (2016-2021)"    
+## [42] "Jose Altuve  (2011-2022)"      
+## [43] "José Alvarado  (2017-2023)"    
+## [44] "Eddy Alvarez  (2020-2022)"     
+## [45] "Francisco Álvarez  (2022-2022)"
+## [46] "Jose Alvarez  (2013-2022)"     
+## [47] "Yordan Alvarez  (2019-2023)"   
+## [48] "Adbert Alzolay  (2019-2023)"   
+## [49] "Brian Anderson  (2017-2023)"   
+## [50] "Chase Anderson  (2014-2022)"   
+## [51] "Ian Anderson  (2020-2022)"     
+## [52] "Nick Anderson  (2019-2023)"    
+## [53] "Tim Anderson  (2016-2023)"     
+## [54] "Tyler Anderson  (2016-2023)"   
+## [55] "Matt Andriese  (2015-2021)"    
+## [56] "Elvis Andrus  (2009-2023)"     
+## [57] "Miguel Andujar  (2017-2022)"   
+## [58] "Tejay Antone  (2020-2021)"     
+## [59] "Jonathan Aranda  (2022-2022)"  
+## [60] "Víctor Arano  (2017-2022)"     
+## [61] "Jonathan Araúz  (2020-2022)"   
+## [62] "Francisco Arcia  (2018-2018)"  
+## [63] "Orlando Arcia  (2016-2023)"    
+## [64] "Nolan Arenado  (2013-2023)"    
+## [65] "Gabriel Arias  (2022-2023)"    
+## [66] "Shawn Armstrong  (2015-2022)"  
+## [67] "Randy Arozarena  (2019-2023)"  
+## [68] "Luis Arraez  (2019-2023)"      
+## [69] "Christian Arroyo  (2017-2023)" 
+## [70] "Aaron Ashby  (2021-2022)"      
+## [71] "Graham Ashcraft  (2022-2023)"  
+## [72] "Javier Assad  (2022-2023)"     
+## [73] "Pedro Avila  (2019-2022)"      
+## [74] "José Azocar  (2022-2023)"
 ```
 
 ---
@@ -791,7 +785,7 @@ We are, in fact, not just interested in the *names of the players*, but also in 
 
 
 ```r
-html %&gt;% html_nodes("b a") %&gt;% html_attr(name="href")
+html %&gt;% html_elements("b a") %&gt;% html_attr(name="href")
 ```
 
 ```
@@ -825,56 +819,50 @@ html %&gt;% html_nodes("b a") %&gt;% html_attr(name="href")
 ## [28] "/players/a/alexaty01.shtml"
 ## [29] "/players/a/alexyaj01.shtml"
 ## [30] "/players/a/alfarjo01.shtml"
-## [31] "/players/a/alforan01.shtml"
-## [32] "/players/a/allarko01.shtml"
-## [33] "/players/a/alldrca01.shtml"
-## [34] "/players/a/allenau01.shtml"
-## [35] "/players/a/allengr01.shtml"
-## [36] "/players/a/allenlo01.shtml"
-## [37] "/players/a/allenni02.shtml"
+## [31] "/players/a/allarko01.shtml"
+## [32] "/players/a/alldrca01.shtml"
+## [33] "/players/a/allenau01.shtml"
+## [34] "/players/a/allengr01.shtml"
+## [35] "/players/a/allenlo01.shtml"
+## [36] "/players/a/allenni02.shtml"
+## [37] "/players/a/allgeni01.shtml"
 ## [38] "/players/a/almonab01.shtml"
 ## [39] "/players/a/almonye01.shtml"
-## [40] "/players/a/almoral01.shtml"
-## [41] "/players/a/alonspe01.shtml"
+## [40] "/players/a/alonspe01.shtml"
+## [41] "/players/a/altavda01.shtml"
 ## [42] "/players/a/altuvjo01.shtml"
 ## [43] "/players/a/alvarjo03.shtml"
 ## [44] "/players/a/alvared01.shtml"
 ## [45] "/players/a/alvarfr01.shtml"
 ## [46] "/players/a/alvarjo02.shtml"
-## [47] "/players/a/alvarrj01.shtml"
-## [48] "/players/a/alvaryo01.shtml"
-## [49] "/players/a/alzolad01.shtml"
-## [50] "/players/a/anderbr06.shtml"
-## [51] "/players/a/anderch01.shtml"
-## [52] "/players/a/anderia01.shtml"
-## [53] "/players/a/anderni01.shtml"
-## [54] "/players/a/andersh01.shtml"
-## [55] "/players/a/anderti01.shtml"
-## [56] "/players/a/anderty01.shtml"
-## [57] "/players/a/andrima01.shtml"
-## [58] "/players/a/andruel01.shtml"
-## [59] "/players/a/andujmi01.shtml"
-## [60] "/players/a/antonte01.shtml"
-## [61] "/players/a/appelma01.shtml"
-## [62] "/players/a/aquinar01.shtml"
-## [63] "/players/a/arandjo01.shtml"
-## [64] "/players/a/aranovi01.shtml"
-## [65] "/players/a/arauzjo01.shtml"
-## [66] "/players/a/archech01.shtml"
-## [67] "/players/a/arciaor01.shtml"
-## [68] "/players/a/arenano01.shtml"
-## [69] "/players/a/ariasga01.shtml"
-## [70] "/players/a/arihako01.shtml"
-## [71] "/players/a/armstsh01.shtml"
-## [72] "/players/a/arozara01.shtml"
-## [73] "/players/a/arraelu01.shtml"
-## [74] "/players/a/arroych01.shtml"
-## [75] "/players/a/ashbyaa01.shtml"
-## [76] "/players/a/ashcrgr01.shtml"
-## [77] "/players/a/assadja01.shtml"
-## [78] "/players/a/astudwi01.shtml"
-## [79] "/players/a/avilape01.shtml"
-## [80] "/players/a/azocajo01.shtml"
+## [47] "/players/a/alvaryo01.shtml"
+## [48] "/players/a/alzolad01.shtml"
+## [49] "/players/a/anderbr06.shtml"
+## [50] "/players/a/anderch01.shtml"
+## [51] "/players/a/anderia01.shtml"
+## [52] "/players/a/anderni01.shtml"
+## [53] "/players/a/anderti01.shtml"
+## [54] "/players/a/anderty01.shtml"
+## [55] "/players/a/andrima01.shtml"
+## [56] "/players/a/andruel01.shtml"
+## [57] "/players/a/andujmi01.shtml"
+## [58] "/players/a/antonte01.shtml"
+## [59] "/players/a/arandjo01.shtml"
+## [60] "/players/a/aranovi01.shtml"
+## [61] "/players/a/arauzjo01.shtml"
+## [62] "/players/a/arciafr01.shtml"
+## [63] "/players/a/arciaor01.shtml"
+## [64] "/players/a/arenano01.shtml"
+## [65] "/players/a/ariasga01.shtml"
+## [66] "/players/a/armstsh01.shtml"
+## [67] "/players/a/arozara01.shtml"
+## [68] "/players/a/arraelu01.shtml"
+## [69] "/players/a/arroych01.shtml"
+## [70] "/players/a/ashbyaa01.shtml"
+## [71] "/players/a/ashcrgr01.shtml"
+## [72] "/players/a/assadja01.shtml"
+## [73] "/players/a/avilape01.shtml"
+## [74] "/players/a/azocajo01.shtml"
 ```
 
 ---
@@ -897,7 +885,7 @@ What other information do we need to know? - and how can we get to that?
 ```r
 url &lt;- "https://www.baseball-reference.com/players/a/abadfe01.shtml"
 html &lt;- read_html(url)
-html %&gt;% html_nodes(".stats_pullout") %&gt;% html_text()
+html %&gt;% html_elements(".stats_pullout") %&gt;% html_text()
 ```
 
 ```
@@ -905,7 +893,7 @@ html %&gt;% html_nodes(".stats_pullout") %&gt;% html_text()
 ```
 
 ```r
-html %&gt;% html_nodes(".stats_pullout .poptip") %&gt;% html_text()
+html %&gt;% html_elements(".stats_pullout .poptip") %&gt;% html_text()
 ```
 
 ```
@@ -914,7 +902,7 @@ html %&gt;% html_nodes(".stats_pullout .poptip") %&gt;% html_text()
 ```
 
 ```r
-html %&gt;% html_nodes(".p3 p , .p2 p, .p1 p, .stats_pullout strong") %&gt;% html_text()
+html %&gt;% html_elements(".p3 p , .p2 p, .p1 p, .stats_pullout strong") %&gt;% html_text()
 ```
 
 ```
@@ -926,7 +914,7 @@ html %&gt;% html_nodes(".p3 p , .p2 p, .p1 p, .stats_pullout strong") %&gt;% htm
 ```
 
 ```r
-html %&gt;% html_nodes(".p1") %&gt;% html_text()
+html %&gt;% html_elements(".p1") %&gt;% html_text()
 ```
 
 ```
@@ -939,7 +927,7 @@ html %&gt;% html_nodes(".p1") %&gt;% html_text()
 It's sometimes easier (for data munging after extracting) to extract multiple pieces rather than everything in one go. 
 
 ```r
-(stats &lt;- html %&gt;% html_nodes("span strong") %&gt;% html_text())
+(stats &lt;- html %&gt;% html_elements("span strong") %&gt;% html_text())
 ```
 
 ```
@@ -949,7 +937,7 @@ It's sometimes easier (for data munging after extracting) to extract multiple pi
 ```
 
 ```r
-(season &lt;- html %&gt;% html_nodes(".stats_pullout p:nth-child(2)") %&gt;% html_text())
+(season &lt;- html %&gt;% html_elements(".stats_pullout p:nth-child(2)") %&gt;% html_text())
 ```
 
 ```
@@ -958,7 +946,7 @@ It's sometimes easier (for data munging after extracting) to extract multiple pi
 ```
 
 ```r
-(career &lt;- html %&gt;% html_nodes(".stats_pullout p:nth-child(3)") %&gt;% html_text())
+(career &lt;- html %&gt;% html_elements(".stats_pullout p:nth-child(3)") %&gt;% html_text())
 ```
 
 ```
@@ -1000,10 +988,21 @@ getStats("https://www.baseball-reference.com//players/a/abreujo02.shtml") %&gt;%
 ```
 
 ```
+## Warning: 1 parsing failure.
+## row col expected actual
+##   1  -- a number      -
+```
+
+```
 ## 'data.frame':	12 obs. of  3 variables:
 ##  $ Statistics: chr  "WAR" "AB" "H" "HR" ...
-##  $ Season    : num  4.2 601 183 15 0.304 85 75 0 0.378 0.446 ...
-##  $ Career    : num  31.9 31.9 31.9 31.9 31.9 31.9 31.9 31.9 31.9 31.9 ...
+##  $ Season    : num  NA 21 8 0 0.381 1 3 0 0.458 0.429 ...
+##   ..- attr(*, "problems")= tibble [1 × 4] (S3: tbl_df/tbl/data.frame)
+##   .. ..$ row     : int 1
+##   .. ..$ col     : int NA
+##   .. ..$ expected: chr "a number"
+##   .. ..$ actual  : chr "-"
+##  $ Career    : num  31.8 31.8 31.8 31.8 31.8 31.8 31.8 31.8 31.8 31.8 ...
 ```
 
 ```r
@@ -1011,10 +1010,21 @@ getStats(file.path("https://www.baseball-reference.com", links[2])) %&gt;% str()
 ```
 
 ```
+## Warning: 1 parsing failure.
+## row col expected actual
+##   1  -- a number      -
+```
+
+```
 ## 'data.frame':	12 obs. of  3 variables:
 ##  $ Statistics: chr  "WAR" "AB" "H" "HR" ...
-##  $ Season    : num  2.7 467 124 15 0.266 71 50 29 0.351 0.413 ...
-##  $ Career    : num  17.5 17.5 17.5 17.5 17.5 17.5 17.5 17.5 17.5 17.5 ...
+##  $ Season    : num  NA 21 8 0 0.381 1 3 0 0.458 0.429 ...
+##   ..- attr(*, "problems")= tibble [1 × 4] (S3: tbl_df/tbl/data.frame)
+##   .. ..$ row     : int 1
+##   .. ..$ col     : int NA
+##   .. ..$ expected: chr "a number"
+##   .. ..$ actual  : chr "-"
+##  $ Career    : num  31.8 31.8 31.8 31.8 31.8 31.8 31.8 31.8 31.8 31.8 ...
 ```
 
 ```r
@@ -1025,8 +1035,8 @@ getStats(file.path("https://www.baseball-reference.com", links[4])) %&gt;% str()
 ```
 ## 'data.frame':	12 obs. of  3 variables:
 ##  $ Statistics: chr  "WAR" "AB" "H" "HR" ...
-##  $ Season    : num  -0.4 97 17 0 0.175 8 7 1 0.264 0.206 ...
-##  $ Career    : num  0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 0.9 ...
+##  $ Season    : num  4.9 2421 624 118 0.258 ...
+##  $ Career    : num  NA NA NA NA NA NA NA NA NA NA ...
 ```
 
 
@@ -1051,12 +1061,12 @@ head(bb)
 ## # A tibble: 6 × 2
 ##   players          links                     
 ##   &lt;chr&gt;            &lt;chr&gt;                     
-## 1 José Abreu       /players/a/abreujo02.shtml
-## 2 Ronald Acuna Jr. /players/a/acunaro01.shtml
-## 3 Matt Adams       /players/a/adamsma01.shtml
-## 4 Ehire Adrianza   /players/a/adriaeh01.shtml
-## 5 Jesús Aguilar    /players/a/aguilje01.shtml
-## 6 Nick Ahmed       /players/a/ahmedni01.shtml
+## 1 Fernando Abad    /players/a/abadfe01.shtml 
+## 2 José Abreu       /players/a/abreujo02.shtml
+## 3 Ronald Acuna Jr. /players/a/acunaro01.shtml
+## 4 Matt Adams       /players/a/adamsma01.shtml
+## 5 Ehire Adrianza   /players/a/adriaeh01.shtml
+## 6 Jesús Aguilar    /players/a/aguilje01.shtml
 ```
 
 ```r
@@ -1070,11 +1080,23 @@ bb_head &lt;- bb[1:5,] %&gt;% mutate(
 ```
 
 ```
+## /players/a/abadfe01.shtml
 ## /players/a/abreujo02.shtml
 ## /players/a/acunaro01.shtml
 ## /players/a/adamsma01.shtml
 ## /players/a/adriaeh01.shtml
-## /players/a/aguilje01.shtml
+```
+
+```
+## Warning: There were 2 warnings in `mutate()`.
+## The first warning was:
+## ℹ In argument: `data = `%&gt;%`(...)`.
+## Caused by warning:
+## ! 1 parsing failure.
+## row col expected actual
+##   1  -- a number      -
+## ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining
+##   warning.
 ```
 
 ---
