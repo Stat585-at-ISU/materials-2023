@@ -364,7 +364,7 @@ amesweather <- get_weather(42, -93.6) %>%
 ```
 
 ```{r echo=FALSE, fig.height = 3.5}
-# April 1: https://api.weather.gov/icons/land/night/skc,0?size=small  dosn't exist
+# April 1: https://api.weather.gov/icons/land/night/skc,0?size=small  doesn't exist
 amesweather$icon <- gsub(",0", ",1", amesweather$icon)
 # Add icons for every 6 hour interval
 maxtemp <- max(amesweather$temperature)
