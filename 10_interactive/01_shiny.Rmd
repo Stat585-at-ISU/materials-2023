@@ -1,0 +1,274 @@
+---
+title: "Web apps with shiny"
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: middle, inverse, center
+# Web apps with `shiny`
+
+```{r setup, include=FALSE, message=FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rmarkdown)
+```
+
+---
+
+# What is `shiny`?
+
+- `shiny` is an R package that allows us to easily create interactive web applets using R. 
+
+- Produced by RStudio: http://shiny.rstudio.com
+
+- Code can be entirely in R (or customized with HTML/JavaScript)
+
+- RStudio's showcase gallery of Shiny applets: http://shiny.rstudio.com/gallery/
+
+---
+
+# Resources:
+
+- RStudio shiny tutorial: http://shiny.rstudio.com/tutorial/
+
+- Useful if you want to use shiny on your own webserver: http://shiny.rstudio.com
+
+- Latest updates: https://github.com/rstudio/shiny
+
+- Shiny Mailing List: https://groups.google.com/forum/#!forum/shiny-discuss
+
+In case of questions, check the tutorial first, then search the mailing list.
+
+---
+class: inverse
+# Your Turn: A first example
+
+- Download the file [`shiny.zip`](../shiny.zip) from the repo, 
+
+- unzip it into a folder,  
+
+- put the folder into your working directory,
+
+- and run the code below
+
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+library(shiny)
+```
+
+```
+library(shiny)
+runApp("shiny/01_Hello")
+```
+
+---
+
+# Reactivity
+
+- `shiny` is built on the idea of *reactive programming*, i.e. outputs automatically update whenever an input value changes.
+
+- input values => R code => output values
+
+- Reactive expressions keep track of what values they read and what values they change. If those values become "out of date", they know their return value is out of date and will automatically recalculate.
+
+---
+
+# A minimal shiny app
+
+```
+library(shiny)
+
+ui <- fluidPage()
+server <- function(input, output) {
+}
+
+shinyApp(ui, server)
+```
+
+- save this code in a separate folder call the file `app.R`
+
+- run the code: either paste into the console or use `runApp` on folder name
+
+---
+
+# User Interface (ui)
+
+- elements of the user interface are called **widgets**
+
+- we distinguish between `input` and `output`
+
+- overview of available input widgets in shiny at http://shiny.rstudio.com/gallery/widget-gallery.html
+
+- input widgets have a similar structure `xxxInput (inputId, label, value)` where `xxx` is the name of the widget
+    - `inputId` is the (unique) name you give to the widget (object name)
+    - `label` is the text that appears with the widget in interface
+    - `value` all widgets have a value - the type of this value is specific to the widget
+    - ... other parameters are widget-specific
+
+
+---
+
+# Shiny Inputs
+
+```{r}
+textInput("text", label = h3("Text input"), value = "Enter text...")
+```
+
+<br>
+
+`h3()` is just converting html into a header of level 3:
+```{r eval = FALSE}
+h3("Hello")
+```
+
+```
+<h3>Hello</h3>
+```
+
+```{r eval = FALSE}
+selectInput("select", label = h3("What do you like?"), 
+            choices = c("Pizza", "Ice cream", 
+                        "Donuts", "None of the above"), 
+            selected=2)
+```
+
+---
+
+# Shiny Inputs (cont'd)
+
+- `actionButton()` - creates a clickable button
+- `checkboxInput()` and `checkboxGroupInput()`
+- `dateInput()` - calendar to select a date
+- `dateRangeInput()` - select a range of dates
+- `fileInput()` - upload a file
+- `numericInput()` - input a numeric value
+- `radioButtons()` - select one or more items
+- `sliderInput()` - slide along a range of values
+- `textInput()` - input a string
+
+
+---
+class: inverse
+# Your Turn (10 min)
+
+- Run the Hello World example on your machine:
+
+```{r, eval=FALSE}
+runApp("01_Hello", display.mode = "showcase")
+```
+
+- Add an input to simulate from a gamma distribution as well as a normal. 
+
+- **Tricky** - how do we get the shiny app to react to the input?
+
+---
+
+# Shiny Outputs
+
+Shiny also has a set of output functions with general structure:
+
+```
+xxxOutput (outputId, ...)
+```
+where `outputId` is a (unique) object name (and `xxx` is one of the choices below)
+
+- `html`, `image`, `plot`, `table`, `text`,  creates what the names says
+
+- `uiOutput`	raw HTML
+
+- `verbatimTextOutput`	text
+
+Outputs have width and height, might be clickable, hoverable, ...
+
+---
+
+# Other User Interface Options
+
+- `tabsetPanel()` - make multiple different output views (i.e. a plot in one tab, a data table in another)
+
+- `helpText()` - create additional text to help users navigate your applet
+
+- `submitButton()` - only update outputs when this button is clicked
+
+- `conditionalPanel()` - only show certain UI options when conditions are met (i.e. if a certain tab is open, or a certain input is selected)
+
+---
+
+# Getting the shiny app to react: server
+
+- the server function connects inputs to outputs
+
+- render functions create outputs of different types
+
+```{r, eval = FALSE}
+server  <-  function(input, output) {
+  # make output objects from inputs  
+  
+  output$hist <- renderPlot({
+  
+  })
+}
+```
+
+---
+
+# Render functions
+
+- `renderDataTable()` - outputs an interactive, sortable data table
+- `renderPlot()` - output an R plot
+- `renderPrint()` - output text from print() in R
+- `renderTable()` - output an HTML table
+- `renderText()` - output text from R
+- `renderUI()` - output a custom part of the user interface
+- `renderImage()` - print an image to the page
+- `htmlOutput()` - output html elements
+
+---
+
+# Example `server` function
+
+```{r, eval = FALSE}
+server <- function(input, output) {
+    output$hist <- renderPlot({
+        dist <- rnorm(n = input$num)
+        gg <- data.frame(dist) %>% 
+          ggplot(aes(x = dist)) + geom_histogram(binwidth = 0.25) +
+          xlim(c(-10,10))
+        print(gg)
+    })
+}
+```
+
+Note the use of curly brackets `{` `}` in `renderPlot`.
+
+The last statement in the code block must be the plot. 
+
+
+---
+class: inverse
+# Your Turn (5 min)
+
+For the 01_Hello app: 
+
+- expand on the server functionality to make the plot react to the input
+
+---
+class: inverse
+# Your Turn (15 min)
+
+Run the NYC emergency app provided as a starting point. 
+
+```{r, eval=FALSE}
+runApp("02_NYC_Emergency")
+```
+
+- Expand on this app.
+
+- Ideas: 
+    - Plot some aspect of the data with color based on another aspect of the data
+    - Use `subset()` and `checkboxInput()` to plot user-selected subsets
+    - Use `tabsetPanel()` to display different tables/plots
+    - **Extra Challenging:** Can you make a map of NYC crime by location?

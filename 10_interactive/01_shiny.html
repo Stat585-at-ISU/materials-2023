@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Web apps with shiny</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heike Hofmann" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Web apps with shiny
+]
+.author[
+### Heike Hofmann
+]
+
+---
+
+class: middle, inverse, center
+# Web apps with `shiny`
+
+
+
+---
+
+# What is `shiny`?
+
+- `shiny` is an R package that allows us to easily create interactive web applets using R. 
+
+- Produced by RStudio: http://shiny.rstudio.com
+
+- Code can be entirely in R (or customized with HTML/JavaScript)
+
+- RStudio's showcase gallery of Shiny applets: http://shiny.rstudio.com/gallery/
+
+---
+
+# Resources:
+
+- RStudio shiny tutorial: http://shiny.rstudio.com/tutorial/
+
+- Useful if you want to use shiny on your own webserver: http://shiny.rstudio.com
+
+- Latest updates: https://github.com/rstudio/shiny
+
+- Shiny Mailing List: https://groups.google.com/forum/#!forum/shiny-discuss
+
+In case of questions, check the tutorial first, then search the mailing list.
+
+---
+class: inverse
+# Your Turn: A first example
+
+- Download the file [`shiny.zip`](../shiny.zip) from the repo, 
+
+- unzip it into a folder,  
+
+- put the folder into your working directory,
+
+- and run the code below
+
+
+
+```
+library(shiny)
+runApp("shiny/01_Hello")
+```
+
+---
+
+# Reactivity
+
+- `shiny` is built on the idea of *reactive programming*, i.e. outputs automatically update whenever an input value changes.
+
+- input values =&gt; R code =&gt; output values
+
+- Reactive expressions keep track of what values they read and what values they change. If those values become "out of date", they know their return value is out of date and will automatically recalculate.
+
+---
+
+# A minimal shiny app
+
+```
+library(shiny)
+
+ui &lt;- fluidPage()
+server &lt;- function(input, output) {
+}
+
+shinyApp(ui, server)
+```
+
+- save this code in a separate folder call the file `app.R`
+
+- run the code: either paste into the console or use `runApp` on folder name
+
+---
+
+# User Interface (ui)
+
+- elements of the user interface are called **widgets**
+
+- we distinguish between `input` and `output`
+
+- overview of available input widgets in shiny at http://shiny.rstudio.com/gallery/widget-gallery.html
+
+- input widgets have a similar structure `xxxInput (inputId, label, value)` where `xxx` is the name of the widget
+    - `inputId` is the (unique) name you give to the widget (object name)
+    - `label` is the text that appears with the widget in interface
+    - `value` all widgets have a value - the type of this value is specific to the widget
+    - ... other parameters are widget-specific
+
+
+---
+
+# Shiny Inputs
+
+
+```r
+textInput("text", label = h3("Text input"), value = "Enter text...")
+```
+
+<div class="form-group shiny-input-container">
+<label class="control-label" id="text-label" for="text">
+<h3>Text input</h3>
+</label>
+<input id="text" type="text" class="form-control" value="Enter text..."/>
+</div>
+
+&lt;br&gt;
+
+`h3()` is just converting html into a header of level 3:
+
+```r
+h3("Hello")
+```
+
+```
+&lt;h3&gt;Hello&lt;/h3&gt;
+```
+
+
+```r
+selectInput("select", label = h3("What do you like?"), 
+            choices = c("Pizza", "Ice cream", 
+                        "Donuts", "None of the above"), 
+            selected=2)
+```
+
+---
+
+# Shiny Inputs (cont'd)
+
+- `actionButton()` - creates a clickable button
+- `checkboxInput()` and `checkboxGroupInput()`
+- `dateInput()` - calendar to select a date
+- `dateRangeInput()` - select a range of dates
+- `fileInput()` - upload a file
+- `numericInput()` - input a numeric value
+- `radioButtons()` - select one or more items
+- `sliderInput()` - slide along a range of values
+- `textInput()` - input a string
+
+
+---
+class: inverse
+# Your Turn (10 min)
+
+- Run the Hello World example on your machine:
+
+
+```r
+runApp("01_Hello", display.mode = "showcase")
+```
+
+- Add an input to simulate from a gamma distribution as well as a normal. 
+
+- **Tricky** - how do we get the shiny app to react to the input?
+
+---
+
+# Shiny Outputs
+
+Shiny also has a set of output functions with general structure:
+
+```
+xxxOutput (outputId, ...)
+```
+where `outputId` is a (unique) object name (and `xxx` is one of the choices below)
+
+- `html`, `image`, `plot`, `table`, `text`,  creates what the names says
+
+- `uiOutput`	raw HTML
+
+- `verbatimTextOutput`	text
+
+Outputs have width and height, might be clickable, hoverable, ...
+
+---
+
+# Other User Interface Options
+
+- `tabsetPanel()` - make multiple different output views (i.e. a plot in one tab, a data table in another)
+
+- `helpText()` - create additional text to help users navigate your applet
+
+- `submitButton()` - only update outputs when this button is clicked
+
+- `conditionalPanel()` - only show certain UI options when conditions are met (i.e. if a certain tab is open, or a certain input is selected)
+
+---
+
+# Getting the shiny app to react: server
+
+- the server function connects inputs to outputs
+
+- render functions create outputs of different types
+
+
+```r
+server  &lt;-  function(input, output) {
+  # make output objects from inputs  
+  
+  output$hist &lt;- renderPlot({
+  
+  })
+}
+```
+
+---
+
+# Render functions
+
+- `renderDataTable()` - outputs an interactive, sortable data table
+- `renderPlot()` - output an R plot
+- `renderPrint()` - output text from print() in R
+- `renderTable()` - output an HTML table
+- `renderText()` - output text from R
+- `renderUI()` - output a custom part of the user interface
+- `renderImage()` - print an image to the page
+- `htmlOutput()` - output html elements
+
+---
+
+# Example `server` function
+
+
+```r
+server &lt;- function(input, output) {
+    output$hist &lt;- renderPlot({
+        dist &lt;- rnorm(n = input$num)
+        gg &lt;- data.frame(dist) %&gt;% 
+          ggplot(aes(x = dist)) + geom_histogram(binwidth = 0.25) +
+          xlim(c(-10,10))
+        print(gg)
+    })
+}
+```
+
+Note the use of curly brackets `{` `}` in `renderPlot`.
+
+The last statement in the code block must be the plot. 
+
+
+---
+class: inverse
+# Your Turn (5 min)
+
+For the 01_Hello app: 
+
+- expand on the server functionality to make the plot react to the input
+
+---
+class: inverse
+# Your Turn (15 min)
+
+Run the NYC emergency app provided as a starting point. 
+
+
+```r
+runApp("02_NYC_Emergency")
+```
+
+- Expand on this app.
+
+- Ideas: 
+    - Plot some aspect of the data with color based on another aspect of the data
+    - Use `subset()` and `checkboxInput()` to plot user-selected subsets
+    - Use `tabsetPanel()` to display different tables/plots
+    - **Extra Challenging:** Can you make a map of NYC crime by location?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

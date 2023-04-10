@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Shiny dashboards</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heike Hofmann" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Shiny dashboards
+]
+.author[
+### Heike Hofmann
+]
+
+---
+
+
+# Web apps with `shiny`
+
+
+
+- more layout choices for shiny apps: dashboards and navbars
+
+- reactivity
+
+- shiny apps in R packages
+
+---
+
+## Shiny app - Layouts
+
+From the shiny Gallery in RStudio: 
+
+  - https://shiny.rstudio.com/gallery/#user-showcase
+  - https://shiny.rstudio.com/gallery/#demos
+
+Additional packages for enhancing shiny packages:
+
+- `shinyjs`: by [Dean Attali](https://deanattali.com/shinyjs/), adds additional javascript macros, e.g. enable/disable items, deal with form input
+
+- `shinydashboard` by [RStudio](https://rstudio.github.io/shinydashboard/) for explicit dashboard layouts; used in [NZ Trade Dash](https://shiny.rstudio.com/gallery/nz-trade-dash.html)
+
+- `shinyBS` by [Eric Bailey](https://ebailey78.github.io/shinyBS/install.html) for incorporating Bootstrap elements: used in [NY City Real Estate Investment](https://shiny.rstudio.com/gallery/real-estate-investment.html)
+
+- `flexdashboard` by [Carson Sievert, RStudio]() incorporates shiny into Rmarkdown, e.g. [examples](https://pkgs.rstudio.com/flexdashboard/articles/examples.html), Youtube [video](https://www.youtube.com/watch?v=AVmfWL43B70)
+
+---
+
+# shinydashboard
+
+Very basic app
+
+
+```r
+library(shiny)
+library(shinydashboard)
+
+ui &lt;- dashboardPage(
+  dashboardHeader(),
+  dashboardSidebar(),
+  dashboardBody()
+)
+
+server &lt;- function(input, output, session) {
+  
+}
+
+shinyApp(ui, server)
+```
+---
+
+# Boxes and layouts
+
+Structure is introduced by 
+boxes:
+
+`box(..., title = NULL, width = 6, height = NULL)`
+
+
+![](images/boxes.png)
+---
+
+# Boxes in Layouts
+
+
+```r
+body &lt;- dashboardBody(
+  fluidRow(
+  box(title = "Box with a width of 12 columns", width = 12),
+  box(title = "Box with a width of 6 columns", width = 6, height = 200),
+  box(title = "Another box with a width of 6 columns", width = 6, height = 200)
+  )
+```
+
+![](images/three-boxes.png)
+
+---
+
+# Sidebar panels
+
+
+```r
+sidebar &lt;- dashboardSidebar(
+  sidebarMenu(
+    menuItem("Dashboard", tabName = "dashboard", 
+             icon = icon("dashboard")),
+    menuItem("Cars", icon = icon("th"), tabName = "cars",
+             badgeLabel = "new", badgeColor = "green")
+  )
+)
+```
+
+![](images/sidebar.png)
+---
+class: inverse
+# Your Turn
+
+Download the dashboard source file from [bit.ly/dashboard585](https://raw.githubusercontent.com/Stat585-at-ISU/materials-2022/main/10_interactive/dashboard.R).
+
+Open the file in RStudio and run the application. 
+There is a warning `This Font Awesome icon ('dashboard') does not exist`
+Fix it.
+
+Now select the `Cars` tab and click on some of the cars in the table. 
+
+How could you additionally change color of the selected items? and maybe show some labels?
+
+
+---
+
+# Reactivity in shiny
+
+![](https://upload.wikimedia.org/wikipedia/commons/d/d3/Newtons_cradle_animation_book_2.gif)
+
+
+---
+
+## Types of reactive elements
+
+
+.pull-left[
+
+- Sources
+
+Any input widget is a source
+
+- Conductors
+
+Use input and are being used further along
+
+- Observers
+
+Any output is an observer
+
+]
+
+.pull-right[
+
+&lt;img id="reactive elements" src="https://shiny.rstudio.com/images/reactivity_diagrams/conductor.png" style="transform:rotate(90deg);"&gt;
+]
+
+---
+
+# Two types of Conductors
+
+- **Reactive expressions**: archetypical conductor -- envelope functionality used in multiple places of an app, run evaluations only once and store current values.
+
+
+```r
+rval &lt;- reactive({ 
+  # R statements 
+  })
+```
+
+Call as `rval()`.  Lazy evaluation. Run only when requested by endpoint. Results are cached. 
+
+- **Reactive events**: only triggered by specific events (such as a click on an action button)
+
+
+```r
+rval &lt;- eventReactive(actionbutton,{
+  # R statements
+})
+```
+
+reactive events only executed on demand, typically an action button
+---
+
+# shiny apps in R packages
+
+Source: [Dean Attali's discussion](https://deanattali.com/2015/04/21/r-package-shiny-app/)
+
+1. Add `shiny` as a dependency in your DESCRIPTION file.
+
+2. Put folder with shiny app in `inst/shiny-examples/` and 
+
+3. Add an R file called `runExample.R`. 
+
+The package’s tree structure should look like this
+
+
+```r
+- mypackage
+  |- inst
+     |- shiny-examples
+        |- myapp
+           |- ui.R
+           |- server.R
+  |- R
+     |- runExample.R
+     |- ...
+  |- DESCRIPTION
+  |- ...
+```
+
+---
+
+# runExample.R
+
+Your `runExample.R` will be simple - it will just look for the Shiny app and launch it
+
+
+
+```r
+#' @export
+runExample &lt;- function() {
+  appDir &lt;- system.file("shiny-examples", "myapp", 
+                        package = "mypackage")
+  if (appDir == "") { 
+    stop(paste0("Could not find example directory. ",
+         "Try re-installing `mypackage`."), call. = FALSE)
+  }
+  # the first app will be called
+  shiny::runApp(appDir[1], display.mode = "normal") 
+}
+```
+
+---
+class: inverse
+# Your Turn
+
+Every app starts with a sketch ... start on a sketch for your app
+
+![](images/sketch.jpg)
+ 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
