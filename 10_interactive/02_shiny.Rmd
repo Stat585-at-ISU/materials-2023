@@ -113,8 +113,8 @@ class: inverse
 Download the dashboard source file from [bit.ly/dashboard585](https://raw.githubusercontent.com/Stat585-at-ISU/materials-2022/main/10_interactive/dashboard.R).
 
 Open the file in RStudio and run the application. 
-There is a warning `This Font Awesome icon ('dashboard') does not exist`
-Fix it.
+ There is a warning `This Font Awesome icon ('dashboard') does not exist`
+(Doesn't happen now April 11 2023) ~~Fix it~~.
 
 Now select the `Cars` tab and click on some of the cars in the table. 
 
