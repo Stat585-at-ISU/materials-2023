@@ -9,7 +9,8 @@ ui <- fluidPage(
 
     # Sidebar with a slider input for the number of bins
 	sidebarPanel(
-	    selectInput("distribution","Choice of Distribution", choices = c("normal", "gamma"), selected = "normal"),
+	    selectInput("distribution","Choice of Distribution", 
+	                choices = c("normal", "gamma", "binomial"), selected = "normal"),
 	    sliderInput("num",
 		        "Number of Samples:",
 		        min = 1,
@@ -19,12 +20,17 @@ ui <- fluidPage(
 	      condition = "input.distribution == 'normal'",
 	      numericInput("mean", "Mean: ", value=0),
 	      numericInput("sd", "Standard deviation:",
-	                 value = 1, min=0.0001)
+	                 value = 1, min=0.0001, step=0.1)
 	    ),
 	    conditionalPanel(
 	      condition = 'input.distribution == "gamma"',
 	      numericInput("shape", "Shape: ", value=1, min = 0.00001),
 	      numericInput("scale", "Scale: ", value=1, min = 0.00001)
+	    ),
+	    conditionalPanel(
+	      condition = 'input.distribution == "binomial"',
+	      numericInput("size", "Size: ", value=1, min = 1),
+	      numericInput("prob", "Prob: ", value=0.5, min = 0, max=1)
 	    )
 	),
 
@@ -45,6 +51,11 @@ server <- function(input, output) {
         xmin <- 0
         # need to get shape and scale
         dist <- rgamma(n = input$num, shape=input$shape, scale=input$scale)
+      }
+      if(input$distribution=="binomial") {
+        xmin <- 0
+        # need to get shape and scale
+        dist <- rbinom(n = input$num, size=input$size, prob=input$prob)
       }
       data.frame(dist) %>%
           ggplot(aes(x = dist)) +
