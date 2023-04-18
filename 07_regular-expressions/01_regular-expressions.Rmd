@@ -1,0 +1,493 @@
+---
+title: "Stat 585 - String Manipulation"
+author: "Heike Hofmann and Susan Vanderplas"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, default-fonts, "tweaks.css"]
+    nature:
+      beforeInit: "macros.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r setup, include=FALSE, message=FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE, dpi= 300)
+options(width=60)
+library(tidyverse)
+```
+
+
+## Working with strings
+  
+#### Basic operations:
+
+- separate a string into pieces
+
+- paste strings together
+
+- locate a search expression in a string
+    - does it exist
+    - at what position?
+
+- remove or replace parts of a string
+
+- change format: uppercase, lowercase, etc.
+
+???
+
+Basic things you might want to do with strings - chop it up, paste it together, search for something, change something
+
+---
+
+## Tidyverse packages
+
+.right-column[
+`stringr`
+- Tidyverse package for string manipulation
+
+- basic function:     
+`str_xxx(input_string, other_args)`
+
+- `str_replace`, `str_detect`, `str_extract`, `str_locate`, `str_trim`, `str_to_upper`...
+
+
+Good set of resources: http://stringr.tidyverse.org
+
+Cheat sheet: https://posit.co/wp-content/uploads/2022/10/strings-1.pdf
+]
+
+```{r, out.width = "50%", out.extra='class="left-column move-down"', echo = F, eval = -1}
+file.copy(system.file("help/figures/logo.png", package = "stringr"), here::here("07_regular-expressions/stringr.png"))
+knitr::include_graphics("stringr.png")
+```
+
+???
+
+stringr is a tidyverse package for working with strings. Base R has lots of string functionality, but the nicest thing about stringr is that the arguments are in a predictable order, unlike base R functions.
+
+The input string is first, other arguments follow. So for str_replace, you'd pass in the input string, the "pattern" - what you want to replace, and the replacement. For str_trim, you pass in the input string and it will get rid of whitespace at the beginning and end. Many of these functions use similar arguments, so in general you can use help and/or tab completion to get a good idea of what arguments you need - the functions more or less are named what you'd expect them to be. 
+
+We're going to start out with basic find/replace/count tasks you might do in a text editor. 
+
+---
+class:inverse
+## Your Turn
+
+http://bit.ly/585-passwords contains a 100K sample from a database of leaked passwords. 
+
+```{r, eval = F}
+library(stringr)
+passwords <- readLines("http://bit.ly/585-passwords")
+```
+```{r, echo = F}
+library(stringr)
+passwords <- readLines("https://raw.githubusercontent.com/Stat585-at-ISU/materials-2022/master/07_regular-expressions/passwords.txt")
+```
+Using functions from `stringr`, answer the following questions:
+
+- How many of the passwords have at least one space?
+
+- What is the most common character in a password?
+
+- What proportion of the passwords have `.`, `?`, and `!` characters?    
+Hint: Use "\\\\" before the character to escape "special" characters - we'll talk about those next.
+
+???
+
+Play around with stringr functions and see if you can complete the following tasks. To do this, I've uploaded a relatively small sample from a database of passwords exposed during security breaches. See if you can have some fun using stringr functions to examine people's passwords. 
+
+With string patterns, you do have to escape special characters like period and question mark. We'll talk about why those are special in a minute - for now, use two slashes to escape them.
+
+---
+
+## Your Turn Solutions
+
+```{r}
+str_detect(passwords, " ") %>% sum()
+```
+
+---
+
+## Your Turn Solutions
+
+```{r}
+# Get single characters
+str_split(passwords, '', simplify = F) %>%
+  # get rid of lists for each character
+  unlist() %>% 
+  table() %>% 
+  sort(decreasing = T)
+```
+
+---
+
+## Your Turn Solutions
+
+`.` and `?` are special characters in strings and should be escaped.
+
+Normally, we'd escape things using `\`, but in R, that's a special character too... so it also has to be escaped. `\\.` and `\\?` will recognize `.` and `?` respectively. 
+
+```{r}
+pds <- str_detect(passwords, "\\.")
+qmk <- str_detect(passwords, "\\?")
+exc <- str_detect(passwords, "!")
+sum(pds | qmk | exc)
+```
+
+---
+
+
+## Regular Expressions
+
+
+.center[![:scale 70%](https://imgs.xkcd.com/comics/regular_expressions.png)]
+
+???
+
+In the tasks I just asked you to do, you didn't really need wildcards or other complicated search patterns. The 
+
+Anyone else relate to this? Regular expressions have made my life easier many times, but I don't know that they've ever been superhero-worthy. 
+
+
+
+---
+
+## Regular Expressions
+
+- __Regular expressions__ are special patterns that describe text sequences
+
+- [Quick Start Guide](https://www.regular-expressions.info/quickstart.html)
+
+- [Regex Pal](https://www.regexpal.com/) - test your regular expressions
+
+- [RegExplain](https://www.garrickadenbuie.com/project/regexplain/) package and RStudio addin
+```{r eval = F}
+devtools::install_github("gadenbuie/regexplain")
+```
+
+--
+
+- When all else fails, google "regular expression for xxx" and chances are pretty good you'll find something
+
+---
+
+## Regular Expressions
+
+- Basic rules:
+
+  - Use `[]` to enclose a set of valid characters or a range of characters    
+  e.g. `[A-z]` matches all letters, `[ATCG]` matches DNA bases
+  
+  - `^` negates a selection (inside of the square brackets)    
+  e.g. `[^A-z]` matches anything that isn't a letter
+  
+  - `.` matches anything
+  
+  - To match `-`, put it first or last inside `[]`    
+  e.g. `[-abcde0-9]` will match `-`, a-e, and 0-9. 
+
+  - Special characters: `. \ | ( ) [ { ^ $ * + ?`
+  
+---
+
+## Regular Expressions
+
+- Repetition operators: 
+
+  - `[xxx]{n, m}` will match a sequence of n to m characters in the set
+  
+  - `[xxx]{n}` matches exactly n characters
+  - `[xxx]{n,}` matches at least n characters
+  
+  - `[xxx]+` will match 1 or more characters
+  - `[xxx]?` will match 0 or 1 optional characters
+  
+  - `[xxx]*` will match 0 or more characters in the set (greedy)
+  - `[xxx]*?` will match 0 or more characters in the set (lazy/not greedy)
+
+---
+
+## Regular Expressions
+
+- `^` (outside of `[]`) matches the beginning of a string
+e.g. `^Hello` matches `Hello World` but not `I just called to say 'Hello!'`
+
+- `$` matches the end of a string    
+e.g. `end$` will match `The end` but not `The end is nigh`
+
+- `()` are used for grouping and information capture (more on this in a bit)
+
+- `|` can be used as "or" outside of `[]`    
+e.g. `abc|xyz` will match `abcdefg` and `wxyz` but not `ab` or `stuv`
+
+---
+
+## Regular Expressions
+
+```{r}
+test_str <- "Hello World!"
+str_extract_all(test_str, "[A-z]{1,}")
+
+str_extract_all(test_str, "[^A-z]{1,}")
+str_remove_all(test_str, "[^A-z]")
+
+str_extract_all(test_str, ".")
+```
+
+---
+
+## Regular Expression Problems
+
+![:scale 100%](https://imgs.xkcd.com/comics/perl_problems.png)
+
+Perl is a language with extensive regular expression capabilities.    
+You can use Perl-style regular expressions in base R functions, but they don't work with `stringr`.
+
+---
+class:inverse
+## Your Turn
+
+```{r}
+library(stringr)
+download.file("https://bit.ly/stat585-passwords", "passwords.txt", type = "wb")
+passwords <- readLines()
+```
+
+Using functions from `stringr` and regular expressions, answer the following questions:
+
+- How many of the passwords have at least one space, `-`, or `_`?
+
+- What proportion of the passwords have `.`, `?`, and `!` characters?    
+
+- What proportion of the passwords have only lowercase letters?
+
+
+---
+
+## Your Turn Solutions
+
+```{r}
+library(stringr)
+passwords <- readLines("passwords.txt")
+
+str_detect(passwords, "[ _-]") %>% sum()
+
+str_detect(passwords, "[\\.\\?!]") %>% sum()
+
+# passwords with any non-lowercase chars
+str_detect(passwords, "[^a-z]") %>% 
+  magrittr::not() %>%  # invert
+  sum()
+```
+
+
+---
+
+## Chaining Regular Expressions
+
+Patterns can be combined:
+
+```{r}
+test_str <- "She sells sea shells by the seashore"
+str_extract_all(test_str, "[aeiou].")
+str_extract_all(test_str, "[^aeiou]{1,}[a-z]")
+str_extract_all(test_str, "[A-z]{3}[^A-z]")
+```
+
+---
+
+## Extended Regular Expressions
+
+- `\w`: `[A-z0-9_]` (alphanumeric characters), `\W` for the negation
+
+- `\d`: `[0-9]` (digits), `\D` matches non-digits
+
+- `\x`: Hexadecimal numbers (`[0-9A-Fa-f]`)
+
+- `\s`: white space (tab, space, endline), `\S` for non-whitespace
+
+- `\b`: empty string at the beginning or end of a word (`\B` for the negation)
+
+Remember, in R, you have to escape `\`, so any of these are `\\w`, `\\d`, `\\s` in R
+
+
+---
+
+## POSIX Regular Expressions
+
+Another way to match multiple characters: 
+
+- `[[:alnum:]]` alphanumeric characters (`[[:alpha:]]` and `[[:digit:]]`)
+
+- `[[:blank:]]` blank characters - space, tab, non-breaking space
+
+- `[[:graph:]]` graphical characters (`[[:alnum:]]` and `[[:punct:]]`)
+
+- `[[:lower:]]` and `[[:upper:]]` for letters
+
+- `[[:space:]]` whitespace (tab, newline, vertical tab, carriage return, space, etc.)
+
+- `[[:xdigit:]]` hexadecimal characters (`[0-9A-Fa-f]`)
+
+
+
+---
+class:inverse
+## Your Turn
+
+- Write a regular expression for a valid phone number
+
+- Write a regular expression for a valid email address
+
+- Write a regular expression for an HTML image tag. Can you use your regular expression to pull all image tags from a wikipedia page?    
+(try https://en.wikipedia.org/wiki/Emu_War if you need inspiration)
+
+.center[
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dromaius_novaehollandiae_%28head%29_Battersea_Park_Children%27s_Zoo.jpg" width="25%"/>
+]
+
+
+---
+
+## Your Turn Solutions
+
+- Valid phone number: `\D?\d{3}\D?\d{3}\D?\d{4}`
+
+```{r}
+phone_regex <- "\\D?\\d{3}\\D?\\d{3}\\D?\\d{4}"
+str_detect("515-867-5309", phone_regex)
+str_detect("(515)867-5309", phone_regex)
+str_detect("5158675309", phone_regex)
+str_detect("515-use-regex", phone_regex)
+```
+
+---
+
+## Your Turn Solutions
+
+- Validating an [email address](https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression) with regular expressions is harder than it looks!
+```{r}
+naive_email_regex <- "\\w{1,}@\\w{1,}\\.[A-z]{1,}"
+str_detect("hofmann@iastate.edu", naive_email_regex)
+str_detect("super_squirrel@netscape.net", naive_email_regex)
+str_detect("@*&!#@gmail.com", naive_email_regex)
+```
+---
+
+## Your Turn Solutions
+
+- Image regex
+
+```{r}
+url <- "https://en.wikipedia.org/wiki/Emu_War"
+page_html <- readLines(url)
+img_regex <- "< ?img.*?/>"
+res <- str_extract_all(page_html, img_regex, simplify = T)
+img_res <- res[nchar(res) > 0]
+img_res
+```
+
+---
+
+## Your Turn Solutions
+
+- Image regex
+```{r}
+# Use regex to clean things up!
+res_links <- str_extract_all(img_res, "src=[\\S]{1,}") %>%
+  str_remove("src=") %>%
+  str_remove_all('\\"') 
+
+res_links
+```
+---
+## Your Turn Solutions
+
+```{r out.width = "33%"}
+knitr::include_graphics(paste0("http://", res_links[2:4]))
+```
+
+
+---
+
+## Capture Groups
+
+- To "save" an expression (e.g. to use find/replace), enclose something in `()`. 
+
+- Reference those expressions using `\\1`, `\\2`, and so on... corresponding to each pair of parentheses. (up to 9)
+
+```{r}
+name <- "John Jacob Jingelheimer Schmidt"
+
+str_replace(name, "^(\\S{1,}).*(\\S{1,})$", "\\1 \\2")
+
+# We need lazy evaluation
+str_replace(name, "^(\\S{1,}).*?(\\S{1,})$", "\\1 \\2")
+#str_replace(name, "^(\\S{1,}).*\\s(\\S{1,})$", "\\1 \\2")
+
+```
+
+---
+
+## Capture Groups and `tidyr`
+
+`tidyr` has a function `separate_wider_regex`, which allows you to turn a single column into multiple columns
+
+`separate_wider_delim(data, cols, patterns, ..., names_sep = NULL, cols_remove = TRUE)`
+
+- `cols` is the column the data is currently in
+
+- `names` is a vector of characters with names of the new variables
+
+- `pattern` named character vector, where values are regular expressions. Names become column names.
+
+---
+class:inverse
+## Your Turn
+
+```{r message=FALSE, warning = FALSE}
+library(xml2)
+url <- "https://commons.wikimedia.org/wiki/Category:Panoramic_photographs"
+html <- readLines(url) %>% paste(collapse = " ")
+panoramic_pics <- tibble(orightml = str_extract_all(html, "<div class=.gallerytext.>.*?</div>") %>% unlist())
+panoramic_pics$orightml[1]
+```
+
+Use `tidyr::separate_wider_regex()` to create separate columns for the file link\*, image dimensions, and the image size. Can you find the widest panoramic image? Get the image url and plot it using magick or `knitr::include_graphics()` if you're working in Rmarkdown.
+
+* Hint: Paste "https://commons.wikimedia.org" on to the front to make the link work
+
+---
+
+## Your Turn Solutions
+
+```{r}
+base_url <- "https://commons.wikimedia.org"
+panoramic_pics <- panoramic_pics %>% separate_wider_regex(orightml, 
+  patterns=c(".*href=.",  link='[^"]+', ".*?", 
+    ".*?",im_width="[\\d,]{1,} . [\\d,]{1,}", ";.*?", imgsize="[\\d\\.]{1,} [MKGmkg]?[Bb]", ".*?"), 
+  cols_remove = FALSE)
+```
+
+
+---
+
+## Your Turn Solutions
+```{r}
+page_url <- panoramic_pics %>%
+  arrange(desc(im_width)) %>%
+  slice(1) %>%
+  magrittr::extract2("link")
+
+img_url <- paste0(base_url, page_url) %>%
+  readLines() %>% paste(collapse = " ") %>%
+  # Get the correct tag
+  str_extract("<a [^>]{1,}>Original file</a>") %>%
+  # Get the link out of the tag
+  str_extract("https\\S{1,}") %>%
+  # Remove the last quote
+  str_remove("\\\"$")
+
+knitr::include_graphics(img_url)
+```

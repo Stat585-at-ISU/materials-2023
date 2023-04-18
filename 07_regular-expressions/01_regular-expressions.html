@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Stat 585 - String Manipulation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heike Hofmann and Susan Vanderplas" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tweaks.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Stat 585 - String Manipulation
+]
+.author[
+### Heike Hofmann and Susan Vanderplas
+]
+
+---
+
+
+
+
+## Working with strings
+  
+#### Basic operations:
+
+- separate a string into pieces
+
+- paste strings together
+
+- locate a search expression in a string
+    - does it exist
+    - at what position?
+
+- remove or replace parts of a string
+
+- change format: uppercase, lowercase, etc.
+
+???
+
+Basic things you might want to do with strings - chop it up, paste it together, search for something, change something
+
+---
+
+## Tidyverse packages
+
+.right-column[
+`stringr`
+- Tidyverse package for string manipulation
+
+- basic function:     
+`str_xxx(input_string, other_args)`
+
+- `str_replace`, `str_detect`, `str_extract`, `str_locate`, `str_trim`, `str_to_upper`...
+
+
+Good set of resources: http://stringr.tidyverse.org
+
+Cheat sheet: https://posit.co/wp-content/uploads/2022/10/strings-1.pdf
+]
+
+&lt;img src="stringr.png" width="50%" class="left-column move-down" /&gt;
+
+???
+
+stringr is a tidyverse package for working with strings. Base R has lots of string functionality, but the nicest thing about stringr is that the arguments are in a predictable order, unlike base R functions.
+
+The input string is first, other arguments follow. So for str_replace, you'd pass in the input string, the "pattern" - what you want to replace, and the replacement. For str_trim, you pass in the input string and it will get rid of whitespace at the beginning and end. Many of these functions use similar arguments, so in general you can use help and/or tab completion to get a good idea of what arguments you need - the functions more or less are named what you'd expect them to be. 
+
+We're going to start out with basic find/replace/count tasks you might do in a text editor. 
+
+---
+class:inverse
+## Your Turn
+
+http://bit.ly/585-passwords contains a 100K sample from a database of leaked passwords. 
+
+
+```r
+library(stringr)
+passwords &lt;- readLines("http://bit.ly/585-passwords")
+```
+
+Using functions from `stringr`, answer the following questions:
+
+- How many of the passwords have at least one space?
+
+- What is the most common character in a password?
+
+- What proportion of the passwords have `.`, `?`, and `!` characters?    
+Hint: Use "\\\\" before the character to escape "special" characters - we'll talk about those next.
+
+???
+
+Play around with stringr functions and see if you can complete the following tasks. To do this, I've uploaded a relatively small sample from a database of passwords exposed during security breaches. See if you can have some fun using stringr functions to examine people's passwords. 
+
+With string patterns, you do have to escape special characters like period and question mark. We'll talk about why those are special in a minute - for now, use two slashes to escape them.
+
+---
+
+## Your Turn Solutions
+
+
+```r
+str_detect(passwords, " ") %&gt;% sum()
+```
+
+```
+## [1] 444
+```
+
+---
+
+## Your Turn Solutions
+
+
+```r
+# Get single characters
+str_split(passwords, '', simplify = F) %&gt;%
+  # get rid of lists for each character
+  unlist() %&gt;% 
+  table() %&gt;% 
+  sort(decreasing = T)
+```
+
+```
+## .
+##     a     A     e     E     i     I     o     n     r     O 
+## 45061 42957 40995 39594 31610 30628 28687 28538 28258 27748 
+##     N     R     s     S     t     l     T     -     1     L 
+## 27328 27015 26296 25915 23497 23295 23087 22545 22484 22414 
+##     0     2     m     C     c     M     d     D     u     U 
+## 17141 16861 15921 15847 15795 15226 14603 14429 14269 13760 
+##     h     H     3     9     b     8     g     B     4     G 
+## 13739 13702 12229 12148 10945 10869 10856 10843 10776 10528 
+##     P     5     p     7     K     6     y     k     Y     f 
+## 10332 10310 10310 10069  9942  9865  9830  9743  9632  7113 
+##     F     v     V     W     w     J     j     z     Z     x 
+##  6919  6338  6123  5887  5607  5161  5044  3592  3415  3033 
+##     X     '     Q     q     _           !     *     @     . 
+##  2951  2868  1842  1730  1310   544   525   457   305   283 
+##    \\     #     /     $     &amp;     +     ,     )     ?     ( 
+##   264   188   181   156   150   100    98    73    67    65 
+##     =     &lt;     ;     ]     `     :     [     %     ^     " 
+##    58    49    45    39    34    33    31    31    21    16 
+##     ~     &gt;     จ     ñ     ค     £     ถ     {     |     ๅ 
+##    14    12     9     8     8     7     6     5     5     5 
+##  \xf6     }     ç  \xfc     à     Ñ     ป  \xdf     ♣     ๘ 
+##     5     4     4     4     3     3     3     3     2     2 
+##     ó     ฟ     ภ     ภึ     ย     ร     อ     เ  \xe9  \xf4 
+##     2     2     2     2     2     2     2     2     2     2 
+##  \xe2  \xe1  \xe4    \b     ¡     ´     á     å     Å     ä 
+##     2     2     2     1     1     1     1     1     1     1 
+##     í     İ     ô     ő     ø     ü    กำ     คุ     ง     ต 
+##     1     1     1     1     1     1     1     1     1     1 
+##     ถุึ     ท     นื     ผ     ฟื     ม     ส     า      ุ     แ 
+##     1     1     1     1     1     1     1     1     1     1 
+##     ๅุ    䬳  \xcd  \xde  \xfb  \xf3  \xdc  \xfe  \xf0  \xe6 
+##     1     1     1     1     1     1     1     1     1     1 
+##  \xf1 
+##     1
+```
+
+---
+
+## Your Turn Solutions
+
+`.` and `?` are special characters in strings and should be escaped.
+
+Normally, we'd escape things using `\`, but in R, that's a special character too... so it also has to be escaped. `\\.` and `\\?` will recognize `.` and `?` respectively. 
+
+
+```r
+pds &lt;- str_detect(passwords, "\\.")
+qmk &lt;- str_detect(passwords, "\\?")
+exc &lt;- str_detect(passwords, "!")
+sum(pds | qmk | exc)
+```
+
+```
+## [1] 704
+```
+
+---
+
+
+## Regular Expressions
+
+
+.center[![:scale 70%](https://imgs.xkcd.com/comics/regular_expressions.png)]
+
+???
+
+In the tasks I just asked you to do, you didn't really need wildcards or other complicated search patterns. The 
+
+Anyone else relate to this? Regular expressions have made my life easier many times, but I don't know that they've ever been superhero-worthy. 
+
+
+
+---
+
+## Regular Expressions
+
+- __Regular expressions__ are special patterns that describe text sequences
+
+- [Quick Start Guide](https://www.regular-expressions.info/quickstart.html)
+
+- [Regex Pal](https://www.regexpal.com/) - test your regular expressions
+
+- [RegExplain](https://www.garrickadenbuie.com/project/regexplain/) package and RStudio addin
+
+```r
+devtools::install_github("gadenbuie/regexplain")
+```
+
+--
+
+- When all else fails, google "regular expression for xxx" and chances are pretty good you'll find something
+
+---
+
+## Regular Expressions
+
+- Basic rules:
+
+  - Use `[]` to enclose a set of valid characters or a range of characters    
+  e.g. `[A-z]` matches all letters, `[ATCG]` matches DNA bases
+  
+  - `^` negates a selection (inside of the square brackets)    
+  e.g. `[^A-z]` matches anything that isn't a letter
+  
+  - `.` matches anything
+  
+  - To match `-`, put it first or last inside `[]`    
+  e.g. `[-abcde0-9]` will match `-`, a-e, and 0-9. 
+
+  - Special characters: `. \ | ( ) [ { ^ $ * + ?`
+  
+---
+
+## Regular Expressions
+
+- Repetition operators: 
+
+  - `[xxx]{n, m}` will match a sequence of n to m characters in the set
+  
+  - `[xxx]{n}` matches exactly n characters
+  - `[xxx]{n,}` matches at least n characters
+  
+  - `[xxx]+` will match 1 or more characters
+  - `[xxx]?` will match 0 or 1 optional characters
+  
+  - `[xxx]*` will match 0 or more characters in the set (greedy)
+  - `[xxx]*?` will match 0 or more characters in the set (lazy/not greedy)
+
+---
+
+## Regular Expressions
+
+- `^` (outside of `[]`) matches the beginning of a string
+e.g. `^Hello` matches `Hello World` but not `I just called to say 'Hello!'`
+
+- `$` matches the end of a string    
+e.g. `end$` will match `The end` but not `The end is nigh`
+
+- `()` are used for grouping and information capture (more on this in a bit)
+
+- `|` can be used as "or" outside of `[]`    
+e.g. `abc|xyz` will match `abcdefg` and `wxyz` but not `ab` or `stuv`
+
+---
+
+## Regular Expressions
+
+
+```r
+test_str &lt;- "Hello World!"
+str_extract_all(test_str, "[A-z]{1,}")
+```
+
+```
+## [[1]]
+## [1] "Hello" "World"
+```
+
+```r
+str_extract_all(test_str, "[^A-z]{1,}")
+```
+
+```
+## [[1]]
+## [1] " " "!"
+```
+
+```r
+str_remove_all(test_str, "[^A-z]")
+```
+
+```
+## [1] "HelloWorld"
+```
+
+```r
+str_extract_all(test_str, ".")
+```
+
+```
+## [[1]]
+##  [1] "H" "e" "l" "l" "o" " " "W" "o" "r" "l" "d" "!"
+```
+
+---
+
+## Regular Expression Problems
+
+![:scale 100%](https://imgs.xkcd.com/comics/perl_problems.png)
+
+Perl is a language with extensive regular expression capabilities.    
+You can use Perl-style regular expressions in base R functions, but they don't work with `stringr`.
+
+---
+class:inverse
+## Your Turn
+
+
+```r
+library(stringr)
+download.file("https://bit.ly/stat585-passwords", "passwords.txt", type = "wb")
+passwords &lt;- readLines()
+```
+
+Using functions from `stringr` and regular expressions, answer the following questions:
+
+- How many of the passwords have at least one space, `-`, or `_`?
+
+- What proportion of the passwords have `.`, `?`, and `!` characters?    
+
+- What proportion of the passwords have only lowercase letters?
+
+
+---
+
+## Your Turn Solutions
+
+
+```r
+library(stringr)
+passwords &lt;- readLines("passwords.txt")
+
+str_detect(passwords, "[ _-]") %&gt;% sum()
+```
+
+```
+## [1] 13420
+```
+
+```r
+str_detect(passwords, "[\\.\\?!]") %&gt;% sum()
+```
+
+```
+## [1] 704
+```
+
+```r
+# passwords with any non-lowercase chars
+str_detect(passwords, "[^a-z]") %&gt;% 
+  magrittr::not() %&gt;%  # invert
+  sum()
+```
+
+```
+## [1] 22871
+```
+
+
+---
+
+## Chaining Regular Expressions
+
+Patterns can be combined:
+
+
+```r
+test_str &lt;- "She sells sea shells by the seashore"
+str_extract_all(test_str, "[aeiou].")
+```
+
+```
+## [[1]]
+## [1] "e " "el" "ea" "el" "e " "ea" "or"
+```
+
+```r
+str_extract_all(test_str, "[^aeiou]{1,}[a-z]")
+```
+
+```
+## [[1]]
+## [1] "She"        " se"        "lls se"     " she"      
+## [5] "lls by the" " se"        "sho"        "re"
+```
+
+```r
+str_extract_all(test_str, "[A-z]{3}[^A-z]")
+```
+
+```
+## [[1]]
+## [1] "She " "lls " "sea " "lls " "the "
+```
+
+---
+
+## Extended Regular Expressions
+
+- `\w`: `[A-z0-9_]` (alphanumeric characters), `\W` for the negation
+
+- `\d`: `[0-9]` (digits), `\D` matches non-digits
+
+- `\x`: Hexadecimal numbers (`[0-9A-Fa-f]`)
+
+- `\s`: white space (tab, space, endline), `\S` for non-whitespace
+
+- `\b`: empty string at the beginning or end of a word (`\B` for the negation)
+
+Remember, in R, you have to escape `\`, so any of these are `\\w`, `\\d`, `\\s` in R
+
+
+---
+
+## POSIX Regular Expressions
+
+Another way to match multiple characters: 
+
+- `[[:alnum:]]` alphanumeric characters (`[[:alpha:]]` and `[[:digit:]]`)
+
+- `[[:blank:]]` blank characters - space, tab, non-breaking space
+
+- `[[:graph:]]` graphical characters (`[[:alnum:]]` and `[[:punct:]]`)
+
+- `[[:lower:]]` and `[[:upper:]]` for letters
+
+- `[[:space:]]` whitespace (tab, newline, vertical tab, carriage return, space, etc.)
+
+- `[[:xdigit:]]` hexadecimal characters (`[0-9A-Fa-f]`)
+
+
+
+---
+class:inverse
+## Your Turn
+
+- Write a regular expression for a valid phone number
+
+- Write a regular expression for a valid email address
+
+- Write a regular expression for an HTML image tag. Can you use your regular expression to pull all image tags from a wikipedia page?    
+(try https://en.wikipedia.org/wiki/Emu_War if you need inspiration)
+
+.center[
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dromaius_novaehollandiae_%28head%29_Battersea_Park_Children%27s_Zoo.jpg" width="25%"/&gt;
+]
+
+
+---
+
+## Your Turn Solutions
+
+- Valid phone number: `\D?\d{3}\D?\d{3}\D?\d{4}`
+
+
+```r
+phone_regex &lt;- "\\D?\\d{3}\\D?\\d{3}\\D?\\d{4}"
+str_detect("515-867-5309", phone_regex)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+str_detect("(515)867-5309", phone_regex)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+str_detect("5158675309", phone_regex)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+str_detect("515-use-regex", phone_regex)
+```
+
+```
+## [1] FALSE
+```
+
+---
+
+## Your Turn Solutions
+
+- Validating an [email address](https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression) with regular expressions is harder than it looks!
+
+```r
+naive_email_regex &lt;- "\\w{1,}@\\w{1,}\\.[A-z]{1,}"
+str_detect("hofmann@iastate.edu", naive_email_regex)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+str_detect("super_squirrel@netscape.net", naive_email_regex)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+str_detect("@*&amp;!#@gmail.com", naive_email_regex)
+```
+
+```
+## [1] FALSE
+```
+---
+
+## Your Turn Solutions
+
+- Image regex
+
+
+```r
+url &lt;- "https://en.wikipedia.org/wiki/Emu_War"
+page_html &lt;- readLines(url)
+```
+
+```
+## Warning in readLines(url): incomplete final line found on
+## 'https://en.wikipedia.org/wiki/Emu_War'
+```
+
+```r
+img_regex &lt;- "&lt; ?img.*?/&gt;"
+res &lt;- str_extract_all(page_html, img_regex, simplify = T)
+img_res &lt;- res[nchar(res) &gt; 0]
+img_res
+```
+
+```
+## [1] "&lt;img alt=\"Page semi-protected\" src=\"//upload.wikimedia.org/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/20px-Semi-protection-shackle.svg.png\" decoding=\"async\" width=\"20\" height=\"20\" srcset=\"//upload.wikimedia.org/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/30px-Semi-protection-shackle.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/40px-Semi-protection-shackle.svg.png 2x\" data-file-width=\"512\" data-file-height=\"512\" /&gt;"                                            
+## [2] "&lt;img alt=\"Deceased emu during Emu War.jpg\" src=\"//upload.wikimedia.org/wikipedia/commons/thumb/b/be/Deceased_emu_during_Emu_War.jpg/240px-Deceased_emu_during_Emu_War.jpg\" decoding=\"async\" width=\"240\" height=\"289\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/b/be/Deceased_emu_during_Emu_War.jpg/360px-Deceased_emu_during_Emu_War.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/be/Deceased_emu_during_Emu_War.jpg/480px-Deceased_emu_during_Emu_War.jpg 2x\" data-file-width=\"712\" data-file-height=\"856\" /&gt;"
+## [3] "&lt;img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Fallow_caused_by_emus.jpg/220px-Fallow_caused_by_emus.jpg\" decoding=\"async\" width=\"220\" height=\"146\" class=\"thumbimage\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Fallow_caused_by_emus.jpg/330px-Fallow_caused_by_emus.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Fallow_caused_by_emus.jpg/440px-Fallow_caused_by_emus.jpg 2x\" data-file-width=\"450\" data-file-height=\"299\" /&gt;"                                                       
+## [4] "&lt;img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Sir_George_Pearce.jpg/170px-Sir_George_Pearce.jpg\" decoding=\"async\" width=\"170\" height=\"238\" class=\"thumbimage\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Sir_George_Pearce.jpg/255px-Sir_George_Pearce.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Sir_George_Pearce.jpg/340px-Sir_George_Pearce.jpg 2x\" data-file-width=\"653\" data-file-height=\"914\" /&gt;"                                                                               
+## [5] "&lt;img src=\"//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Joseph_Lyons_seated.jpg/170px-Joseph_Lyons_seated.jpg\" decoding=\"async\" width=\"170\" height=\"238\" class=\"thumbimage\" srcset=\"//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Joseph_Lyons_seated.jpg/255px-Joseph_Lyons_seated.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/41/Joseph_Lyons_seated.jpg/340px-Joseph_Lyons_seated.jpg 2x\" data-file-width=\"1864\" data-file-height=\"2610\" /&gt;"                                                                 
+## [6] "&lt;img src=\"//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1\" alt=\"\" title=\"\" width=\"1\" height=\"1\" style=\"border: none; position: absolute;\" /&gt;"                                                                                                                                                                                                                                                                                                                                                                                  
+## [7] "&lt;img src=\"/static/images/footer/wikimedia-button.png\" srcset=\"/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x\" width=\"88\" height=\"31\" alt=\"Wikimedia Foundation\" loading=\"lazy\" /&gt;"                                                                                                                                                                                                                                                                                                     
+## [8] "&lt;img src=\"/static/images/footer/poweredby_mediawiki_88x31.png\" alt=\"Powered by MediaWiki\" srcset=\"/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x\" width=\"88\" height=\"31\" loading=\"lazy\"/&gt;"
+```
+
+---
+
+## Your Turn Solutions
+
+- Image regex
+
+```r
+# Use regex to clean things up!
+res_links &lt;- str_extract_all(img_res, "src=[\\S]{1,}") %&gt;%
+  str_remove("src=") %&gt;%
+  str_remove_all('\\"') 
+
+res_links
+```
+
+```
+## [1] "//upload.wikimedia.org/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/20px-Semi-protection-shackle.svg.png"          
+## [2] "//upload.wikimedia.org/wikipedia/commons/thumb/b/be/Deceased_emu_during_Emu_War.jpg/240px-Deceased_emu_during_Emu_War.jpg"
+## [3] "//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Fallow_caused_by_emus.jpg/220px-Fallow_caused_by_emus.jpg"            
+## [4] "//upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Sir_George_Pearce.jpg/170px-Sir_George_Pearce.jpg"                    
+## [5] "//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Joseph_Lyons_seated.jpg/170px-Joseph_Lyons_seated.jpg"                
+## [6] "//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1"                                                          
+## [7] "/static/images/footer/wikimedia-button.png"                                                                               
+## [8] "/static/images/footer/poweredby_mediawiki_88x31.png"
+```
+---
+## Your Turn Solutions
+
+
+```r
+knitr::include_graphics(paste0("http://", res_links[2:4]))
+```
+
+&lt;img src="http:////upload.wikimedia.org/wikipedia/commons/thumb/b/be/Deceased_emu_during_Emu_War.jpg/240px-Deceased_emu_during_Emu_War.jpg" width="33%" /&gt;&lt;img src="http:////upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Fallow_caused_by_emus.jpg/220px-Fallow_caused_by_emus.jpg" width="33%" /&gt;&lt;img src="http:////upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Sir_George_Pearce.jpg/170px-Sir_George_Pearce.jpg" width="33%" /&gt;
+
+
+---
+
+## Capture Groups
+
+- To "save" an expression (e.g. to use find/replace), enclose something in `()`. 
+
+- Reference those expressions using `\\1`, `\\2`, and so on... corresponding to each pair of parentheses. (up to 9)
+
+
+```r
+name &lt;- "John Jacob Jingelheimer Schmidt"
+
+str_replace(name, "^(\\S{1,}).*(\\S{1,})$", "\\1 \\2")
+```
+
+```
+## [1] "John t"
+```
+
+```r
+# We need lazy evaluation
+str_replace(name, "^(\\S{1,}).*?(\\S{1,})$", "\\1 \\2")
+```
+
+```
+## [1] "John Schmidt"
+```
+
+```r
+#str_replace(name, "^(\\S{1,}).*\\s(\\S{1,})$", "\\1 \\2")
+```
+
+---
+
+## Capture Groups and `tidyr`
+
+`tidyr` has a function `separate_wider_regex`, which allows you to turn a single column into multiple columns
+
+`separate_wider_delim(data, cols, patterns, ..., names_sep = NULL, cols_remove = TRUE)`
+
+- `cols` is the column the data is currently in
+
+- `names` is a vector of characters with names of the new variables
+
+- `pattern` named character vector, where values are regular expressions. Names become column names.
+
+---
+class:inverse
+## Your Turn
+
+
+```r
+library(xml2)
+url &lt;- "https://commons.wikimedia.org/wiki/Category:Panoramic_photographs"
+html &lt;- readLines(url) %&gt;% paste(collapse = " ")
+panoramic_pics &lt;- tibble(orightml = str_extract_all(html, "&lt;div class=.gallerytext.&gt;.*?&lt;/div&gt;") %&gt;% unlist())
+panoramic_pics$orightml[1]
+```
+
+```
+## [1] "&lt;div class=\"gallerytext\"&gt; &lt;a href=\"/wiki/File:360_Old_town_square_(14626242520).jpg\" class=\"galleryfilename galleryfilename-truncate\" title=\"File:360 Old town square (14626242520).jpg\"&gt;360 Old town square (14626242520).jpg&lt;/a&gt; 17,378 × 4,058; 31.15 MB&lt;br /&gt;  \t\t\t&lt;/div&gt;"
+```
+
+Use `tidyr::separate_wider_regex()` to create separate columns for the file link\*, image dimensions, and the image size. Can you find the widest panoramic image? Get the image url and plot it using magick or `knitr::include_graphics()` if you're working in Rmarkdown.
+
+* Hint: Paste "https://commons.wikimedia.org" on to the front to make the link work
+
+---
+
+## Your Turn Solutions
+
+
+```r
+base_url &lt;- "https://commons.wikimedia.org"
+panoramic_pics &lt;- panoramic_pics %&gt;% separate_wider_regex(orightml, 
+  patterns=c(".*href=.",  link='[^"]+', ".*?", 
+    ".*?",im_width="[\\d,]{1,} . [\\d,]{1,}", ";.*?", imgsize="[\\d\\.]{1,} [MKGmkg]?[Bb]", ".*?"), 
+  cols_remove = FALSE)
+```
+
+
+---
+
+## Your Turn Solutions
+
+```r
+page_url &lt;- panoramic_pics %&gt;%
+  arrange(desc(im_width)) %&gt;%
+  slice(1) %&gt;%
+  magrittr::extract2("link")
+
+img_url &lt;- paste0(base_url, page_url) %&gt;%
+  readLines() %&gt;% paste(collapse = " ") %&gt;%
+  # Get the correct tag
+  str_extract("&lt;a [^&gt;]{1,}&gt;Original file&lt;/a&gt;") %&gt;%
+  # Get the link out of the tag
+  str_extract("https\\S{1,}") %&gt;%
+  # Remove the last quote
+  str_remove("\\\"$")
+```
+
+```
+## Warning in readLines(.): incomplete final line found on
+## 'https://commons.wikimedia.org/wiki/File:Olympia_(CURTIS_1662).jpeg'
+```
+
+```r
+knitr::include_graphics(img_url)
+```
+
+![](https://upload.wikimedia.org/wikipedia/commons/c/c1/Olympia_%28CURTIS_1662%29.jpeg)&lt;!-- --&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
