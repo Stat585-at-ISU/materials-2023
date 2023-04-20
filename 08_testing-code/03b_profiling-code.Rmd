@@ -1,0 +1,375 @@
+---
+title: "Stat 585 - profiling code"
+author: "Heike Hofmann"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, default-fonts, "tweaks.css"]
+    nature:
+      beforeInit: "macros.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+## Beyond the: let's just get it to work
+
+
+Signs of possible inefficiencies
+
+- Violation of the language model
+    - e.g. R is vector oriented language, i.e.  ```for``` loops should be used sparingly, 
+    - e.g. use of ```rbind``` (it is *known* to be very slow)
+
+- Insufficient knowledge of the language. We're all guilty of that at different levels 
+
+- Reading other people's code helps improve our language knowledge!
+
+---
+
+## What do others say?
+
+- **Ken Thompson:** <br> keep the number of indentations down, high number of local variables is suspicious
+
+- **Hadley Wickham:** <br> functions with more than ten lines are suspicious, as is highly repetitive code
+
+- **Generally Good Practices:** <br> structure code using indentation and spacing, write comments, use clear naming convention
+
+
+<br><br>
+
+
+- BUT: always test and don't assume
+---
+
+## Claim: loops are slow
+
+`x` is vector with numbers 1,2,3,4
+
+Objective: re-code these into weather events: "Sun", "Rain", "Snow", "Hail"
+
+```{r}
+x <- sample.int(4, size=1000, replace = TRUE)
+y <- vector("character", length=length(x))
+for (i in 1:length(x)) {
+   y[i] <- switch (x[i], "Sun", "Rain", "Snow", "Hail", default=NA)
+}
+
+table(y)
+```
+
+---
+
+## Removing for loops (cont'd)
+
+```{r}
+# the switch statement on the previous slide is equivalent to 
+# the following lines:
+for (i in 1:length(x)) {
+  if (x[i] == 1) y[i] <- "Sun"
+  if (x[i] == 2) y[i] <- "Rain"
+  if (x[i] == 3) y[i] <- "Snow"
+  if (x[i] == 4) y[i] <- "Hail"
+}
+
+# using R's vector system we can reduce this to a single line:
+y <- c("Sun", "Rain", "Snow", "Hail")[x]
+```
+
+---
+
+## Removing for loops (cont'd)
+
+All of the previous solutions doctor around symptoms
+
+We are still breaking the language model :)
+
+--
+
+```{r}
+y <- factor(x, labels =  c("Sun", "Rain", "Snow", "Hail"))
+
+summary(y)
+```
+
+But: this is the only variant that returns a factor variable
+
+
+--
+
+... now we want to compare these four options
+
+
+---
+
+## Profiling
+
+Code can be profiled at different levels:
+
+1. two (or more) alternatives of code with the same objectives are timed to determined the one which is the fastest (`system.time()` and `proc.time()`)
+
+2. one piece of code is analyzed to find weak/slow spots (e.g. `profvis`, `benchmarkr` or `microbenchmark` )
+
+
+---
+
+## Profiling process
+
+- Collect information on code performance:
+
+- memory usage
+
+- frequency and duration of function calls
+
+- Goal: optimization of code
+
+
+- R has an in-built profiler: `Rprof`  Output in `Rprof.out`
+
+
+---
+
+## `system.time()` or `proc.time()`
+
+- Probably simplest of all measures
+
+- Evaluates the time spent in the whole expression
+
+- doesn't give any clues about what is done at a lower level <br><br>
+
+---
+
+## Claim: 'Everybody knows that' `read_csv` is faster than `read.csv`
+
+
+```{r message=FALSE}
+data(diamonds, package="ggplot2")
+tmpfile <- tempfile(fileext = "csv")
+write.csv(diamonds, file = tmpfile)
+
+ptm <- proc.time()
+t1 <- read.csv(tmpfile)
+proc.time() - ptm
+
+ptm <- proc.time()
+t2 <- readr::read_csv(file=tmpfile, progress = FALSE)
+proc.time() - ptm
+```
+---
+
+## Use `rbenchmark`
+
+```{r message=FALSE}
+
+library(rbenchmark)
+
+benchmark(
+  "read.csv" = {
+    read.csv(tmpfile)
+    },
+  "read_csv" = {
+    readr::read_csv(file=tmpfile, progress = FALSE)
+  }
+)
+```
+---
+
+## Everybody knows that `read_csv` is faster for large data?
+
+```{r}
+data(diamonds, package="ggplot2")
+tmpfile <- tempfile(fileext = "csv")
+diamonds5 <- rbind(diamonds,diamonds,diamonds,diamonds,diamonds)
+write.csv(diamonds5, file = tmpfile, row.names=FALSE)
+```
+```{r, message=FALSE}
+benchmark(
+  "read.csv" = {
+    read.csv(tmpfile)
+    },
+  "read_csv" = {
+    readr::read_csv(file=tmpfile, progress = FALSE)
+  }
+)
+```
+
+---
+
+## Reading binary files - fast! 
+
+But introduces platform/version dependencies 
+
+```{r message=FALSE}
+tmpfile_rds <- gsub("csv", "rds", tmpfile)
+saveRDS(diamonds5, tmpfile_rds)
+tmpfile_rda <- gsub("csv", "rda", tmpfile)
+save(diamonds5, file=tmpfile_rda)
+
+
+ptm <- proc.time()
+t3 <- readRDS(tmpfile_rds)
+proc.time() - ptm
+
+ptm <- proc.time()
+load(tmpfile_rda)
+proc.time() - ptm
+```
+
+
+---
+class: inverse
+## Your turn: which option is fastest?
+
+```{r message=FALSE}
+x <- sample.int(4, 1000, replace=TRUE)
+y <- vector("character", length=length(x))
+
+# Option #1
+for (i in 1:length(x)) {
+   y[i] <- switch (x[i], "Sun", "Rain", "Snow", "Hail", default=NA)
+}
+
+# Option #2
+for (i in 1:length(x)) {
+  if (x[i] == 1) y[i] <- "Sun"
+  if (x[i] == 2) y[i] <- "Rain"
+  if (x[i] == 3) y[i] <- "Snow"
+  if (x[i] == 4) y[i] <- "Hail"
+}
+
+# Option #3
+y <- c("Sun", "Rain", "Snow", "Hail")[x]
+
+# Option #4
+y <- factor(x)
+levels(y) <- c("Sun", "Rain", "Snow", "Hail")
+```
+
+---
+
+## Your Turn Result
+
+Based on 500 evaluations of samples of size 5000: 
+
+```{r message=FALSE, warning=FALSE, echo = FALSE, fig.height = 6, fig.width = 7}
+library(tidyverse)
+set.seed(20230419) # remember the rules of reproducibility!
+
+results <- 1:500 %>% purrr::map_df(.f = function(x) {
+  x <- sample.int(4, 5000, replace=TRUE)
+  y <- vector("character", length=length(x))
+  
+  ptmbase <- proc.time()
+  # Option #1
+  for (i in 1:length(x)) {
+    y[i] <- switch (x[i], "Sun", "Rain", "Snow", "Hail", default=NA)
+  }
+  ptm1 <- proc.time()
+  
+  # Option #2
+  for (i in 1:length(x)) {
+    if (x[i] == 1) y[i] <- "Sun"
+    if (x[i] == 2) y[i] <- "Rain"
+    if (x[i] == 3) y[i] <- "Snow"
+    if (x[i] == 4) y[i] <- "Hail"
+  }
+  
+  ptm2 <- proc.time()
+  
+  # Option #3
+  y <- c("Sun", "Rain", "Snow", "Hail")[x]
+
+  ptm3 <- proc.time()
+  
+  # Option #4
+  y <- factor(x, labels=c("Sun", "Rain", "Snow", "Hail"))
+
+  
+  ptm4 <- proc.time()
+  data.frame(value=c((ptm1-ptmbase)["elapsed"], (ptm2-ptm1)["elapsed"], (ptm3-ptm2)["elapsed"], (ptm4-ptm3)["elapsed"]), Option=1:4)
+})
+
+results %>% 
+  ggplot(aes(x = Option, y = value, fill= factor(Option))) +geom_boxplot() +
+  ylab("Elapsed time") 
+
+```
+
+---
+
+```{r}
+results %>% group_by(Option) %>% summarise(eval=mean(value))
+```
+
+Option 3 is  fastest on average. But why? - Here we can relatively easily answer the question. Generally: more in-depth profiling 
+
+---
+
+## Profiling Code: frequency and duration of function calls
+
+
+- R has an in-built profiler: `Rprof`  Output in `Rprof.out`
+
+```{r eval=FALSE}
+Rprof()
+
+# ....
+
+Rprof(NULL)
+```
+
+- call stack is written every 0.02 seconds (interval) into a temporary file
+
+- output file is processed to produce a summary of the usage
+
+- time measurements varies by platform: on Unix-alike time is CPU time of the R process (excludes time waiting for input)
+
+- Note: profiling takes time, too; once the timer goes off, the information is not recorded until the next timing click (probably in the range 1–10 msecs). Can’t go below that.
+
+
+---
+
+## `profvis` example
+
+`profvis` package provides a wrapper around `Rprof`
+
+
+```{r eval=FALSE}
+library(profvis)
+
+p <- profvis({			
+  data(diamonds, package = "ggplot2")			
+  plot(price ~ carat, data = diamonds)			
+  m <- lm(price ~ carat, data = diamonds)			
+  abline(m, col = "red")			
+})
+```
+
+`profvis` creates interactive response with code and flame plot.
+
+Copy and paste the code into your console to run it.
+
+---
+class: inverse
+## Your Turn - Part 1
+
+Write a function to find the factors of a positive integer `x`
+
+---
+
+## Discuss approaches
+
+
+---
+class: inverse
+## Your Turn - Part 2
+
+
+Benchmark the approaches to identify the fastest function.
+
+
+Don't forget about readability and maintainability of code!
