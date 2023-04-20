@@ -74,11 +74,11 @@ We're going to start out with basic find/replace/count tasks you might do in a t
 class:inverse
 ## Your Turn
 
-http://bit.ly/585-passwords contains a 100K sample from a database of leaked passwords. 
+https://bit.ly/stat585-passwords contains a 100K sample from a database of leaked passwords. 
 
 ```{r, eval = F}
 library(stringr)
-passwords <- readLines("http://bit.ly/585-passwords")
+passwords <- readLines("https://bit.ly/stat585-passwords")
 ```
 ```{r, echo = F}
 library(stringr)
@@ -105,6 +105,10 @@ With string patterns, you do have to escape special characters like period and q
 
 ```{r}
 str_detect(passwords, " ") %>% sum()
+```
+
+```{r}
+str_subset(passwords, " ")
 ```
 
 ---
