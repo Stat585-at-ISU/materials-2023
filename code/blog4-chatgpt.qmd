@@ -1,0 +1,73 @@
+---
+title: "blog 4 - discussion of chatbot response"
+format: html
+editor: visual
+---
+
+The ChatGPT response to the prompt "Describe the split-apply-combine paradigm" is given below. Generally, the chatbot's answers are decent. ChatGPT does have problems getting details right. Which details would you change in the response?
+
+The \"split-apply-combine\" paradigm is a data analysis strategy used in statistics and data science to analyze grouped data. It consists of three steps:
+
+> Split: The data is first split into groups based on one or more variables of interest.
+
+> Apply: A specific operation or function is applied to each group of data, usually for the purpose of aggregating, summarizing, or transforming the data within each group.
+
+> Combine: The results of the operation applied to each group are then combined and returned as a single output.
+
+> The split-apply-combine paradigm is particularly useful in cases where the data cannot be analyzed as a whole and instead must be analyzed in smaller, more manageable chunks. This allows for more efficient data processing and improved scalability. The paradigm is commonly implemented using tools such as the \"groupby\" function in the R and Python programming languages, and the \"dplyr\" library in R.
+
+### HH
+
+The "split-apply-combine" paradigm is a data analysis strategy used in statistics and data science to analyze grouped data. It consists of three steps:
+
+Split: The data is first split into groups based on **the levels** of one or more **(categorical)** variables of interest.
+
+Apply: A specific operation or function is applied to each group of data, usually for the purpose of aggregating, summarizing, or transforming the data within each group.
+
+Combine: The results of the operation applied to each group are then combined and returned as a single output.
+
+The split-apply-combine paradigm is particularly useful in cases where the data cannot be analyzed as a whole and instead must be analyzed in smaller, more manageable chunks. This allows for more efficient data processing and improved scalability. The paradigm is commonly implemented using tools such as the "groupby" function in the R and Python programming languages, and the "dplyr" library in R.
+
+
+Regarding the paragraph: **The split-apply-combine paradigm is particularly...**
+I would accuse a student of not understanding the concept of split-apply-combine. The implementation of split-apply-combine is not beneficial in terms of scalability nor is the data processing more 'efficient' (in terms of speed). In terms of maintaining the code or readability of code, I might let the argument stand, but the optimization criterion should be pointed out specifically because it would be a non-standard criterion.
+
+The sentence "The split-apply-combine paradigm is particularly useful in cases where the data cannot be analyzed as a whole and instead must be analyzed in smaller, more manageable chunks." is particularly concerning. I believe that it is a gross misinterpretation of a sentence in the JSS paper that talks about split-apply-combine as a strategy for breaking a complex problem into smaller, more manageable pieces: "You see the split-apply- combine strategy whenever you break up a big problem into manageable pieces" - What went wrong for the chatbot is that it missed the evaluation context and then doubled down on the benefit of the other evaluation context. I believe that the phrasing 'big problem' introduced ambiguity for ChatGPT.
+
+### SRV
+
+> The “split-apply-combine” paradigm is a data analysis strategy used in statistics and data science to analyze grouped data. 
+
+Ok, so first off, you're grouping the data as part of the analysis strategy, it doesn't come pre-grouped. Minor quibble.
+
+> It consists of three steps:
+
+> Split: The data is first split into groups based on one or more variables of interest.
+
+Split into groups doesn't to me imply that the tables are actually separated in any meaningful way. More of a connotation thing, I guess, but annoying. I would prefer something like split into sub-tables. 
+
+> Apply: A specific operation or function is applied to each group of data, usually for the purpose of aggregating, summarizing, or transforming the data within each group.
+
+> Combine: The results of the operation applied to each group are then combined and returned as a single output.
+
+Single output makes it sound like the table isn't maintained in some way - as if this is just returning a single number. This is usually not what is happening.
+
+> The split-apply-combine paradigm is particularly useful in cases where the data cannot be analyzed as a whole and instead must be analyzed in smaller, more manageable chunks. This allows for more efficient data processing and improved scalability. The paradigm is commonly implemented using tools such as the “groupby” function in the R and Python programming languages, and the “dplyr” library in R.
+
+
+It's interesting that it goes with the python syntax but mentions the dplyr library. dplyr = group_by, python (pandas, really, it should probably mention the library instead of the language) uses .groupby() with a function like agg(). 
+
+I don't have as much of a problem with the beginning of the last paragraph - split-apply-combine and map-reduce are pretty similar paradigms, and map-reduce is used more for size reduction than the way we are typically using dplyr/group_by/summarize. So it's representative of one way of using these functions but not of the use case we're using most frequently. Your interpretation is another way to think about "big problem", for sure, but I suspect there are a lot​ of blog posts out there talking about split/apply/combine and map/reduce as ways to manage big data at scale.
+
+
+### HH2
+
+I think that this mashup of map-reduce and split-apply-combine makes for an interesting discussion.
+
+The way that I am thinking of split-apply-combine is the conceptual framework, that allows readability in code and programmatic structures.
+
+Map-reduce for me is an implementation of this framework with benefits for optimization and parallelization. 
+
+Maybe that's one of the reasons why python users are disappointed by R? 
+
+
