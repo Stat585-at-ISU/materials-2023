@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Stat 585 - Databases and R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Heike Hofmann and Susan Vanderplas" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tweaks.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Stat 585 - Databases and R
+]
+.author[
+### Heike Hofmann and Susan Vanderplas
+]
+
+---
+
+
+
+## Outline
+
+- a bit about databases
+
+- linking R to a (local) data base
+
+- investigate the FARS data
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+Resources:
+
+- RStudio's [approach to databases](https://db.rstudio.com/)
+
+- `vignette("two-table", package="dplyr")` (for joining tables - material that was covered in Stat 579)
+
+---
+
+## Why databases?
+
+What is a database?
+
+- A collection of data
+
+- A set of rules to manipulate data
+
+&lt;br&gt;&lt;br&gt;
+Why are databases important?
+
+- Efficient manipulation of large data sets
+
+- Convenient processing of data
+
+- Integration of multiple sources of data
+
+- Access to a shared resource
+
+---
+
+## Relational Databases
+
+- Database is collection of tables and links (normal form)
+
+- SQL (Structured Query Language) for querying 
+
+- DBMS (Database Management System) and managing data
+
+---
+
+## Structured Query Language (SQL)
+
+- Structured Query Language (1970, E Codds)
+
+- Programming language used for accessing data in a database
+
+-  ANSI standard since 1986, ISO standard since 1987
+
+- Still some portability issues between software systems!
+
+- We'll mainly focus on SQL queries to access data
+
+---
+
+## Syntax
+
+-  SQL is not case sensitive.
+
+- Some systems require a semi-colon `;` at the end of each line. 
+
+The semi-colon can be used to separate each SQL statement in a system that allows multiple command to be executed in a call to the server.
+
+---
+
+## SQL SELECT statement
+
+https://dev.mysql.com/doc/refman/8.0/en/select.html
+
+```
+* SELECT 
+    [ALL | DISTINCT | DISTINCTROW ]
+    [HIGH_PRIORITY]
+    [STRAIGHT_JOIN]
+    [SQL_SMALL_RESULT] [SQL_BIG_RESULT] [SQL_BUFFER_RESULT]
+    [SQL_NO_CACHE] [SQL_CALC_FOUND_ROWS]
+*    select_expr [, select_expr] ... 
+    [into_option]
+*    [FROM table_references 
+      [PARTITION partition_list]]
+*    [WHERE where_condition] 
+*    [GROUP BY {col_name | expr | position}, ... [WITH ROLLUP]] 
+    [HAVING where_condition]
+    [WINDOW window_name AS (window_spec)
+        [, window_name AS (window_spec)] ...]
+    [ORDER BY {col_name | expr | position}
+      [ASC | DESC], ... [WITH ROLLUP]]
+    [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+    [into_option]
+    [FOR {UPDATE | SHARE}
+        [OF tbl_name [, tbl_name] ...]
+        [NOWAIT | SKIP LOCKED]
+      | LOCK IN SHARE MODE]
+    [into_option]
+
+into_option: {
+    INTO OUTFILE 'file_name'
+        [CHARACTER SET charset_name]
+        export_options
+  | INTO DUMPFILE 'file_name'
+  | INTO var_name [, var_name] ...
+}
+```
+
+---
+
+## Select
+
+.pull-left[ 
+**Student**
+
+| ***ID***            | Name          | Major  |
+| ------------- |:-------------:| ------:|
+| 1234          | Never Ever    | Math   |
+| 4321          | Some Times    | CS     |
+]
+.pull-right[
+**Attendance**
+
+| ***ID***            | ***Date***          | Status  |
+| ------------- |:-------------:| -------:|
+| 1234          | 02-Feb        | absent  |
+| 1234          | 09-Feb        | absent  |
+| 4321          | 02-Feb        | present |
+| 4321          | 09-Feb        | absent  |
+]
+
+&lt;br&gt;
+
+`Select * from student` 
+
+leads to 
+
+| *ID*           | Name          | Major  |
+| ------------- |:-------------:| ------:|
+| 1234          | Never Ever    | Math   |
+| 4321          | Some Times    | CS     |
+
+
+
+
+---
+
+## Where
+
+.pull-left[
+**Student**
+
+| ***ID***            | Name          | Major  |
+| ------------- |:-------------:| ------:|
+| 1234          | Never Ever    | Math   |
+| 4321          | Some Times    | CS     |
+]
+.pull-right[
+**Attendance**
+
+| ***ID***            | ***Date***          | Status  |
+| ------------- |:-------------:| -------:|
+| 1234          | 02-Feb        | absent  |
+| 1234          | 09-Feb        | absent  |
+| 4321          | 02-Feb        | present |
+| 4321          | 09-Feb        | absent  |
+]
+
+&lt;br&gt;
+
+`*Select Name from student where Major='Math'` 
+
+leads to 
+
+| Name          | 
+| ------------- |
+| Never Ever    | 
+
+---
+
+## Aggregations
+
+.pull-left[
+**Student**
+
+| ***ID***            | Name          | Major  |
+| ------------- |:-------------:| ------:|
+| 1234          | Never Ever    | Math   |
+| 4321          | Some Times    | CS     |
+
+]
+.pull-right[
+**Attendance**
+
+| ***ID***            | ***Date***          | Status  |
+| ------------- |:-------------:| -------:|
+| 1234          | 02-Feb        | absent  |
+| 1234          | 09-Feb        | absent  |
+| 4321          | 02-Feb        | present |
+| 4321          | 09-Feb        | absent  |
+]
+
+&lt;br&gt;
+`Select ID, count(ID) from Attendance where Status='absent' group by ID` 
+
+leads to 
+
+| *ID*            | Frequency          | 
+| ------------- |-------------:| 
+| 1234          | 2    | 
+| 4321          | 1    | 
+
+---
+
+## Using SQL in R
+
+package `sqldf` provides a wrapper for sql statements in R:
+
+```
+sqldf::sqldf("Select ID, count(ID) from Attendance where Status='absent'")
+```
+
+Make sure to use a different set of quotes  on the inside of a statement 
+
+
+```r
+sqldf::sqldf("select * from iris limit 5")
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+```
+
+---
+class: inverse
+# Your Turn
+
+- Use a SQL command wrapped in`sqldf` to create a table of Species (in the `iris` data)
+
+- Modify the command such that you only consider observations where petal length is less than 4 (Hint: sqldf does not like `.` in variable names - wrap the name in quotes)
+
+
+---
+
+## Additional Resources for SQL 
+
+- W3Schools: http://www.w3schools.com/sql/default.asp
+
+- DBI package, RMySQL, RSQLite: 
+http://cran.r-project.org/web/packages/RMySQL/RMySQL.pdf
+
+http://cran.r-project.org/web/packages/RSQLite/RSQLite.pdf
+
+---
+
+## Connecting to a database
+
+The package `DBI` allows to connect to various different DBMS, such as SQLite, MySQL, PostgreSQL, MonetDB, ...
+
+`dbConnect` and `dbDisconnect`
+
+`dbConnect` needs a DBMS specific driver, drivers have the form `SQLite(), MySQL(), ...`
+
+Connecting information depends on DBMS - e.g. MySQL needs a server, the name of the database,  the user's information and generally a  password
+
+---
+
+## SQLite
+
+- SQLite is a relational database management system
+
+- Unlike other DBMS SQLite is a server-less system with "zero-configuration"
+
+
+```r
+download.file("https://github.com/Stat585-at-ISU/materials-2023/raw/main/data/fars2014", destfile = "fars2014", mode="wb")
+```
+
+connecting to the database:
+
+
+```r
+library(dplyr)
+fars &lt;- DBI::dbConnect(RSQLite::SQLite(), "fars2014") # connect to a database
+fars
+```
+
+```
+## &lt;SQLiteConnection&gt;
+##   Path: /Users/hofmann/Documents/Teaching/Stat 585/Spring 2023/materials-2023/12_databases/fars2014
+##   Extensions: TRUE
+```
+
+---
+
+## An example: FARS data
+
+- US Department of transportation is keeping a record of every accident that results in a fatality in the FARS Data base (fatal accident report system, http://www.nhtsa.gov/FARS)
+
+- FARS consists of 20+ tables consisting of various aspects of each accident
+Documentation at
+
+- http://www-nrd.nhtsa.dot.gov/Cats/listpublications.aspx?Id=J&amp;ShowBy=DocType
+
+
+```r
+DBI::dbListTables(fars)
+```
+
+```
+## [1] "accidents" "person"    "vehicle"
+```
+
+
+
+---
+
+## FARS 2014
+
+- `fars2014` is a SQLite database of the 2014 data provided by FARS, consisting of three tables: `accidents`, `person`, and `vehicle` (make sure to download  [`fars2014`](https://github.com/Stat585-at-ISU/materials-2023/raw/main/data/fars2014)  from our github repo).
+
+
+
+```r
+fars %&gt;% tbl("accidents")
+```
+
+```
+## # Source:   table&lt;accidents&gt; [?? x 50]
+## # Database: sqlite 3.40.0 [/Users/hofmann/Documents/Teaching/Stat 585/Spring 2023/materials-2023/12_databases/fars2014]
+##    STATE ST_CASE VE_TOTAL VE_FORMS PVH_INVL  PEDS PERNOTMVIT
+##    &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;    &lt;int&gt; &lt;int&gt;      &lt;int&gt;
+##  1     1   10001        1        1        0     0          0
+##  2     1   10002        1        1        0     0          0
+##  3     1   10003        2        2        0     0          0
+##  4     1   10004        3        3        0     0          0
+##  5     1   10005        1        1        0     0          0
+##  6     1   10006        1        1        0     0          0
+##  7     1   10007        3        2        1     0          0
+##  8     1   10008        2        2        0     0          0
+##  9     1   10009        3        3        0     0          0
+## 10     1   10010        2        2        0     0          0
+## # ℹ more rows
+## # ℹ 43 more variables: PERMVIT &lt;int&gt;, PERSONS &lt;int&gt;,
+## #   COUNTY &lt;int&gt;, CITY &lt;int&gt;, DAY &lt;int&gt;, MONTH &lt;int&gt;,
+## #   YEAR &lt;int&gt;, DAY_WEEK &lt;int&gt;, HOUR &lt;int&gt;, MINUTE &lt;int&gt;,
+## #   NHS &lt;int&gt;, ROAD_FNC &lt;int&gt;, ROUTE &lt;int&gt;, TWAY_ID &lt;chr&gt;,
+## #   TWAY_ID2 &lt;chr&gt;, MILEPT &lt;int&gt;, LATITUDE &lt;dbl&gt;,
+## #   LONGITUD &lt;dbl&gt;, SP_JUR &lt;int&gt;, HARM_EV &lt;int&gt;, …
+```
+---
+
+## Working with sql and dbplyr
+
+
+- `dbplyr` package works (almost) the same for local data frames as tables in a database 
+
+- `dbplyr` functionality:
+`group_by`, `summarize`, `transform`, `filter`, `arrange`, `select`
+
+
+
+```r
+fars %&gt;% tbl("accidents") %&gt;% 
+  group_by(DAY_WEEK, HOUR) %&gt;% tally()
+```
+
+```
+## # Source:   SQL [?? x 3]
+## # Database: sqlite 3.40.0 [/Users/hofmann/Documents/Teaching/Stat 585/Spring 2023/materials-2023/12_databases/fars2014]
+##    DAY_WEEK  HOUR     n
+##       &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1        1     0   296
+##  2        1     1   284
+##  3        1     2   322
+##  4        1     3   253
+##  5        1     4   175
+##  6        1     5   141
+##  7        1     6   124
+##  8        1     7   104
+##  9        1     8    94
+## 10        1     9    93
+## # ℹ more rows
+```
+
+---
+
+
+
+## Connecting to FARS
+
+Use `tbl` to connect to a specific table (dataset) in the database
+
+note: R does not load the data into the session unless forced with collect()
+
+
+```r
+accidents &lt;- tbl(fars, "accidents")
+accidents %&gt;% dim()
+```
+
+```
+## [1] NA 50
+```
+
+```r
+accidents %&gt;% collect() %&gt;% dim()
+```
+
+```
+## [1] 29989    50
+```
+
+```r
+accidents
+```
+
+```
+## # Source:   table&lt;accidents&gt; [?? x 50]
+## # Database: sqlite 3.40.0 [/Users/hofmann/Documents/Teaching/Stat 585/Spring 2023/materials-2023/12_databases/fars2014]
+##    STATE ST_CASE VE_TOTAL VE_FORMS PVH_INVL  PEDS PERNOTMVIT
+##    &lt;int&gt;   &lt;int&gt;    &lt;int&gt;    &lt;int&gt;    &lt;int&gt; &lt;int&gt;      &lt;int&gt;
+##  1     1   10001        1        1        0     0          0
+##  2     1   10002        1        1        0     0          0
+##  3     1   10003        2        2        0     0          0
+##  4     1   10004        3        3        0     0          0
+##  5     1   10005        1        1        0     0          0
+##  6     1   10006        1        1        0     0          0
+##  7     1   10007        3        2        1     0          0
+##  8     1   10008        2        2        0     0          0
+##  9     1   10009        3        3        0     0          0
+## 10     1   10010        2        2        0     0          0
+## # ℹ more rows
+## # ℹ 43 more variables: PERMVIT &lt;int&gt;, PERSONS &lt;int&gt;,
+## #   COUNTY &lt;int&gt;, CITY &lt;int&gt;, DAY &lt;int&gt;, MONTH &lt;int&gt;,
+## #   YEAR &lt;int&gt;, DAY_WEEK &lt;int&gt;, HOUR &lt;int&gt;, MINUTE &lt;int&gt;,
+## #   NHS &lt;int&gt;, ROAD_FNC &lt;int&gt;, ROUTE &lt;int&gt;, TWAY_ID &lt;chr&gt;,
+## #   TWAY_ID2 &lt;chr&gt;, MILEPT &lt;int&gt;, LATITUDE &lt;dbl&gt;,
+## #   LONGITUD &lt;dbl&gt;, SP_JUR &lt;int&gt;, HARM_EV &lt;int&gt;, …
+```
+
+---
+
+##  Collecting results
+
+- `dbplyr` commands evaluate lazily, i.e. SQL commands are only generated and executed on demand
+
+- returns tibbles
+
+
+```r
+accidents %&gt;% 
+  filter(between(LONGITUD, -130, 0)) %&gt;% 
+  ggplot(aes(LONGITUD, LATITUDE)) +
+    geom_point(alpha = 0.5, size = 0.5)
+```
+
+
+---
+
+![](01_sqlite_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+
+---
+class: inverse
+## Your Turn (8 mins)
+
+Connect to the FARS database (using the SQLite database `fars2014`). 
+Answer the following questions:
+
+- are there some days of the week where more accidents happen than on others (use variable `DAY_WEEK`)?
+
+- what time of the day do accidents happen (use variable `HOUR`)?
+
+- what is the number of accidents with at least one drunk driver (use variable `DRUNK_DR`)?
+
+---
+
+
+```r
+dayweek &lt;- accidents %&gt;% group_by(DAY_WEEK) %&gt;% tally() 
+dayweek %&gt;% collect() %&gt;% 
+  ggplot(aes(x = DAY_WEEK, weight=n)) + geom_bar() 
+
+hours &lt;- accidents %&gt;% group_by(HOUR) %&gt;% tally() 
+hours %&gt;% filter(HOUR &lt; 25) %&gt;% collect() %&gt;% 
+  ggplot(aes(x = HOUR, weight=n)) + geom_bar() 
+
+drunk &lt;- accidents %&gt;% group_by(DRUNK_DR) %&gt;% tally() 
+drunk %&gt;% collect() %&gt;% 
+  ggplot(aes(x = DRUNK_DR, weight=n)) + geom_bar() 
+```
+
+
+---
+
+## Working with multiple tables
+
+- Only rarely single datasets are giving us all the answers we need
+
+- `left_join`, `right_join` work in the same way on databases as on local data frames.
+
+- think about dimensions ahead of time - the difference between a left and a right join is often a difference in multitude!
+
+---
+class: inverse
+## Your Turn (5 mins)
+
+Connect to the  `person` table. Identify drivers (`PER_TYP` == 1, see [fars manual](https://www-fars.nhtsa.dot.gov/Help/Terms.aspx) ) and subset on them.
+
+- join the drivers and accidents tables. Which variable(s) do you use for the join?
+
+- Tally the number of accidents by day of the week (`DAY_WEEK`), hour of the day (`HOUR`) and gender (`SEX`). Visualize the results!
+
+---
+
+
+```r
+person &lt;- tbl(fars, "person")
+drivers &lt;- person %&gt;% filter(PER_TYP == 1)
+
+driver_acc &lt;- left_join(drivers, accidents)
+```
+
+```
+## Joining with `by = join_by(STATE, ST_CASE, VE_FORMS,
+## COUNTY, DAY, MONTH, HOUR, MINUTE, ROAD_FNC, HARM_EV,
+## MAN_COLL, SCH_BUS)`
+```
+
+Note that there are a lot of variables with the same name - we actually include all of these variables 
+
+---
+
+
+```r
+gg &lt;- driver_acc %&gt;% group_by(DAY_WEEK, HOUR, SEX) %&gt;% 
+  tally() %&gt;% 
+  filter(HOUR &lt; 25, SEX &lt; 8) %&gt;% 
+  collect() %&gt;% 
+  ggplot(aes(x = HOUR, y = n)) + 
+    geom_point(aes(colour = factor(SEX))) +
+  facet_wrap(~DAY_WEEK, ncol=4) +
+  scale_colour_brewer(palette="Set1") +
+  theme(legend.position = "bottom")
+```
+
+---
+
+
+```r
+gg
+```
+
+![](01_sqlite_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+---
+class: inverse
+## Your Turn
+
+**Creating a SQLite Database**
+
+The data for accidents in 2020 are published on the FARS website in csv form (in 20+ separate files). 
+
+A subset of the tables is available from our github repo: [accident.csv, person.csv, and vehicle.csv]()
+
+Work through the RSQLite intro to create a new database `fars2020` from the three csv files: https://cran.r-project.org/web/packages/RSQLite/vignettes/RSQLite.html
+
+There should be an 'interesting' change in the pattern of accidents :(
+
+---
+
+
+```r
+library(DBI)
+
+fars2020 &lt;- dbConnect(RSQLite::SQLite(), "fars2020.sqlite")
+
+accidents &lt;- read.csv("../data/FARS-2020/accident.csv")
+dbWriteTable(fars2020, "accidents", accidents)
+
+person &lt;- read.csv("../data/FARS-2020/person.csv")
+dbWriteTable(fars2020, "person", person)
+
+vehicle &lt;- read.csv("../data/FARS-2020/vehicle.csv")
+dbWriteTable(fars2020, "vehicle", vehicle)
+
+dbListTables(fars2020)
+```
+
+
+```r
+[1] "accidents" "person"    "vehicle"  
+```
+
+
+```r
+fars2020 %&gt;% tbl("accidents") %&gt;% group_by(MONTH, DAY) %&gt;% tally() %&gt;% ggplot(aes(x = lubridate::dmy(paste(DAY, MONTH, "2023", sep="/")), y = n)) + geom_point()
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
